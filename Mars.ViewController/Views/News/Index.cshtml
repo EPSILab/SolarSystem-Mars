@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SolarSystem.Mars.Model.ManagersService.News>
+
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Liste des news</h2>
+
+<p>
+    @Html.ActionLink("Ajouter une news", "Create", null, new { @class = "btn btn-primary btn-lg btn-block" })
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titre)
+            </th>
+            <th class="hidden-xs"></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th class="hidden-xs">
+                Date
+            </th>
+            <th class="hidden-xs">
+                Texte d'accroche
+            </th>
+            <th class="hidden-xs">
+                @Html.DisplayNameFor(model => model.URL)
+            </th>
+            <th style="width: 130px;">
+                Actions
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+{
+    <tr class="linkable">
+        <td>
+            @Html.DisplayFor(modelItem => item.Titre)
+        </td>
+        <td class="hidden-xs">
+            @Html.DisplayFor(modelItem => item.Publiee)
+        </td>
+        <td>
+            <img src="@Url.Content(item.Image)" style="max-height: 150px; max-width: 150px;" alt="@item.Titre" />
+        </td>
+        <td class="hidden-xs">
+            @Html.DisplayFor(modelItem => item.Date_Heure)
+        </td>
+        <td class="hidden-xs">
+            @Html.DisplayFor(modelItem => item.Texte_Court)
+        </td>
+        <td class="hidden-xs">
+            @Html.DisplayFor(modelItem => item.URL)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id = item.Code_News }, new { @class = "link", style = "display: none;" })
+            @Html.ActionLink("Détails", "Details", new { id = item.Code_News }, new { @class = "btn btn-default btn-sm" }) |
+            @Html.ActionLink(" ", "Delete", new { id = item.Code_News }, new { @class = "btn btn-danger glyphicon glyphicon-remove-sign" })
+        </td>
+    </tr>
+
+}
+    </tbody>
+</table>
+
+
+<style>
+    .linkable:hover {
+        cursor: pointer;
+    }
+</style>
+<script>
+    window.onload = function () {
+        $('.linkable').click(function() {
+            window.location.href = $(this).find('.link').attr('href');
+        });
+    };
+</script>

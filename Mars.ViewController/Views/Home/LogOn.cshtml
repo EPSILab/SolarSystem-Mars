@@ -1,0 +1,119 @@
+﻿@model SolarSystem.Mars.Model.ManagersService.Membre
+
+@{
+    ViewBag.Title = "Accueil du portail d'administration";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div>
+    Connecté en tant que: <strong>@Model.Prenom</strong> <strong>@Model.Nom</strong> |
+    @Html.ActionLink("Accueil du portail", "LogOn") |
+    @Html.ActionLink("Modifier mon profil", "EditProfile") |
+    @Html.ActionLink("Déconnexion", "LogOut")
+</div>
+
+<h1>@ViewBag.Title</h1>
+
+<p>
+    Vous êtes à présent connecté au portail. Vous avez désormais accès aux sections auxquelles vous pouvez gérer les informations.
+</p>
+
+
+<div class="col-xs-6 col-sm-4">
+    <h2>News</h2>
+    <ul>
+        <li>
+            @Html.ActionLink("Rédiger un nouvel article", "Create", "News")
+        </li>
+        <li>
+            @Html.ActionLink("Liste des articles", "Index", "News")
+        </li>
+    </ul>
+</div>
+
+<div class="col-xs-6 col-sm-4">
+    <h2>Diaporama du site</h2>
+    <ul>
+        <li>
+            @Html.ActionLink("Annoncer un nouveau message", "Create", "Publicites")
+        </li>
+        <li>
+            @Html.ActionLink("Liste des messages du diaporama", "Index", "Publicites")
+        </li>
+    </ul>
+</div>
+
+<div class="col-xs-6 col-sm-4">
+    <h2>Conférences</h2>
+    <ul>
+        <li>
+            @Html.ActionLink("Organiser une nouvelle conférence", "Create", "Conferences")
+        </li>
+        <li>
+            @Html.ActionLink("Liste des conférences", "Index", "Conferences")
+        </li>
+    </ul>
+</div>
+
+<div class="col-xs-6 col-sm-4">
+    <h2>Projets</h2>
+    <ul>
+        <li>
+            @Html.ActionLink("Lancer un nouveau projet", "Create", "Projets")
+        </li>
+        <li>
+            @Html.ActionLink("Liste des projets", "Index", "Projets")
+        </li>
+    </ul>
+</div>
+
+<div class="col-xs-6 col-sm-4">
+    <h2>Salons</h2>
+    <ul>
+        <li>
+            @Html.ActionLink("Annoncer un nouveau salon", "Create", "Salons")
+        </li>
+        <li>
+            @Html.ActionLink("Liste des salons", "Index", "Salons")
+        </li>
+    </ul>
+</div>
+
+<div class="col-xs-6 col-sm-4">
+    <h2>Liens du site</h2>
+    <ul>
+        <li>
+            @Html.ActionLink("Ajouter un nouveau lien", "Create", "Liens")
+        </li>
+        <li>
+            @Html.ActionLink("Liste des liens du site", "Index", "Liens")
+        </li>
+    </ul>
+</div>
+
+<div class="col-xs-6 col-sm-4">
+    <h2>Membres</h2>
+    <ul>
+        <li>
+            @Html.ActionLink("Valider les nouvelles inscriptions", "Valid", "Membres")
+        </li>
+        <li>
+            @Html.ActionLink("Entrer un nouveau membre", "Create", "Membres")
+        </li>
+        <li>
+            @Html.ActionLink("Liste des membres", "Index", "Membres")
+        </li>
+    </ul>
+</div>
+
+<div class="col-xs-6 col-sm-4">
+    <h2>Autres</h2>
+    <ul>
+        <li>
+            @Html.ActionLink("Accéder aux promos", "Index", "Classes")
+        </li>
+        <li>
+            @Html.ActionLink("Accéder aux campus", "Index", "Villes")
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,189 @@
+﻿@model SolarSystem.Mars.ViewController.ViewModels.RegisterViewModel
+
+@{
+    ViewBag.Title = "Création d'un compte";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("Certaines informations saisies dans le formulaire ne sont pas correctes.",
+                                new { @class = "container alert alert-danger" })
+
+    <fieldset class="col-md-5 col-md-offset-4 form-horizontal">
+        <legend>Informations d'authentification</legend>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Nom utilisateur *</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = "Nom utilisateur" })
+                @Html.ValidationMessageFor(model => model.Username, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Mot de passe *</label>
+            <div class="col-sm-8">
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Mot de passe" })
+                @Html.ValidationMessageFor(model => model.Password, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Confirmation du mot de passe *</label>
+            <div class="col-sm-8">
+                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirmation du mot de passe" })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+    </fieldset>
+
+    <fieldset class="col-md-5 col-md-offset-4 form-horizontal">
+        <legend>Informations personnelles</legend>
+
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Nom *</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.Surname, new { @class = "form-control", @placeholder = "Nom" })
+                @Html.ValidationMessageFor(model => model.Surname, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Prénom *</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "Prénom" })
+                @Html.ValidationMessageFor(model => model.FirstName, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Provenance*</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.City, new { @class = "form-control", @placeholder = "Ville d'origine" })
+                @Html.ValidationMessageFor(model => model.City, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+    </fieldset>
+
+    <fieldset class="col-md-5 col-md-offset-4 form-horizontal">
+        <legend>Informations de contact</legend>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Email EPSI *</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.EmailEPSI, new { @class = "form-control", @placeholder = "xxx@epsi.fr" })
+                @Html.ValidationMessageFor(model => model.Password, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Email personnel</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.EmailPerso, new { @class = "form-control", @placeholder = "xxx@gmail.com" })
+                @Html.ValidationMessageFor(model => model.EmailPerso, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Téléphone</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @placeholder = "0102030405" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+    </fieldset>
+
+    <fieldset class="col-md-5 col-md-offset-4 form-horizontal">
+        <legend>Informations relatives à l'EPSI</legend>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Campus</label>
+            <div class="col-sm-8">
+                @Html.DropDownListFor(model => model.Code_Ville,
+                                      new SelectList(ViewBag.Villes, "Code_Ville", "Libelle"),
+                                      "Sélectionnez votre école",
+                                      new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Code_Ville, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Promo</label>
+            <div class="col-sm-8">
+                @Html.DropDownListFor(model => model.Code_Classe,
+                                      new SelectList(ViewBag.Classes, "Code_Classe", "Libelle"),
+                                      "Sélectionnez votre promo",
+                                      new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Code_Classe, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+    </fieldset>
+
+    <fieldset class="col-md-5 col-md-offset-4 form-horizontal">
+        <legend>Faîtes-vous connaître !</legend>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Site web</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.WebsiteUrl, new { @class = "form-control", @placeholder = "Site web" })
+                <span class="help-block">N'oubliez pas le <em>http://</em></span>
+                @Html.ValidationMessageFor(model => model.WebsiteUrl, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Page Facebook</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.FacebookUrl, new { @class = "form-control", @placeholder = "http://www.facebook.com/" })
+                <span class="help-block">N'oubliez pas le <em>http://www.facebook.com/</em></span>
+                @Html.ValidationMessageFor(model => model.FacebookUrl, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Page Twitter</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.TwitterUrl, new { @class = "form-control", @placeholder = "http://www.twitter.com/" })
+                <span class="help-block">N'oubliez pas le <em>http://www.twitter.com/</em></span>
+                @Html.ValidationMessageFor(model => model.TwitterUrl, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Page LinkedIn</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.LinkedInUrl, new { @class = "form-control", @placeholder = "http://*.linkedin.com/" })
+                <span class="help-block">N'oubliez pas le <em>http://*.linkedin.com/</em></span>
+                @Html.ValidationMessageFor(model => model.LinkedInUrl, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Page Viadeo</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.ViadeoUrl, new { @class = "form-control", @placeholder = "http://*.viadeo.com/" })
+                <span class="help-block">N'oubliez pas le <em>http://*.viadeo.com/</em></span>
+                @Html.ValidationMessageFor(model => model.ViadeoUrl, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-10">
+            <button type="submit" class="btn btn-primary">Valider la demande de création de compte</button>
+        </div>
+    </div>
+}

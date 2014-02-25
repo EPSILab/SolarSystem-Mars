@@ -1,0 +1,54 @@
+﻿@using System.Web.Optimization
+@model SolarSystem.Mars.Model.ManagersService.Ville
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Ville</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Code_Ville)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Code_Ville)
+            @Html.ValidationMessageFor(model => model.Code_Ville)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Libelle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Libelle)
+            @Html.ValidationMessageFor(model => model.Libelle)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<SolarSystem.Mars.Model.ManagersService.Conference>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code_Conference)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Heure_Debut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Heure_Fin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lieu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Publiee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code_Conference)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Heure_Debut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Heure_Fin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Publiee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.URL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code_Conference }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code_Conference }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Code_Conference })
+        </td>
+    </tr>
+}
+
+</table>

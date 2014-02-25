@@ -1,0 +1,58 @@
+﻿@model SolarSystem.Mars.Model.ManagersService.Publicite
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Publicite</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Code_Publicite)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code_Publicite)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Image)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Image)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Presentation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Presentation)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Publiee)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Publiee)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.URL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.URL)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Code_Publicite }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

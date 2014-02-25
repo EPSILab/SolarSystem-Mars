@@ -1,0 +1,80 @@
+﻿@using System.Activities.Expressions
+@model SolarSystem.Mars.Model.ManagersService.News
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Détails de la news</h2>
+
+<fieldset>
+    <legend>News</legend>
+    
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Titre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Titre)
+    </div>
+    
+    <div class="display-label">
+        Auteur
+    </div>
+    <div class="display-field">
+        @string.Format("{0} {1}", Model.Membre.Prenom, Model.Membre.Nom)
+    </div>
+
+    <div class="display-label">
+         Date
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date_Heure)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Image)
+    </div>
+    <div class="display-field">
+        <img src="@Url.Content(Model.Image)" style="max-height: 150px; max-width: 150px;" alt="@Model.Titre" />
+    </div>
+
+    <div class="display-label">
+         Mots clés
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mots_Cles)
+    </div>
+
+    <div class="display-label">
+         Publiée ?
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Publiee)
+    </div>
+
+    <div class="display-label">
+         Texte d'accroche
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Texte_Court)
+    </div>
+
+    <div class="display-label">
+         Contenu
+    </div>
+    <div class="display-field">
+        @Html.Raw(Model.Texte_Long)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.URL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.URL)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editer la news", "Edit", new { id = Model.Code_News }, new { @class = "btn btn-primary btn-lg btn-block" }) <br />
+    @Html.ActionLink("Retour à la liste", "Index", null, new { @class = "btn btn-default btn-lg btn-block" })
+</p>

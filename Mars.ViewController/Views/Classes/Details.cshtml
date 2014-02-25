@@ -1,0 +1,44 @@
+﻿@model SolarSystem.Mars.Model.ManagersService.Classe
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Classe</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Annee_Promo_Sortante)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Annee_Promo_Sortante)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Code_Classe)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code_Classe)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Encore_Presente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Encore_Presente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Libelle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Libelle)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Code_Classe }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

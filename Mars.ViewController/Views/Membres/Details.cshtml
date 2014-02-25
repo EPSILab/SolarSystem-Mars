@@ -1,0 +1,149 @@
+﻿@model SolarSystem.Mars.Model.ManagersService.Membre
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Membre</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Code_Membre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code_Membre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email_EPSI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email_EPSI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email_perso)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email_perso)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Image)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Image)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Mot_de_passe)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mot_de_passe)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Motivations)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Motivations)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Prenom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Prenom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Presentation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Presentation)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Pseudo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pseudo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Site_web)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Site_web)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Statut)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Statut)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telephone_mobile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telephone_mobile)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.URL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.URL)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.URL_Facebook)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.URL_Facebook)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.URL_LinkedIn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.URL_LinkedIn)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.URL_Twitter)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.URL_Twitter)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.URL_Viadeo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.URL_Viadeo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ville_origine)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ville_origine)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id=Model.Code_Membre  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

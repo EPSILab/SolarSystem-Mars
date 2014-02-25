@@ -1,0 +1,122 @@
+﻿@using System.Web.Optimization
+@using SolarSystem.Mars.Model.ManagersService
+@using SolarSystem.Mars.ViewController.Resources
+@model SolarSystem.Mars.ViewController.ViewModels.NewsViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    IEnumerable<Membre> membres = ViewBag.Membres;
+
+    IEnumerable<SelectListItem> defaultItem = Enumerable.Repeat(new SelectListItem { Value = "-1", Text = DefaultSelectionMessages.SelectionAuthor }, 1);
+    IEnumerable<SelectListItem> membresItems = membres.Select(m => new SelectListItem
+                                               {
+                                                   Value = m.Code_Membre.ToString(),
+                                                   Text = string.Format("{0} {1}", m.Prenom, m.Nom),
+                                                   Selected = (m.Code_Membre == Model.AuthorId)
+                                               });
+    membresItems = defaultItem.Concat(membresItems);
+}
+
+<h2>Edition d'une news</h2>
+
+@using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data", @role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>News</legend>
+
+        @Html.HiddenFor(model => model.NewsId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, "Titre")
+            @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "Titre de la news" })
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AuthorId, "Auteur")
+            @Html.DropDownListFor(model => model.AuthorId, membresItems, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.AuthorId)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImagePath, "Image actuelle")
+            <p>
+                @if (Model.ImagePath != null)
+                {
+                    <img src="@Url.Content(Model.ImagePath)" style="max-height: 150px; max-width: 150px;" alt="@Model.Title" />
+                }
+                else
+                {
+                    @: Aucune image
+                }
+            </p>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImagePath, "Nouvelle image ?")
+            <input type="file" name="file" class="btn btn-default" />
+            @Html.ValidationMessageFor(model => model.ImagePath)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keywords, "Mots clés")
+            @Html.TextBoxFor(model => model.Keywords, new { @class = "form-control", placeholder = "Mots clés" })
+            @Html.ValidationMessageFor(model => model.Keywords)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsPublished, "Publiée ?")
+            @Html.CheckBoxFor(model => model.IsPublished)
+            @Html.ValidationMessageFor(model => model.IsPublished)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ShortText, "Texte d'accroche")
+            @Html.TextBoxFor(model => model.ShortText, new { @class = "form-control", placeholder = "Texte d'accroche" })
+            @Html.ValidationMessageFor(model => model.ShortText)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LongText, "Contenu")
+            @Html.TextAreaFor(model => model.LongText, new { @id = "editor", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.LongText)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url)
+            @Html.TextBoxFor(model => model.Url, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Url)
+        </div>
+
+        <p>
+            <input type="submit" value="Sauvegarder" class="btn btn-primary btn-lg btn-block" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Retour à la liste", "Index", null, new { @class = "btn btn-default btn-lg btn-block" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/ckeditor")
+}
+
+<script>
+    window.onload = function () {
+        CKEDITOR.replace('editor');
+
+        $('#Title').keyup(function (event) {
+            $('#Url').attr('value', event.target.value.replace(/[ ]+/g, '-').replace(/[^-a-zA-Z]/g, ''));
+        });
+        $('#Url').keypress(function (event) {
+            event.preventDefault();
+        });
+    };
+</script>

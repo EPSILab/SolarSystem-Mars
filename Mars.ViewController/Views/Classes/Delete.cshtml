@@ -1,0 +1,48 @@
+﻿@model SolarSystem.Mars.Model.ManagersService.Classe
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Classe</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Annee_Promo_Sortante)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Annee_Promo_Sortante)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Code_Classe)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code_Classe)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Encore_Presente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Encore_Presente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Libelle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Libelle)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
