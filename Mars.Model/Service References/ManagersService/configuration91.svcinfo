@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="sZNZaqidKXAFwzjuauVsfg/OL4s=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="hGjUnkhPG5k8O9cZ9mZkamalhKk=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IPromotionManager1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IPromotionManager">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IPromotionManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_IPromotionManager</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -110,10 +110,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IConferenceManager1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IConferenceManager">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IConferenceManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_IConferenceManager</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -219,10 +219,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ILinkManager1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ILinkManager">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_ILinkManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_ILinkManager</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -328,10 +328,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IMemberManager1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IMemberManager">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IMemberManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_IMemberManager</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -437,10 +437,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_INewsManager1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_INewsManager">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_INewsManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_INewsManager</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -546,10 +546,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IProjectManager1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IProjectManager">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IProjectManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_IProjectManager</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -655,10 +655,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ISlideManager1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ISlideManager">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_ISlideManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_ISlideManager</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -764,10 +764,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IShowManager1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IShowManager">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IShowManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_IShowManager</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -873,10 +873,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ICampusManager1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ICampusManager">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_ICampusManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_ICampusManager</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -984,7 +984,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IPromotionManager" contract="ManagersService.IPromotionManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_IPromotionManager1">
+    <endpoint name="BasicHttpBinding_IPromotionManager" contract="ManagersService.IPromotionManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_IPromotionManager">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://www.epsilab.net/webservices/ManagersService.svc</serializedValue>
@@ -996,7 +996,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IPromotionManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_IPromotionManager</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ManagersService.IPromotionManager</serializedValue>
@@ -1069,7 +1069,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IConferenceManager" contract="ManagersService.IConferenceManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_IConferenceManager1">
+    <endpoint name="BasicHttpBinding_IConferenceManager" contract="ManagersService.IConferenceManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_IConferenceManager">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://www.epsilab.net/webservices/ManagersService.svc</serializedValue>
@@ -1081,7 +1081,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IConferenceManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_IConferenceManager</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ManagersService.IConferenceManager</serializedValue>
@@ -1154,7 +1154,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_ILinkManager" contract="ManagersService.ILinkManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_ILinkManager1">
+    <endpoint name="BasicHttpBinding_ILinkManager" contract="ManagersService.ILinkManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_ILinkManager">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://www.epsilab.net/webservices/ManagersService.svc</serializedValue>
@@ -1166,7 +1166,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_ILinkManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_ILinkManager</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ManagersService.ILinkManager</serializedValue>
@@ -1239,7 +1239,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IMemberManager" contract="ManagersService.IMemberManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_IMemberManager1">
+    <endpoint name="BasicHttpBinding_IMemberManager" contract="ManagersService.IMemberManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_IMemberManager">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://www.epsilab.net/webservices/ManagersService.svc</serializedValue>
@@ -1251,7 +1251,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IMemberManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_IMemberManager</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ManagersService.IMemberManager</serializedValue>
@@ -1324,7 +1324,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_INewsManager" contract="ManagersService.INewsManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_INewsManager1">
+    <endpoint name="BasicHttpBinding_INewsManager" contract="ManagersService.INewsManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_INewsManager">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://www.epsilab.net/webservices/ManagersService.svc</serializedValue>
@@ -1336,7 +1336,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_INewsManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_INewsManager</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ManagersService.INewsManager</serializedValue>
@@ -1409,7 +1409,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IProjectManager" contract="ManagersService.IProjectManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_IProjectManager1">
+    <endpoint name="BasicHttpBinding_IProjectManager" contract="ManagersService.IProjectManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_IProjectManager">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://www.epsilab.net/webservices/ManagersService.svc</serializedValue>
@@ -1421,7 +1421,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IProjectManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_IProjectManager</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ManagersService.IProjectManager</serializedValue>
@@ -1494,7 +1494,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_ISlideManager" contract="ManagersService.ISlideManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_ISlideManager1">
+    <endpoint name="BasicHttpBinding_ISlideManager" contract="ManagersService.ISlideManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_ISlideManager">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://www.epsilab.net/webservices/ManagersService.svc</serializedValue>
@@ -1506,7 +1506,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_ISlideManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_ISlideManager</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ManagersService.ISlideManager</serializedValue>
@@ -1579,7 +1579,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IShowManager" contract="ManagersService.IShowManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_IShowManager1">
+    <endpoint name="BasicHttpBinding_IShowManager" contract="ManagersService.IShowManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_IShowManager">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://www.epsilab.net/webservices/ManagersService.svc</serializedValue>
@@ -1591,7 +1591,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IShowManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_IShowManager</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ManagersService.IShowManager</serializedValue>
@@ -1664,7 +1664,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_ICampusManager" contract="ManagersService.ICampusManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_ICampusManager1">
+    <endpoint name="BasicHttpBinding_ICampusManager" contract="ManagersService.ICampusManager" bindingType="basicHttpBinding" address="http://www.epsilab.net/webservices/ManagersService.svc" bindingConfiguration="BasicHttpBinding_ICampusManager">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://www.epsilab.net/webservices/ManagersService.svc</serializedValue>
@@ -1676,7 +1676,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_ICampusManager1</serializedValue>
+          <serializedValue>BasicHttpBinding_ICampusManager</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ManagersService.ICampusManager</serializedValue>
