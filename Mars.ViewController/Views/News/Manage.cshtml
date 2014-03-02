@@ -1,5 +1,4 @@
 ﻿@using System.Web.Optimization
-@using SolarSystem.Mars.Model.ManagersService
 @using SolarSystem.Mars.ViewController.Resources
 
 @model SolarSystem.Mars.ViewController.ViewModels.NewsViewModel
@@ -7,86 +6,94 @@
 @{
     ViewBag.Title = Model.Id == 0 ? PagesTitlesRessources.News_Create : PagesTitlesRessources.News_Edit;
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-    IEnumerable<Member> membres = ViewBag.Members;
-
-    IEnumerable<SelectListItem> defaultItem = Enumerable.Repeat(new SelectListItem { Value = "-1", Text = DefaultSelectionMessagesRessources.SelectionAuthor }, 1);
-    IEnumerable<SelectListItem> membresItems = membres.Select(m => new SelectListItem
-                                               {
-                                                   Value = m.Code_Member.ToString(),
-                                                   Text = string.Format("{0} {1}", m.Prenom, m.Nom)
-                                               });
-    membresItems = defaultItem.Concat(membresItems);
 }
 
 <h2>@ViewBag.Title</h2>
+<div>&nbsp;</div>
 
 @using (Html.BeginForm("Manage", "News", FormMethod.Post, new { enctype = "multipart/form-data", @role = "form" }))
 {
+
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
+    @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
 
-    <fieldset>
-        <legend>News</legend>
+    <div style="margin-left: auto; margin-right: auto; width:60%">
 
+        @* Title *@
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, "Titre")
-            @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "Titre de la news" })
+            @Html.LabelFor(model => model.Title, ContentRessources.NewsTitle)
+            @Html.TextBoxFor(model => model.Title, new { @class = "form-control", @placeholder = ContentRessources.NewsTitle })
+
             @Html.ValidationMessageFor(model => model.Title)
         </div>
-
+        
+        @* URL *@
         <div class="form-group">
-            @Html.DropDownListFor(model => model.PromoId,
-                                      new SelectList(ViewBag.Promotions, "Code_Classe", "Libelle"),
-                                      "Sélectionnez votre promo",
-                                      new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.AuthorId, string.Empty, new { @style = "color: red" })
-        </div>
+            @Html.LabelFor(model => model.Url, ContentRessources.URL)
+            @Html.TextBoxFor(model => model.Url, new { @class = "input-group input-group-sm", @disabled = "disabled" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ImagePath, "Image")
-            <input type="file" name="file" class="btn btn-default" />
-            @Html.ValidationMessageFor(model => model.ImagePath)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Keywords, "Mots clés")
-            @Html.TextBoxFor(model => model.Keywords, new { @class = "form-control", placeholder = "Mots clés" })
-            @Html.ValidationMessageFor(model => model.Keywords)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsPublished, "Publiée ?")
-            @Html.CheckBoxFor(model => model.IsPublished)
-            @Html.ValidationMessageFor(model => model.IsPublished)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ShortText, "Texte d'accroche")
-            @Html.TextBoxFor(model => model.ShortText, new { @class = "form-control", placeholder = "Texte d'accroche" })
-            @Html.ValidationMessageFor(model => model.ShortText)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LongText, "Contenu")
-            @Html.TextAreaFor(model => model.LongText, new { @id = "editor", @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.LongText)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Url)
-            @Html.TextBoxFor(model => model.Url, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Url)
         </div>
 
+        @* Author *@
+        <div class="form-group">
+            @Html.DropDownListFor(model => model.AuthorId,
+                                new SelectList(ViewBag.Members, "Id", "Name"),
+                                DefaultSelectionMessagesRessources.Author,
+                                new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.AuthorId, string.Empty, new { @style = "color: red" })
+        </div>
+
+        @* Image *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageUrl, ContentRessources.Image)
+            <input type="file" name="file" class="btn btn-default" />
+
+            @Html.ValidationMessageFor(model => model.ImageUrl)
+        </div>
+
+        @* Keywords *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keywords, ContentRessources.Keywords)
+            @Html.TextBoxFor(model => model.Keywords, new { @class = "form-control", placeholder = ContentRessources.Keywords })
+
+            <span class="help-block">@ContentRessources.Keywords_Recommandation</span>
+            @Html.ValidationMessageFor(model => model.Keywords)
+        </div>
+        
+        @* Is published ? *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsPublished, ContentRessources.IsPublished)
+            @Html.CheckBoxFor(model => model.IsPublished)
+
+            @Html.ValidationMessageFor(model => model.IsPublished)
+        </div> 
+        
+        @*Short text *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.ShortText, ContentRessources.ShortText)
+            @Html.TextBoxFor(model => model.ShortText, new { @class = "form-control", placeholder = ContentRessources.ShortText })
+
+            @Html.ValidationMessageFor(model => model.ShortText)
+        </div>
+        
+        @* Text *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text, ContentRessources.Text)
+            @Html.TextAreaFor(model => model.Text, new { @id = "editor", @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
         <p>
-            <input type="submit" value="Créer" class="btn btn-primary btn-lg btn-block" />
+            <input type="submit" value="@ContentRessources.Valid" class="btn btn-primary btn-lg btn-block" />
         </p>
-    </fieldset>
+    </div>
 }
 
 <div>
-    @Html.ActionLink("Retour à la liste", "Index", null, new { @class = "btn btn-default btn-lg btn-block" })
+    @Html.ActionLink(ContentRessources.Back, "Index", null, new { @class = "btn btn-default btn-lg btn-block" })
 </div>
 
 @section Scripts {

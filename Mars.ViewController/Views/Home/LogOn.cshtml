@@ -8,7 +8,7 @@
 }
 
 <div>
-    @Html.Raw(string.Format(ContentRessources.ConnectedAs, Model.Prenom, Model.Nom)) |
+    @Html.Raw(string.Format(ContentRessources.ConnectedAs, Model.FirstName, Model.LastName)) |
     @Html.ActionLink(PagesTitlesRessources.LogOn, "LogOn") |
     @Html.ActionLink(PagesTitlesRessources.EditProfile, "EditProfile") |
     @Html.ActionLink(PagesTitlesRessources.LogOut, "LogOut")
@@ -25,7 +25,7 @@
             @Html.ActionLink(PagesTitlesRessources.News_Create, "Manage", "News")
         </li>
         <li>
-            @Html.ActionLink(PagesTitlesRessources.Home, "Index", "News")
+            @Html.ActionLink(PagesTitlesRessources.News, "Index", "News")
         </li>
     </ul>
 </div>

@@ -1,4 +1,5 @@
-﻿using Mars.Common;
+﻿using System.Linq;
+using Mars.Common;
 using SolarSystem.Mars.Model.Interfaces;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
@@ -51,45 +52,39 @@ namespace SolarSystem.Mars.ViewController.Controllers
         }
 
         /// <summary>
-        /// GET: /News/Manage
-        /// Create a new news
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Manage()
-        {
-            ViewBag.Members = _modelMembers.Get();
-
-            NewsViewModel vm = new NewsViewModel();
-            return View(vm);
-        }
-
-        /// <summary>
-        /// GET: /News/Edit/1
+        /// GET: /News/Manage/1
         /// Edit an existing news
         /// </summary>
         /// <param name="id">Id of the news to manage</param>
-        public ActionResult Manage(int id)
+        public ActionResult Manage(int id = 0)
         {
             // Load members list
-            ViewBag.Members = _modelMembers.Get();
+            IEnumerable<Member> members = _modelMembers.Get();
+            ViewBag.Members = members.Select(m => new { Id = m.Id, Name = string.Format("{0} {1} - ({2}", m.FirstName, m.LastName, m.Campus.Place ) });
 
-            // Prepare the news to be shown
-            News news = _model.Get(id);
+            NewsViewModel vm;
 
-            NewsViewModel newsViewModel = new NewsViewModel(CRUDAction.Update)
+            if (id == 0)
+                vm = new NewsViewModel();
+            else
             {
-                Id = news.Id,
-                AuthorId = news.Member.Id,
-                ImageUrl = news.ImageUrl,
-                IsPublished = news.IsPublished,
-                Keywords = news.Keywords,
-                Text = news.Text,
-                ShortText = news.ShortText,
-                Title = news.Title,
-                Url = news.Url
-            };
+                News news = _model.Get(id);
 
-            return View(newsViewModel);
+                vm = new NewsViewModel(CRUDAction.Update)
+                {
+                    Id = news.Id,
+                    AuthorId = news.Member.Id,
+                    ImageUrl = news.ImageUrl,
+                    IsPublished = news.IsPublished,
+                    Keywords = news.Keywords,
+                    Text = news.Text,
+                    ShortText = news.ShortText,
+                    Title = news.Title,
+                    Url = news.Url
+                };
+            }
+
+            return View(vm);
         }
 
         /// <summary>
