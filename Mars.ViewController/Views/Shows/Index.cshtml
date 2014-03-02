@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SolarSystem.Mars.Model.ManagersService.Conference>
+﻿@model IEnumerable<SolarSystem.Mars.Model.ManagersService.Show>
 
 @{
     ViewBag.Title = "Index";
@@ -13,7 +13,7 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Code_Conference)
+            @Html.DisplayNameFor(model => model.Code_Show)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date_Heure_Debut)
@@ -34,7 +34,7 @@
             @Html.DisplayNameFor(model => model.Nom)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Publiee)
+            @Html.DisplayNameFor(model => model.Publie)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.URL)
@@ -45,7 +45,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Code_Conference)
+            @Html.DisplayFor(modelItem => item.Code_Show)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date_Heure_Debut)
@@ -66,15 +66,15 @@
             @Html.DisplayFor(modelItem => item.Nom)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Publiee)
+            @Html.DisplayFor(modelItem => item.Publie)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.URL)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Code_Conference }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Code_Conference }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Code_Conference })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code_Show }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Code_Show }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Code_Show })
         </td>
     </tr>
 }

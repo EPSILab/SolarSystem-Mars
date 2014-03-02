@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SolarSystem.Mars.Model.ManagersService.Project>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Manage New", "Manage")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Avancement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Code_Project)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Avancement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code_Project)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code_Project }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Code_Project }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Code_Project })
+        </td>
+    </tr>
+}
+
+</table>

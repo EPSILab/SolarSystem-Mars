@@ -1,0 +1,63 @@
+﻿@using System.Web.Optimization
+@model SolarSystem.Mars.Model.ManagersService.Promotion
+
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Classe</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GraduationYear)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GraduationYear)
+            @Html.ValidationMessageFor(model => model.GraduationYear)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Id)
+            @Html.ValidationMessageFor(model => model.Id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StillPresent)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StillPresent)
+            @Html.ValidationMessageFor(model => model.StillPresent)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <p>
+            <input type="submit" value="Manage" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
