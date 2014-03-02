@@ -7,11 +7,11 @@ using System.Web.Mvc;
 namespace SolarSystem.Mars.ViewController.Controllers
 {
     [WebserviceAuthorize]
-    public class LiensController : MarsControllerBase
+    public class LinksController : MarsControllerBase
     {
         #region Constructor
 
-        public LiensController(IReaderLimit<Lien> lienManager)
+        public LinksController(IReaderLimit<Link> lienManager)
         {
             _lienManager = lienManager;
         }
@@ -20,35 +20,28 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #region Attributes
 
-        private readonly IReaderLimit<Lien> _lienManager;
+        private readonly IReaderLimit<Link> _lienManager;
 
         #endregion
 
         #region Methods
 
-        // GET: /Liens/
+        // GET: /Links/
         public ActionResult Index()
         {
-            IEnumerable<Lien> liens = _lienManager.Get(1, 10);
+            IEnumerable<Link> liens = _lienManager.Get(1, 10);
             return View(liens);
         }
 
-        // GET: /Liens/Details/5
-        public ActionResult Details(int id)
-        {
-            Lien lien = _lienManager.Get(id);
-            return View(lien);
-        }
-
-        // GET: /Liens/Create
-        public ActionResult Create()
+        // GET: /Links/Manage
+        public ActionResult Manage()
         {
             return View();
         }
 
-        // POST: /Lien/Create
+        // POST: /Link/Manage
         [HttpPost]
-        public ActionResult Create(Lien lien)
+        public ActionResult Manage(Link lien)
         {
             try
             {
@@ -63,16 +56,16 @@ namespace SolarSystem.Mars.ViewController.Controllers
             }
         }
 
-        // GET: /Liens/Edit/5
-        public ActionResult Edit(int id)
+        // GET: /Links/Edit/5
+        public ActionResult Manage(int id)
         {
-            Lien lien = _lienManager.Get(id);
+            Link lien = _lienManager.Get(id);
             return View(lien);
         }
 
-        // POST: /Lien/Edit/5
+        // POST: /Link/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Lien lien)
+        public ActionResult Manage(int id, Link lien)
         {
             try
             {
@@ -87,16 +80,16 @@ namespace SolarSystem.Mars.ViewController.Controllers
             }
         }
 
-        // GET: /Liens/Delete/5
+        // GET: /Links/Delete/5
         public ActionResult Delete(int id)
         {
-            Lien lien = _lienManager.Get(id);
-            return View(lien);
+            Link lien = _lienManager.Get(id);
+            return RedirectToAction("Index");
         }
 
-        // POST: /Lien/Delete/5
+        // POST: /Link/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Lien lien)
+        public ActionResult Delete(int id, Link lien)
         {
             try
             {
@@ -107,7 +100,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             }
             catch
             {
-                return View(lien);
+                return RedirectToAction("Index");
             }
         }
 

@@ -7,11 +7,11 @@ using System.Web.Mvc;
 namespace SolarSystem.Mars.ViewController.Controllers
 {
     [WebserviceAuthorize]
-    public class PublicitesController : MarsControllerBase
+    public class SlideshowController : MarsControllerBase
     {
         #region Constructor
 
-        public PublicitesController(IReader<Publicite> publiciteManager)
+        public SlideshowController(IReader<Slide> publiciteManager)
         {
             _publiciteManager = publiciteManager;
         }
@@ -20,35 +20,28 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #region Attributes
 
-        private readonly IReader<Publicite> _publiciteManager;
+        private readonly IReader<Slide> _publiciteManager;
 
         #endregion
 
         #region Methods
 
-        // GET: /Publicites/
+        // GET: /Slides/
         public ActionResult Index()
         {
-            IEnumerable<Publicite> publicites = _publiciteManager.Get();
+            IEnumerable<Slide> publicites = _publiciteManager.Get();
             return View(publicites);
         }
 
-        // GET: /Publicites/Details/5
-        public ActionResult Details(int id)
-        {
-            Publicite publicite = _publiciteManager.Get(id);
-            return View(publicite);
-        }
-
-        // GET: /Publicites/Create
-        public ActionResult Create()
+        // GET: /Slides/Create
+        public ActionResult Manage()
         {
             return View();
         }
 
-        // POST: /Publicites/Create
+        // POST: /Slides/Create
         [HttpPost]
-        public ActionResult Create(Publicite publicite)
+        public ActionResult Manage(Slide publicite)
         {
             try
             {
@@ -63,16 +56,16 @@ namespace SolarSystem.Mars.ViewController.Controllers
             }
         }
 
-        // GET: /Publicites/Edit/5
-        public ActionResult Edit(int id)
+        // GET: /Slides/Edit/5
+        public ActionResult Manage(int id)
         {
-            Publicite publicite = _publiciteManager.Get(id);
+            Slide publicite = _publiciteManager.Get(id);
             return View(publicite);
         }
 
-        // POST: /Publicites/Edit/5
+        // POST: /Slides/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Publicite publicite)
+        public ActionResult Manage(int id, Slide publicite)
         {
             try
             {
@@ -87,16 +80,16 @@ namespace SolarSystem.Mars.ViewController.Controllers
             }
         }
 
-        // GET: /Publicites/Delete/5
+        // GET: /Slides/Delete/5
         public ActionResult Delete(int id)
         {
-            Publicite publicite = _publiciteManager.Get(id);
-            return View(publicite);
+            Slide publicite = _publiciteManager.Get(id);
+            return RedirectToAction("Index");
         }
 
-        // POST: /Publicites/Delete/5
+        // POST: /Slides/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Publicite publicite)
+        public ActionResult Delete(int id, Slide publicite)
         {
             try
             {
@@ -107,7 +100,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             }
             catch
             {
-                return View(publicite);
+                return RedirectToAction("Index");
             }
         }
 

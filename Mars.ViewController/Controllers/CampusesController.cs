@@ -7,11 +7,11 @@ using System.Web.Mvc;
 namespace SolarSystem.Mars.ViewController.Controllers
 {
     [WebserviceAuthorize]
-    public class VillesController : MarsControllerBase
+    public class CampusesController : MarsControllerBase
     {
         #region Constructor
 
-        public VillesController(IReader<Ville> villeManager)
+        public CampusesController(IReader<Campus> villeManager)
         {
             _villeManager = villeManager;
         }
@@ -20,35 +20,31 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #region Attributes
 
-        private readonly IReader<Ville> _villeManager;
+        private readonly IReader<Campus> _villeManager;
 
         #endregion
 
         #region Methods
 
-        // GET: /Villes/
+        /// <summary>
+        /// GET: /Campuses/
+        /// </summary>
         public ActionResult Index()
-        {
-            IEnumerable<Ville> villes = _villeManager.Get();
-            return View(villes);
-        }
-
-        // GET: /Villes/Details/5
-        public ActionResult Details(int id)
-        {
-            Ville ville = _villeManager.Get(id);
-            return View(ville);
-        }
-
-        // GET: /Villes/Create
-        public ActionResult Create()
         {
             return View();
         }
 
-        // POST: /Villes/Create
+        /// <summary>
+        /// GET: /Campuses/Manage
+        /// </summary>
+        public ActionResult Manage(int id)
+        {
+            return View();
+        }
+
+        // POST: /Campuses/Create
         [HttpPost]
-        public ActionResult Create(Ville ville)
+        public ActionResult Create(Campus ville)
         {
             try
             {
@@ -63,16 +59,16 @@ namespace SolarSystem.Mars.ViewController.Controllers
             }
         }
 
-        // GET: /Villes/Edit/5
+        // GET: /Campuses/Edit/5
         public ActionResult Edit(int id)
         {
-            Ville ville = _villeManager.Get(id);
+            Campus ville = _villeManager.Get(id);
             return View(ville);
         }
 
-        // POST: /Villes/Edit/5
+        // POST: /Campuses/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Ville ville)
+        public ActionResult Edit(int id, Campus ville)
         {
             try
             {
@@ -87,16 +83,16 @@ namespace SolarSystem.Mars.ViewController.Controllers
             }
         }
 
-        // GET: /Villes/Delete/5
+        // GET: /Campuses/Delete/5
         public ActionResult Delete(int id)
         {
-            Ville ville = _villeManager.Get(id);
+            Campus ville = _villeManager.Get(id);
             return View(ville);
         }
 
-        // POST: /Villes/Delete/5
+        // POST: /Campuses/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Ville ville)
+        public ActionResult Delete(int id, Campus ville)
         {
             try
             {

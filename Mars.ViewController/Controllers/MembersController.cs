@@ -7,11 +7,11 @@ using System.Web.Mvc;
 namespace SolarSystem.Mars.ViewController.Controllers
 {
     [WebserviceAuthorize]
-    public class MembresController : MarsControllerBase
+    public class MembersController : MarsControllerBase
     {
         #region Constructor
 
-        public MembresController(IReaderLimit<Membre> membreManager)
+        public MembersController(IReaderLimit<Member> membreManager)
         {
             _membreManager = membreManager;
         }
@@ -20,41 +20,41 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #region Attributes
 
-        private readonly IReaderLimit<Membre> _membreManager;
+        private readonly IReaderLimit<Member> _membreManager;
 
         #endregion
 
         #region Methods
 
-        // GET: /Membres/
+        // GET: /Members/
         public ViewResult Index()
         {
-            IEnumerable<Membre> membres = _membreManager.Get(1, 20);
+            IEnumerable<Member> membres = _membreManager.Get(1, 20);
             return View(membres);
         }
 
-        // GET: /Membres/Details/5
+        // GET: /Members/Details/5
         public ActionResult Details(int id)
         {
-            Membre membre = _membreManager.Get(id);
+            Member membre = _membreManager.Get(id);
             return View(membre);
         }
 
-        // GET : /Membres/Valid
+        // GET : /Members/Valid
         public ActionResult Valid()
         {
             return View();
         }
 
-        // GET: /Membres/Create
+        // GET: /Members/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: /Membres/Create
+        // POST: /Members/Create
         [HttpPost]
-        public ActionResult Create(Membre membre)
+        public ActionResult Create(Member membre)
         {
             try
             {
@@ -69,16 +69,16 @@ namespace SolarSystem.Mars.ViewController.Controllers
             }
         }
 
-        // GET: /Membres/Edit/5
+        // GET: /Members/Edit/5
         public ActionResult Edit(int id)
         {
-            Membre membre = _membreManager.Get(id);
+            Member membre = _membreManager.Get(id);
             return View(membre);
         }
 
-        // POST: /Membres/Edit/5
+        // POST: /Members/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Membre membre)
+        public ActionResult Edit(int id, Member membre)
         {
             try
             {
@@ -93,16 +93,16 @@ namespace SolarSystem.Mars.ViewController.Controllers
             }
         }
 
-        // GET: /Membres/Delete/5
+        // GET: /Members/Delete/5
         public ActionResult Delete(int id)
         {
-            Membre membre = _membreManager.Get(id);
+            Member membre = _membreManager.Get(id);
             return View(membre);
         }
 
-        // POST: /Membres/Delete/5
+        // POST: /Members/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Membre membre)
+        public ActionResult Delete(int id, Member membre)
         {
             try
             {

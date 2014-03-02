@@ -1,12 +1,13 @@
-﻿using System.Web;
-using Microsoft.Ajax.Utilities;
+﻿using Mars.Common;
 using SolarSystem.Mars.Model.Interfaces;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
+using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Mvc;
-using SolarSystem.Mars.ViewController.ViewModels;
 
 namespace SolarSystem.Mars.ViewController.Controllers
 {
@@ -15,168 +16,156 @@ namespace SolarSystem.Mars.ViewController.Controllers
     {
         #region Constructor
 
-        public NewsController(IReaderLimit<News> modelNews, IReader<Membre> modelMembre)
+        public NewsController(IReaderLimit<News> modelNews, IReader<Member> modelMember)
         {
-            _modelNews = modelNews;
-            _modelMembre = modelMembre;
+            _model = modelNews;
+            _modelMembers = modelMember;
         }
 
         #endregion
 
         #region Attributes
 
-        private readonly IReaderLimit<News> _modelNews;
-        private readonly IReader<Membre> _modelMembre;
+        /// <summary>
+        /// Main model
+        /// </summary>
+        private readonly IReaderLimit<News> _model;
+
+        /// <summary>
+        /// Model for members
+        /// </summary>
+        private readonly IReader<Member> _modelMembers;
 
         #endregion
 
         #region Methods
 
-        // GET: /News/
+        /// <summary>
+        /// GET: /News/
+        /// Get all news
+        /// </summary>
         public ActionResult Index()
         {
-            IEnumerable<News> newsList = _modelNews.Get(0, 10);
+            IEnumerable<News> newsList = _model.Get(0, 10);
             return View(newsList);
         }
 
-        // GET: /News/Details/5
-        public ActionResult Details(int id)
+        /// <summary>
+        /// GET: /News/Manage
+        /// Create a new news
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Manage()
         {
-            News news = _modelNews.Get(id);
-            return View(news);
+            ViewBag.Members = _modelMembers.Get();
+
+            NewsViewModel vm = new NewsViewModel();
+            return View(vm);
         }
 
-        // GET: /News/Create
-        public ActionResult Create()
+        /// <summary>
+        /// GET: /News/Edit/1
+        /// Edit an existing news
+        /// </summary>
+        /// <param name="id">Id of the news to manage</param>
+        public ActionResult Manage(int id)
         {
-            ViewBag.Membres = _modelMembre.Get();
+            // Load members list
+            ViewBag.Members = _modelMembers.Get();
 
-            return View(new NewsViewModel());
-        }
+            // Prepare the news to be shown
+            News news = _model.Get(id);
 
-        // POST: /News/Create
-        [HttpPost]
-        public ActionResult Create(NewsViewModel newsViewModel, HttpPostedFileBase file)
-        {
-            try
+            NewsViewModel newsViewModel = new NewsViewModel(CRUDAction.Update)
             {
-                if (ModelState.IsValid)
-                {
-                    var news = new News
-                    {
-                        Mots_Cles = newsViewModel.Keywords,
-                        Date_Heure = DateTime.Now,
-                        Membre = _modelMembre.Get(newsViewModel.AuthorId),
-                        Publiee = newsViewModel.IsPublished,
-                        Texte_Court = newsViewModel.ShortText,
-                        Texte_Long = newsViewModel.LongText,
-                        Titre = newsViewModel.Title,
-                        URL = newsViewModel.Url
-                    };
-
-                    if (file != null && file.ContentLength > 0)
-                    {
-                        string imagePath = string.Format("http://www.epsilab.net/Images/News/{0}", file.FileName);
-                        file.SaveAs(imagePath);
-                        news.Image = imagePath;
-                    }
-
-                    _modelNews.Add(news, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
-
-                    return RedirectToAction("Index");
-                }
-                return View(newsViewModel);
-            }
-            catch
-            {
-                return View(newsViewModel);
-            }
-        }
-
-        // GET: /News/Edit/5
-        public ActionResult Edit(int id)
-        {
-            ViewBag.Membres = _modelMembre.Get();
-
-            News news = _modelNews.Get(id);
-            var newsViewModel = new NewsViewModel
-            {
-                NewsId = news.Code_News,
-                AuthorId = news.Membre.Code_Membre,
-                ImagePath = news.Image,
-                IsPublished = news.Publiee,
-                Keywords = news.Mots_Cles,
-                LongText = news.Texte_Long,
-                ShortText = news.Texte_Court,
-                Title = news.Titre,
-                Url = news.URL
+                Id = news.Id,
+                AuthorId = news.Member.Id,
+                ImageUrl = news.ImageUrl,
+                IsPublished = news.IsPublished,
+                Keywords = news.Keywords,
+                Text = news.Text,
+                ShortText = news.ShortText,
+                Title = news.Title,
+                Url = news.Url
             };
 
             return View(newsViewModel);
         }
 
-
-        // POST: /News/Edit/5
+        /// <summary>
+        /// POST: /News/Manage
+        /// When the user has clicked on the OK button
+        /// </summary>
+        /// <param name="newsVM">Page view-model</param>
+        /// <param name="file">Image to send on the FTP server</param>
         [HttpPost]
-        public ActionResult Edit(NewsViewModel newsViewModel, HttpPostedFileBase file)
+        public ActionResult Manage(NewsViewModel newsVM, HttpPostedFileBase file)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var news = _modelNews.Get(newsViewModel.NewsId);
-
-                    if (news != null)
+                    // Prepare to send the news to the server
+                    News news = new News
                     {
-                        news.Mots_Cles = newsViewModel.Keywords;
-                        news.Date_Heure = DateTime.Now;
-                        news.Membre = _modelMembre.Get(newsViewModel.AuthorId);
-                        news.Publiee = newsViewModel.IsPublished;
-                        news.Texte_Court = newsViewModel.ShortText;
-                        news.Texte_Long = newsViewModel.LongText;
-                        news.Titre = newsViewModel.Title;
-                        news.URL = newsViewModel.Url;
+                        Id = newsVM.Id,
+                        Keywords = newsVM.Keywords,
+                        DateTime = newsVM.DateTime,
+                        Member = _modelMembers.Get(newsVM.AuthorId),
+                        IsPublished = newsVM.IsPublished,
+                        ShortText = newsVM.ShortText,
+                        Text = newsVM.Text,
+                        Title = newsVM.Title,
+                        Url = newsVM.Url
+                    };
 
-                        if (file != null && file.ContentLength > 0)
-                        {
-                            string imagePath = string.Format("http://www.epsilab.net/Images/News/{0}", file.FileName);
-                            file.SaveAs(imagePath);
-                            news.Image = imagePath;
-                        }
+                    // Image management
+                    string imagePath = string.Format("{0}/Images/News/{1}", ContentRessources.EPSILabUrl, file.FileName);
+                    file.SaveAs(imagePath);
+                    news.ImageUrl = imagePath;
 
-                        _modelNews.Edit(news, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
+                    // Save the news
+                    LoginViewModel loginVM = AuthProvider.LoginViewModel;
+
+                    switch (newsVM.Action)
+                    {
+                        case CRUDAction.Create:
+                            _model.Add(news, loginVM.Username, loginVM.PasswordCrypted);
+                            break;
+                        case CRUDAction.Update:
+                            _model.Edit(news, loginVM.Username, loginVM.PasswordCrypted);
+                            break;
                     }
 
                     return RedirectToAction("Index");
                 }
-                return View(newsViewModel);
+
+                return View(newsVM);
             }
-            catch
+            catch (Exception ex)
             {
-                return View(newsViewModel);
+                ViewBag.Exception = ex.Message;
+                return View(newsVM);
             }
         }
 
-        // GET: /News/Delete/5
+        /// <summary>
+        ///  GET: /News/Delete/1
+        /// Delete an existing news
+        /// </summary>
+        /// <param name="id">News Id to delete</param>
         public ActionResult Delete(int id)
-        {
-            News news = _modelNews.Get(id);
-            return View(news);
-        }
-
-        // POST: /News/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, News news)
         {
             try
             {
-                _modelNews.Delete(id, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
+                LoginViewModel loginVM = AuthProvider.LoginViewModel;
+                _model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View(news);
+                return View("Index");
             }
         }
 
