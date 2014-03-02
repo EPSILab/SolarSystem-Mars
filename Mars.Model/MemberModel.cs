@@ -29,9 +29,9 @@ namespace SolarSystem.Mars.Model
             return _proxy.ExistsUsername(username);
         }
 
-        public int Register(Member member)
+        public int Register(Member member, string newPassword)
         {
-            return _proxy.Register(member);
+            return _proxy.Register(member, newPassword);
         }
 
         public void RequestLostPassword(string username, string email)

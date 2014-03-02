@@ -10,7 +10,7 @@ namespace SolarSystem.Mars.Model.Interfaces
 
         Member Login(string username, string password);
 
-        int Register(Member member);
+        int Register(Member member, string newPassword);
 
         void RequestLostPassword(string username, string email);
 

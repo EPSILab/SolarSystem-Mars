@@ -1750,7 +1750,7 @@ namespace SolarSystem.Mars.Model.ManagersService {
         bool ExistsMember(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberManager/Register", ReplyAction="http://tempuri.org/IMemberManager/RegisterResponse")]
-        int Register(SolarSystem.Mars.Model.ManagersService.Member membre);
+        int Register(SolarSystem.Mars.Model.ManagersService.Member member, string newPassword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberManager/RequestLostPassword", ReplyAction="http://tempuri.org/IMemberManager/RequestLostPasswordResponse")]
         void RequestLostPassword(string username, string email);
@@ -1835,8 +1835,8 @@ namespace SolarSystem.Mars.Model.ManagersService {
             return base.Channel.ExistsMember(username, password);
         }
         
-        public int Register(SolarSystem.Mars.Model.ManagersService.Member membre) {
-            return base.Channel.Register(membre);
+        public int Register(SolarSystem.Mars.Model.ManagersService.Member member, string newPassword) {
+            return base.Channel.Register(member, newPassword);
         }
         
         public void RequestLostPassword(string username, string email) {

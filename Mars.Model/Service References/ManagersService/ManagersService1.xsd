@@ -367,7 +367,8 @@
   <xs:element name="Register">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="membre" nillable="true" type="q24:Member" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="member" nillable="true" type="q24:Member" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
