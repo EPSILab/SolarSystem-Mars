@@ -4,24 +4,33 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SolarSystem.Mars.ViewController.ViewModels
 {
+    /// <summary>
+    /// View-model for login page
+    /// </summary>
     public class LoginViewModel
     {
-        [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "UsernameRequired")]
-        [MinLength(4, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "UsernameMinLength")]
-        [MaxLength(20, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "UsernameMaxLength")]
+        /// <summary>
+        /// Username
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "UsernameRequired")]
+        [MinLength(4, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "UsernameMinLength")]
+        [MaxLength(20, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "UsernameMaxLength")]
         public string Username { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "PasswordRequired")]
-        [MinLength(6, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "PasswordMinLength")]
+        /// <summary>
+        /// Not-crypted password
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "PasswordRequired")]
+        [MinLength(6, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "PasswordMinLength")]
         [DataType(DataType.Password)]
         public string PasswordNonCrypted { get; set; }
 
+        /// <summary>
+        /// Crypted password
+        /// </summary>
         public string PasswordCrypted
         {
-            get
-            {
-                return PasswordEncoderHelper.Encode(PasswordNonCrypted);
-            }
+            get { return PasswordEncoderHelper.Encode(PasswordNonCrypted); }
         }
     }
 }

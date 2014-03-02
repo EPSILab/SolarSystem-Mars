@@ -1,46 +1,95 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using SolarSystem.Mars.Model.ManagersService;
+﻿using Mars.Common;
 using SolarSystem.Mars.ViewController.Resources;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace SolarSystem.Mars.ViewController.ViewModels
 {
-    public class NewsViewModel
+    /// <summary>
+    /// View-model for news creation or updating page
+    /// </summary>
+    public class NewsViewModel : CRUDViewModelBase
     {
-        public int NewsId { get; set; }
+        #region Constructor
 
-        [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "TitleRequired")]
-        [MinLength(5, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "TitleMinLength")]
-        [MaxLength(100, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "TitleMaxLength")]
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="action">Action for the view-model</param>
+        public NewsViewModel(CRUDAction action = CRUDAction.Create)
+            : base(action) { }
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Id
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Title
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "TitleRequired")]
+        [MinLength(5, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "TitleMinLength")]
+        [MaxLength(100, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "TitleMaxLength")]
         public string Title { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "AuthorRequired")]
-        [Range(1, Int32.MaxValue, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "AuthorRequired")]
+        /// <summary>
+        /// Author's Id
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "AuthorRequired")]
+        [Range(1, Int32.MaxValue, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "AuthorRequired")]
         public int AuthorId { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "ImageRequired")]
-        [DataType(DataType.Url, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "ImagePathFormat")]
-        [FileExtensions(Extensions = "png | jpg | jpeg | gif", ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "ImagePathExtensions")]
-        public string ImagePath { get; set; }
+        /// <summary>
+        /// Date and time
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "DateTimeRequired")]
+        [DataType(DataType.DateTime, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "DateTimeRequired")]
+        public DateTime DateTime { get; set; }
 
+        /// <summary>
+        /// Image URL
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImageRequired")]
+        [DataType(DataType.Url, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathFormat")]
+        [FileExtensions(Extensions = "png | jpg | jpeg | gif", ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathExtensions")]
+        public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Search keywords
+        /// </summary>
         public string Keywords { get; set; }
 
+        /// <summary>
+        /// Is the news published
+        /// </summary>
         public bool IsPublished { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "ShortTextRequired")]
-        [MinLength(5, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "ShortTextMinLength")]
-        [MaxLength(100, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "ShortTextMaxLength")]
+        /// <summary>
+        /// Short text
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ShortTextRequired")]
+        [MinLength(5, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ShortTextMinLength")]
+        [MaxLength(100, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ShortTextMaxLength")]
         public string ShortText { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "LongTextRequired")]
+        /// <summary>
+        /// Text
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "LongTextRequired")]
         [AllowHtml]
-        public string LongText { get; set; }
+        public string Text { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "UrlRequired")]
+        /// <summary>
+        /// Url
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "UrlRequired")]
         public string Url { get; set; }
+
+        #endregion
     }
 }
