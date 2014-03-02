@@ -2,15 +2,15 @@
 
 namespace SolarSystem.Mars.Model.Interfaces
 {
-    public interface ILogin : IManager<Membre>
+    public interface ILogin : IManager<Member>
     {
         bool Exists(string username, string password);
 
         bool Exists(string username);
 
-        Membre Login(string username, string password);
+        Member Login(string username, string password);
 
-        int Register(Membre membre);
+        int Register(Member member);
 
         void RequestLostPassword(string username, string email);
 

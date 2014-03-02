@@ -4,24 +4,24 @@ using System.Collections.Generic;
 
 namespace SolarSystem.Mars.Model
 {
-    class MembreModel : ILogin, IReaderFilters<Membre, Ville>
+    class MemberModel : ILogin, IReaderFilters<Member, Campus>
     {
         #region Attributes
 
-        private readonly IMembreManager _proxy = new MembreManagerClient();
+        private readonly IMemberManager _proxy = new MemberManagerClient();
 
         #endregion
 
         #region ILogin methods
 
-        public Membre Login(string username, string password)
+        public Member Login(string username, string password)
         {
             return _proxy.Login(username, password);
         }
 
         public bool Exists(string username, string password)
         {
-            return _proxy.ExistsMembre(username, password);
+            return _proxy.ExistsMember(username, password);
         }
 
         public bool Exists(string username)
@@ -29,9 +29,9 @@ namespace SolarSystem.Mars.Model
             return _proxy.ExistsUsername(username);
         }
 
-        public int Register(Membre membre)
+        public int Register(Member member)
         {
-            return _proxy.Register(membre);
+            return _proxy.Register(member);
         }
 
         public void RequestLostPassword(string username, string email)
@@ -48,34 +48,34 @@ namespace SolarSystem.Mars.Model
 
         #region IReaderFilters methods
 
-        public Membre Get(int code)
+        public Member Get(int code)
         {
-            return _proxy.GetMembre(code);
+            return _proxy.GetMember(code);
         }
 
-        public IList<Membre> Get()
+        public IList<Member> Get()
         {
-            return _proxy.GetMembresActives();
+            return _proxy.GetMembersActives();
         }
 
-        public IList<Membre> Get(Ville ville)
+        public IList<Member> Get(Campus campus)
         {
-            return _proxy.GetMembresBureau(ville);
+            return _proxy.GetMembersBureau(campus);
         }
 
-        public int Add(Membre element, string username, string password)
+        public int Add(Member element, string username, string password)
         {
-            return _proxy.AddMembre(element, username, password);
+            return _proxy.AddMember(element, username, password);
         }
 
-        public void Edit(Membre element, string username, string password)
+        public void Edit(Member element, string username, string password)
         {
-            _proxy.EditMembre(element, username, password);
+            _proxy.EditMember(element, username, password);
         }
 
         public void Delete(int code, string username, string password)
         {
-            _proxy.DeleteMembre(code, username, password);
+            _proxy.DeleteMember(code, username, password);
         }
 
         #endregion

@@ -4,39 +4,39 @@ using System.Collections.Generic;
 
 namespace SolarSystem.Mars.Model
 {
-    class SalonModel : IReaderLimit<Salon>
+    class ShowModel : IReaderLimit<Show>
     {
         #region Attributes
 
-        private readonly ISalonManager _proxy = new SalonManagerClient();
+        private readonly IShowManager _proxy = new ShowManagerClient();
 
         #endregion
 
         #region IReaderLimit methods
 
-        public Salon Get(int code)
+        public Show Get(int code)
         {
-            return _proxy.GetSalon(code);
+            return _proxy.GetShow(code);
         }
 
-        public IList<Salon> Get(int indexFirstResult, int numberOfResults)
+        public IList<Show> Get(int indexFirstResult, int numberOfResults)
         {
-            return _proxy.GetSalons(indexFirstResult, numberOfResults);
+            return _proxy.GetShows(indexFirstResult, numberOfResults);
         }
 
-        public int Add(Salon element, string username, string password)
+        public int Add(Show element, string username, string password)
         {
-            return _proxy.AddSalon(element, username, password);
+            return _proxy.AddShow(element, username, password);
         }
 
-        public void Edit(Salon element, string username, string password)
+        public void Edit(Show element, string username, string password)
         {
-            _proxy.EditSalon(element, username, password);
+            _proxy.EditShow(element, username, password);
         }
 
         public void Delete(int code, string username, string password)
         {
-            _proxy.DeleteSalon(code, username, password);
+            _proxy.DeleteShow(code, username, password);
         }
 
         #endregion

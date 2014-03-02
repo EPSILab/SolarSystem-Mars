@@ -1,186 +1,823 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SolarSystem.Earth.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SolarSystem.Earth.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="Classe">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Annee_Promo_Sortante" type="xs:int" />
-      <xs:element minOccurs="0" name="Code_Classe" type="xs:int" />
-      <xs:element minOccurs="0" name="Encore_Presente" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Libelle" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Classe" nillable="true" type="tns:Classe" />
-  <xs:complexType name="ArrayOfClasse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Classe" nillable="true" type="tns:Classe" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfClasse" nillable="true" type="tns:ArrayOfClasse" />
-  <xs:complexType name="Conference">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Code_Conference" type="xs:int" />
-      <xs:element minOccurs="0" name="Date_Heure_Debut" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Date_Heure_Fin" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Lieu" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Publiee" type="xs:boolean" />
-      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Ville" nillable="true" type="tns:Ville" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Conference" nillable="true" type="tns:Conference" />
-  <xs:complexType name="Ville">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Code_Ville" type="xs:int" />
-      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Libelle" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Ville" nillable="true" type="tns:Ville" />
-  <xs:complexType name="ArrayOfConference">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Conference" nillable="true" type="tns:Conference" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfConference" nillable="true" type="tns:ArrayOfConference" />
-  <xs:complexType name="Lien">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Code_Lien" type="xs:int" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Ordre" type="xs:int" />
-      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Lien" nillable="true" type="tns:Lien" />
-  <xs:complexType name="ArrayOfLien">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lien" nillable="true" type="tns:Lien" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfLien" nillable="true" type="tns:ArrayOfLien" />
-  <xs:complexType name="Membre">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Actif" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Classe" nillable="true" type="tns:Classe" />
-      <xs:element minOccurs="0" name="Code_Membre" type="xs:int" />
-      <xs:element minOccurs="0" name="Email_EPSI" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Email_perso" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Mot_de_passe" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Motivations" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Prenom" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Presentation" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Pseudo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Role" nillable="true" type="tns:Role" />
-      <xs:element minOccurs="0" name="Site_web" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Statut" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Telephone_mobile" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="URL_Facebook" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="URL_LinkedIn" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="URL_Twitter" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="URL_Viadeo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Ville" nillable="true" type="tns:Ville" />
-      <xs:element minOccurs="0" name="Ville_origine" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Membre" nillable="true" type="tns:Membre" />
-  <xs:complexType name="Role">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Code_Role" type="xs:int" />
-      <xs:element minOccurs="0" name="Libelle" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Role" nillable="true" type="tns:Role" />
-  <xs:complexType name="ArrayOfMembre">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Membre" nillable="true" type="tns:Membre" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfMembre" nillable="true" type="tns:ArrayOfMembre" />
-  <xs:complexType name="News">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Code_News" type="xs:int" />
-      <xs:element minOccurs="0" name="Date_Heure" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Membre" nillable="true" type="tns:Membre" />
-      <xs:element minOccurs="0" name="Mots_Cles" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Publiee" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Texte_Court" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Texte_Long" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Titre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="News" nillable="true" type="tns:News" />
-  <xs:complexType name="ArrayOfNews">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="News" nillable="true" type="tns:News" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfNews" nillable="true" type="tns:ArrayOfNews" />
-  <xs:complexType name="Projet">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Avancement" type="xs:int" />
-      <xs:element minOccurs="0" name="Code_Projet" type="xs:int" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Ville" nillable="true" type="tns:Ville" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Projet" nillable="true" type="tns:Projet" />
-  <xs:complexType name="ArrayOfProjet">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Projet" nillable="true" type="tns:Projet" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfProjet" nillable="true" type="tns:ArrayOfProjet" />
-  <xs:complexType name="Publicite">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Code_Publicite" type="xs:int" />
-      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Presentation" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Publiee" type="xs:boolean" />
-      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Publicite" nillable="true" type="tns:Publicite" />
-  <xs:complexType name="ArrayOfPublicite">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Publicite" nillable="true" type="tns:Publicite" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPublicite" nillable="true" type="tns:ArrayOfPublicite" />
-  <xs:complexType name="Salon">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Code_Salon" type="xs:int" />
-      <xs:element minOccurs="0" name="Date_Heure_Debut" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Date_Heure_Fin" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Lieu" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Publie" type="xs:boolean" />
-      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Salon" nillable="true" type="tns:Salon" />
-  <xs:complexType name="ArrayOfSalon">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Salon" nillable="true" type="tns:Salon" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfSalon" nillable="true" type="tns:ArrayOfSalon" />
-  <xs:complexType name="ArrayOfVille">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ville" nillable="true" type="tns:Ville" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfVille" nillable="true" type="tns:ArrayOfVille" />
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.epsilab.net/webservices/ManagersService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" />
+  <xs:element name="GetPromotion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetPromotionResult" nillable="true" type="q1:Promotion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotions">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetPromotionsResult" nillable="true" type="q2:ArrayOfPromotion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionsAvailables">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionsAvailablesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetPromotionsAvailablesResult" nillable="true" type="q3:ArrayOfPromotion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPromotion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q4:Promotion" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPromotionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddPromotionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditPromotion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q5:Promotion" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditPromotionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePromotion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePromotionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetConferenceResult" nillable="true" type="q6:Conference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConferences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="indexFirstResult" type="xs:int" />
+        <xs:element minOccurs="0" name="numberOfResults" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConferencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetConferencesResult" nillable="true" type="q7:ArrayOfConference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddConference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q8:Conference" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddConferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddConferenceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditConference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q9:Conference" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditConferenceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteConference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteConferenceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLinkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetLinkResult" nillable="true" type="q10:Link" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLinks">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLinksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetLinksResult" nillable="true" type="q11:ArrayOfLink" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddLink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q12:Link" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddLinkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddLinkResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditLink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q13:Link" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditLinkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteLink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteLinkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetMemberResult" nillable="true" type="q14:Member" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMembersActives">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMembersActivesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetMembersActivesResult" nillable="true" type="q15:ArrayOfMember" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMembersBureau">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="campus" nillable="true" type="q16:Campus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMembersBureauResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetMembersBureauResult" nillable="true" type="q17:ArrayOfMember" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMembersNotInBureau">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="campus" nillable="true" type="q18:Campus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMembersNotInBureauResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetMembersNotInBureauResult" nillable="true" type="q19:ArrayOfMember" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMembersAlumnis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="campus" nillable="true" type="q20:Campus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMembersAlumnisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetMembersAlumnisResult" nillable="true" type="q21:ArrayOfMember" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMembersWaitingForValidation">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMembersWaitingForValidationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetMembersWaitingForValidationResult" nillable="true" type="q22:ArrayOfMember" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="LoginResult" nillable="true" type="q23:Member" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="oldPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExistsUsername">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExistsUsernameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExistsUsernameResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExistsMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExistsMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExistsMemberResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Register">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="membre" nillable="true" type="q24:Member" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegisterResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestLostPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestLostPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNewPasswordAfterLost">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNewPasswordAfterLostResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q25:Member" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddMemberResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q26:Member" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditMemberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMemberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetNewsResult" nillable="true" type="q27:News" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListNews">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListNewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetListNewsResult" nillable="true" type="q28:ArrayOfNews" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListNewsLimited">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="indexFirstElement" type="xs:int" />
+        <xs:element minOccurs="0" name="numberOfResults" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListNewsLimitedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetListNewsLimitedResult" nillable="true" type="q29:ArrayOfNews" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q30:News" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditNews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q31:News" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditNewsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNewsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetProjectResult" nillable="true" type="q32:Project" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="indexFirstElement" type="xs:int" />
+        <xs:element minOccurs="0" name="numberOfResults" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetProjectsResult" nillable="true" type="q33:ArrayOfProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q34:Project" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddProjectResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditProject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q35:Project" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditProjectResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProjectResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSlide">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSlideResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetSlideResult" nillable="true" type="q36:Slide" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSlides">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSlidesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetSlidesResult" nillable="true" type="q37:ArrayOfSlide" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSlide">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q38:Slide" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSlideResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSlideResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditSlide">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q39:Slide" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditSlideResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSlide">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSlideResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetShowResult" nillable="true" type="q40:Show" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShows">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="indexFirstElement" type="xs:int" />
+        <xs:element minOccurs="0" name="numberOfResults" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShowsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetShowsResult" nillable="true" type="q41:ArrayOfShow" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddShow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q42:Show" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddShowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddShowResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditShow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q43:Show" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditShowResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteShow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteShowResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetCampusResult" nillable="true" type="q44:Campus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampuses">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="GetCampusesResult" nillable="true" type="q45:ArrayOfCampus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCampus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q46:Campus" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCampusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCampusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditCampus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" minOccurs="0" name="element" nillable="true" type="q47:Campus" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditCampusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCampus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" type="xs:int" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCampusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
