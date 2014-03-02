@@ -7,7 +7,7 @@
     
     The primary goals of this format is to allow a simple XML format 
     that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+    various data types are done through the TypeConverter promotions 
     associated with the data types.
     
     Example:
@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+    Promotions that don't support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -117,109 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AuthorRequired" xml:space="preserve">
-    <value>L'auteur est requis.</value>
+  <data name="Campuses" xml:space="preserve">
+    <value>Gérer les campus</value>
   </data>
-  <data name="CityRequired" xml:space="preserve">
-    <value>La ville de provenance est obligatoire.</value>
+  <data name="Conferences" xml:space="preserve">
+    <value>Liste des conférences</value>
   </data>
-  <data name="ClasseRequired" xml:space="preserve">
-    <value>Veuillez sélectionner votre promo.</value>
+  <data name="Conferences_Create" xml:space="preserve">
+    <value>Organiser une nouvelle conférence</value>
   </data>
-  <data name="ConfirmPasswordRequired" xml:space="preserve">
-    <value>La confirmation du mot de passe est requise.</value>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Modifier mon profil</value>
   </data>
-  <data name="EmailEPSIFormat" xml:space="preserve">
-    <value>Le format de l'adresse EPSI n'est pas correct.</value>
+  <data name="Home" xml:space="preserve">
+    <value>Portail d'administration EPSILab</value>
   </data>
-  <data name="EmailEPSIRequired" xml:space="preserve">
-    <value>L'email EPSI est requis.</value>
+  <data name="Links" xml:space="preserve">
+    <value>Liste des liens</value>
   </data>
-  <data name="EmailPersoFormat" xml:space="preserve">
-    <value>Le format de l'adresse personnelle n'est pas correct.</value>
+  <data name="Links_Create" xml:space="preserve">
+    <value>Ajouter un nouveau lien</value>
   </data>
-  <data name="FacebookUrlFormatError" xml:space="preserve">
-    <value>L'URL de la page Facebook est incorrecte.</value>
+  <data name="LogOn" xml:space="preserve">
+    <value>Accueil du portail d'administration</value>
   </data>
-  <data name="FirstNameRequired" xml:space="preserve">
-    <value>Le prénom est obligatoire.</value>
+  <data name="LogOut" xml:space="preserve">
+    <value>Déconnexion</value>
   </data>
-  <data name="ImagePathExtensions" xml:space="preserve">
-    <value>L'extension de l'image n'est pas correcte (*.jpg, *.jpeg, *gif, *.png uniquement).</value>
+  <data name="LostPassword" xml:space="preserve">
+    <value>Mot de passe oublié ?</value>
   </data>
-  <data name="ImagePathFormat" xml:space="preserve">
-    <value>L'image doit être valide.</value>
+  <data name="Members" xml:space="preserve">
+    <value>Liste des membres</value>
   </data>
-  <data name="ImageRequired" xml:space="preserve">
-    <value>L'image est requise.</value>
+  <data name="Members_Create" xml:space="preserve">
+    <value>Entrer un nouveau membre</value>
   </data>
-  <data name="LinkedInUrlFormatError" xml:space="preserve">
-    <value>L'URL de la page LinkedIn est incorrecte.</value>
+  <data name="Members_Valid" xml:space="preserve">
+    <value>Valider les nouvelles inscriptions</value>
   </data>
-  <data name="LongTextRequired" xml:space="preserve">
-    <value>Le texte long est requis.</value>
+  <data name="News" xml:space="preserve">
+    <value>Liste des articles</value>
   </data>
-  <data name="MotivationsRequired" xml:space="preserve">
-    <value>Veuillez indiquer vos motivations et vos raisons pour avoir décidé de rejoindre l'association.</value>
+  <data name="News_Create" xml:space="preserve">
+    <value>Rédiger un nouvel article</value>
   </data>
-  <data name="PasswordMinLength" xml:space="preserve">
-    <value>La longueur du nom utilisateur doit être de 6 caractères au minimum.</value>
+  <data name="News_Edit" xml:space="preserve">
+    <value>Editer un article</value>
   </data>
-  <data name="PasswordRequired" xml:space="preserve">
-    <value>Le mot de passe est requis.</value>
+  <data name="Projects" xml:space="preserve">
+    <value>Liste des projets</value>
   </data>
-  <data name="PhoneNumberFormat" xml:space="preserve">
-    <value>Le numéro de téléphone saisi doit être valide.</value>
+  <data name="Projects_Create" xml:space="preserve">
+    <value>Lancer un nouveau projet</value>
   </data>
-  <data name="PresentationRequired" xml:space="preserve">
-    <value>Merci de faire une petite présentation de vous.</value>
+  <data name="Promotions" xml:space="preserve">
+    <value>Gérer les promotions</value>
   </data>
-  <data name="SamePasswords" xml:space="preserve">
-    <value>Les mots de passes doivent être identiques.</value>
+  <data name="Register" xml:space="preserve">
+    <value>Demander la création d'un compte</value>
   </data>
-  <data name="ShortTextMaxLength" xml:space="preserve">
-    <value>La longueur du texte court doit être de 100 caractères maximum.</value>
+  <data name="Shows" xml:space="preserve">
+    <value>Liste des salons</value>
   </data>
-  <data name="ShortTextMinLength" xml:space="preserve">
-    <value>La longueur du texte court doit être de 5 caractères minimum.</value>
+  <data name="Shows_Create" xml:space="preserve">
+    <value>Annoncer un nouveau salon</value>
   </data>
-  <data name="ShortTextRequired" xml:space="preserve">
-    <value>Le texte court est requis.</value>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Liste des messages du diaporama</value>
   </data>
-  <data name="SurnameRequired" xml:space="preserve">
-    <value>Le nom est obligatoire.</value>
-  </data>
-  <data name="TitleMaxLength" xml:space="preserve">
-    <value>La longueur du titre doit être de 100 caractères maximum.</value>
-  </data>
-  <data name="TitleMinLength" xml:space="preserve">
-    <value>La longueur du titre doit être de 5 caractères minimum.</value>
-  </data>
-  <data name="TitleRequired" xml:space="preserve">
-    <value>Le titre est obligatoire.</value>
-  </data>
-  <data name="TwitterUrlFormatError" xml:space="preserve">
-    <value>L'URL de la page Twitter est incorrecte.</value>
-  </data>
-  <data name="UrlRequired" xml:space="preserve">
-    <value>L'URL est requise.</value>
-  </data>
-  <data name="UsernameMaxLength" xml:space="preserve">
-    <value>Le nom utilisateur ne peut pas dépasser 20 caractères.</value>
-  </data>
-  <data name="UsernameMinLength" xml:space="preserve">
-    <value>La longueur du nom utilisateur doit être de 4 caractères au minimum.</value>
-  </data>
-  <data name="UsernameRequired" xml:space="preserve">
-    <value>Le nom utilisateur est obligatoire.</value>
-  </data>
-  <data name="ViadeoUrlFormatError" xml:space="preserve">
-    <value>L'URL de la page Viadeo est incorrecte.</value>
-  </data>
-  <data name="VilleRequired" xml:space="preserve">
-    <value>Veuillez sélectionner votre campus.</value>
-  </data>
-  <data name="WebsiteUrlFormat" xml:space="preserve">
-    <value>L'adresse du site web doit être correcte.</value>
+  <data name="Slideshow_Create" xml:space="preserve">
+    <value>Annoncer un nouveau message</value>
   </data>
 </root>
