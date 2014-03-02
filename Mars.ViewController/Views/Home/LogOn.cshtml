@@ -1,119 +1,118 @@
-﻿@model SolarSystem.Mars.Model.ManagersService.Membre
+﻿@using SolarSystem.Mars.ViewController.Resources
+
+@model SolarSystem.Mars.Model.ManagersService.Member
 
 @{
-    ViewBag.Title = "Accueil du portail d'administration";
+    ViewBag.Title = @PagesTitlesRessources.LogOn;
     Layout = "../Shared/_Layout.cshtml";
 }
 
 <div>
-    Connecté en tant que: <strong>@Model.Prenom</strong> <strong>@Model.Nom</strong> |
-    @Html.ActionLink("Accueil du portail", "LogOn") |
-    @Html.ActionLink("Modifier mon profil", "EditProfile") |
-    @Html.ActionLink("Déconnexion", "LogOut")
+    @Html.Raw(string.Format(ContentRessources.ConnectedAs, Model.Prenom, Model.Nom)) |
+    @Html.ActionLink(PagesTitlesRessources.LogOn, "LogOn") |
+    @Html.ActionLink(PagesTitlesRessources.EditProfile, "EditProfile") |
+    @Html.ActionLink(PagesTitlesRessources.LogOut, "LogOut")
 </div>
 
 <h1>@ViewBag.Title</h1>
 
-<p>
-    Vous êtes à présent connecté au portail. Vous avez désormais accès aux sections auxquelles vous pouvez gérer les informations.
-</p>
 
 
 <div class="col-xs-6 col-sm-4">
-    <h2>News</h2>
+    <h2>@ContentRessources.News</h2>
     <ul>
         <li>
-            @Html.ActionLink("Rédiger un nouvel article", "Create", "News")
+            @Html.ActionLink(PagesTitlesRessources.News_Create, "Manage", "News")
         </li>
         <li>
-            @Html.ActionLink("Liste des articles", "Index", "News")
+            @Html.ActionLink(PagesTitlesRessources.Home, "Index", "News")
         </li>
     </ul>
 </div>
 
 <div class="col-xs-6 col-sm-4">
-    <h2>Diaporama du site</h2>
+    <h2>@ContentRessources.Slideshow</h2>
     <ul>
         <li>
-            @Html.ActionLink("Annoncer un nouveau message", "Create", "Publicites")
+            @Html.ActionLink(PagesTitlesRessources.Slideshow, "Manage", "Slideshow")
         </li>
         <li>
-            @Html.ActionLink("Liste des messages du diaporama", "Index", "Publicites")
+            @Html.ActionLink(PagesTitlesRessources.Slideshow_Create, "Index", "Slideshow")
         </li>
     </ul>
 </div>
 
 <div class="col-xs-6 col-sm-4">
-    <h2>Conférences</h2>
+    <h2>@ContentRessources.Conferences</h2>
     <ul>
         <li>
-            @Html.ActionLink("Organiser une nouvelle conférence", "Create", "Conferences")
+            @Html.ActionLink(PagesTitlesRessources.Conferences_Create, "Manage", "Conferences")
         </li>
         <li>
-            @Html.ActionLink("Liste des conférences", "Index", "Conferences")
+            @Html.ActionLink(PagesTitlesRessources.Conferences, "Index", "Conferences")
         </li>
     </ul>
 </div>
 
 <div class="col-xs-6 col-sm-4">
-    <h2>Projets</h2>
+    <h2>@ContentRessources.Projects</h2>
     <ul>
         <li>
-            @Html.ActionLink("Lancer un nouveau projet", "Create", "Projets")
+            @Html.ActionLink(PagesTitlesRessources.Projects_Create, "Manage", "Projects")
         </li>
         <li>
-            @Html.ActionLink("Liste des projets", "Index", "Projets")
+            @Html.ActionLink(PagesTitlesRessources.Projects, "Index", "Projects")
         </li>
     </ul>
 </div>
 
 <div class="col-xs-6 col-sm-4">
-    <h2>Salons</h2>
+    <h2>@ContentRessources.Shows</h2>
     <ul>
         <li>
-            @Html.ActionLink("Annoncer un nouveau salon", "Create", "Salons")
+            @Html.ActionLink(PagesTitlesRessources.Shows_Create, "Manage", "Shows")
         </li>
         <li>
-            @Html.ActionLink("Liste des salons", "Index", "Salons")
+            @Html.ActionLink(PagesTitlesRessources.Shows, "Index", "Shows")
         </li>
     </ul>
 </div>
 
 <div class="col-xs-6 col-sm-4">
-    <h2>Liens du site</h2>
+    <h2>@ContentRessources.Links</h2>
     <ul>
         <li>
-            @Html.ActionLink("Ajouter un nouveau lien", "Create", "Liens")
+            @Html.ActionLink(PagesTitlesRessources.Links_Create, "Manage", "Links")
         </li>
         <li>
-            @Html.ActionLink("Liste des liens du site", "Index", "Liens")
+            @Html.ActionLink(PagesTitlesRessources.Links, "Index", "Links")
         </li>
     </ul>
 </div>
 
 <div class="col-xs-6 col-sm-4">
-    <h2>Membres</h2>
+    <h2>@ContentRessources.Members</h2>
     <ul>
         <li>
-            @Html.ActionLink("Valider les nouvelles inscriptions", "Valid", "Membres")
+            @Html.ActionLink(PagesTitlesRessources.Members_Valid, "Valid", "Members")
         </li>
         <li>
-            @Html.ActionLink("Entrer un nouveau membre", "Create", "Membres")
+            @Html.ActionLink(PagesTitlesRessources.Members_Create, "Manage", "Members")
         </li>
         <li>
-            @Html.ActionLink("Liste des membres", "Index", "Membres")
+            @Html.ActionLink(PagesTitlesRessources.Members, "Index", "Members")
         </li>
     </ul>
 </div>
 
 <div class="col-xs-6 col-sm-4">
-    <h2>Autres</h2>
+    <h2>@ContentRessources.Others</h2>
     <ul>
         <li>
-            @Html.ActionLink("Accéder aux promos", "Index", "Classes")
+            @Html.ActionLink(PagesTitlesRessources.Promotions, "Index", "Promotions")
         </li>
         <li>
-            @Html.ActionLink("Accéder aux campus", "Index", "Villes")
+            @Html.ActionLink(PagesTitlesRessources.Campuses, "Index", "Campuses")
         </li>
     </ul>
 </div>

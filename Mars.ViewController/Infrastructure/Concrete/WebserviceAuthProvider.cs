@@ -36,9 +36,9 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
         {
             if (_membreManager.Exists(login.Username, login.PasswordCrypted))
             {
-                Membre membreConnecte = _membreManager.Login(login.Username, login.PasswordCrypted);
+                Member memberConnected = _membreManager.Login(login.Username, login.PasswordCrypted);
 
-                if (membreConnecte != null)
+                if (memberConnected != null)
                 {
                     LoginViewModel = login;
                     return true;

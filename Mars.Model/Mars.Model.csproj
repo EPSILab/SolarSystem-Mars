@@ -52,25 +52,22 @@
     <Compile Include="Interfaces\IReader.cs" />
     <Compile Include="Interfaces\IReaderFilters.cs" />
     <Compile Include="Interfaces\IReaderLimit.cs" />
+    <Compile Include="CampusModel.cs" />
+    <Compile Include="SalonModel.cs" />
     <Compile Include="Service References\ManagersService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="VilleModel.cs" />
-    <Compile Include="SalonModel.cs" />
-    <Compile Include="PubliciteModel.cs" />
-    <Compile Include="ProjetModel.cs" />
-    <Compile Include="LienModel.cs" />
+    <Compile Include="SlideModel.cs" />
+    <Compile Include="ProjectModel.cs" />
+    <Compile Include="LinkModel.cs" />
     <Compile Include="ConferenceModel.cs" />
     <Compile Include="Interfaces\ILogin.cs" />
-    <Compile Include="ClasseModel.cs" />
-    <Compile Include="MembreModel.cs" />
+    <Compile Include="PromotionModel.cs" />
+    <Compile Include="MemberModel.cs" />
     <Compile Include="NewsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -85,33 +82,36 @@
     <None Include="Service References\ManagersService\ManagersService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Classe.datasource">
+    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Campus.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Conference.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Lien.datasource">
+    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Link.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Membre.datasource">
+    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Member.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.News.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Projet.datasource">
+    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Project.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Publicite.datasource">
+    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Promotion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Salon.datasource">
+    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Show.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Ville.datasource">
+    <None Include="Service References\ManagersService\SolarSystem.Mars.Model.ManagersService.Slide.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ManagersService\" />

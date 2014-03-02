@@ -131,17 +131,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Controllers\ClassesController.cs" />
+    <Compile Include="Controllers\CampusesController.cs" />
     <Compile Include="Controllers\ConferencesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LiensController.cs" />
+    <Compile Include="Controllers\LinksController.cs" />
     <Compile Include="Controllers\MarsControllerBase.cs" />
-    <Compile Include="Controllers\MembresController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Controllers\ProjetsController.cs" />
-    <Compile Include="Controllers\PublicitesController.cs" />
-    <Compile Include="Controllers\SalonsController.cs" />
-    <Compile Include="Controllers\VillesController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\PromotionsController.cs" />
+    <Compile Include="Controllers\ShowsController.cs" />
+    <Compile Include="Controllers\SlideshowController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,21 +151,32 @@
     <Compile Include="Infrastructure\Concrete\WebserviceAuthorizeAttribute.cs" />
     <Compile Include="Infrastructure\Concrete\WebserviceAuthProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\DefaultSelectionMessages.Designer.cs">
+    <Compile Include="Resources\DefaultSelectionMessagesRessources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DefaultSelectionMessages.resx</DependentUpon>
+      <DependentUpon>DefaultSelectionMessagesRessources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\ErrorMessages.Designer.cs">
+    <Compile Include="Resources\ErrorRessources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ErrorMessages.resx</DependentUpon>
+      <DependentUpon>ErrorRessources.resx</DependentUpon>
     </Compile>
     <Compile Include="Helpers\MD5Hasher.cs" />
     <Compile Include="Helpers\PasswordEncoderHelper.cs" />
+    <Compile Include="Resources\ContentRessources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContentRessources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\PagesTitlesRessources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PagesTitlesRessources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
-    <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\MemberViewModel.cs" />
+    <Compile Include="ViewModels\CRUDViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -175,11 +186,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\CHANGES.html" />
     <Content Include="Scripts\ckeditor\ckeditor.asp" />
@@ -553,56 +564,29 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\LogOn.cshtml" />
-    <Content Include="Views\Membres\Index.cshtml" />
-    <Content Include="Views\Membres\Details.cshtml" />
-    <Content Include="Views\Membres\Create.cshtml" />
-    <Content Include="Views\Membres\Edit.cshtml" />
-    <Content Include="Views\Membres\Delete.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\Members\Manage.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\News\Details.cshtml" />
-    <Content Include="Views\News\Create.cshtml" />
-    <Content Include="Views\News\Edit.cshtml" />
-    <Content Include="Views\News\Delete.cshtml" />
-    <Content Include="Views\Classes\Index.cshtml" />
-    <Content Include="Views\Classes\Details.cshtml" />
-    <Content Include="Views\Classes\Create.cshtml" />
-    <Content Include="Views\Classes\Edit.cshtml" />
-    <Content Include="Views\Classes\Delete.cshtml" />
+    <Content Include="Views\News\Manage.cshtml" />
+    <Content Include="Views\Promotions\Index.cshtml" />
+    <Content Include="Views\Promotions\Manage.cshtml" />
     <Content Include="Views\Conferences\Index.cshtml" />
-    <Content Include="Views\Conferences\Details.cshtml" />
-    <Content Include="Views\Conferences\Create.cshtml" />
-    <Content Include="Views\Conferences\Edit.cshtml" />
-    <Content Include="Views\Conferences\Delete.cshtml" />
-    <Content Include="Views\Liens\Index.cshtml" />
-    <Content Include="Views\Liens\Details.cshtml" />
-    <Content Include="Views\Liens\Create.cshtml" />
-    <Content Include="Views\Liens\Edit.cshtml" />
-    <Content Include="Views\Liens\Delete.cshtml" />
-    <Content Include="Views\Projets\Index.cshtml" />
-    <Content Include="Views\Projets\Details.cshtml" />
-    <Content Include="Views\Projets\Create.cshtml" />
-    <Content Include="Views\Projets\Edit.cshtml" />
-    <Content Include="Views\Projets\Delete.cshtml" />
-    <Content Include="Views\Publicites\Index.cshtml" />
-    <Content Include="Views\Publicites\Details.cshtml" />
-    <Content Include="Views\Publicites\Create.cshtml" />
-    <Content Include="Views\Publicites\Edit.cshtml" />
-    <Content Include="Views\Publicites\Delete.cshtml" />
-    <Content Include="Views\Salons\Index.cshtml" />
-    <Content Include="Views\Salons\Details.cshtml" />
-    <Content Include="Views\Salons\Create.cshtml" />
-    <Content Include="Views\Salons\Edit.cshtml" />
-    <Content Include="Views\Salons\Delete.cshtml" />
-    <Content Include="Views\Villes\Index.cshtml" />
-    <Content Include="Views\Villes\Details.cshtml" />
-    <Content Include="Views\Villes\Create.cshtml" />
-    <Content Include="Views\Villes\Edit.cshtml" />
-    <Content Include="Views\Villes\Delete.cshtml" />
+    <Content Include="Views\Conferences\Manage.cshtml" />
+    <Content Include="Views\Links\Index.cshtml" />
+    <Content Include="Views\Links\Manage.cshtml" />
+    <Content Include="Views\Projects\Index.cshtml" />
+    <Content Include="Views\Projects\Manage.cshtml" />
+    <Content Include="Views\SlideShow\Index.cshtml" />
+    <Content Include="Views\SlideShow\Manage.cshtml" />
+    <Content Include="Views\Shows\Index.cshtml" />
+    <Content Include="Views\Shows\Manage.cshtml" />
+    <Content Include="Views\Campuses\Index.cshtml" />
+    <Content Include="Views\Campuses\Manage.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\EditProfile.cshtml" />
-    <Content Include="Views\Membres\Valid.cshtml" />
+    <Content Include="Views\Members\Valid.cshtml" />
     <Content Include="Views\Home\LostPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -612,22 +596,32 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\Mars.Common\Mars.Common.csproj">
+      <Project>{05c087cd-18da-46eb-99a7-3d0316fe6e9c}</Project>
+      <Name>Mars.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mars.Model\Mars.Model.csproj">
       <Project>{1a0cca01-6f5e-4aec-a770-73b435b70b86}</Project>
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\DefaultSelectionMessages.resx">
+    <EmbeddedResource Include="Resources\DefaultSelectionMessagesRessources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DefaultSelectionMessages.Designer.cs</LastGenOutput>
+      <LastGenOutput>DefaultSelectionMessagesRessources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\ErrorMessages.resx">
+    <EmbeddedResource Include="Resources\ErrorRessources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+      <LastGenOutput>ErrorRessources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ContentRessources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContentRessources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PagesTitlesRessources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PagesTitlesRessources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

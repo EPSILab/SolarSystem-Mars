@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AuthentificationInformations" xml:space="preserve">
+    <value>Informations d'authentification</value>
+  </data>
+  <data name="CityFrom" xml:space="preserve">
+    <value>Provenance</value>
+  </data>
+  <data name="Conferences" xml:space="preserve">
+    <value>Conférences</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmation du mot de passe</value>
+  </data>
+  <data name="ConnectedAs" xml:space="preserve">
+    <value>Connecté en tant que: &lt;strong&gt;{0}&lt;/strong&gt; &lt;strong&gt;{1}&lt;/strong</value>
+  </data>
+  <data name="Connection" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="ContactInformations" xml:space="preserve">
+    <value>Informations de contact</value>
+  </data>
+  <data name="EPSIEmail" xml:space="preserve">
+    <value>Email EPSI</value>
+  </data>
+  <data name="EPSIEmail_PlaceHorder" xml:space="preserve">
+    <value>xyz@epsi.fr</value>
+  </data>
+  <data name="EPSIInformations" xml:space="preserve">
+    <value>Informations relatives à l'EPSI</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>Page Facebook</value>
+  </data>
+  <data name="Facebook_PlaceHolder" xml:space="preserve">
+    <value>http://www.facebook.com/</value>
+  </data>
+  <data name="Facebook_Recommandation" xml:space="preserve">
+    <value>N'oubliez pas le &lt;em&gt;http://www.facebook.com/&lt;/em&gt;</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>Page GitHub</value>
+  </data>
+  <data name="GitHub_PlaceHolder" xml:space="preserve">
+    <value>http://www.github.com/</value>
+  </data>
+  <data name="GitHub_Recommandation" xml:space="preserve">
+    <value>N'oubliez pas le &lt;em&gt;http://www.github.com/&lt;/em&gt;</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="LinkedIn" xml:space="preserve">
+    <value>Page LinkedIn</value>
+  </data>
+  <data name="LinkedIn_PlaceHolder" xml:space="preserve">
+    <value>http://fr.linkedin.com/</value>
+  </data>
+  <data name="LinkedIn_Recommandation" xml:space="preserve">
+    <value>N'oubliez pas le &lt;em&gt;http://*.linkedin.com/&lt;/em&gt;</value>
+  </data>
+  <data name="Links" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="LogOn_Connected" xml:space="preserve">
+    <value>Vous êtes à présent connecté au portail. Vous avez désormais accès aux sections auxquelles vous pouvez gérer les informations.</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>Articles</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>Autres</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="PersonalEmail" xml:space="preserve">
+    <value>Email personnel</value>
+  </data>
+  <data name="PersonalEmail_PlaceHolder" xml:space="preserve">
+    <value>xyz@outlook.com</value>
+  </data>
+  <data name="PersonalInformations" xml:space="preserve">
+    <value>Informations personnelles</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
+  <data name="PhoneNumber_PlaceHolder" xml:space="preserve">
+    <value>0102030405</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="Shows" xml:space="preserve">
+    <value>Shows</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Diaporama du site</value>
+  </data>
+  <data name="SocialInformations" xml:space="preserve">
+    <value>Faîtes-vous connaître !</value>
+  </data>
+  <data name="Twitter" xml:space="preserve">
+    <value>Page Twitter</value>
+  </data>
+  <data name="Twitter_PlaceHolder" xml:space="preserve">
+    <value>http://www.twitter.com/</value>
+  </data>
+  <data name="Twitter_Recommandation" xml:space="preserve">
+    <value>N'oubliez pas le &lt;em&gt;http://www.twitter.com/&lt;/em&gt;</value>
+  </data>
+  <data name="EPSILabUrl" xml:space="preserve">
+    <value>http://www.epsilab.net</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nom utilisateur</value>
+  </data>
+  <data name="ValidAccountRequest" xml:space="preserve">
+    <value>Valider la demande de création de compte</value>
+  </data>
+  <data name="Viadeo" xml:space="preserve">
+    <value>Page Viadeo</value>
+  </data>
+  <data name="Viadeo_PlaceHolder" xml:space="preserve">
+    <value>http://www.viadeo.com/</value>
+  </data>
+  <data name="Viadeo_Recommandation" xml:space="preserve">
+    <value>N'oubliez pas le &lt;em&gt;http://www.viadeo.com/&lt;/em&gt;</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Site web</value>
+  </data>
+  <data name="Website_PlaceHolder" xml:space="preserve">
+    <value>http://</value>
+  </data>
+  <data name="Website_Recommandation" xml:space="preserve">
+    <value>N'oubliez pas le &lt;em&gt;http://&lt;/em&gt;</value>
+  </data>
+  <data name="WelcomeText" xml:space="preserve">
+    <value>Bienvenue sur le portail d'administration de l'association &lt;strong&gt;EPSILab&lt;/strong&gt;. Pour accéder aux paramètres, veuillez vous connecter avec votre &lt;strong&gt;nom utilisateur&lt;/strong&gt; et votre &lt;strong&gt;mot de passe&lt;/strong&gt;.</value>
+  </data>
+  <data name="WelcomeText2" xml:space="preserve">
+    <value>Si vous ne possédez pas de compte, vous pouvez en faire la demande en cliquant sur &lt;strong&gt;Demander la création d'un compte&lt;/strong&gt;.</value>
+  </data>
+</root>

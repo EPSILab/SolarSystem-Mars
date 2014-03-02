@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Ninject;
-using SolarSystem.Mars.Model;
+﻿using System;
 using SolarSystem.Mars.Model.Interfaces;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Helpers;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
+using SolarSystem.Mars.ViewController.Resources;
 using SolarSystem.Mars.ViewController.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace SolarSystem.Mars.ViewController.Controllers
@@ -16,20 +16,31 @@ namespace SolarSystem.Mars.ViewController.Controllers
     {
         #region Constructor
 
-        public HomeController(ILogin model, IAvailable<Classe> modelClasse, IReader<Ville> modelVille)
+        public HomeController(ILogin model, IAvailable<Promotion> modelPromotion, IReader<Campus> modelCampus)
         {
             _model = model;
-            _modelClasse = modelClasse;
-            _modelVille = modelVille;
+            _modelPromotions = modelPromotion;
+            _modelCampuses = modelCampus;
         }
 
         #endregion
 
         #region Attributes
 
+        /// <summary>
+        /// Main model
+        /// </summary>
         private readonly ILogin _model;
-        private readonly IAvailable<Classe> _modelClasse;
-        private readonly IReader<Ville> _modelVille;
+
+        /// <summary>
+        /// Model for promotions
+        /// </summary>
+        private readonly IAvailable<Promotion> _modelPromotions;
+
+        /// <summary>
+        /// Model for campuses
+        /// </summary>
+        private readonly IReader<Campus> _modelCampuses;
 
         #endregion
 
@@ -52,7 +63,8 @@ namespace SolarSystem.Mars.ViewController.Controllers
         [WebserviceAuthorize]
         public ViewResult LogOn()
         {
-            Membre userConnected = _model.Login(AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
+            LoginViewModel vm = AuthProvider.LoginViewModel;
+            Member userConnected = _model.Login(vm.Username, vm.PasswordCrypted);
             return View(userConnected);
         }
 
@@ -72,62 +84,75 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <summary>
         ///  GET : /Home/Register
         /// </summary>
-        
+
         public ActionResult Register()
         {
-            ViewBag.Classes = _modelClasse.GetAvailables();
-            ViewBag.Villes = _modelVille.Get();
+            // Get promotions and campuses for register
+            ViewBag.Promotions = _modelPromotions.GetAvailables();
+            ViewBag.Campuses = _modelCampuses.Get();
 
-            var vm = new RegisterViewModel();
+            MemberViewModel vm = new MemberViewModel();
             return View(vm);
         }
 
         /// <summary>
         /// POST : /Home/Register
         /// </summary>
-        /// <param name="viewModel">Contains all informations about the new user</param>
+        /// <param name="vm">Contains all informations about the new user</param>
+        /// <param name="file">Member avatar uploaded</param>
         [HttpPost]
-        public ActionResult Register(RegisterViewModel viewModel)
+        public ActionResult Register(MemberViewModel vm, HttpPostedFileBase file)
         {
-            IEnumerable<Classe> classes = _modelClasse.GetAvailables();
-            IEnumerable<Ville> villes = _modelVille.Get();
+            // Get promotions and campuses
+            IEnumerable<Promotion> promotions = _modelPromotions.GetAvailables();
+            IEnumerable<Campus> campuses = _modelCampuses.Get();
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                ViewBag.Classes = classes;
-                ViewBag.Villes = villes;
-
-                return View();
-            }
-            else
-            {
-                var membre = new Membre
+                Member member = new Member
                 {
-                    Classe = classes.First(c => c.Code_Classe == viewModel.Code_Classe),
-                    Email_EPSI = viewModel.EmailEPSI,
-                    Email_perso = viewModel.EmailPerso,
-                    Mot_de_passe = PasswordEncoderHelper.Encode(viewModel.Password),
-                    Motivations = viewModel.Motivations,
-                    Nom = viewModel.Surname,
-                    Prenom = viewModel.FirstName,
-                    Presentation = viewModel.Presentation,
-                    Pseudo = viewModel.Username,
-                    Site_web = viewModel.WebsiteUrl,
-                    Telephone_mobile = viewModel.PhoneNumber,
-                    URL_Facebook = viewModel.FacebookUrl,
-                    URL_LinkedIn = viewModel.LinkedInUrl,
-                    URL_Twitter = viewModel.TwitterUrl,
-                    URL_Viadeo = viewModel.ViadeoUrl,
-                    Ville = villes.First(v => v.Code_Ville == viewModel.Code_Ville),
-                    Ville_origine = viewModel.City
+                    Campus = campuses.First(v => v.Id == vm.IdCampus),
+                    CityFrom = vm.CityFrom,
+                    EPSIEmail = vm.EPSIEmail,
+                    FacebookUrl = vm.FacebookUrl,
+                    FirstName = vm.FirstName,
+                    GitHubUrl = vm.GitHubUrl,
+                    LastName = vm.LastName,
+                    LinkedInUrl = vm.LinkedInUrl,
+                    PersonalEmail = vm.PersonalEmail,
+                    PhoneNumber = vm.PhoneNumber,
+                    Presentation = vm.Presentation,
+                    Promotion = promotions.First(c => c.Id == vm.IdPromotion),
+                    TwitterUrl = vm.TwitterUrl,
+                    ViadeoUrl = vm.ViadeoUrl,
+                    Username = vm.Username,
+                    Website = vm.Website
                 };
 
-                //membre.Image
+                // Image management
+                string imagePath = string.Format("{0}/Images/Members/{1}", ContentRessources.EPSILabUrl, file.FileName);
+                file.SaveAs(imagePath);
+                member.ImageUrl = imagePath;
 
-                _model.Register(membre);
+                // Password
+                string password = PasswordEncoderHelper.Encode(vm.Password);
 
-                return Redirect(Url.Action("Index")); 
+                try
+                {
+                    _model.Register(member, password);
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Exception = ex.Message;
+                    return View(vm);
+                }
+
+                return Redirect(Url.Action("Index"));
             }
+
+            ViewBag.Promotions = promotions;
+            ViewBag.Campuses = campuses;
+            return View(vm);
         }
 
         /// <summary>

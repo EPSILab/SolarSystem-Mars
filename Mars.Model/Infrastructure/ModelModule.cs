@@ -13,18 +13,18 @@ namespace SolarSystem.Mars.Model.Infrastructure
         public override void Load()
         {
             // Model Injections
-            Bind<IReader<Classe>>().To<ClasseModel>().InSingletonScope();
-            Bind<IAvailable<Classe>>().To<ClasseModel>().InSingletonScope();
+            Bind<IReader<Promotion>>().To<PromotionModel>().InSingletonScope();
+            Bind<IAvailable<Promotion>>().To<PromotionModel>().InSingletonScope();
             Bind<IReaderLimit<Conference>>().To<ConferenceModel>().InSingletonScope();
-            Bind<IReader<Lien>>().To<LienModel>().InSingletonScope();
-            Bind<IReaderFilters<Membre, Ville>>().To<MembreModel>().InSingletonScope();
-            Bind<IReader<Membre>>().To<MembreModel>().InSingletonScope();
-            Bind<ILogin>().To<MembreModel>().InSingletonScope();
+            Bind<IReader<Link>>().To<LinkModel>().InSingletonScope();
+            Bind<IReaderFilters<Member, Campus>>().To<MemberModel>().InSingletonScope();
+            Bind<IReader<Member>>().To<MemberModel>().InSingletonScope();
+            Bind<ILogin>().To<MemberModel>().InSingletonScope();
             Bind<IReaderLimit<News>>().To<NewsModel>().InSingletonScope();
-            Bind<IReaderLimit<Projet>>().To<ProjetModel>().InSingletonScope();
-            Bind<IReader<Publicite>>().To<PubliciteModel>().InSingletonScope();
-            Bind<IReaderLimit<Salon>>().To<SalonModel>().InSingletonScope();
-            Bind<IReader<Ville>>().To<VilleModel>().InSingletonScope();
+            Bind<IReaderLimit<Project>>().To<ProjectModel>().InSingletonScope();
+            Bind<IReader<Slide>>().To<SlideModel>().InSingletonScope();
+            Bind<IReaderLimit<Show>>().To<ShowModel>().InSingletonScope();
+            Bind<IReader<Campus>>().To<CampusModel>().InSingletonScope();
         }
     }
 }

@@ -2,46 +2,46 @@
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ManagersService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://epsilab.net/webservices/ManagersService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://epsilab.net/webservices/ManagersService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://epsilab.net/webservices/ManagersService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SolarSystem.Earth.Common" />
+      <xsd:import schemaLocation="http://www.epsilab.net/webservices/ManagersService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://www.epsilab.net/webservices/ManagersService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://www.epsilab.net/webservices/ManagersService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IClasseManager_GetClasse_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetClasse" />
+  <wsdl:message name="IPromotionManager_GetPromotion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPromotion" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_GetClasse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetClasseResponse" />
+  <wsdl:message name="IPromotionManager_GetPromotion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPromotionResponse" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_GetClasses_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetClasses" />
+  <wsdl:message name="IPromotionManager_GetPromotions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPromotions" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_GetClasses_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetClassesResponse" />
+  <wsdl:message name="IPromotionManager_GetPromotions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPromotionsResponse" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_GetClassesAvailables_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetClassesAvailables" />
+  <wsdl:message name="IPromotionManager_GetPromotionsAvailables_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPromotionsAvailables" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_GetClassesAvailables_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetClassesAvailablesResponse" />
+  <wsdl:message name="IPromotionManager_GetPromotionsAvailables_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPromotionsAvailablesResponse" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_AddClasse_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddClasse" />
+  <wsdl:message name="IPromotionManager_AddPromotion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPromotion" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_AddClasse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddClasseResponse" />
+  <wsdl:message name="IPromotionManager_AddPromotion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPromotionResponse" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_EditClasse_InputMessage">
-    <wsdl:part name="parameters" element="tns:EditClasse" />
+  <wsdl:message name="IPromotionManager_EditPromotion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditPromotion" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_EditClasse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EditClasseResponse" />
+  <wsdl:message name="IPromotionManager_EditPromotion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditPromotionResponse" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_DeleteClasse_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteClasse" />
+  <wsdl:message name="IPromotionManager_DeletePromotion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePromotion" />
   </wsdl:message>
-  <wsdl:message name="IClasseManager_DeleteClasse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteClasseResponse" />
+  <wsdl:message name="IPromotionManager_DeletePromotion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePromotionResponse" />
   </wsdl:message>
   <wsdl:message name="IConferenceManager_GetConference_InputMessage">
     <wsdl:part name="parameters" element="tns:GetConference" />
@@ -73,131 +73,131 @@
   <wsdl:message name="IConferenceManager_DeleteConference_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteConferenceResponse" />
   </wsdl:message>
-  <wsdl:message name="ILienManager_GetLien_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetLien" />
+  <wsdl:message name="ILinkManager_GetLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLink" />
   </wsdl:message>
-  <wsdl:message name="ILienManager_GetLien_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetLienResponse" />
+  <wsdl:message name="ILinkManager_GetLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkResponse" />
   </wsdl:message>
-  <wsdl:message name="ILienManager_GetLiens_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetLiens" />
+  <wsdl:message name="ILinkManager_GetLinks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinks" />
   </wsdl:message>
-  <wsdl:message name="ILienManager_GetLiens_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetLiensResponse" />
+  <wsdl:message name="ILinkManager_GetLinks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinksResponse" />
   </wsdl:message>
-  <wsdl:message name="ILienManager_AddLien_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddLien" />
+  <wsdl:message name="ILinkManager_AddLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLink" />
   </wsdl:message>
-  <wsdl:message name="ILienManager_AddLien_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddLienResponse" />
+  <wsdl:message name="ILinkManager_AddLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLinkResponse" />
   </wsdl:message>
-  <wsdl:message name="ILienManager_EditLien_InputMessage">
-    <wsdl:part name="parameters" element="tns:EditLien" />
+  <wsdl:message name="ILinkManager_EditLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditLink" />
   </wsdl:message>
-  <wsdl:message name="ILienManager_EditLien_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EditLienResponse" />
+  <wsdl:message name="ILinkManager_EditLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditLinkResponse" />
   </wsdl:message>
-  <wsdl:message name="ILienManager_DeleteLien_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteLien" />
+  <wsdl:message name="ILinkManager_DeleteLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLink" />
   </wsdl:message>
-  <wsdl:message name="ILienManager_DeleteLien_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteLienResponse" />
+  <wsdl:message name="ILinkManager_DeleteLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLinkResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembre_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembre" />
+  <wsdl:message name="IMemberManager_GetMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMember" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembre_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembreResponse" />
+  <wsdl:message name="IMemberManager_GetMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembresActives_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembresActives" />
+  <wsdl:message name="IMemberManager_GetMembersActives_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersActives" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembresActives_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembresActivesResponse" />
+  <wsdl:message name="IMemberManager_GetMembersActives_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersActivesResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembresBureau_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembresBureau" />
+  <wsdl:message name="IMemberManager_GetMembersBureau_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersBureau" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembresBureau_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembresBureauResponse" />
+  <wsdl:message name="IMemberManager_GetMembersBureau_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersBureauResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembresNotInBureau_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembresNotInBureau" />
+  <wsdl:message name="IMemberManager_GetMembersNotInBureau_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersNotInBureau" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembresNotInBureau_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembresNotInBureauResponse" />
+  <wsdl:message name="IMemberManager_GetMembersNotInBureau_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersNotInBureauResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembresAlumnis_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembresAlumnis" />
+  <wsdl:message name="IMemberManager_GetMembersAlumnis_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersAlumnis" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembresAlumnis_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembresAlumnisResponse" />
+  <wsdl:message name="IMemberManager_GetMembersAlumnis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersAlumnisResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembresWaitingForValidation_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembresWaitingForValidation" />
+  <wsdl:message name="IMemberManager_GetMembersWaitingForValidation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersWaitingForValidation" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_GetMembresWaitingForValidation_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMembresWaitingForValidationResponse" />
+  <wsdl:message name="IMemberManager_GetMembersWaitingForValidation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersWaitingForValidationResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_Login_InputMessage">
+  <wsdl:message name="IMemberManager_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_Login_OutputMessage">
+  <wsdl:message name="IMemberManager_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_ChangePassword_InputMessage">
+  <wsdl:message name="IMemberManager_ChangePassword_InputMessage">
     <wsdl:part name="parameters" element="tns:ChangePassword" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_ChangePassword_OutputMessage">
+  <wsdl:message name="IMemberManager_ChangePassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_ExistsUsername_InputMessage">
+  <wsdl:message name="IMemberManager_ExistsUsername_InputMessage">
     <wsdl:part name="parameters" element="tns:ExistsUsername" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_ExistsUsername_OutputMessage">
+  <wsdl:message name="IMemberManager_ExistsUsername_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExistsUsernameResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_ExistsMembre_InputMessage">
-    <wsdl:part name="parameters" element="tns:ExistsMembre" />
+  <wsdl:message name="IMemberManager_ExistsMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExistsMember" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_ExistsMembre_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ExistsMembreResponse" />
+  <wsdl:message name="IMemberManager_ExistsMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExistsMemberResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_Register_InputMessage">
+  <wsdl:message name="IMemberManager_Register_InputMessage">
     <wsdl:part name="parameters" element="tns:Register" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_Register_OutputMessage">
+  <wsdl:message name="IMemberManager_Register_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegisterResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_RequestLostPassword_InputMessage">
+  <wsdl:message name="IMemberManager_RequestLostPassword_InputMessage">
     <wsdl:part name="parameters" element="tns:RequestLostPassword" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_RequestLostPassword_OutputMessage">
+  <wsdl:message name="IMemberManager_RequestLostPassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:RequestLostPasswordResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_SetNewPasswordAfterLost_InputMessage">
+  <wsdl:message name="IMemberManager_SetNewPasswordAfterLost_InputMessage">
     <wsdl:part name="parameters" element="tns:SetNewPasswordAfterLost" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_SetNewPasswordAfterLost_OutputMessage">
+  <wsdl:message name="IMemberManager_SetNewPasswordAfterLost_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetNewPasswordAfterLostResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_AddMembre_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddMembre" />
+  <wsdl:message name="IMemberManager_AddMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMember" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_AddMembre_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddMembreResponse" />
+  <wsdl:message name="IMemberManager_AddMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMemberResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_EditMembre_InputMessage">
-    <wsdl:part name="parameters" element="tns:EditMembre" />
+  <wsdl:message name="IMemberManager_EditMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditMember" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_EditMembre_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EditMembreResponse" />
+  <wsdl:message name="IMemberManager_EditMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditMemberResponse" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_DeleteMembre_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteMembre" />
+  <wsdl:message name="IMemberManager_DeleteMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMember" />
   </wsdl:message>
-  <wsdl:message name="IMembreManager_DeleteMembre_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteMembreResponse" />
+  <wsdl:message name="IMemberManager_DeleteMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMemberResponse" />
   </wsdl:message>
   <wsdl:message name="INewsManager_GetNews_InputMessage">
     <wsdl:part name="parameters" element="tns:GetNews" />
@@ -235,150 +235,150 @@
   <wsdl:message name="INewsManager_DeleteNews_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteNewsResponse" />
   </wsdl:message>
-  <wsdl:message name="IProjetManager_GetProjet_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetProjet" />
+  <wsdl:message name="IProjectManager_GetProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProject" />
   </wsdl:message>
-  <wsdl:message name="IProjetManager_GetProjet_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetProjetResponse" />
+  <wsdl:message name="IProjectManager_GetProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectResponse" />
   </wsdl:message>
-  <wsdl:message name="IProjetManager_GetProjets_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetProjets" />
+  <wsdl:message name="IProjectManager_GetProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjects" />
   </wsdl:message>
-  <wsdl:message name="IProjetManager_GetProjets_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetProjetsResponse" />
+  <wsdl:message name="IProjectManager_GetProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectsResponse" />
   </wsdl:message>
-  <wsdl:message name="IProjetManager_AddProjet_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddProjet" />
+  <wsdl:message name="IProjectManager_AddProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProject" />
   </wsdl:message>
-  <wsdl:message name="IProjetManager_AddProjet_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddProjetResponse" />
+  <wsdl:message name="IProjectManager_AddProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProjectResponse" />
   </wsdl:message>
-  <wsdl:message name="IProjetManager_EditProjet_InputMessage">
-    <wsdl:part name="parameters" element="tns:EditProjet" />
+  <wsdl:message name="IProjectManager_EditProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditProject" />
   </wsdl:message>
-  <wsdl:message name="IProjetManager_EditProjet_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EditProjetResponse" />
+  <wsdl:message name="IProjectManager_EditProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditProjectResponse" />
   </wsdl:message>
-  <wsdl:message name="IProjetManager_DeleteProjet_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteProjet" />
+  <wsdl:message name="IProjectManager_DeleteProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProject" />
   </wsdl:message>
-  <wsdl:message name="IProjetManager_DeleteProjet_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteProjetResponse" />
+  <wsdl:message name="IProjectManager_DeleteProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProjectResponse" />
   </wsdl:message>
-  <wsdl:message name="IPubliciteManager_GetPublicite_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPublicite" />
+  <wsdl:message name="ISlideManager_GetSlide_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSlide" />
   </wsdl:message>
-  <wsdl:message name="IPubliciteManager_GetPublicite_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPubliciteResponse" />
+  <wsdl:message name="ISlideManager_GetSlide_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSlideResponse" />
   </wsdl:message>
-  <wsdl:message name="IPubliciteManager_GetPublicites_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPublicites" />
+  <wsdl:message name="ISlideManager_GetSlides_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSlides" />
   </wsdl:message>
-  <wsdl:message name="IPubliciteManager_GetPublicites_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPublicitesResponse" />
+  <wsdl:message name="ISlideManager_GetSlides_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSlidesResponse" />
   </wsdl:message>
-  <wsdl:message name="IPubliciteManager_AddPublicite_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddPublicite" />
+  <wsdl:message name="ISlideManager_AddSlide_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSlide" />
   </wsdl:message>
-  <wsdl:message name="IPubliciteManager_AddPublicite_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddPubliciteResponse" />
+  <wsdl:message name="ISlideManager_AddSlide_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSlideResponse" />
   </wsdl:message>
-  <wsdl:message name="IPubliciteManager_EditPublicite_InputMessage">
-    <wsdl:part name="parameters" element="tns:EditPublicite" />
+  <wsdl:message name="ISlideManager_EditSlide_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditSlide" />
   </wsdl:message>
-  <wsdl:message name="IPubliciteManager_EditPublicite_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EditPubliciteResponse" />
+  <wsdl:message name="ISlideManager_EditSlide_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditSlideResponse" />
   </wsdl:message>
-  <wsdl:message name="IPubliciteManager_DeletePublicite_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeletePublicite" />
+  <wsdl:message name="ISlideManager_DeleteSlide_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSlide" />
   </wsdl:message>
-  <wsdl:message name="IPubliciteManager_DeletePublicite_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeletePubliciteResponse" />
+  <wsdl:message name="ISlideManager_DeleteSlide_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSlideResponse" />
   </wsdl:message>
-  <wsdl:message name="ISalonManager_GetSalon_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetSalon" />
+  <wsdl:message name="IShowManager_GetShow_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShow" />
   </wsdl:message>
-  <wsdl:message name="ISalonManager_GetSalon_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetSalonResponse" />
+  <wsdl:message name="IShowManager_GetShow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShowResponse" />
   </wsdl:message>
-  <wsdl:message name="ISalonManager_GetSalons_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetSalons" />
+  <wsdl:message name="IShowManager_GetShows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShows" />
   </wsdl:message>
-  <wsdl:message name="ISalonManager_GetSalons_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetSalonsResponse" />
+  <wsdl:message name="IShowManager_GetShows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShowsResponse" />
   </wsdl:message>
-  <wsdl:message name="ISalonManager_AddSalon_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddSalon" />
+  <wsdl:message name="IShowManager_AddShow_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddShow" />
   </wsdl:message>
-  <wsdl:message name="ISalonManager_AddSalon_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddSalonResponse" />
+  <wsdl:message name="IShowManager_AddShow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddShowResponse" />
   </wsdl:message>
-  <wsdl:message name="ISalonManager_EditSalon_InputMessage">
-    <wsdl:part name="parameters" element="tns:EditSalon" />
+  <wsdl:message name="IShowManager_EditShow_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditShow" />
   </wsdl:message>
-  <wsdl:message name="ISalonManager_EditSalon_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EditSalonResponse" />
+  <wsdl:message name="IShowManager_EditShow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditShowResponse" />
   </wsdl:message>
-  <wsdl:message name="ISalonManager_DeleteSalon_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteSalon" />
+  <wsdl:message name="IShowManager_DeleteShow_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShow" />
   </wsdl:message>
-  <wsdl:message name="ISalonManager_DeleteSalon_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteSalonResponse" />
+  <wsdl:message name="IShowManager_DeleteShow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShowResponse" />
   </wsdl:message>
-  <wsdl:message name="IVilleManager_GetVille_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetVille" />
+  <wsdl:message name="ICampusManager_GetCampus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampus" />
   </wsdl:message>
-  <wsdl:message name="IVilleManager_GetVille_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetVilleResponse" />
+  <wsdl:message name="ICampusManager_GetCampus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampusResponse" />
   </wsdl:message>
-  <wsdl:message name="IVilleManager_GetVilles_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetVilles" />
+  <wsdl:message name="ICampusManager_GetCampuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampuses" />
   </wsdl:message>
-  <wsdl:message name="IVilleManager_GetVilles_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetVillesResponse" />
+  <wsdl:message name="ICampusManager_GetCampuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampusesResponse" />
   </wsdl:message>
-  <wsdl:message name="IVilleManager_AddVille_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddVille" />
+  <wsdl:message name="ICampusManager_AddCampus_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCampus" />
   </wsdl:message>
-  <wsdl:message name="IVilleManager_AddVille_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddVilleResponse" />
+  <wsdl:message name="ICampusManager_AddCampus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCampusResponse" />
   </wsdl:message>
-  <wsdl:message name="IVilleManager_EditVille_InputMessage">
-    <wsdl:part name="parameters" element="tns:EditVille" />
+  <wsdl:message name="ICampusManager_EditCampus_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditCampus" />
   </wsdl:message>
-  <wsdl:message name="IVilleManager_EditVille_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EditVilleResponse" />
+  <wsdl:message name="ICampusManager_EditCampus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCampusResponse" />
   </wsdl:message>
-  <wsdl:message name="IVilleManager_DeleteVille_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteVille" />
+  <wsdl:message name="ICampusManager_DeleteCampus_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCampus" />
   </wsdl:message>
-  <wsdl:message name="IVilleManager_DeleteVille_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteVilleResponse" />
+  <wsdl:message name="ICampusManager_DeleteCampus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCampusResponse" />
   </wsdl:message>
-  <wsdl:portType name="IClasseManager">
-    <wsdl:operation name="GetClasse">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClasseManager/GetClasse" message="tns:IClasseManager_GetClasse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClasseManager/GetClasseResponse" message="tns:IClasseManager_GetClasse_OutputMessage" />
+  <wsdl:portType name="IPromotionManager">
+    <wsdl:operation name="GetPromotion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPromotionManager/GetPromotion" message="tns:IPromotionManager_GetPromotion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPromotionManager/GetPromotionResponse" message="tns:IPromotionManager_GetPromotion_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetClasses">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClasseManager/GetClasses" message="tns:IClasseManager_GetClasses_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClasseManager/GetClassesResponse" message="tns:IClasseManager_GetClasses_OutputMessage" />
+    <wsdl:operation name="GetPromotions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPromotionManager/GetPromotions" message="tns:IPromotionManager_GetPromotions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPromotionManager/GetPromotionsResponse" message="tns:IPromotionManager_GetPromotions_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetClassesAvailables">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClasseManager/GetClassesAvailables" message="tns:IClasseManager_GetClassesAvailables_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClasseManager/GetClassesAvailablesResponse" message="tns:IClasseManager_GetClassesAvailables_OutputMessage" />
+    <wsdl:operation name="GetPromotionsAvailables">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPromotionManager/GetPromotionsAvailables" message="tns:IPromotionManager_GetPromotionsAvailables_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPromotionManager/GetPromotionsAvailablesResponse" message="tns:IPromotionManager_GetPromotionsAvailables_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddClasse">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClasseManager/AddClasse" message="tns:IClasseManager_AddClasse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClasseManager/AddClasseResponse" message="tns:IClasseManager_AddClasse_OutputMessage" />
+    <wsdl:operation name="AddPromotion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPromotionManager/AddPromotion" message="tns:IPromotionManager_AddPromotion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPromotionManager/AddPromotionResponse" message="tns:IPromotionManager_AddPromotion_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="EditClasse">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClasseManager/EditClasse" message="tns:IClasseManager_EditClasse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClasseManager/EditClasseResponse" message="tns:IClasseManager_EditClasse_OutputMessage" />
+    <wsdl:operation name="EditPromotion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPromotionManager/EditPromotion" message="tns:IPromotionManager_EditPromotion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPromotionManager/EditPromotionResponse" message="tns:IPromotionManager_EditPromotion_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteClasse">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClasseManager/DeleteClasse" message="tns:IClasseManager_DeleteClasse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClasseManager/DeleteClasseResponse" message="tns:IClasseManager_DeleteClasse_OutputMessage" />
+    <wsdl:operation name="DeletePromotion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPromotionManager/DeletePromotion" message="tns:IPromotionManager_DeletePromotion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPromotionManager/DeletePromotionResponse" message="tns:IPromotionManager_DeletePromotion_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IConferenceManager">
@@ -403,92 +403,92 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IConferenceManager/DeleteConferenceResponse" message="tns:IConferenceManager_DeleteConference_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:portType name="ILienManager">
-    <wsdl:operation name="GetLien">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILienManager/GetLien" message="tns:ILienManager_GetLien_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILienManager/GetLienResponse" message="tns:ILienManager_GetLien_OutputMessage" />
+  <wsdl:portType name="ILinkManager">
+    <wsdl:operation name="GetLink">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILinkManager/GetLink" message="tns:ILinkManager_GetLink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILinkManager/GetLinkResponse" message="tns:ILinkManager_GetLink_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetLiens">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILienManager/GetLiens" message="tns:ILienManager_GetLiens_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILienManager/GetLiensResponse" message="tns:ILienManager_GetLiens_OutputMessage" />
+    <wsdl:operation name="GetLinks">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILinkManager/GetLinks" message="tns:ILinkManager_GetLinks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILinkManager/GetLinksResponse" message="tns:ILinkManager_GetLinks_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddLien">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILienManager/AddLien" message="tns:ILienManager_AddLien_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILienManager/AddLienResponse" message="tns:ILienManager_AddLien_OutputMessage" />
+    <wsdl:operation name="AddLink">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILinkManager/AddLink" message="tns:ILinkManager_AddLink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILinkManager/AddLinkResponse" message="tns:ILinkManager_AddLink_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="EditLien">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILienManager/EditLien" message="tns:ILienManager_EditLien_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILienManager/EditLienResponse" message="tns:ILienManager_EditLien_OutputMessage" />
+    <wsdl:operation name="EditLink">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILinkManager/EditLink" message="tns:ILinkManager_EditLink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILinkManager/EditLinkResponse" message="tns:ILinkManager_EditLink_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteLien">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILienManager/DeleteLien" message="tns:ILienManager_DeleteLien_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILienManager/DeleteLienResponse" message="tns:ILienManager_DeleteLien_OutputMessage" />
+    <wsdl:operation name="DeleteLink">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILinkManager/DeleteLink" message="tns:ILinkManager_DeleteLink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILinkManager/DeleteLinkResponse" message="tns:ILinkManager_DeleteLink_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:portType name="IMembreManager">
-    <wsdl:operation name="GetMembre">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/GetMembre" message="tns:IMembreManager_GetMembre_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/GetMembreResponse" message="tns:IMembreManager_GetMembre_OutputMessage" />
+  <wsdl:portType name="IMemberManager">
+    <wsdl:operation name="GetMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/GetMember" message="tns:IMemberManager_GetMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/GetMemberResponse" message="tns:IMemberManager_GetMember_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMembresActives">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/GetMembresActives" message="tns:IMembreManager_GetMembresActives_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/GetMembresActivesResponse" message="tns:IMembreManager_GetMembresActives_OutputMessage" />
+    <wsdl:operation name="GetMembersActives">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/GetMembersActives" message="tns:IMemberManager_GetMembersActives_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/GetMembersActivesResponse" message="tns:IMemberManager_GetMembersActives_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMembresBureau">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/GetMembresBureau" message="tns:IMembreManager_GetMembresBureau_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/GetMembresBureauResponse" message="tns:IMembreManager_GetMembresBureau_OutputMessage" />
+    <wsdl:operation name="GetMembersBureau">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/GetMembersBureau" message="tns:IMemberManager_GetMembersBureau_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/GetMembersBureauResponse" message="tns:IMemberManager_GetMembersBureau_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMembresNotInBureau">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/GetMembresNotInBureau" message="tns:IMembreManager_GetMembresNotInBureau_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/GetMembresNotInBureauResponse" message="tns:IMembreManager_GetMembresNotInBureau_OutputMessage" />
+    <wsdl:operation name="GetMembersNotInBureau">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/GetMembersNotInBureau" message="tns:IMemberManager_GetMembersNotInBureau_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/GetMembersNotInBureauResponse" message="tns:IMemberManager_GetMembersNotInBureau_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMembresAlumnis">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/GetMembresAlumnis" message="tns:IMembreManager_GetMembresAlumnis_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/GetMembresAlumnisResponse" message="tns:IMembreManager_GetMembresAlumnis_OutputMessage" />
+    <wsdl:operation name="GetMembersAlumnis">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/GetMembersAlumnis" message="tns:IMemberManager_GetMembersAlumnis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/GetMembersAlumnisResponse" message="tns:IMemberManager_GetMembersAlumnis_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMembresWaitingForValidation">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/GetMembresWaitingForValidation" message="tns:IMembreManager_GetMembresWaitingForValidation_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/GetMembresWaitingForValidationResponse" message="tns:IMembreManager_GetMembresWaitingForValidation_OutputMessage" />
+    <wsdl:operation name="GetMembersWaitingForValidation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/GetMembersWaitingForValidation" message="tns:IMemberManager_GetMembersWaitingForValidation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/GetMembersWaitingForValidationResponse" message="tns:IMemberManager_GetMembersWaitingForValidation_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Login">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/Login" message="tns:IMembreManager_Login_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/LoginResponse" message="tns:IMembreManager_Login_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/Login" message="tns:IMemberManager_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/LoginResponse" message="tns:IMemberManager_Login_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ChangePassword">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/ChangePassword" message="tns:IMembreManager_ChangePassword_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/ChangePasswordResponse" message="tns:IMembreManager_ChangePassword_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/ChangePassword" message="tns:IMemberManager_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/ChangePasswordResponse" message="tns:IMemberManager_ChangePassword_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ExistsUsername">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/ExistsUsername" message="tns:IMembreManager_ExistsUsername_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/ExistsUsernameResponse" message="tns:IMembreManager_ExistsUsername_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/ExistsUsername" message="tns:IMemberManager_ExistsUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/ExistsUsernameResponse" message="tns:IMemberManager_ExistsUsername_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ExistsMembre">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/ExistsMembre" message="tns:IMembreManager_ExistsMembre_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/ExistsMembreResponse" message="tns:IMembreManager_ExistsMembre_OutputMessage" />
+    <wsdl:operation name="ExistsMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/ExistsMember" message="tns:IMemberManager_ExistsMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/ExistsMemberResponse" message="tns:IMemberManager_ExistsMember_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Register">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/Register" message="tns:IMembreManager_Register_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/RegisterResponse" message="tns:IMembreManager_Register_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/Register" message="tns:IMemberManager_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/RegisterResponse" message="tns:IMemberManager_Register_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RequestLostPassword">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/RequestLostPassword" message="tns:IMembreManager_RequestLostPassword_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/RequestLostPasswordResponse" message="tns:IMembreManager_RequestLostPassword_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/RequestLostPassword" message="tns:IMemberManager_RequestLostPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/RequestLostPasswordResponse" message="tns:IMemberManager_RequestLostPassword_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SetNewPasswordAfterLost">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/SetNewPasswordAfterLost" message="tns:IMembreManager_SetNewPasswordAfterLost_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/SetNewPasswordAfterLostResponse" message="tns:IMembreManager_SetNewPasswordAfterLost_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/SetNewPasswordAfterLost" message="tns:IMemberManager_SetNewPasswordAfterLost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/SetNewPasswordAfterLostResponse" message="tns:IMemberManager_SetNewPasswordAfterLost_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddMembre">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/AddMembre" message="tns:IMembreManager_AddMembre_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/AddMembreResponse" message="tns:IMembreManager_AddMembre_OutputMessage" />
+    <wsdl:operation name="AddMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/AddMember" message="tns:IMemberManager_AddMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/AddMemberResponse" message="tns:IMemberManager_AddMember_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="EditMembre">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/EditMembre" message="tns:IMembreManager_EditMembre_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/EditMembreResponse" message="tns:IMembreManager_EditMembre_OutputMessage" />
+    <wsdl:operation name="EditMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/EditMember" message="tns:IMemberManager_EditMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/EditMemberResponse" message="tns:IMemberManager_EditMember_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteMembre">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMembreManager/DeleteMembre" message="tns:IMembreManager_DeleteMembre_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMembreManager/DeleteMembreResponse" message="tns:IMembreManager_DeleteMembre_OutputMessage" />
+    <wsdl:operation name="DeleteMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberManager/DeleteMember" message="tns:IMemberManager_DeleteMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberManager/DeleteMemberResponse" message="tns:IMemberManager_DeleteMember_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="INewsManager">
@@ -517,98 +517,98 @@
       <wsdl:output wsaw:Action="http://tempuri.org/INewsManager/DeleteNewsResponse" message="tns:INewsManager_DeleteNews_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:portType name="IProjetManager">
-    <wsdl:operation name="GetProjet">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProjetManager/GetProjet" message="tns:IProjetManager_GetProjet_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProjetManager/GetProjetResponse" message="tns:IProjetManager_GetProjet_OutputMessage" />
+  <wsdl:portType name="IProjectManager">
+    <wsdl:operation name="GetProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProjectManager/GetProject" message="tns:IProjectManager_GetProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProjectManager/GetProjectResponse" message="tns:IProjectManager_GetProject_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetProjets">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProjetManager/GetProjets" message="tns:IProjetManager_GetProjets_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProjetManager/GetProjetsResponse" message="tns:IProjetManager_GetProjets_OutputMessage" />
+    <wsdl:operation name="GetProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProjectManager/GetProjects" message="tns:IProjectManager_GetProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProjectManager/GetProjectsResponse" message="tns:IProjectManager_GetProjects_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddProjet">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProjetManager/AddProjet" message="tns:IProjetManager_AddProjet_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProjetManager/AddProjetResponse" message="tns:IProjetManager_AddProjet_OutputMessage" />
+    <wsdl:operation name="AddProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProjectManager/AddProject" message="tns:IProjectManager_AddProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProjectManager/AddProjectResponse" message="tns:IProjectManager_AddProject_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="EditProjet">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProjetManager/EditProjet" message="tns:IProjetManager_EditProjet_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProjetManager/EditProjetResponse" message="tns:IProjetManager_EditProjet_OutputMessage" />
+    <wsdl:operation name="EditProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProjectManager/EditProject" message="tns:IProjectManager_EditProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProjectManager/EditProjectResponse" message="tns:IProjectManager_EditProject_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteProjet">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProjetManager/DeleteProjet" message="tns:IProjetManager_DeleteProjet_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProjetManager/DeleteProjetResponse" message="tns:IProjetManager_DeleteProjet_OutputMessage" />
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:portType name="IPubliciteManager">
-    <wsdl:operation name="GetPublicite">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPubliciteManager/GetPublicite" message="tns:IPubliciteManager_GetPublicite_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPubliciteManager/GetPubliciteResponse" message="tns:IPubliciteManager_GetPublicite_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetPublicites">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPubliciteManager/GetPublicites" message="tns:IPubliciteManager_GetPublicites_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPubliciteManager/GetPublicitesResponse" message="tns:IPubliciteManager_GetPublicites_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddPublicite">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPubliciteManager/AddPublicite" message="tns:IPubliciteManager_AddPublicite_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPubliciteManager/AddPubliciteResponse" message="tns:IPubliciteManager_AddPublicite_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EditPublicite">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPubliciteManager/EditPublicite" message="tns:IPubliciteManager_EditPublicite_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPubliciteManager/EditPubliciteResponse" message="tns:IPubliciteManager_EditPublicite_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeletePublicite">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPubliciteManager/DeletePublicite" message="tns:IPubliciteManager_DeletePublicite_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPubliciteManager/DeletePubliciteResponse" message="tns:IPubliciteManager_DeletePublicite_OutputMessage" />
+    <wsdl:operation name="DeleteProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProjectManager/DeleteProject" message="tns:IProjectManager_DeleteProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProjectManager/DeleteProjectResponse" message="tns:IProjectManager_DeleteProject_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:portType name="ISalonManager">
-    <wsdl:operation name="GetSalon">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalonManager/GetSalon" message="tns:ISalonManager_GetSalon_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalonManager/GetSalonResponse" message="tns:ISalonManager_GetSalon_OutputMessage" />
+  <wsdl:portType name="ISlideManager">
+    <wsdl:operation name="GetSlide">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideManager/GetSlide" message="tns:ISlideManager_GetSlide_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideManager/GetSlideResponse" message="tns:ISlideManager_GetSlide_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetSalons">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalonManager/GetSalons" message="tns:ISalonManager_GetSalons_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalonManager/GetSalonsResponse" message="tns:ISalonManager_GetSalons_OutputMessage" />
+    <wsdl:operation name="GetSlides">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideManager/GetSlides" message="tns:ISlideManager_GetSlides_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideManager/GetSlidesResponse" message="tns:ISlideManager_GetSlides_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddSalon">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalonManager/AddSalon" message="tns:ISalonManager_AddSalon_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalonManager/AddSalonResponse" message="tns:ISalonManager_AddSalon_OutputMessage" />
+    <wsdl:operation name="AddSlide">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideManager/AddSlide" message="tns:ISlideManager_AddSlide_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideManager/AddSlideResponse" message="tns:ISlideManager_AddSlide_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="EditSalon">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalonManager/EditSalon" message="tns:ISalonManager_EditSalon_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalonManager/EditSalonResponse" message="tns:ISalonManager_EditSalon_OutputMessage" />
+    <wsdl:operation name="EditSlide">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideManager/EditSlide" message="tns:ISlideManager_EditSlide_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideManager/EditSlideResponse" message="tns:ISlideManager_EditSlide_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteSalon">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalonManager/DeleteSalon" message="tns:ISalonManager_DeleteSalon_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalonManager/DeleteSalonResponse" message="tns:ISalonManager_DeleteSalon_OutputMessage" />
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:portType name="IVilleManager">
-    <wsdl:operation name="GetVille">
-      <wsdl:input wsaw:Action="http://tempuri.org/IVilleManager/GetVille" message="tns:IVilleManager_GetVille_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IVilleManager/GetVilleResponse" message="tns:IVilleManager_GetVille_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetVilles">
-      <wsdl:input wsaw:Action="http://tempuri.org/IVilleManager/GetVilles" message="tns:IVilleManager_GetVilles_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IVilleManager/GetVillesResponse" message="tns:IVilleManager_GetVilles_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddVille">
-      <wsdl:input wsaw:Action="http://tempuri.org/IVilleManager/AddVille" message="tns:IVilleManager_AddVille_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IVilleManager/AddVilleResponse" message="tns:IVilleManager_AddVille_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EditVille">
-      <wsdl:input wsaw:Action="http://tempuri.org/IVilleManager/EditVille" message="tns:IVilleManager_EditVille_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IVilleManager/EditVilleResponse" message="tns:IVilleManager_EditVille_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteVille">
-      <wsdl:input wsaw:Action="http://tempuri.org/IVilleManager/DeleteVille" message="tns:IVilleManager_DeleteVille_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IVilleManager/DeleteVilleResponse" message="tns:IVilleManager_DeleteVille_OutputMessage" />
+    <wsdl:operation name="DeleteSlide">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideManager/DeleteSlide" message="tns:ISlideManager_DeleteSlide_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideManager/DeleteSlideResponse" message="tns:ISlideManager_DeleteSlide_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_IClasseManager" type="tns:IClasseManager">
+  <wsdl:portType name="IShowManager">
+    <wsdl:operation name="GetShow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShowManager/GetShow" message="tns:IShowManager_GetShow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShowManager/GetShowResponse" message="tns:IShowManager_GetShow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShows">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShowManager/GetShows" message="tns:IShowManager_GetShows_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShowManager/GetShowsResponse" message="tns:IShowManager_GetShows_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddShow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShowManager/AddShow" message="tns:IShowManager_AddShow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShowManager/AddShowResponse" message="tns:IShowManager_AddShow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditShow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShowManager/EditShow" message="tns:IShowManager_EditShow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShowManager/EditShowResponse" message="tns:IShowManager_EditShow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShowManager/DeleteShow" message="tns:IShowManager_DeleteShow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShowManager/DeleteShowResponse" message="tns:IShowManager_DeleteShow_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ICampusManager">
+    <wsdl:operation name="GetCampus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICampusManager/GetCampus" message="tns:ICampusManager_GetCampus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICampusManager/GetCampusResponse" message="tns:ICampusManager_GetCampus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICampusManager/GetCampuses" message="tns:ICampusManager_GetCampuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICampusManager/GetCampusesResponse" message="tns:ICampusManager_GetCampuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCampus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICampusManager/AddCampus" message="tns:ICampusManager_AddCampus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICampusManager/AddCampusResponse" message="tns:ICampusManager_AddCampus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCampus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICampusManager/EditCampus" message="tns:ICampusManager_EditCampus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICampusManager/EditCampusResponse" message="tns:ICampusManager_EditCampus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCampus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICampusManager/DeleteCampus" message="tns:ICampusManager_DeleteCampus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICampusManager/DeleteCampusResponse" message="tns:ICampusManager_DeleteCampus_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPromotionManager" type="tns:IPromotionManager">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetClasse">
-      <soap:operation soapAction="http://tempuri.org/IClasseManager/GetClasse" style="document" />
+    <wsdl:operation name="GetPromotion">
+      <soap:operation soapAction="http://tempuri.org/IPromotionManager/GetPromotion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -616,8 +616,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetClasses">
-      <soap:operation soapAction="http://tempuri.org/IClasseManager/GetClasses" style="document" />
+    <wsdl:operation name="GetPromotions">
+      <soap:operation soapAction="http://tempuri.org/IPromotionManager/GetPromotions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -625,8 +625,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetClassesAvailables">
-      <soap:operation soapAction="http://tempuri.org/IClasseManager/GetClassesAvailables" style="document" />
+    <wsdl:operation name="GetPromotionsAvailables">
+      <soap:operation soapAction="http://tempuri.org/IPromotionManager/GetPromotionsAvailables" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -634,8 +634,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddClasse">
-      <soap:operation soapAction="http://tempuri.org/IClasseManager/AddClasse" style="document" />
+    <wsdl:operation name="AddPromotion">
+      <soap:operation soapAction="http://tempuri.org/IPromotionManager/AddPromotion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -643,8 +643,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="EditClasse">
-      <soap:operation soapAction="http://tempuri.org/IClasseManager/EditClasse" style="document" />
+    <wsdl:operation name="EditPromotion">
+      <soap:operation soapAction="http://tempuri.org/IPromotionManager/EditPromotion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -652,8 +652,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteClasse">
-      <soap:operation soapAction="http://tempuri.org/IClasseManager/DeleteClasse" style="document" />
+    <wsdl:operation name="DeletePromotion">
+      <soap:operation soapAction="http://tempuri.org/IPromotionManager/DeletePromotion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -710,10 +710,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="BasicHttpBinding_ILienManager" type="tns:ILienManager">
+  <wsdl:binding name="BasicHttpBinding_ILinkManager" type="tns:ILinkManager">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetLien">
-      <soap:operation soapAction="http://tempuri.org/ILienManager/GetLien" style="document" />
+    <wsdl:operation name="GetLink">
+      <soap:operation soapAction="http://tempuri.org/ILinkManager/GetLink" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -721,8 +721,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetLiens">
-      <soap:operation soapAction="http://tempuri.org/ILienManager/GetLiens" style="document" />
+    <wsdl:operation name="GetLinks">
+      <soap:operation soapAction="http://tempuri.org/ILinkManager/GetLinks" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -730,8 +730,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddLien">
-      <soap:operation soapAction="http://tempuri.org/ILienManager/AddLien" style="document" />
+    <wsdl:operation name="AddLink">
+      <soap:operation soapAction="http://tempuri.org/ILinkManager/AddLink" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -739,8 +739,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="EditLien">
-      <soap:operation soapAction="http://tempuri.org/ILienManager/EditLien" style="document" />
+    <wsdl:operation name="EditLink">
+      <soap:operation soapAction="http://tempuri.org/ILinkManager/EditLink" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -748,8 +748,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteLien">
-      <soap:operation soapAction="http://tempuri.org/ILienManager/DeleteLien" style="document" />
+    <wsdl:operation name="DeleteLink">
+      <soap:operation soapAction="http://tempuri.org/ILinkManager/DeleteLink" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -758,10 +758,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="BasicHttpBinding_IMembreManager" type="tns:IMembreManager">
+  <wsdl:binding name="BasicHttpBinding_IMemberManager" type="tns:IMemberManager">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetMembre">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/GetMembre" style="document" />
+    <wsdl:operation name="GetMember">
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/GetMember" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -769,8 +769,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMembresActives">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/GetMembresActives" style="document" />
+    <wsdl:operation name="GetMembersActives">
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/GetMembersActives" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -778,8 +778,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMembresBureau">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/GetMembresBureau" style="document" />
+    <wsdl:operation name="GetMembersBureau">
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/GetMembersBureau" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -787,8 +787,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMembresNotInBureau">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/GetMembresNotInBureau" style="document" />
+    <wsdl:operation name="GetMembersNotInBureau">
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/GetMembersNotInBureau" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -796,8 +796,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMembresAlumnis">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/GetMembresAlumnis" style="document" />
+    <wsdl:operation name="GetMembersAlumnis">
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/GetMembersAlumnis" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -805,8 +805,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMembresWaitingForValidation">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/GetMembresWaitingForValidation" style="document" />
+    <wsdl:operation name="GetMembersWaitingForValidation">
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/GetMembersWaitingForValidation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -815,7 +815,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Login">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/Login" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -824,7 +824,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ChangePassword">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/ChangePassword" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/ChangePassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -833,7 +833,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ExistsUsername">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/ExistsUsername" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/ExistsUsername" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -841,8 +841,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ExistsMembre">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/ExistsMembre" style="document" />
+    <wsdl:operation name="ExistsMember">
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/ExistsMember" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -851,7 +851,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Register">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/Register" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/Register" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -860,7 +860,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="RequestLostPassword">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/RequestLostPassword" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/RequestLostPassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -869,7 +869,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetNewPasswordAfterLost">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/SetNewPasswordAfterLost" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/SetNewPasswordAfterLost" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -877,8 +877,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddMembre">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/AddMembre" style="document" />
+    <wsdl:operation name="AddMember">
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/AddMember" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -886,8 +886,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="EditMembre">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/EditMembre" style="document" />
+    <wsdl:operation name="EditMember">
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/EditMember" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -895,8 +895,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteMembre">
-      <soap:operation soapAction="http://tempuri.org/IMembreManager/DeleteMembre" style="document" />
+    <wsdl:operation name="DeleteMember">
+      <soap:operation soapAction="http://tempuri.org/IMemberManager/DeleteMember" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -962,10 +962,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="BasicHttpBinding_IProjetManager" type="tns:IProjetManager">
+  <wsdl:binding name="BasicHttpBinding_IProjectManager" type="tns:IProjectManager">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetProjet">
-      <soap:operation soapAction="http://tempuri.org/IProjetManager/GetProjet" style="document" />
+    <wsdl:operation name="GetProject">
+      <soap:operation soapAction="http://tempuri.org/IProjectManager/GetProject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -973,8 +973,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetProjets">
-      <soap:operation soapAction="http://tempuri.org/IProjetManager/GetProjets" style="document" />
+    <wsdl:operation name="GetProjects">
+      <soap:operation soapAction="http://tempuri.org/IProjectManager/GetProjects" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -982,8 +982,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddProjet">
-      <soap:operation soapAction="http://tempuri.org/IProjetManager/AddProjet" style="document" />
+    <wsdl:operation name="AddProject">
+      <soap:operation soapAction="http://tempuri.org/IProjectManager/AddProject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -991,8 +991,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="EditProjet">
-      <soap:operation soapAction="http://tempuri.org/IProjetManager/EditProjet" style="document" />
+    <wsdl:operation name="EditProject">
+      <soap:operation soapAction="http://tempuri.org/IProjectManager/EditProject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1000,8 +1000,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteProjet">
-      <soap:operation soapAction="http://tempuri.org/IProjetManager/DeleteProjet" style="document" />
+    <wsdl:operation name="DeleteProject">
+      <soap:operation soapAction="http://tempuri.org/IProjectManager/DeleteProject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1010,10 +1010,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="BasicHttpBinding_IPubliciteManager" type="tns:IPubliciteManager">
+  <wsdl:binding name="BasicHttpBinding_ISlideManager" type="tns:ISlideManager">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetPublicite">
-      <soap:operation soapAction="http://tempuri.org/IPubliciteManager/GetPublicite" style="document" />
+    <wsdl:operation name="GetSlide">
+      <soap:operation soapAction="http://tempuri.org/ISlideManager/GetSlide" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1021,8 +1021,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetPublicites">
-      <soap:operation soapAction="http://tempuri.org/IPubliciteManager/GetPublicites" style="document" />
+    <wsdl:operation name="GetSlides">
+      <soap:operation soapAction="http://tempuri.org/ISlideManager/GetSlides" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1030,8 +1030,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddPublicite">
-      <soap:operation soapAction="http://tempuri.org/IPubliciteManager/AddPublicite" style="document" />
+    <wsdl:operation name="AddSlide">
+      <soap:operation soapAction="http://tempuri.org/ISlideManager/AddSlide" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1039,8 +1039,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="EditPublicite">
-      <soap:operation soapAction="http://tempuri.org/IPubliciteManager/EditPublicite" style="document" />
+    <wsdl:operation name="EditSlide">
+      <soap:operation soapAction="http://tempuri.org/ISlideManager/EditSlide" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1048,8 +1048,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeletePublicite">
-      <soap:operation soapAction="http://tempuri.org/IPubliciteManager/DeletePublicite" style="document" />
+    <wsdl:operation name="DeleteSlide">
+      <soap:operation soapAction="http://tempuri.org/ISlideManager/DeleteSlide" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1058,10 +1058,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="BasicHttpBinding_ISalonManager" type="tns:ISalonManager">
+  <wsdl:binding name="BasicHttpBinding_IShowManager" type="tns:IShowManager">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetSalon">
-      <soap:operation soapAction="http://tempuri.org/ISalonManager/GetSalon" style="document" />
+    <wsdl:operation name="GetShow">
+      <soap:operation soapAction="http://tempuri.org/IShowManager/GetShow" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1069,8 +1069,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetSalons">
-      <soap:operation soapAction="http://tempuri.org/ISalonManager/GetSalons" style="document" />
+    <wsdl:operation name="GetShows">
+      <soap:operation soapAction="http://tempuri.org/IShowManager/GetShows" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1078,8 +1078,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddSalon">
-      <soap:operation soapAction="http://tempuri.org/ISalonManager/AddSalon" style="document" />
+    <wsdl:operation name="AddShow">
+      <soap:operation soapAction="http://tempuri.org/IShowManager/AddShow" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1087,8 +1087,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="EditSalon">
-      <soap:operation soapAction="http://tempuri.org/ISalonManager/EditSalon" style="document" />
+    <wsdl:operation name="EditShow">
+      <soap:operation soapAction="http://tempuri.org/IShowManager/EditShow" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1096,8 +1096,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteSalon">
-      <soap:operation soapAction="http://tempuri.org/ISalonManager/DeleteSalon" style="document" />
+    <wsdl:operation name="DeleteShow">
+      <soap:operation soapAction="http://tempuri.org/IShowManager/DeleteShow" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1106,10 +1106,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="BasicHttpBinding_IVilleManager" type="tns:IVilleManager">
+  <wsdl:binding name="BasicHttpBinding_ICampusManager" type="tns:ICampusManager">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetVille">
-      <soap:operation soapAction="http://tempuri.org/IVilleManager/GetVille" style="document" />
+    <wsdl:operation name="GetCampus">
+      <soap:operation soapAction="http://tempuri.org/ICampusManager/GetCampus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1117,8 +1117,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetVilles">
-      <soap:operation soapAction="http://tempuri.org/IVilleManager/GetVilles" style="document" />
+    <wsdl:operation name="GetCampuses">
+      <soap:operation soapAction="http://tempuri.org/ICampusManager/GetCampuses" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1126,8 +1126,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddVille">
-      <soap:operation soapAction="http://tempuri.org/IVilleManager/AddVille" style="document" />
+    <wsdl:operation name="AddCampus">
+      <soap:operation soapAction="http://tempuri.org/ICampusManager/AddCampus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1135,8 +1135,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="EditVille">
-      <soap:operation soapAction="http://tempuri.org/IVilleManager/EditVille" style="document" />
+    <wsdl:operation name="EditCampus">
+      <soap:operation soapAction="http://tempuri.org/ICampusManager/EditCampus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1144,8 +1144,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteVille">
-      <soap:operation soapAction="http://tempuri.org/IVilleManager/DeleteVille" style="document" />
+    <wsdl:operation name="DeleteCampus">
+      <soap:operation soapAction="http://tempuri.org/ICampusManager/DeleteCampus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1155,32 +1155,32 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ManagersService">
-    <wsdl:port name="BasicHttpBinding_IClasseManager" binding="tns:BasicHttpBinding_IClasseManager">
-      <soap:address location="http://epsilab.net/webservices/ManagersService.svc" />
+    <wsdl:port name="BasicHttpBinding_IPromotionManager" binding="tns:BasicHttpBinding_IPromotionManager">
+      <soap:address location="http://www.epsilab.net/webservices/ManagersService.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IConferenceManager" binding="tns:BasicHttpBinding_IConferenceManager">
-      <soap:address location="http://epsilab.net/webservices/ManagersService.svc" />
+      <soap:address location="http://www.epsilab.net/webservices/ManagersService.svc" />
     </wsdl:port>
-    <wsdl:port name="BasicHttpBinding_ILienManager" binding="tns:BasicHttpBinding_ILienManager">
-      <soap:address location="http://epsilab.net/webservices/ManagersService.svc" />
+    <wsdl:port name="BasicHttpBinding_ILinkManager" binding="tns:BasicHttpBinding_ILinkManager">
+      <soap:address location="http://www.epsilab.net/webservices/ManagersService.svc" />
     </wsdl:port>
-    <wsdl:port name="BasicHttpBinding_IMembreManager" binding="tns:BasicHttpBinding_IMembreManager">
-      <soap:address location="http://epsilab.net/webservices/ManagersService.svc" />
+    <wsdl:port name="BasicHttpBinding_IMemberManager" binding="tns:BasicHttpBinding_IMemberManager">
+      <soap:address location="http://www.epsilab.net/webservices/ManagersService.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_INewsManager" binding="tns:BasicHttpBinding_INewsManager">
-      <soap:address location="http://epsilab.net/webservices/ManagersService.svc" />
+      <soap:address location="http://www.epsilab.net/webservices/ManagersService.svc" />
     </wsdl:port>
-    <wsdl:port name="BasicHttpBinding_IProjetManager" binding="tns:BasicHttpBinding_IProjetManager">
-      <soap:address location="http://epsilab.net/webservices/ManagersService.svc" />
+    <wsdl:port name="BasicHttpBinding_IProjectManager" binding="tns:BasicHttpBinding_IProjectManager">
+      <soap:address location="http://www.epsilab.net/webservices/ManagersService.svc" />
     </wsdl:port>
-    <wsdl:port name="BasicHttpBinding_IPubliciteManager" binding="tns:BasicHttpBinding_IPubliciteManager">
-      <soap:address location="http://epsilab.net/webservices/ManagersService.svc" />
+    <wsdl:port name="BasicHttpBinding_ISlideManager" binding="tns:BasicHttpBinding_ISlideManager">
+      <soap:address location="http://www.epsilab.net/webservices/ManagersService.svc" />
     </wsdl:port>
-    <wsdl:port name="BasicHttpBinding_ISalonManager" binding="tns:BasicHttpBinding_ISalonManager">
-      <soap:address location="http://epsilab.net/webservices/ManagersService.svc" />
+    <wsdl:port name="BasicHttpBinding_IShowManager" binding="tns:BasicHttpBinding_IShowManager">
+      <soap:address location="http://www.epsilab.net/webservices/ManagersService.svc" />
     </wsdl:port>
-    <wsdl:port name="BasicHttpBinding_IVilleManager" binding="tns:BasicHttpBinding_IVilleManager">
-      <soap:address location="http://epsilab.net/webservices/ManagersService.svc" />
+    <wsdl:port name="BasicHttpBinding_ICampusManager" binding="tns:BasicHttpBinding_ICampusManager">
+      <soap:address location="http://www.epsilab.net/webservices/ManagersService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

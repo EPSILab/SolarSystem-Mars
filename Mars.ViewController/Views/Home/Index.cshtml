@@ -1,56 +1,52 @@
-﻿@model SolarSystem.Mars.ViewController.ViewModels.LoginViewModel
+﻿@using SolarSystem.Mars.ViewController.Resources
+
+@model SolarSystem.Mars.ViewController.ViewModels.LoginViewModel
 
 @{
-    ViewBag.Title = "Portail d'administration EPSILab";
+    ViewBag.Title = PagesTitlesRessources.Home;
     Layout = "../Shared/_Layout.cshtml";
 }
 
 <h1>@ViewBag.Title</h1>
-
-<p>
-    Bienvenue sur le portail d'administration de l'association <strong>EPSILab</strong>.
-    Pour accéder aux paramètres, veuillez vous connecter avec votre <strong>nom utilisateur</strong>
-    et votre <strong>mot de passe</strong>.
-</p>
-
-<p>Si vous ne possédez pas de compte, vous pouvez en faire la demande en cliquant sur <strong>Demander la création d'un compte</strong>.</p>
-
-<br />
+<p>@Html.Raw(ContentRessources.WelcomeText)</p>
+<p>@Html.Raw(ContentRessources.WelcomeText2)</p>
+<div>&nbsp;</div>
 
 <div class="col-md-5 col-md-offset-4">
 
     @using (Html.BeginForm("LogOn", "Home", FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
     {
+        @* Username *@
         <div class="form-group">
             <label class="col-sm-3 control-label">Nom utilisateur</label>
             <div class="col-sm-9">
-                @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = "Nom utilisateur" })
+                @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = ContentRessources.Username })
             </div>
         </div>
 
+        @* Password *@
         <div class="form-group">
             <label class="col-sm-3 control-label">Mot de passe</label>
             <div class="col-sm-9">
-                @Html.PasswordFor(model => model.PasswordNonCrypted, new { @class = "form-control", @placeholder = "Mot de passe" })
+                @Html.PasswordFor(model => model.PasswordNonCrypted, new { @class = "form-control", @placeholder = ContentRessources.Password })
             </div>
         </div>
 
+        @* Connect button *@
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-10">
-                <button type="submit" class="btn btn-primary">Connexion</button>
+                <button type="submit" class="btn btn-primary">@ContentRessources.Connection</button>
             </div>
         </div>
 
+        @* Register and Lost Password links *@
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-10">
-                @Html.ActionLink("Demander la création d'un compte", "Register")
+                @Html.ActionLink(PagesTitlesRessources.Register, "Register")
             </div>
             <div class="col-sm-offset-3 col-sm-10">
-                @Html.ActionLink("Mot de passe oublié ?", "LostPassword")
+                @Html.ActionLink(PagesTitlesRessources.LostPassword, "LostPassword")
             </div>
         </div>
-
-
     }
-
 </div>

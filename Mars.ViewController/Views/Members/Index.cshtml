@@ -1,0 +1,141 @@
+﻿@model IEnumerable<SolarSystem.Mars.Model.ManagersService.Member>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Manage New", "Manage")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code_Member)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_EPSI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_perso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mot_de_passe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Motivations)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Presentation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pseudo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Site_web)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Statut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone_mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URL_Facebook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URL_LinkedIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URL_Twitter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URL_Viadeo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Campus_origine)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code_Member)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email_EPSI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email_perso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mot_de_passe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Motivations)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Presentation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pseudo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Site_web)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Statut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone_mobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.URL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.URL_Facebook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.URL_LinkedIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.URL_Twitter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.URL_Viadeo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Campus_origine)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code_Member }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code_Member }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Code_Member })
+        </td>
+    </tr>
+}
+
+</table>
