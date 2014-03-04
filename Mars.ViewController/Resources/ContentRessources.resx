@@ -181,13 +181,13 @@
     <value>N'oubliez pas le &lt;em&gt;http://*.linkedin.com/&lt;/em&gt;</value>
   </data>
   <data name="Links" xml:space="preserve">
-    <value>Links</value>
+    <value>Liens</value>
   </data>
   <data name="LogOn_Connected" xml:space="preserve">
     <value>Vous êtes à présent connecté au portail. Vous avez désormais accès aux sections auxquelles vous pouvez gérer les informations.</value>
   </data>
   <data name="Members" xml:space="preserve">
-    <value>Members</value>
+    <value>Membres</value>
   </data>
   <data name="News" xml:space="preserve">
     <value>Articles</value>
@@ -214,10 +214,10 @@
     <value>0102030405</value>
   </data>
   <data name="Projects" xml:space="preserve">
-    <value>Projects</value>
+    <value>Projets</value>
   </data>
   <data name="Shows" xml:space="preserve">
-    <value>Shows</value>
+    <value>Salons</value>
   </data>
   <data name="Slideshow" xml:space="preserve">
     <value>Diaporama du site</value>
@@ -274,10 +274,10 @@
     <value>Date et heure</value>
   </data>
   <data name="Image" xml:space="preserve">
-    <value>Image</value>
+    <value>Image associée</value>
   </data>
   <data name="IsPublished" xml:space="preserve">
-    <value>Publier ?</value>
+    <value>Publier sur le site et les applications ?</value>
   </data>
   <data name="Keywords" xml:space="preserve">
     <value>Mots-clés</value>
@@ -299,5 +299,20 @@
   </data>
   <data name="Valid" xml:space="preserve">
     <value>Valider les modifications</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Auteur</value>
+  </data>
+  <data name="NewsContent" xml:space="preserve">
+    <value>Contenu de l'article</value>
+  </data>
+  <data name="NewsInformations" xml:space="preserve">
+    <value>Informations sur l'article</value>
+  </data>
+  <data name="LocalImage" xml:space="preserve">
+    <value>Télécharger une image depuis votre disque dur</value>
+  </data>
+  <data name="RemoteImage" xml:space="preserve">
+    <value>Lier une image présente sur un autre site web</value>
   </data>
 </root>

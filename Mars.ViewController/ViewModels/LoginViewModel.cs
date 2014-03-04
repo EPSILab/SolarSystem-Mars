@@ -30,7 +30,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         /// </summary>
         public string PasswordCrypted
         {
-            get { return PasswordEncoderHelper.Encode(PasswordNonCrypted); }
+            get { return PasswordEncoder.Encode(PasswordNonCrypted); }
         }
     }
 }

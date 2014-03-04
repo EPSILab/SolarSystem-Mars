@@ -17,8 +17,17 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         /// Constructor
         /// </summary>
         /// <param name="action">Action for the view-model</param>
-        public NewsViewModel(CRUDAction action = CRUDAction.Create)
-            : base(action) { }
+        public NewsViewModel(CRUDAction action)
+            : base(action)
+        {
+            Date = Time = DateTime.Now;
+            IsPublished = true;
+        }
+
+        public NewsViewModel()
+            : this(CRUDAction.Create)
+        {
+        }
 
         #endregion
 
@@ -38,36 +47,45 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         public string Title { get; set; }
 
         /// <summary>
+        /// Url
+        /// </summary>
+        public string Url { get; set; }
+
+        /// <summary>
         /// Author's Id
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "AuthorRequired")]
         [Range(1, Int32.MaxValue, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "AuthorRequired")]
-        public int AuthorId { get; set; }
+        public int IdAuthor { get; set; }
 
         /// <summary>
         /// Date and time
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "DateTimeRequired")]
-        [DataType(DataType.DateTime, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "DateTimeRequired")]
-        public DateTime DateTime { get; set; }
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "DateRequired")]
+        [DataType(DataType.Date, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "DateRequired")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
+        public DateTime Date { get; set; }
+
+        /// <summary>
+        /// Date and time
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "TimeRequired")]
+        [DataType(DataType.Time, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "TimeRequired")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:t}")]
+        public DateTime Time { get; set; }
 
         /// <summary>
         /// Image URL
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImageRequired")]
-        [DataType(DataType.Url, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathFormat")]
-        [FileExtensions(Extensions = "png | jpg | jpeg | gif", ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathExtensions")]
-        public string ImageUrl { get; set; }
+        [DataType(DataType.ImageUrl, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathFormat")]
+        [FileExtensions(Extensions = "png | jpg | jpeg | gif", ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathExtensions", ErrorMessage = null)]
+        public string ImageRemoteUrl { get; set; }
 
         /// <summary>
         /// Search keywords
         /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "KeywordsRequired")]
         public string Keywords { get; set; }
-
-        /// <summary>
-        /// Is the news published
-        /// </summary>
-        public bool IsPublished { get; set; }
 
         /// <summary>
         /// Short text
@@ -81,14 +99,14 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         /// Text
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "LongTextRequired")]
+        [MinLength(5, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "LongTextMinLength")]
         [AllowHtml]
         public string Text { get; set; }
 
         /// <summary>
-        /// Url
+        /// Is the news published
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "UrlRequired")]
-        public string Url { get; set; }
+        public bool IsPublished { get; set; }
 
         #endregion
     }

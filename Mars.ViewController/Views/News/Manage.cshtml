@@ -1,5 +1,6 @@
-﻿@using System.Web.Optimization
-@using SolarSystem.Mars.ViewController.Resources
+﻿@using SolarSystem.Mars.ViewController.Resources
+@using System.Globalization
+@using System.Web.Optimization
 
 @model SolarSystem.Mars.ViewController.ViewModels.NewsViewModel
 
@@ -9,107 +10,157 @@
 }
 
 <h2>@ViewBag.Title</h2>
-<div>&nbsp;</div>
+<br />
 
-@using (Html.BeginForm("Manage", "News", FormMethod.Post, new { enctype = "multipart/form-data", @role = "form" }))
+@if (!string.IsNullOrWhiteSpace(ViewBag.ExceptionMessage))
 {
+    <div class="container alert alert-danger">@ViewBag.ExceptionMessage</div>
+}
 
+@using (Html.BeginForm(Html.BeginForm("Manage", "News", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
 
-    <div style="margin-left: auto; margin-right: auto; width:60%">
+    <fieldset class="col-md-8 col-md-offset-2 form-horizontal">
+        <legend>@ContentRessources.NewsInformations</legend>
 
         @* Title *@
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, ContentRessources.NewsTitle)
-            @Html.TextBoxFor(model => model.Title, new { @class = "form-control", @placeholder = ContentRessources.NewsTitle })
+            @Html.LabelFor(model => model.Title, ContentRessources.NewsTitle, new { @class = "col-sm-2 control-label" })
 
-            @Html.ValidationMessageFor(model => model.Title)
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control", @placeholder = ContentRessources.NewsTitle })
+                @Html.ValidationMessageFor(model => model.Title, null, new { @style = "color: red" })
+            </div>
         </div>
-        
-        @* URL *@
-        <div class="form-group">
-            @Html.LabelFor(model => model.Url, ContentRessources.URL)
-            @Html.TextBoxFor(model => model.Url, new { @class = "input-group input-group-sm", @disabled = "disabled" })
 
-            @Html.ValidationMessageFor(model => model.Url)
+        @* Permalink *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url, ContentRessources.URL, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Url, new { @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+
+        @* Date and Time *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, ContentRessources.DateTime, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-7">
+                @Html.EditorFor(model => model.Date, new { @type = "date" })
+                @Html.EditorFor(model => model.Time, new { @type = "time" })
+            </div>
+            <div class="col-sm-8">
+                @Html.ValidationMessageFor(model => model.Date, null, new { @style = "color: red" })
+                @Html.ValidationMessageFor(model => model.Time, null, new { @style = "color: red" })
+            </div>
         </div>
 
         @* Author *@
         <div class="form-group">
-            @Html.DropDownListFor(model => model.AuthorId,
-                                new SelectList(ViewBag.Members, "Id", "Name"),
-                                DefaultSelectionMessagesRessources.Author,
-                                new { @class = "form-control" })
+            @Html.LabelFor(model => model.IdAuthor, ContentRessources.Author, new { @class = "col-sm-2 control-label" })
 
-            @Html.ValidationMessageFor(model => model.AuthorId, string.Empty, new { @style = "color: red" })
-        </div>
+            <div class="col-sm-5">
+                @Html.DropDownListFor(model => model.IdAuthor,
+                    new SelectList(ViewBag.Members, "Id", "Name"),
+                    DefaultSelectionMessagesRessources.Author,
+                    new { @class = "form-control" })
 
-        @* Image *@
-        <div class="form-group">
-            @Html.LabelFor(model => model.ImageUrl, ContentRessources.Image)
-            <input type="file" name="file" class="btn btn-default" />
-
-            @Html.ValidationMessageFor(model => model.ImageUrl)
+                @Html.ValidationMessageFor(model => model.IdAuthor, null, new { @style = "color: red" })
+            </div>
         </div>
 
         @* Keywords *@
         <div class="form-group">
-            @Html.LabelFor(model => model.Keywords, ContentRessources.Keywords)
-            @Html.TextBoxFor(model => model.Keywords, new { @class = "form-control", placeholder = ContentRessources.Keywords })
+            @Html.LabelFor(model => model.Keywords, ContentRessources.Keywords, new { @class = "col-sm-2 control-label" })
 
-            <span class="help-block">@ContentRessources.Keywords_Recommandation</span>
-            @Html.ValidationMessageFor(model => model.Keywords)
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.Keywords, new { @class = "form-control", placeholder = ContentRessources.Keywords })
+
+                <span class="help-block">@ContentRessources.Keywords_Recommandation</span>
+                @Html.ValidationMessageFor(model => model.Keywords, null, new { @style = "color: red" })
+            </div>
         </div>
-        
-        @* Is published ? *@
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsPublished, ContentRessources.IsPublished)
-            @Html.CheckBoxFor(model => model.IsPublished)
 
-            @Html.ValidationMessageFor(model => model.IsPublished)
-        </div> 
-        
-        @*Short text *@
-        <div class="form-group">
-            @Html.LabelFor(model => model.ShortText, ContentRessources.ShortText)
-            @Html.TextBoxFor(model => model.ShortText, new { @class = "form-control", placeholder = ContentRessources.ShortText })
+        @* Short text *@
+        <div class="form-horizontal form-group">
+            @Html.LabelFor(model => model.ShortText, ContentRessources.ShortText, new { @class = "col-sm-2 control-label" })
 
-            @Html.ValidationMessageFor(model => model.ShortText)
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.ShortText, new { @class = "form-control", placeholder = ContentRessources.ShortText })
+                @Html.ValidationMessageFor(model => model.ShortText, null, new { @style = "color: red" })
+            </div>
         </div>
-        
+
+        @* Image *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageRemoteUrl, ContentRessources.Image, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-8">
+                <span class="help-block">@ContentRessources.RemoteImage</span>
+                @Html.TextBoxFor(model => model.ImageRemoteUrl, new { @class = "form-control", @placeholder = ContentRessources.Website_PlaceHolder })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-8 col-sm-offset-2">
+                <span class="help-block">@ContentRessources.LocalImage</span>
+                <input type="file" name="file" class="btn btn-default" />
+                @Html.ValidationMessageFor(model => model.ImageRemoteUrl, null, new { @style = "color: red", @placeholder = ContentRessources.RemoteImage })
+            </div>
+        </div>
+        <p>&nbsp;</p>
+    </fieldset>
+
+    <fieldset class="col-md-8 col-md-offset-2">
+        <legend>@ContentRessources.NewsContent</legend>
+
         @* Text *@
         <div class="form-group">
-            @Html.LabelFor(model => model.Text, ContentRessources.Text)
             @Html.TextAreaFor(model => model.Text, new { @id = "editor", @class = "form-control" })
-
-            @Html.ValidationMessageFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text, null, new { @style = "color: red" })
         </div>
+    </fieldset>
 
-        <p>
-            <input type="submit" value="@ContentRessources.Valid" class="btn btn-primary btn-lg btn-block" />
-        </p>
+    @* Is published ? *@
+    <div class="form-group col-md-4 col-md-offset-4">
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(model => model.IsPublished)
+                @ContentRessources.IsPublished
+            </label>
+        </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink(ContentRessources.Back, "Index", null, new { @class = "btn btn-default btn-lg btn-block" })
-</div>
+    @* Valid button *@
+    <p class="col-md-4 col-md-offset-4">
+        <button type="submit" class="btn btn-primary">@ContentRessources.Valid</button>
+        @Html.ActionLink(ContentRessources.Back, "Index", null, new { @class = "btn btn-default" })
+    </p>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/ckeditor")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // CKEditor for Text field
+            CKEDITOR.replace('editor');
+
+            // Generate URL on Title field key-up
+            $('#Title').keyup(function (event) {
+                $('#Url').val(event.target.value.toLowerCase().replace(/[ ]+/g, '-').replace(/[^-a-zA-Z]/g, ''));
+            });
+
+            // Datepicker for Date field
+            $('#Date').datepicker().regional["@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName"];
+        });
+    </script>
 }
 
-<script>
-    window.onload = function () {
-        CKEDITOR.replace('editor');
-
-        $('#Title').keyup(function (event) {
-            $('#Url').attr('value', event.target.value.replace(/[ ]+/g, '-').replace(/[^-a-zA-Z]/g, ''));
-        });
-        $('#Url').keypress(function (event) {
-            event.preventDefault();
-        });
-    };
-</script>
+@section Styles {
+    @Styles.Render("~/Content/themes/base/css")
+}

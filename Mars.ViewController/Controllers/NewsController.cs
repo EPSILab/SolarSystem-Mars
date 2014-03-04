@@ -2,6 +2,7 @@
 using Mars.Common;
 using SolarSystem.Mars.Model.Interfaces;
 using SolarSystem.Mars.Model.ManagersService;
+using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
 using SolarSystem.Mars.ViewController.Resources;
 using SolarSystem.Mars.ViewController.ViewModels;
@@ -17,9 +18,9 @@ namespace SolarSystem.Mars.ViewController.Controllers
     {
         #region Constructor
 
-        public NewsController(IReaderLimit<News> modelNews, IReader<Member> modelMember)
+        public NewsController(IReaderLimit<News> model, IReader<Member> modelMember)
         {
-            _model = modelNews;
+            _model = model;
             _modelMembers = modelMember;
         }
 
@@ -60,7 +61,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             // Load members list
             IEnumerable<Member> members = _modelMembers.Get();
-            ViewBag.Members = members.Select(m => new { Id = m.Id, Name = string.Format("{0} {1} - ({2}", m.FirstName, m.LastName, m.Campus.Place ) });
+            ViewBag.Members = members.Select(m => new { m.Id, Name = string.Format("{0} {1} ({2})", m.LastName, m.FirstName, m.Campus.Place) });
 
             NewsViewModel vm;
 
@@ -73,14 +74,16 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 vm = new NewsViewModel(CRUDAction.Update)
                 {
                     Id = news.Id,
-                    AuthorId = news.Member.Id,
-                    ImageUrl = news.ImageUrl,
+                    IdAuthor = news.Member.Id,
+                    ImageRemoteUrl = news.ImageUrl,
                     IsPublished = news.IsPublished,
                     Keywords = news.Keywords,
                     Text = news.Text,
                     ShortText = news.ShortText,
                     Title = news.Title,
-                    Url = news.Url
+                    Url = news.Url,
+                    Date = news.DateTime.Date,
+                    Time = new DateTime(0, 0, 0, news.DateTime.Hour, news.DateTime.Minute, news.DateTime.Second)
                 };
             }
 
@@ -91,10 +94,10 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// POST: /News/Manage
         /// When the user has clicked on the OK button
         /// </summary>
-        /// <param name="newsVM">Page view-model</param>
+        /// <param name="vm">Page view-model</param>
         /// <param name="file">Image to send on the FTP server</param>
         [HttpPost]
-        public ActionResult Manage(NewsViewModel newsVM, HttpPostedFileBase file)
+        public ActionResult Manage(NewsViewModel vm, HttpPostedFileBase file)
         {
             try
             {
@@ -103,45 +106,64 @@ namespace SolarSystem.Mars.ViewController.Controllers
                     // Prepare to send the news to the server
                     News news = new News
                     {
-                        Id = newsVM.Id,
-                        Keywords = newsVM.Keywords,
-                        DateTime = newsVM.DateTime,
-                        Member = _modelMembers.Get(newsVM.AuthorId),
-                        IsPublished = newsVM.IsPublished,
-                        ShortText = newsVM.ShortText,
-                        Text = newsVM.Text,
-                        Title = newsVM.Title,
-                        Url = newsVM.Url
+                        Id = vm.Id,
+                        Keywords = vm.Keywords,
+                        DateTime =
+                            new DateTime(vm.Date.Year, vm.Date.Month, vm.Date.Day, vm.Time.Hour, vm.Time.Minute, 0),
+                        Member = _modelMembers.Get(vm.IdAuthor),
+                        IsPublished = vm.IsPublished,
+                        ShortText = vm.ShortText,
+                        Text = vm.Text,
+                        Title = vm.Title,
+                        Url = vm.Url
                     };
 
                     // Image management
-                    string imagePath = string.Format("{0}/Images/News/{1}", ContentRessources.EPSILabUrl, file.FileName);
-                    file.SaveAs(imagePath);
-                    news.ImageUrl = imagePath;
+                    if (file != null && file.ContentLength > 0) // Image is local
+                    {
+                        string imagePath = string.Format("../{0}/Images/News/{1}", ContentRessources.EPSILabUrl,
+                            file.FileName);
+                        file.SaveAs(imagePath);
+                        news.ImageUrl = imagePath;
+                    }
+                    // Image is remote
+                    else if (!string.IsNullOrWhiteSpace(vm.ImageRemoteUrl))
+                        news.ImageUrl = vm.ImageRemoteUrl;
+                    // No image given
+                    else
+                        throw new InvalidModelStateException(ErrorRessources.ImageRequired);
 
                     // Save the news
                     LoginViewModel loginVM = AuthProvider.LoginViewModel;
 
-                    switch (newsVM.Action)
+                    switch (vm.Action)
                     {
                         case CRUDAction.Create:
-                            _model.Add(news, loginVM.Username, loginVM.PasswordCrypted);
+                            //_model.Add(news, loginVM.Username, loginVM.PasswordCrypted);
                             break;
                         case CRUDAction.Update:
-                            _model.Edit(news, loginVM.Username, loginVM.PasswordCrypted);
+                            //_model.Edit(news, loginVM.Username, loginVM.PasswordCrypted);
                             break;
                     }
 
                     return RedirectToAction("Index");
                 }
 
-                return View(newsVM);
+                throw new InvalidModelStateException();
+            }
+            catch (InvalidModelStateException ex)
+            {
+                ViewBag.ExceptionMessage = ex.DisplayMessage;
             }
             catch (Exception ex)
             {
-                ViewBag.Exception = ex.Message;
-                return View(newsVM);
+                ViewBag.ExceptionMessage = ex.Message;
             }
+
+            IEnumerable<Member> members = _modelMembers.Get();
+            ViewBag.Members = members.Select(m => new { m.Id, Name = string.Format("{0} {1} ({2})", m.LastName, m.FirstName, m.Campus.Place) });
+
+            return View(vm);
         }
 
         /// <summary>

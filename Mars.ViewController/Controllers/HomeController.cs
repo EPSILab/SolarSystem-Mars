@@ -135,7 +135,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 member.ImageUrl = imagePath;
 
                 // Password
-                string password = PasswordEncoderHelper.Encode(vm.Password);
+                string password = PasswordEncoder.Encode(vm.Password);
 
                 try
                 {

@@ -70,6 +70,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auteur.
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Retour à la page précédente.
         /// </summary>
         public static string Back {
@@ -241,7 +250,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Image.
+        ///   Looks up a localized string similar to Image associée.
         /// </summary>
         public static string Image {
             get {
@@ -250,7 +259,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Publier ?.
+        ///   Looks up a localized string similar to Publier sur le site et les applications ?.
         /// </summary>
         public static string IsPublished {
             get {
@@ -313,11 +322,20 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Links.
+        ///   Looks up a localized string similar to Liens.
         /// </summary>
         public static string Links {
             get {
                 return ResourceManager.GetString("Links", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Télécharger une image depuis votre disque dur.
+        /// </summary>
+        public static string LocalImage {
+            get {
+                return ResourceManager.GetString("LocalImage", resourceCulture);
             }
         }
         
@@ -331,7 +349,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Members.
+        ///   Looks up a localized string similar to Membres.
         /// </summary>
         public static string Members {
             get {
@@ -345,6 +363,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string News {
             get {
                 return ResourceManager.GetString("News", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contenu de l&apos;article.
+        /// </summary>
+        public static string NewsContent {
+            get {
+                return ResourceManager.GetString("NewsContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informations sur l&apos;article.
+        /// </summary>
+        public static string NewsInformations {
+            get {
+                return ResourceManager.GetString("NewsInformations", resourceCulture);
             }
         }
         
@@ -421,11 +457,20 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Projects.
+        ///   Looks up a localized string similar to Projets.
         /// </summary>
         public static string Projects {
             get {
                 return ResourceManager.GetString("Projects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lier une image présente sur un autre site web.
+        /// </summary>
+        public static string RemoteImage {
+            get {
+                return ResourceManager.GetString("RemoteImage", resourceCulture);
             }
         }
         
@@ -439,7 +484,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shows.
+        ///   Looks up a localized string similar to Salons.
         /// </summary>
         public static string Shows {
             get {
