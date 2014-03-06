@@ -17,6 +17,9 @@ namespace SolarSystem.Mars.ViewController.App_Start
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                        "~/Scripts/bootstrap.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/ckeditor").Include(
                       "~/Scripts/ckeditor/ckeditor.js"));
 
