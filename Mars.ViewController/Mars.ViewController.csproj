@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Controllers\CampusesController.cs" />
     <Compile Include="Controllers\ConferencesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -146,7 +147,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\FTPUploader.cs" />
     <Compile Include="Infrastructure\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructure\Concrete\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\Concrete\NinjectFilterProvider.cs" />
@@ -170,6 +170,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ContentRessources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\MessagesResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessagesResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\PagesTitlesRessources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -178,7 +183,6 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
-    <Compile Include="ViewModels\CRUDViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -559,7 +563,7 @@
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\Manage.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutNotConnected.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Manage.cshtml" />
     <Content Include="Views\Promotions\Index.cshtml" />
@@ -580,6 +584,7 @@
     <Content Include="Views\Home\EditProfile.cshtml" />
     <Content Include="Views\Members\Valid.cshtml" />
     <Content Include="Views\Home\LostPassword.cshtml" />
+    <Content Include="Views\Shared\_LayoutConnected.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -609,6 +614,11 @@
     <EmbeddedResource Include="Resources\ContentRessources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ContentRessources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MessagesResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessagesResources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\PagesTitlesRessources.resx">
