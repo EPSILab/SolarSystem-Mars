@@ -4,10 +4,10 @@
 
 @{
     ViewBag.Title = PagesTitlesRessources.Home;
-    Layout = "../Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutNotConnected.cshtml";
 }
 
-<h1>@ViewBag.Title</h1>
+<p>&nbsp;</p>
 <p>@Html.Raw(ContentRessources.WelcomeText)</p>
 <p>@Html.Raw(ContentRessources.WelcomeText2)</p>
 <div>&nbsp;</div>
@@ -18,7 +18,7 @@
     {
         @* Username *@
         <div class="form-group">
-            <label class="col-sm-3 control-label">Nom utilisateur</label>
+            @Html.LabelFor(model => model.Username, new { @class = "col-sm-3 control-label" })
             <div class="col-sm-9">
                 @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = ContentRessources.Username })
             </div>
@@ -26,7 +26,7 @@
 
         @* Password *@
         <div class="form-group">
-            <label class="col-sm-3 control-label">Mot de passe</label>
+            @Html.LabelFor(model => model.PasswordNonCrypted, new { @class = "col-sm-3 control-label" })
             <div class="col-sm-9">
                 @Html.PasswordFor(model => model.PasswordNonCrypted, new { @class = "form-control", @placeholder = ContentRessources.Password })
             </div>

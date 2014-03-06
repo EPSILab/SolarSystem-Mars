@@ -1,84 +1,128 @@
-﻿@model IEnumerable<SolarSystem.Mars.Model.ManagersService.News>
+﻿@using SolarSystem.Mars.ViewController
+@using SolarSystem.Mars.ViewController.Resources
+@using SolarSystem.Mars.ViewController.ViewModels
+
+@model IEnumerable<NewsViewModel>
 
 @{
-    ViewBag.Title = "News";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = PagesTitlesRessources.News;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
-<h2>Liste des news</h2>
+@* Modal for deletion *@
+@using (Html.BeginForm(Html.BeginForm("Delete", "News", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
+    <div id="modalDelete" class="modal fade">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>@MessagesResources.DeleteNews</p>
+                </div>
+                <div class="modal-footer">
+                    @* Contains the news's Id to delete *@
+                    <input type="hidden" id="idToDelete" name="id" />
 
-<p>
-    @Html.ActionLink("Ajouter une news", "Manage", null, new { @class = "btn btn-primary btn-lg btn-block" })
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@ContentRessources.No</button>
+                    <button type="submit" class="btn btn-primary">@ContentRessources.Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@* Create news button *@
+<p class="col-md-offset-5">
+    @Html.ActionLink(PagesTitlesRessources.News_Create, "Manage", null, new { @class = "btn btn-primary" })
 </p>
 
-<table class="table table-hover">
+@Pagination()
+
+@* List of news *@
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titre)
+            <th width="5%">
+                @Html.DisplayNameFor(model => model.IsPublished)
             </th>
-            <th class="hidden-xs"></th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
+            <th width="5%" class="hidden-xs">
+                @Html.DisplayNameFor(model => model.ImageRemoteUrl)
             </th>
-            <th class="hidden-xs">
-                Date
+            <th width="50%">
+                @Html.DisplayNameFor(model => model.Title)
             </th>
-            <th class="hidden-xs">
-                Texte d'accroche
+            <th width="15%">
+                @Html.DisplayNameFor(model => model.AuthorName)
             </th>
-            <th class="hidden-xs">
-                @Html.DisplayNameFor(model => model.URL)
+            <th width="15%" class="hidden-xs">
+                @Html.DisplayNameFor(model => model.Date)
             </th>
-            <th style="width: 130px;">
+            <th width="10%">
                 Actions
             </th>
         </tr>
     </thead>
-
     <tbody>
-        @foreach (var item in Model)
-{
-    <tr class="linkable">
-        <td>
-            @Html.DisplayFor(modelItem => item.Titre)
-        </td>
-        <td class="hidden-xs">
-            @Html.DisplayFor(modelItem => item.Publiee)
-        </td>
-        <td>
-            <img src="@Url.Content(item.Image)" style="max-height: 150px; max-width: 150px;" alt="@item.Titre" />
-        </td>
-        <td class="hidden-xs">
-            @Html.DisplayFor(modelItem => item.Date_Heure)
-        </td>
-        <td class="hidden-xs">
-            @Html.DisplayFor(modelItem => item.Texte_Court)
-        </td>
-        <td class="hidden-xs">
-            @Html.DisplayFor(modelItem => item.URL)
-        </td>
-        <td>
-            @Html.ActionLink(" ", "Edit", new { id = item.Code_News }, new { @class = "link", style = "display: none;" })
-            @Html.ActionLink("Détails", "Details", new { id = item.Code_News }, new { @class = "btn btn-default btn-sm" }) |
-            @Html.ActionLink(" ", "Delete", new { id = item.Code_News }, new { @class = "btn btn-danger glyphicon glyphicon-remove-sign" })
-        </td>
-    </tr>
+        @foreach (NewsViewModel item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsPublished)
+                </td>
+                <td class="hidden-xs">
+                    <img src="@Url.Content(item.ImageRemoteUrl)" style="height: 50px; width: 50px;" alt="@item.Title" />
+                </td>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Title)</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorName)
+                </td>
+                <td class="hidden-xs">
+                    @Html.DisplayFor(modelItem => item.Date) @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
 
-}
+                    <button class="delete btn btn-danger glyphicon glyphicon-remove-sign"
+                            data-id="@item.Id" data-toggle="modal" data-target="#modalDelete" />
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
+@Pagination()
 
-<style>
-    .linkable:hover {
-        cursor: pointer;
-    }
-</style>
-<script>
-    window.onload = function () {
-        $('.linkable').click(function() {
-            window.location.href = $(this).find('.link').attr('href');
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Enable tooltips on buttons
+            $('.navButton').tooltip();
+
+            // When the user clicks on a Delete button, save the news's Id to delete
+            $('.delete').click(function () {
+                var idToDelete = $(this).data("id");
+                $("#idToDelete").val(idToDelete);
+            });
         });
-    };
-</script>
+    </script>
+}
+
+@helper  Pagination()
+{
+    <p>
+        @{
+            if (ViewBag.Id - Constants.ItemsNumber >= 0)
+            {
+                @Html.ActionLink(" ", "Index", new { id = 0 }, new { @class = "navButton btn glyphicon glyphicon-fast-backward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Start })
+                @Html.ActionLink(" ", "Index", new { id = ViewBag.Id - Constants.ItemsNumber }, new { @class = "navButton btn glyphicon glyphicon-step-backward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Previous })
+            }
+
+            if (Model.Count() >= Constants.ItemsNumber)
+            {
+                @Html.ActionLink(" ", "Index", new { id = ViewBag.Id + Constants.ItemsNumber }, new { @class = "navButton btn glyphicon glyphicon-step-forward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Next })
+            }
+        }
+    </p>
+}

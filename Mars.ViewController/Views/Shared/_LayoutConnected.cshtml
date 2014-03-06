@@ -1,0 +1,58 @@
+﻿@using System.Web.Optimization
+@using SolarSystem.Mars.Model.ManagersService
+@using SolarSystem.Mars.ViewController.Resources
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Portail d'administration EPSILab</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", false)
+
+    @Styles.Render("~/Content/css")
+
+    <script type="text/javascript">
+        $(".alert").alert();
+    </script>
+
+</head>
+<body>
+    <div>
+        <img src="~/Assets/Logo.png" class="pull-right" width="161" height="50" />
+    </div>
+    <p>&nbsp;</p>
+    <div>
+        @{
+            Member currentUser = (Member)Session["CurrentUser"];
+            @Html.Raw(string.Format(ContentRessources.ConnectedAs, currentUser.FirstName, currentUser.LastName))
+        }
+        |
+        @Html.ActionLink(PagesTitlesRessources.LogOn, "LogOn", "Home", null, new { @class = "btn btn-success btn-xs" })
+        @Html.ActionLink(PagesTitlesRessources.EditProfile, "EditProfile", "Home", null, new { @class = "btn btn-warning btn-xs" })
+        @Html.ActionLink(PagesTitlesRessources.LogOut, "LogOut", "Home", null, new { @class = "btn btn-danger btn-xs" })
+    </div>
+
+    <h1>@ViewBag.Title</h1>
+
+    @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
+    {
+        <div class="container alert alert-success fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <p>@ViewBag.Message</p>
+        </div>
+    }
+
+    @if (!string.IsNullOrWhiteSpace(ViewBag.ExceptionMessage))
+    {
+        <div class="container alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <p>@ViewBag.ExceptionMessage</p>
+        </div>
+    }
+    @RenderBody()
+</body>
+</html>

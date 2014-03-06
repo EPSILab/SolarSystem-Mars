@@ -3,20 +3,9 @@
 @model SolarSystem.Mars.Model.ManagersService.Member
 
 @{
-    ViewBag.Title = @PagesTitlesRessources.LogOn;
-    Layout = "../Shared/_Layout.cshtml";
+    ViewBag.Title = PagesTitlesRessources.LogOn;
+    Layout = "../Shared/_LayoutConnected.cshtml";
 }
-
-<div>
-    @Html.Raw(string.Format(ContentRessources.ConnectedAs, Model.FirstName, Model.LastName)) |
-    @Html.ActionLink(PagesTitlesRessources.LogOn, "LogOn") |
-    @Html.ActionLink(PagesTitlesRessources.EditProfile, "EditProfile") |
-    @Html.ActionLink(PagesTitlesRessources.LogOut, "LogOut")
-</div>
-
-<h1>@ViewBag.Title</h1>
-
-
 
 <div class="col-xs-6 col-sm-4">
     <h2>@ContentRessources.News</h2>
