@@ -130,7 +130,7 @@
     <value>Confirmation du mot de passe</value>
   </data>
   <data name="ConnectedAs" xml:space="preserve">
-    <value>Connecté en tant que: &lt;strong&gt;{0}&lt;/strong&gt; &lt;strong&gt;{1}&lt;/strong</value>
+    <value>Connecté en tant que &lt;strong&gt;{0}&lt;/strong&gt; &lt;strong&gt;{1}&lt;/strong&gt;</value>
   </data>
   <data name="Connection" xml:space="preserve">
     <value>Connexion</value>
@@ -274,10 +274,10 @@
     <value>Date et heure</value>
   </data>
   <data name="Image" xml:space="preserve">
-    <value>Image associée</value>
+    <value>Image</value>
   </data>
   <data name="IsPublished" xml:space="preserve">
-    <value>Publier sur le site et les applications ?</value>
+    <value>Publié?</value>
   </data>
   <data name="Keywords" xml:space="preserve">
     <value>Mots-clés</value>
@@ -314,5 +314,20 @@
   </data>
   <data name="RemoteImage" xml:space="preserve">
     <value>Lier une image présente sur un autre site web</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Précédent</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Début</value>
   </data>
 </root>
