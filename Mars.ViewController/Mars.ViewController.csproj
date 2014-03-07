@@ -593,10 +593,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mars.Common\Mars.Common.csproj">
-      <Project>{05c087cd-18da-46eb-99a7-3d0316fe6e9c}</Project>
-      <Name>Mars.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mars.Model\Mars.Model.csproj">
       <Project>{1a0cca01-6f5e-4aec-a770-73b435b70b86}</Project>
       <Name>Model</Name>

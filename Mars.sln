@@ -14,8 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mars.ViewController", "Mars
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mars.Model", "Mars.Model\Mars.Model.csproj", "{1A0CCA01-6F5E-4AEC-A770-73B435B70B86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mars.Common", "Mars.Common\Mars.Common.csproj", "{05C087CD-18DA-46EB-99A7-3D0316FE6E9C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,10 +28,6 @@ Global
 		{1A0CCA01-6F5E-4AEC-A770-73B435B70B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A0CCA01-6F5E-4AEC-A770-73B435B70B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A0CCA01-6F5E-4AEC-A770-73B435B70B86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05C087CD-18DA-46EB-99A7-3D0316FE6E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05C087CD-18DA-46EB-99A7-3D0316FE6E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05C087CD-18DA-46EB-99A7-3D0316FE6E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05C087CD-18DA-46EB-99A7-3D0316FE6E9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

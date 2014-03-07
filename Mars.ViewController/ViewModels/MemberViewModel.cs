@@ -1,5 +1,4 @@
-﻿using Mars.Common;
-using SolarSystem.Mars.ViewController.Resources;
+﻿using SolarSystem.Mars.ViewController.Resources;
 using System.ComponentModel.DataAnnotations;
 
 namespace SolarSystem.Mars.ViewController.ViewModels
