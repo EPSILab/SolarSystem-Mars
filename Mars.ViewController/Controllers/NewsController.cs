@@ -42,14 +42,12 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #region Index methods
 
-        public ActionResult Index(int id = 0, string message = null, string exceptionMessage = null)
+        public ActionResult Index(int id = 0)
         {
             IEnumerable<News> listNews = _model.Get(id, Constants.ItemsNumber);
             IEnumerable<NewsViewModel> vm = listNews.Select(news => new NewsViewModel(news));
 
             ViewBag.Id = id;
-            ViewBag.ExceptionMessage = exceptionMessage;
-            ViewBag.Message = message;
 
             return View(vm);
         }
@@ -201,6 +199,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             SelectList membersList = new SelectList(membersItems, "Value", "Text", author);
             ViewBag.Members = membersList;
 
+            // TODO : return JSON (with id, message, ...) instead of View
             return View(vm);
         }
 

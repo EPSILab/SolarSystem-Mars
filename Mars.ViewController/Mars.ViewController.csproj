@@ -585,6 +585,7 @@
     <Content Include="Views\Members\Valid.cshtml" />
     <Content Include="Views\Home\LostPassword.cshtml" />
     <Content Include="Views\Shared\_LayoutConnected.cshtml" />
+    <Content Include="Views\Shared\_LayoutBase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

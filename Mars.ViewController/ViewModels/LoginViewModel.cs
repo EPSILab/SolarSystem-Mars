@@ -10,6 +10,8 @@ namespace SolarSystem.Mars.ViewController.ViewModels
     /// </summary>
     public class LoginViewModel
     {
+        #region Properties
+
         /// <summary>
         /// Username
         /// </summary>
@@ -35,5 +37,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         {
             get { return PasswordEncoder.Encode(PasswordNonCrypted); }
         }
+
+        #endregion
     }
 }
