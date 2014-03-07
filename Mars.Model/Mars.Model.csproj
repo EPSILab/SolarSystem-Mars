@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\MD5Hasher.cs" />
+    <Compile Include="Helpers\PasswordEncoder.cs" />
     <Compile Include="Infrastructure\ModelModule.cs" />
     <Compile Include="Model\Abstract\IAvailable.cs" />
     <Compile Include="Model\Abstract\IManager.cs" />

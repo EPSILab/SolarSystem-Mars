@@ -163,8 +163,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorRessources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\MD5Hasher.cs" />
-    <Compile Include="Helpers\PasswordEncoder.cs" />
     <Compile Include="Resources\ContentRessources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

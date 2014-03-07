@@ -1,9 +1,9 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace SolarSystem.Mars.ViewController.Helpers
+namespace SolarSystem.Mars.Model.Helpers
 {
-    static class MD5HasherHelper
+    public static class MD5HasherHelper
     {
         public static string Hash(string word)
         {
