@@ -13,36 +13,41 @@
 
     @Styles.Render("~/Content/css")
     @RenderSection("styles", false)
-    
+
     <script type="text/javascript">
         $(".alert").alert();
     </script>
 </head>
 <body>
-    <div style="text-align:right">
-        <a href="/">
-            <img src="~/Assets/Logo.png" width="161" height="50" />
-        </a>
-    </div>
-    
     <div>&nbsp;</div>
+    <div class="container">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <img src="~/Assets/Logo.png" style="margin-right: 17px; margin-top: 3px" alt="EPSILab" width="129" height="40" />
+                </li>   
+            </ul>
+        </nav>
 
-    @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
-    {
-        <div class="container alert alert-success fade in">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <p>@ViewBag.Message</p>
-        </div>
-    }
+        <div>&nbsp;</div>
 
-    @if (!string.IsNullOrWhiteSpace(ViewBag.ExceptionMessage))
-    {
-        <div class="container alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <p>@ViewBag.ExceptionMessage</p>
-        </div>
-    }
+        @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
+        {
+            <div class="container alert alert-success fade in">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <p>@ViewBag.Message</p>
+            </div>
+        }
 
-    @RenderBody()
+        @if (!string.IsNullOrWhiteSpace(ViewBag.ExceptionMessage))
+        {
+            <div class="container alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <p>@ViewBag.ExceptionMessage</p>
+            </div>
+        }
+
+        @RenderBody()
+    </div>
 </body>
 </html>
