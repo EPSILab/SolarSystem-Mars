@@ -7,46 +7,47 @@
     Layout = "~/Views/Shared/_LayoutNotConnected.cshtml";
 }
 
-<p>&nbsp;</p>
-<p>@Html.Raw(ContentRessources.WelcomeText)</p>
-<p>@Html.Raw(ContentRessources.WelcomeText2)</p>
-<div>&nbsp;</div>
+<div class="jumbotron col-md-6 col-md-offset-3">
+    <p>@Html.Raw(ContentRessources.WelcomeText)</p>
+    <div>@Html.Raw(ContentRessources.WelcomeText2)</div>
+    <div>&nbsp;</div>
 
-<div class="col-md-5 col-md-offset-4">
+    <div>
 
-    @using (Html.BeginForm("LogOn", "Home", FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
-    {
-        @* Username *@
-        <div class="form-group">
-            @Html.LabelFor(model => model.Username, new { @class = "col-sm-3 control-label" })
-            <div class="col-sm-9">
-                @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = ContentRessources.Username })
+        @using (Html.BeginForm("LogOn", "Home", FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
+        {
+            @* Username *@
+            <div class="form-group">
+                @Html.LabelFor(model => model.Username, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = ContentRessources.Username })
+                </div>
             </div>
-        </div>
 
-        @* Password *@
-        <div class="form-group">
-            @Html.LabelFor(model => model.PasswordNonCrypted, new { @class = "col-sm-3 control-label" })
-            <div class="col-sm-9">
-                @Html.PasswordFor(model => model.PasswordNonCrypted, new { @class = "form-control", @placeholder = ContentRessources.Password })
+            @* Password *@
+            <div class="form-group">
+                @Html.LabelFor(model => model.PasswordNonCrypted, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.PasswordFor(model => model.PasswordNonCrypted, new { @class = "form-control", @placeholder = ContentRessources.Password })
+                </div>
             </div>
-        </div>
 
-        @* Connect button *@
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-10">
-                <button type="submit" class="btn btn-primary">@ContentRessources.Connection</button>
+            @* Connect button *@
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <button type="submit" class="btn btn-primary">@ContentRessources.Connection</button>
+                </div>
             </div>
-        </div>
 
-        @* Register and Lost Password links *@
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-10">
-                @Html.ActionLink(PagesTitlesRessources.Register, "Register")
+            @* Register and Lost Password links *@
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    @Html.ActionLink(PagesTitlesRessources.Register, "Register")
+                </div>
+                <div class="col-sm-offset-3 col-sm-10">
+                    @Html.ActionLink(PagesTitlesRessources.LostPassword, "LostPassword")
+                </div>
             </div>
-            <div class="col-sm-offset-3 col-sm-10">
-                @Html.ActionLink(PagesTitlesRessources.LostPassword, "LostPassword")
-            </div>
-        </div>
-    }
+        }
+    </div>
 </div>

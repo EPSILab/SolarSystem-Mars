@@ -9,6 +9,11 @@
     Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+
 @* Modal for deletion *@
 @using (Html.BeginForm(Html.BeginForm("Delete", "News", FormMethod.Post, new { enctype = "multipart/form-data" })))
 {

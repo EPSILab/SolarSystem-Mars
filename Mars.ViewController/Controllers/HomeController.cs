@@ -52,7 +52,10 @@ namespace SolarSystem.Mars.ViewController.Controllers
         public ActionResult Index()
         {
             if (AuthProvider.IsSignIn)
-                return Redirect(Url.Action("LogOn"));
+                return RedirectToAction("LogOn");
+
+            if (AuthProvider.Error)
+                ViewBag.ExceptionMessage = ErrorRessources.InvalidUsernameOrPassword;
 
             return View();
         }

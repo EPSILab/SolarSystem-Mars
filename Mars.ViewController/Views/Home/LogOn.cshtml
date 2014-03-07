@@ -3,9 +3,13 @@
 @model SolarSystem.Mars.Model.ManagersService.Member
 
 @{
-    ViewBag.Title = PagesTitlesRessources.LogOn;
+    ViewBag.Title = PagesTitlesRessources.Home;
     Layout = "../Shared/_LayoutConnected.cshtml";
 }
+
+<ol class="breadcrumb">
+    <li class="active">@ViewBag.Title</li>
+</ol>
 
 <div class="col-xs-6 col-sm-4">
     <h2>@ContentRessources.News</h2>

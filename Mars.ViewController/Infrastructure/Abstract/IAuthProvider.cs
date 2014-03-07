@@ -7,6 +7,8 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Abstract
         LoginViewModel LoginViewModel { get; }
         bool IsSignIn { get; }
 
+        bool Error { get; }
+
         bool SignIn(LoginViewModel login);
         bool SignOut();
     }

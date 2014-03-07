@@ -9,7 +9,7 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
     {
         #region Attributes
 
-        private readonly ILogin _membreManager;
+        private readonly ILogin _model;
 
         #endregion
 
@@ -17,7 +17,7 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
 
         public WebserviceAuthProvider(ILogin membreManager)
         {
-            _membreManager = membreManager;
+            _model = membreManager;
         }
 
         #endregion
@@ -28,25 +28,30 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
 
         public bool IsSignIn { get { return (LoginViewModel != null); } }
 
+        public bool Error { get; private set; }
+
         #endregion
 
         #region Methods
 
         public bool SignIn(LoginViewModel login)
         {
-            if (_membreManager.Exists(login.Username, login.PasswordCrypted))
+            Error = true;
+
+            if (_model.Exists(login.Username, login.PasswordCrypted))
             {
-                Member memberConnected = _membreManager.Login(login.Username, login.PasswordCrypted);
+                Member memberConnected = _model.Login(login.Username, login.PasswordCrypted);
 
                 if (memberConnected != null)
                 {
                     LoginViewModel = login;
-                    return true;
+                    Error = false;
                 }
             }
 
-            return false;
+            return !Error;
         }
+
         public bool SignOut()
         {
             if (LoginViewModel == null)

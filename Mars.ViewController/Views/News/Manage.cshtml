@@ -9,7 +9,11 @@
     Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
-<br />
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li>@Html.ActionLink(PagesTitlesRessources.News, "Index")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
 
 @using (Html.BeginForm(Html.BeginForm("Manage", "News", FormMethod.Post, new { enctype = "multipart/form-data" })))
 {

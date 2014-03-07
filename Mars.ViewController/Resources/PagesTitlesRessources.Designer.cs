@@ -97,7 +97,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Portail d&apos;administration EPSILab.
+        ///   Looks up a localized string similar to Accueil.
         /// </summary>
         public static string Home {
             get {
@@ -124,7 +124,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accueil du portail d&apos;administration.
+        ///   Looks up a localized string similar to Portail d&apos;administration.
         /// </summary>
         public static string LogOn {
             get {
@@ -178,7 +178,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Liste des articles.
+        ///   Looks up a localized string similar to Gestion des articles.
         /// </summary>
         public static string News {
             get {

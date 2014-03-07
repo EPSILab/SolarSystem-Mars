@@ -246,4 +246,7 @@
   <data name="Error" xml:space="preserve">
     <value>Certains champs ne sont pas valides. Merci de vérifier.</value>
   </data>
+  <data name="InvalidUsernameOrPassword" xml:space="preserve">
+    <value>Le nom utilisateur et/ou le mot de passe est incorrect.</value>
+  </data>
 </root>

@@ -130,7 +130,7 @@
     <value>Modifier mon profil</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Portail d'administration EPSILab</value>
+    <value>Accueil</value>
   </data>
   <data name="Links" xml:space="preserve">
     <value>Liste des liens</value>
@@ -139,7 +139,7 @@
     <value>Ajouter un nouveau lien</value>
   </data>
   <data name="LogOn" xml:space="preserve">
-    <value>Accueil du portail d'administration</value>
+    <value>Portail d'administration</value>
   </data>
   <data name="LogOut" xml:space="preserve">
     <value>Déconnexion</value>
@@ -157,7 +157,7 @@
     <value>Valider les nouvelles inscriptions</value>
   </data>
   <data name="News" xml:space="preserve">
-    <value>Liste des articles</value>
+    <value>Gestion des articles</value>
   </data>
   <data name="News_Create" xml:space="preserve">
     <value>Rédiger un nouvel article</value>
