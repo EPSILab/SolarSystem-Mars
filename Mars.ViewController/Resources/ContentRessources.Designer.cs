@@ -70,6 +70,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auteur.
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retour à la page précédente.
+        /// </summary>
+        public static string Back {
+            get {
+                return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provenance.
         /// </summary>
         public static string CityFrom {
@@ -97,7 +115,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connecté en tant que: &lt;strong&gt;{0}&lt;/strong&gt; &lt;strong&gt;{1}&lt;/strong.
+        ///   Looks up a localized string similar to Connecté en tant que &lt;strong&gt;{0}&lt;/strong&gt; &lt;strong&gt;{1}&lt;/strong&gt;.
         /// </summary>
         public static string ConnectedAs {
             get {
@@ -120,6 +138,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string ContactInformations {
             get {
                 return ResourceManager.GetString("ContactInformations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date et heure.
+        /// </summary>
+        public static string DateTime {
+            get {
+                return ResourceManager.GetString("DateTime", resourceCulture);
             }
         }
         
@@ -223,6 +250,42 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        public static string Image {
+            get {
+                return ResourceManager.GetString("Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publié?.
+        /// </summary>
+        public static string IsPublished {
+            get {
+                return ResourceManager.GetString("IsPublished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mots-clés.
+        /// </summary>
+        public static string Keywords {
+            get {
+                return ResourceManager.GetString("Keywords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to séparés avec des mots-clés.
+        /// </summary>
+        public static string Keywords_Recommandation {
+            get {
+                return ResourceManager.GetString("Keywords_Recommandation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nom.
         /// </summary>
         public static string LastName {
@@ -259,11 +322,20 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Links.
+        ///   Looks up a localized string similar to Liens.
         /// </summary>
         public static string Links {
             get {
                 return ResourceManager.GetString("Links", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Télécharger une image depuis votre disque dur.
+        /// </summary>
+        public static string LocalImage {
+            get {
+                return ResourceManager.GetString("LocalImage", resourceCulture);
             }
         }
         
@@ -277,7 +349,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Members.
+        ///   Looks up a localized string similar to Membres.
         /// </summary>
         public static string Members {
             get {
@@ -291,6 +363,51 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string News {
             get {
                 return ResourceManager.GetString("News", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contenu de l&apos;article.
+        /// </summary>
+        public static string NewsContent {
+            get {
+                return ResourceManager.GetString("NewsContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informations sur l&apos;article.
+        /// </summary>
+        public static string NewsInformations {
+            get {
+                return ResourceManager.GetString("NewsInformations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Titre de la news.
+        /// </summary>
+        public static string NewsTitle {
+            get {
+                return ResourceManager.GetString("NewsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suivant.
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -358,7 +475,16 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Projects.
+        ///   Looks up a localized string similar to Précédent.
+        /// </summary>
+        public static string Previous {
+            get {
+                return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Projets.
         /// </summary>
         public static string Projects {
             get {
@@ -367,7 +493,25 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shows.
+        ///   Looks up a localized string similar to Lier une image présente sur un autre site web.
+        /// </summary>
+        public static string RemoteImage {
+            get {
+                return ResourceManager.GetString("RemoteImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Texte d&apos;accroche.
+        /// </summary>
+        public static string ShortText {
+            get {
+                return ResourceManager.GetString("ShortText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salons.
         /// </summary>
         public static string Shows {
             get {
@@ -390,6 +534,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string SocialInformations {
             get {
                 return ResourceManager.GetString("SocialInformations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Début.
+        /// </summary>
+        public static string Start {
+            get {
+                return ResourceManager.GetString("Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contenu.
+        /// </summary>
+        public static string Text {
+            get {
+                return ResourceManager.GetString("Text", resourceCulture);
             }
         }
         
@@ -421,11 +583,29 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Permalien.
+        /// </summary>
+        public static string URL {
+            get {
+                return ResourceManager.GetString("URL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nom utilisateur.
         /// </summary>
         public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valider les modifications.
+        /// </summary>
+        public static string Valid {
+            get {
+                return ResourceManager.GetString("Valid", resourceCulture);
             }
         }
         
@@ -507,6 +687,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string WelcomeText2 {
             get {
                 return ResourceManager.GetString("WelcomeText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oui.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

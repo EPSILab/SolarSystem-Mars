@@ -7,19 +7,8 @@ namespace SolarSystem.Mars.ViewController.ViewModels
     /// <summary>
     /// View-model for member creation, updating or validation page
     /// </summary>
-    public class MemberViewModel : CRUDViewModelBase
+    public class MemberViewModel
     {
-        #region Constructor
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="action">Action for the view-model</param>
-        public MemberViewModel(CRUDAction action = CRUDAction.Create)
-            : base(action) { }
-
-        #endregion
-
         #region Properties
 
         /// <summary>

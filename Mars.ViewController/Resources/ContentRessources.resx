@@ -130,7 +130,7 @@
     <value>Confirmation du mot de passe</value>
   </data>
   <data name="ConnectedAs" xml:space="preserve">
-    <value>Connecté en tant que: &lt;strong&gt;{0}&lt;/strong&gt; &lt;strong&gt;{1}&lt;/strong</value>
+    <value>Connecté en tant que &lt;strong&gt;{0}&lt;/strong&gt; &lt;strong&gt;{1}&lt;/strong&gt;</value>
   </data>
   <data name="Connection" xml:space="preserve">
     <value>Connexion</value>
@@ -181,13 +181,13 @@
     <value>N'oubliez pas le &lt;em&gt;http://*.linkedin.com/&lt;/em&gt;</value>
   </data>
   <data name="Links" xml:space="preserve">
-    <value>Links</value>
+    <value>Liens</value>
   </data>
   <data name="LogOn_Connected" xml:space="preserve">
     <value>Vous êtes à présent connecté au portail. Vous avez désormais accès aux sections auxquelles vous pouvez gérer les informations.</value>
   </data>
   <data name="Members" xml:space="preserve">
-    <value>Members</value>
+    <value>Membres</value>
   </data>
   <data name="News" xml:space="preserve">
     <value>Articles</value>
@@ -214,10 +214,10 @@
     <value>0102030405</value>
   </data>
   <data name="Projects" xml:space="preserve">
-    <value>Projects</value>
+    <value>Projets</value>
   </data>
   <data name="Shows" xml:space="preserve">
-    <value>Shows</value>
+    <value>Salons</value>
   </data>
   <data name="Slideshow" xml:space="preserve">
     <value>Diaporama du site</value>
@@ -266,5 +266,68 @@
   </data>
   <data name="WelcomeText2" xml:space="preserve">
     <value>Si vous ne possédez pas de compte, vous pouvez en faire la demande en cliquant sur &lt;strong&gt;Demander la création d'un compte&lt;/strong&gt;.</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Retour à la page précédente</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>Date et heure</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="IsPublished" xml:space="preserve">
+    <value>Publié?</value>
+  </data>
+  <data name="Keywords" xml:space="preserve">
+    <value>Mots-clés</value>
+  </data>
+  <data name="Keywords_Recommandation" xml:space="preserve">
+    <value>séparés avec des mots-clés</value>
+  </data>
+  <data name="NewsTitle" xml:space="preserve">
+    <value>Titre de la news</value>
+  </data>
+  <data name="ShortText" xml:space="preserve">
+    <value>Texte d'accroche</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Contenu</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>Permalien</value>
+  </data>
+  <data name="Valid" xml:space="preserve">
+    <value>Valider les modifications</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Auteur</value>
+  </data>
+  <data name="NewsContent" xml:space="preserve">
+    <value>Contenu de l'article</value>
+  </data>
+  <data name="NewsInformations" xml:space="preserve">
+    <value>Informations sur l'article</value>
+  </data>
+  <data name="LocalImage" xml:space="preserve">
+    <value>Télécharger une image depuis votre disque dur</value>
+  </data>
+  <data name="RemoteImage" xml:space="preserve">
+    <value>Lier une image présente sur un autre site web</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Précédent</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Début</value>
   </data>
 </root>

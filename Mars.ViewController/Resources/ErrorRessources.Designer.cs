@@ -97,11 +97,11 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to La date et l&apos;heure sont requis..
+        ///   Looks up a localized string similar to La date est requise..
         /// </summary>
-        public static string DateTimeRequired {
+        public static string DateRequired {
             get {
-                return ResourceManager.GetString("DateTimeRequired", resourceCulture);
+                return ResourceManager.GetString("DateRequired", resourceCulture);
             }
         }
         
@@ -120,6 +120,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string EPSIEmailRequired {
             get {
                 return ResourceManager.GetString("EPSIEmailRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certains champs ne sont pas valides. Merci de vérifier..
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
@@ -178,6 +187,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Le nom utilisateur et/ou le mot de passe est incorrect..
+        /// </summary>
+        public static string InvalidUsernameOrPassword {
+            get {
+                return ResourceManager.GetString("InvalidUsernameOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Les mots-clés sont obligatoires..
+        /// </summary>
+        public static string KeywordsRequired {
+            get {
+                return ResourceManager.GetString("KeywordsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to L&apos;URL de la page LinkedIn est incorrecte..
         /// </summary>
         public static string LinkedInUrlFormatError {
@@ -187,7 +214,16 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Le texte long est requis..
+        ///   Looks up a localized string similar to La longueur du contenu doit être de 10 caractères minimum..
+        /// </summary>
+        public static string LongTextMinLength {
+            get {
+                return ResourceManager.GetString("LongTextMinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le contenu ne peut pas être vide..
         /// </summary>
         public static string LongTextRequired {
             get {
@@ -268,7 +304,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to La longueur du texte court doit être de 100 caractères maximum..
+        ///   Looks up a localized string similar to La longueur de l&apos;accroche doit être de 100 caractères maximum..
         /// </summary>
         public static string ShortTextMaxLength {
             get {
@@ -277,7 +313,7 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to La longueur du texte court doit être de 5 caractères minimum..
+        ///   Looks up a localized string similar to La longueur de l&apos;accroche doit être de 5 caractères minimum..
         /// </summary>
         public static string ShortTextMinLength {
             get {
@@ -295,11 +331,29 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Le nom est obligatoire..
         /// </summary>
         public static string SurnameRequired {
             get {
                 return ResourceManager.GetString("SurnameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L&apos;heure est requise..
+        /// </summary>
+        public static string TimeRequired {
+            get {
+                return ResourceManager.GetString("TimeRequired", resourceCulture);
             }
         }
         

@@ -1,4 +1,4 @@
-﻿using Mars.Common;
+﻿using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Resources;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -9,16 +9,38 @@ namespace SolarSystem.Mars.ViewController.ViewModels
     /// <summary>
     /// View-model for news creation or updating page
     /// </summary>
-    public class NewsViewModel : CRUDViewModelBase
+    public class NewsViewModel
     {
         #region Constructor
 
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="action">Action for the view-model</param>
-        public NewsViewModel(CRUDAction action = CRUDAction.Create)
-            : base(action) { }
+        public NewsViewModel()
+        {
+            Date = Time = DateTime.Now;
+            IsPublished = true;
+        }
+
+        /// <summary>
+        /// Build a view-model from an entity
+        /// </summary>
+        /// <param name="news">Entity to transform</param>
+        public NewsViewModel(News news)
+        {
+            Id = news.Id;
+            AuthorId = news.Member.Id;
+            AuthorName = string.Format("{0} {1}", news.Member.FirstName, news.Member.LastName);
+            ImageRemoteUrl = news.ImageUrl;
+            IsPublished = news.IsPublished;
+            Keywords = news.Keywords;
+            Text = news.Text;
+            ShortText = news.ShortText;
+            Title = news.Title;
+            Url = news.Url;
+            Date = news.DateTime.Date;
+            Time = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, news.DateTime.Hour, news.DateTime.Minute, news.DateTime.Second);
+        }
 
         #endregion
 
@@ -32,46 +54,65 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         /// <summary>
         /// Title
         /// </summary>
+        [Display(ResourceType = typeof(ContentRessources), Name = "NewsTitle")]
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "TitleRequired")]
         [MinLength(5, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "TitleMinLength")]
         [MaxLength(100, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "TitleMaxLength")]
         public string Title { get; set; }
 
         /// <summary>
+        /// Url
+        /// </summary>
+        [Display(ResourceType = typeof(ContentRessources), Name = "URL")]
+        public string Url { get; set; }
+
+        /// <summary>
+        /// Date
+        /// </summary>
+        [Display(ResourceType = typeof(ContentRessources), Name = "DateTime")]
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "DateRequired")]
+        [DataType(DataType.Date, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "DateRequired")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
+        public DateTime Date { get; set; }
+
+        /// <summary>
+        /// Time
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "TimeRequired")]
+        [DataType(DataType.Time, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "TimeRequired")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:t}")]
+        public DateTime Time { get; set; }
+
+        /// <summary>
         /// Author's Id
         /// </summary>
+        [Display(ResourceType = typeof(ContentRessources), Name = "Author")]
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "AuthorRequired")]
         [Range(1, Int32.MaxValue, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "AuthorRequired")]
         public int AuthorId { get; set; }
 
-        /// <summary>
-        /// Date and time
-        /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "DateTimeRequired")]
-        [DataType(DataType.DateTime, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "DateTimeRequired")]
-        public DateTime DateTime { get; set; }
+        [Display(ResourceType = typeof(ContentRessources), Name = "Author")]
+        public string AuthorName { get; set; }
 
         /// <summary>
         /// Image URL
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImageRequired")]
-        [DataType(DataType.Url, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathFormat")]
-        [FileExtensions(Extensions = "png | jpg | jpeg | gif", ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathExtensions")]
-        public string ImageUrl { get; set; }
+        [Display(ResourceType = typeof(ContentRessources), Name = "Image")]
+        [DataType(DataType.ImageUrl, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathFormat")]
+        [FileExtensions(Extensions = "png, jpg, jpeg, gif", ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathExtensions", ErrorMessage = null)]
+        public string ImageRemoteUrl { get; set; }
 
         /// <summary>
         /// Search keywords
         /// </summary>
+        [Display(ResourceType = typeof(ContentRessources), Name = "Keywords")]
+        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "KeywordsRequired")]
         public string Keywords { get; set; }
-
-        /// <summary>
-        /// Is the news published
-        /// </summary>
-        public bool IsPublished { get; set; }
 
         /// <summary>
         /// Short text
         /// </summary>
+        [Display(ResourceType = typeof(ContentRessources), Name = "ShortText")]
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ShortTextRequired")]
         [MinLength(5, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ShortTextMinLength")]
         [MaxLength(100, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ShortTextMaxLength")]
@@ -80,15 +121,17 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         /// <summary>
         /// Text
         /// </summary>
+        [Display(ResourceType = typeof(ContentRessources), Name = "Text")]
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "LongTextRequired")]
+        [MinLength(5, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "LongTextMinLength")]
         [AllowHtml]
         public string Text { get; set; }
 
         /// <summary>
-        /// Url
+        /// Is the news published
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "UrlRequired")]
-        public string Url { get; set; }
+        [Display(ResourceType = typeof(ContentRessources), Name = "IsPublished", ShortName = "IsPublished")]
+        public bool IsPublished { get; set; }
 
         #endregion
     }

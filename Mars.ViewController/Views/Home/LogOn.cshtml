@@ -3,20 +3,13 @@
 @model SolarSystem.Mars.Model.ManagersService.Member
 
 @{
-    ViewBag.Title = @PagesTitlesRessources.LogOn;
-    Layout = "../Shared/_Layout.cshtml";
+    ViewBag.Title = PagesTitlesRessources.Home;
+    Layout = "../Shared/_LayoutConnected.cshtml";
 }
 
-<div>
-    @Html.Raw(string.Format(ContentRessources.ConnectedAs, Model.Prenom, Model.Nom)) |
-    @Html.ActionLink(PagesTitlesRessources.LogOn, "LogOn") |
-    @Html.ActionLink(PagesTitlesRessources.EditProfile, "EditProfile") |
-    @Html.ActionLink(PagesTitlesRessources.LogOut, "LogOut")
-</div>
-
-<h1>@ViewBag.Title</h1>
-
-
+<ol class="breadcrumb">
+    <li class="active">@ViewBag.Title</li>
+</ol>
 
 <div class="col-xs-6 col-sm-4">
     <h2>@ContentRessources.News</h2>
@@ -25,11 +18,12 @@
             @Html.ActionLink(PagesTitlesRessources.News_Create, "Manage", "News")
         </li>
         <li>
-            @Html.ActionLink(PagesTitlesRessources.Home, "Index", "News")
+            @Html.ActionLink(PagesTitlesRessources.News, "Index", "News")
         </li>
     </ul>
 </div>
 
+@*
 <div class="col-xs-6 col-sm-4">
     <h2>@ContentRessources.Slideshow</h2>
     <ul>
@@ -116,3 +110,4 @@
         </li>
     </ul>
 </div>
+*@

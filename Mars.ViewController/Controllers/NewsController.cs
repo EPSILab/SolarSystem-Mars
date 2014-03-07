@@ -1,13 +1,15 @@
-﻿using Mars.Common;
-using SolarSystem.Mars.Model.Interfaces;
+﻿using SolarSystem.Mars.Model.Interfaces;
 using SolarSystem.Mars.Model.ManagersService;
+using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
 using SolarSystem.Mars.ViewController.Resources;
 using SolarSystem.Mars.ViewController.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace SolarSystem.Mars.ViewController.Controllers
 {
@@ -16,9 +18,9 @@ namespace SolarSystem.Mars.ViewController.Controllers
     {
         #region Constructor
 
-        public NewsController(IReaderLimit<News> modelNews, IReader<Member> modelMember)
+        public NewsController(IReaderLimit<News> model, IReader<Member> modelMember)
         {
-            _model = modelNews;
+            _model = model;
             _modelMembers = modelMember;
         }
 
@@ -38,68 +40,78 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #endregion
 
-        #region Methods
+        #region Index methods
 
-        /// <summary>
-        /// GET: /News/
-        /// Get all news
-        /// </summary>
-        public ActionResult Index()
+        public ActionResult Index(int id = 0, string message = null, string exceptionMessage = null)
         {
-            IEnumerable<News> newsList = _model.Get(0, 10);
-            return View(newsList);
-        }
+            IEnumerable<News> listNews = _model.Get(id, Constants.ItemsNumber);
+            IEnumerable<NewsViewModel> vm = listNews.Select(news => new NewsViewModel(news));
 
-        /// <summary>
-        /// GET: /News/Manage
-        /// Create a new news
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Manage()
-        {
-            ViewBag.Members = _modelMembers.Get();
+            ViewBag.Id = id;
+            ViewBag.ExceptionMessage = exceptionMessage;
+            ViewBag.Message = message;
 
-            NewsViewModel vm = new NewsViewModel();
             return View(vm);
         }
 
+        #endregion
+
+        #region Manage methods
+
         /// <summary>
-        /// GET: /News/Edit/1
+        /// GET: /News/Manage/1
         /// Edit an existing news
         /// </summary>
         /// <param name="id">Id of the news to manage</param>
-        public ActionResult Manage(int id)
+        public ActionResult Manage(int id = 0)
         {
             // Load members list
-            ViewBag.Members = _modelMembers.Get();
+            IEnumerable<Member> membersAvailables = _modelMembers.Get();
 
-            // Prepare the news to be shown
-            News news = _model.Get(id);
-
-            NewsViewModel newsViewModel = new NewsViewModel(CRUDAction.Update)
+            IList<SelectListItem> membersItems = membersAvailables.Select(member => new SelectListItem
             {
-                Id = news.Id,
-                AuthorId = news.Member.Id,
-                ImageUrl = news.ImageUrl,
-                IsPublished = news.IsPublished,
-                Keywords = news.Keywords,
-                Text = news.Text,
-                ShortText = news.ShortText,
-                Title = news.Title,
-                Url = news.Url
-            };
+                Value = member.Id.ToString("0"),
+                Text = string.Format("{0} {1} ({2})", member.FirstName, member.LastName, member.Campus.Place)
+            }).ToList();
 
-            return View(newsViewModel);
+            NewsViewModel vm;
+            SelectListItem author = null;
+
+            if (id == 0)
+                vm = new NewsViewModel();
+            else
+            {
+                News news = _model.Get(id);
+                vm = new NewsViewModel(news);
+
+                author = membersItems.FirstOrDefault(i => int.Parse(i.Value) == news.Member.Id);
+
+                if (author == null)
+                {
+                    author = new SelectListItem
+                    {
+                        Value = news.Member.Id.ToString("#"),
+                        Text = string.Format("{0} {1} ({2})", news.Member.FirstName, news.Member.LastName, news.Member.Campus.Place)
+                    };
+
+                    membersItems.Add(author);
+                }
+            }
+
+            SelectList membersList = new SelectList(membersItems, "Value", "Text", author);
+            ViewBag.Members = membersList;
+
+            return View(vm);
         }
 
         /// <summary>
         /// POST: /News/Manage
         /// When the user has clicked on the OK button
         /// </summary>
-        /// <param name="newsVM">Page view-model</param>
+        /// <param name="vm">Page view-model</param>
         /// <param name="file">Image to send on the FTP server</param>
         [HttpPost]
-        public ActionResult Manage(NewsViewModel newsVM, HttpPostedFileBase file)
+        public ActionResult Manage(NewsViewModel vm, HttpPostedFileBase file)
         {
             try
             {
@@ -108,64 +120,113 @@ namespace SolarSystem.Mars.ViewController.Controllers
                     // Prepare to send the news to the server
                     News news = new News
                     {
-                        Id = newsVM.Id,
-                        Keywords = newsVM.Keywords,
-                        DateTime = newsVM.DateTime,
-                        Member = _modelMembers.Get(newsVM.AuthorId),
-                        IsPublished = newsVM.IsPublished,
-                        ShortText = newsVM.ShortText,
-                        Text = newsVM.Text,
-                        Title = newsVM.Title,
-                        Url = newsVM.Url
+                        Id = vm.Id,
+                        Keywords = vm.Keywords,
+                        DateTime = new DateTime(vm.Date.Year, vm.Date.Month, vm.Date.Day, vm.Time.Hour, vm.Time.Minute, 0),
+                        Member = _modelMembers.Get(vm.AuthorId),
+                        IsPublished = vm.IsPublished,
+                        ShortText = vm.ShortText,
+                        Text = vm.Text,
+                        Title = vm.Title,
+                        Url = vm.Url
                     };
 
                     // Image management
-                    string imagePath = string.Format("{0}/Images/News/{1}", ContentRessources.EPSILabUrl, file.FileName);
-                    file.SaveAs(imagePath);
-                    news.ImageUrl = imagePath;
+                    if (file != null && file.ContentLength > 0) // Image is local
+                    {
+                        string imagePath = string.Format("../{0}/Images/News/{1}", ContentRessources.EPSILabUrl, file.FileName);
+                        file.SaveAs(imagePath);
+                        news.ImageUrl = imagePath;
+                    }
+                    // Image is remote
+                    else if (!string.IsNullOrWhiteSpace(vm.ImageRemoteUrl))
+                        news.ImageUrl = vm.ImageRemoteUrl;
+                    // No image given
+                    else
+                        throw new InvalidModelStateException(ErrorRessources.ImageRequired);
 
                     // Save the news
                     LoginViewModel loginVM = AuthProvider.LoginViewModel;
 
-                    switch (newsVM.Action)
+                    RouteValueDictionary parameters = new RouteValueDictionary();
+
+                    if (vm.Id == 0)
                     {
-                        case CRUDAction.Create:
-                            _model.Add(news, loginVM.Username, loginVM.PasswordCrypted);
-                            break;
-                        case CRUDAction.Update:
-                            _model.Edit(news, loginVM.Username, loginVM.PasswordCrypted);
-                            break;
+                        _model.Add(news, loginVM.Username, loginVM.PasswordCrypted);
+                        parameters.Add("message", MessagesResources.NewsCreated);
+                    }
+                    else
+                    {
+                        _model.Edit(news, loginVM.Username, loginVM.PasswordCrypted);
+                        parameters.Add("message", MessagesResources.NewsUpdated);
                     }
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", parameters);
                 }
 
-                return View(newsVM);
+                throw new InvalidModelStateException();
+            }
+            catch (InvalidModelStateException ex)
+            {
+                ViewBag.ExceptionMessage = ex.DisplayMessage;
             }
             catch (Exception ex)
             {
-                ViewBag.Exception = ex.Message;
-                return View(newsVM);
+                ViewBag.ExceptionMessage = ex.Message;
             }
+
+            IEnumerable<Member> membersAvailables = _modelMembers.Get();
+
+            IList<SelectListItem> membersItems = membersAvailables.Select(member => new SelectListItem
+            {
+                Value = member.Id.ToString("0"),
+                Text = string.Format("{0} {1} ({2})", member.FirstName, member.LastName, member.Campus.Place)
+            }).ToList();
+
+            SelectListItem author = membersItems.FirstOrDefault(i => int.Parse(i.Value) == vm.AuthorId);
+
+            if (author == null)
+            {
+                News news = _model.Get(vm.Id);
+
+                author = new SelectListItem
+                {
+                    Value = news.Member.Id.ToString("#"),
+                    Text = string.Format("{0} {1} ({2})", news.Member.FirstName, news.Member.LastName, news.Member.Campus.Place)
+                };
+
+                membersItems.Add(author);
+            }
+
+            SelectList membersList = new SelectList(membersItems, "Value", "Text", author);
+            ViewBag.Members = membersList;
+
+            return View(vm);
         }
+
+        #endregion
+
+        #region Delete methods
 
         /// <summary>
         ///  GET: /News/Delete/1
         /// Delete an existing news
         /// </summary>
         /// <param name="id">News Id to delete</param>
+        [HttpPost]
         public ActionResult Delete(int id)
         {
             try
             {
-                LoginViewModel loginVM = AuthProvider.LoginViewModel;
-                _model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
+                // TODO: Décommenter les lignes suivantes
+                // LoginViewModel loginVM = AuthProvider.LoginViewModel;
+                // _model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { message = MessagesResources.NewsDeleted });
             }
-            catch
+            catch (Exception ex)
             {
-                return View("Index");
+                return RedirectToAction("Index", new { exceptionMessage = ex.Message });
             }
         }
 

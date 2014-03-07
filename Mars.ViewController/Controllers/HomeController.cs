@@ -1,10 +1,10 @@
-﻿using System;
-using SolarSystem.Mars.Model.Interfaces;
+﻿using SolarSystem.Mars.Model.Interfaces;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Helpers;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
 using SolarSystem.Mars.ViewController.Resources;
 using SolarSystem.Mars.ViewController.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -44,7 +44,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #endregion
 
-        #region Methods
+        #region Index methods
 
         /// <summary>
         /// GET: /Home/
@@ -52,10 +52,17 @@ namespace SolarSystem.Mars.ViewController.Controllers
         public ActionResult Index()
         {
             if (AuthProvider.IsSignIn)
-                return Redirect(Url.Action("LogOn"));
+                return RedirectToAction("LogOn");
+
+            if (AuthProvider.Error)
+                ViewBag.ExceptionMessage = ErrorRessources.InvalidUsernameOrPassword;
 
             return View();
         }
+
+        #endregion
+
+        #region LogOn methods
 
         /// <summary>
         /// GET : /Home/LogOn
@@ -65,7 +72,8 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             LoginViewModel vm = AuthProvider.LoginViewModel;
             Member userConnected = _model.Login(vm.Username, vm.PasswordCrypted);
-            return View(userConnected);
+            Session.Add("CurrentUser", userConnected);
+            return View();
         }
 
         /// <summary>
@@ -78,8 +86,12 @@ namespace SolarSystem.Mars.ViewController.Controllers
             if (ModelState.IsValid)
                 AuthProvider.SignIn(viewModel);
 
-            return Redirect(Url.Action("Index"));
+            return RedirectToAction("Index");
         }
+
+        #endregion
+
+        #region Register methods
 
         /// <summary>
         ///  GET : /Home/Register
@@ -135,7 +147,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 member.ImageUrl = imagePath;
 
                 // Password
-                string password = PasswordEncoderHelper.Encode(vm.Password);
+                string password = PasswordEncoder.Encode(vm.Password);
 
                 try
                 {
@@ -155,6 +167,10 @@ namespace SolarSystem.Mars.ViewController.Controllers
             return View(vm);
         }
 
+        #endregion
+
+        #region LostPassword regions
+
         /// <summary>
         ///  GET : /Home/LostPassword
         /// </summary>
@@ -162,6 +178,10 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             return View();
         }
+
+        #endregion
+
+        #region EditProfile regions
 
         /// <summary>
         /// GET : /Home/EditProfile
@@ -171,6 +191,10 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             return View();
         }
+
+        #endregion
+
+        #region LogOut regions
 
         /// <summary>
         /// GET : /Home/LogOut
