@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using SolarSystem.Mars.ViewController.Helpers;
+﻿using SolarSystem.Mars.ViewController.Helpers;
 using SolarSystem.Mars.ViewController.Resources;
 using System.ComponentModel.DataAnnotations;
 

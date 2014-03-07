@@ -1,8 +1,8 @@
-﻿using SolarSystem.Mars.Model.Interfaces;
+﻿using System.Collections.Generic;
 using SolarSystem.Mars.Model.ManagersService;
-using System.Collections.Generic;
+using SolarSystem.Mars.Model.Model.Abstract;
 
-namespace SolarSystem.Mars.Model
+namespace SolarSystem.Mars.Model.Model.Concrete
 {
     class ConferenceModel : IReaderLimit<Conference>
     {

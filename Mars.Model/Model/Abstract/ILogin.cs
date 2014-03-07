@@ -1,6 +1,6 @@
 ﻿using SolarSystem.Mars.Model.ManagersService;
 
-namespace SolarSystem.Mars.Model.Interfaces
+namespace SolarSystem.Mars.Model.Model.Abstract
 {
     public interface ILogin : IManager<Member>
     {
