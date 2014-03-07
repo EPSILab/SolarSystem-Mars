@@ -22,6 +22,9 @@ namespace SolarSystem.Mars.Model.Infrastructure
             Bind<IReader<Slide>>().To<SlideModel>().InSingletonScope();
             Bind<IReaderLimit<Show>>().To<ShowModel>().InSingletonScope();
             Bind<IReader<Campus>>().To<CampusModel>().InSingletonScope();
+
+            // Constants
+            Bind<IConstants>().To<Constants>().InSingletonScope();
         }
     }
 }

@@ -50,11 +50,13 @@
     <Compile Include="Helpers\PasswordEncoder.cs" />
     <Compile Include="Infrastructure\ModelModule.cs" />
     <Compile Include="Model\Abstract\IAvailable.cs" />
+    <Compile Include="Model\Abstract\IConstants.cs" />
     <Compile Include="Model\Abstract\IManager.cs" />
     <Compile Include="Model\Abstract\IReader.cs" />
     <Compile Include="Model\Abstract\IReaderFilters.cs" />
     <Compile Include="Model\Abstract\IReaderLimit.cs" />
     <Compile Include="Model\Concrete\CampusModel.cs" />
+    <Compile Include="Model\Concrete\Constants.cs" />
     <Compile Include="Model\Concrete\SalonModel.cs" />
     <Compile Include="Service References\ManagersService\Reference.cs">
       <AutoGen>True</AutoGen>

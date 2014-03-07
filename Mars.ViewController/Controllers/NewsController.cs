@@ -18,10 +18,11 @@ namespace SolarSystem.Mars.ViewController.Controllers
     {
         #region Constructor
 
-        public NewsController(IReaderLimit<News> model, IReader<Member> modelMember)
+        public NewsController(IReaderLimit<News> model, IReader<Member> modelMember, IConstants constants)
         {
             _model = model;
             _modelMembers = modelMember;
+            _constants = constants;
         }
 
         #endregion
@@ -38,16 +39,22 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// </summary>
         private readonly IReader<Member> _modelMembers;
 
+        /// <summary>
+        /// Constants values
+        /// </summary>
+        private readonly IConstants _constants;
+
         #endregion
 
         #region Index methods
 
         public ActionResult Index(int id = 0)
         {
-            IEnumerable<News> listNews = _model.Get(id, Constants.ItemsNumber);
+            IEnumerable<News> listNews = _model.Get(id, _constants.ItemsNumber);
             IEnumerable<NewsViewModel> vm = listNews.Select(news => new NewsViewModel(news));
 
             ViewBag.Id = id;
+            ViewBag.ItemsNumber = _constants.ItemsNumber;
 
             return View(vm);
         }
