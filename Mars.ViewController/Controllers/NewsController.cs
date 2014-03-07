@@ -42,17 +42,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #region Index methods
 
-        public ActionResult Index(string message = null, string exceptionMessage = null)
-        {
-            return Index(0, message, exceptionMessage);
-        }
-
-        /// <summary>
-        /// GET: /News/
-        /// Get all news
-        /// </summary>
-        [HttpPost]
-        public ActionResult Index(int id, string message, string exceptionMessage)
+        public ActionResult Index(int id = 0, string message = null, string exceptionMessage = null)
         {
             IEnumerable<News> listNews = _model.Get(id, Constants.ItemsNumber);
             IEnumerable<NewsViewModel> vm = listNews.Select(news => new NewsViewModel(news));
