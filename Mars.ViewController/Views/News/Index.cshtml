@@ -9,13 +9,14 @@
     Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
+@* Breadcrumbs *@
 <ol class="breadcrumb">
     <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
     <li class="active">@ViewBag.Title</li>
 </ol>
 
 @* Modal for deletion *@
-@using (Html.BeginForm(Html.BeginForm("Delete", "News", FormMethod.Post, new { enctype = "multipart/form-data" })))
+@using (Ajax.BeginForm("Delete", "News", new AjaxOptions { HttpMethod = "POST", OnSuccess = "deleteNews"}))
 {
     <div id="modalDelete" class="modal fade">
         <div class="modal-dialog modal-sm">
@@ -61,7 +62,7 @@
             <th width="15%" class="hidden-xs">
                 @Html.DisplayNameFor(model => model.Date)
             </th>
-            <th width="15%">
+            <th width="15%" class="hidden-xs">
                 @Html.DisplayNameFor(model => model.Keywords)
             </th>
             <th width="10%">
@@ -72,7 +73,7 @@
     <tbody>
         @foreach (NewsViewModel item in Model)
         {
-            <tr>
+            <tr id="@string.Format("item{0}", item.Id)">
                 <td>
                     @Html.DisplayFor(modelItem => item.IsPublished)
                 </td>
@@ -105,6 +106,8 @@
 @Pagination()
 
 @section Scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -117,6 +120,29 @@
                 $("#idToDelete").val(idToDelete);
             });
         });
+        
+        function deleteNews(data) {
+            $('#modalDelete').modal('hide');
+
+            if (data.success) {
+                if (data.id > 0) {
+                    $('#item' + data.id).remove();
+                    showMessage(data.message, false);
+                }
+            } else {
+                showMessage(data.message, true);
+            }
+        }
+        
+        function showMessage(message, isErrorMessage) {
+            if (isErrorMessage) {
+                $('#errorMessageContent').text(message);
+                $('#errorMessage').fadeIn();
+            } else {
+                $('#successMessageContent').text(message);
+                $('#successMessage').fadeIn();
+            }
+        }
     </script>
 }
 

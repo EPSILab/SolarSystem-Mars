@@ -14,13 +14,9 @@
     @RenderSection("scripts", false)
 
     @Styles.Render("~/Content/css")
-
-    <script type="text/javascript">
-        $(".alert").alert();
-    </script>
 </head>
 <body>
-    <div>&nbsp;</div>
+    <br />
     <div class="container">
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <ul class="nav navbar-nav">
@@ -31,7 +27,7 @@
             <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
                 <li class="navbar-text">
                     @{
-                        Member currentUser = (Member)Session["CurrentUser"];
+                        var currentUser = (Member)Session["CurrentUser"];
                         @Html.Raw(string.Format(ContentRessources.ConnectedAs, currentUser.FirstName, currentUser.LastName))
                     }
                 </li>
@@ -41,22 +37,27 @@
             </ul>
         </nav>
 
-        @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
-        {
-            <div class="container alert alert-success fade in">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <p>@ViewBag.Message</p>
-            </div>
-        }
+        <div id="successMessage" class="container alert alert-success fade in">
+            <button type="button" class="close">&times;</button>
+            <p id="successMessageContent"></p>
+        </div>
 
-        @if (!string.IsNullOrWhiteSpace(ViewBag.ExceptionMessage))
-        {
-            <div class="container alert alert-danger">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <p>@ViewBag.ExceptionMessage</p>
-            </div>
-        }
+        <div id="errorMessage" class="container alert alert-danger fade in">
+            <button type="button" class="close">&times;</button>
+            <p id="errorMessageContent"></p>
+        </div>
+
         @RenderBody()
+        
+        <script type="text/javascript">
+            $('#successMessage').hide();
+            $('#errorMessage').hide();
+
+            $('.close').click(function () {
+                $('#successMessage').fadeOut();
+                $('#errorMessage').fadeOut();
+            });
+        </script>
     </div>
 </body>
 </html>

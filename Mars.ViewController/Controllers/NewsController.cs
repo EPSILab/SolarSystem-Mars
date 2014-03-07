@@ -214,7 +214,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// </summary>
         /// <param name="id">News Id to delete</param>
         [HttpPost]
-        public ActionResult Delete(int id)
+        public JsonResult Delete(int id)
         {
             try
             {
@@ -222,11 +222,11 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 // LoginViewModel loginVM = AuthProvider.LoginViewModel;
                 // _model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
 
-                return RedirectToAction("Index", new { message = MessagesResources.NewsDeleted });
+                return Json(new { id, success = true, message = MessagesResources.NewsDeleted });
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index", new { exceptionMessage = ex.Message });
+                return Json(new { id = 0, success = false, message = ex.Message });
             }
         }
 
