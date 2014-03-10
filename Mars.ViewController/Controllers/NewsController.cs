@@ -1,4 +1,5 @@
-﻿using SolarSystem.Mars.Model.ManagersService;
+﻿using System.Globalization;
+using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
@@ -9,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
 
 namespace SolarSystem.Mars.ViewController.Controllers
 {
@@ -50,9 +50,11 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         public ActionResult Index(int id = 0)
         {
+            // Get News and tranform them in NewsViewModel
             IEnumerable<News> listNews = _model.Get(id, _constants.ItemsNumber);
             IEnumerable<NewsViewModel> vm = listNews.Select(news => new NewsViewModel(news));
 
+            // Send Id and ItemsNumber for navigation
             ViewBag.Id = id;
             ViewBag.ItemsNumber = _constants.ItemsNumber;
 
@@ -72,15 +74,15 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             // Load members list
             IEnumerable<Member> membersAvailables = _modelMembers.Get();
+            NewsViewModel vm;
+            SelectListItem author = null;
 
             IList<SelectListItem> membersItems = membersAvailables.Select(member => new SelectListItem
             {
-                Value = member.Id.ToString("0"),
+                Value = member.Id.ToString(),
                 Text = string.Format("{0} {1} ({2})", member.FirstName, member.LastName, member.Campus.Place)
             }).ToList();
 
-            NewsViewModel vm;
-            SelectListItem author = null;
 
             if (id == 0)
                 vm = new NewsViewModel();
@@ -89,13 +91,13 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 News news = _model.Get(id);
                 vm = new NewsViewModel(news);
 
-                author = membersItems.FirstOrDefault(i => int.Parse(i.Value) == news.Member.Id);
+                author = membersItems.FirstOrDefault(i => i.Value == news.Member.Id.ToString());
 
                 if (author == null)
                 {
                     author = new SelectListItem
                     {
-                        Value = news.Member.Id.ToString("#"),
+                        Value = news.Member.Id.ToString(),
                         Text = string.Format("{0} {1} ({2})", news.Member.FirstName, news.Member.LastName, news.Member.Campus.Place)
                     };
 
@@ -103,7 +105,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 }
             }
 
-            SelectList membersList = new SelectList(membersItems, "Value", "Text", author);
+            var membersList = new SelectList(membersItems, "Value", "Text", author);
             ViewBag.Members = membersList;
 
             return View(vm);
@@ -123,7 +125,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 if (ModelState.IsValid)
                 {
                     // Prepare to send the news to the server
-                    News news = new News
+                    var news = new News
                     {
                         Id = vm.Id,
                         Keywords = vm.Keywords,
@@ -139,10 +141,11 @@ namespace SolarSystem.Mars.ViewController.Controllers
                     // Image management
                     if (file != null && file.ContentLength > 0) // Image is local
                     {
-                        string imagePath = string.Format("../{0}/Images/News/{1}", ContentRessources.EPSILabUrl, file.FileName);
+                        string imagePath = string.Format("../Images/News/{0}", file.FileName);
                         file.SaveAs(imagePath);
                         news.ImageUrl = imagePath;
                     }
+
                     // Image is remote
                     else if (!string.IsNullOrWhiteSpace(vm.ImageRemoteUrl))
                         news.ImageUrl = vm.ImageRemoteUrl;
@@ -153,38 +156,36 @@ namespace SolarSystem.Mars.ViewController.Controllers
                     // Save the news
                     LoginViewModel loginVM = AuthProvider.LoginViewModel;
 
-                    RouteValueDictionary parameters = new RouteValueDictionary();
-
                     if (vm.Id == 0)
                     {
                         _model.Add(news, loginVM.Username, loginVM.PasswordCrypted);
-                        parameters.Add("message", MessagesResources.NewsCreated);
+                        ViewData["successMessage"] = MessagesResources.NewsCreated;
                     }
                     else
                     {
                         _model.Edit(news, loginVM.Username, loginVM.PasswordCrypted);
-                        parameters.Add("message", MessagesResources.NewsUpdated);
+                        ViewData["successMessage"] = MessagesResources.NewsUpdated;
                     }
 
-                    return RedirectToAction("Index", parameters);
+                    return RedirectToAction("Index");
                 }
 
                 throw new InvalidModelStateException();
             }
             catch (InvalidModelStateException ex)
             {
-                ViewBag.ExceptionMessage = ex.DisplayMessage;
+                ViewData["errorMessage"] = ex.DisplayMessage;
             }
             catch (Exception ex)
             {
-                ViewBag.ExceptionMessage = ex.Message;
+                ViewData["errorMessage"] = ex.Message;
             }
 
             IEnumerable<Member> membersAvailables = _modelMembers.Get();
 
             IList<SelectListItem> membersItems = membersAvailables.Select(member => new SelectListItem
             {
-                Value = member.Id.ToString("0"),
+                Value = member.Id.ToString(),
                 Text = string.Format("{0} {1} ({2})", member.FirstName, member.LastName, member.Campus.Place)
             }).ToList();
 
@@ -196,17 +197,16 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
                 author = new SelectListItem
                 {
-                    Value = news.Member.Id.ToString("#"),
+                    Value = news.Member.Id.ToString(),
                     Text = string.Format("{0} {1} ({2})", news.Member.FirstName, news.Member.LastName, news.Member.Campus.Place)
                 };
 
                 membersItems.Add(author);
             }
 
-            SelectList membersList = new SelectList(membersItems, "Value", "Text", author);
+            var membersList = new SelectList(membersItems, "Value", "Text", author);
             ViewBag.Members = membersList;
 
-            // TODO : return JSON (with id, message, ...) instead of View
             return View(vm);
         }
 
