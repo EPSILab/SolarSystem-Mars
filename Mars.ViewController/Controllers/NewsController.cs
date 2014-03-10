@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using SolarSystem.Mars.Model.ManagersService;
+﻿using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
@@ -74,39 +73,13 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             // Load members list
             IEnumerable<Member> membersAvailables = _modelMembers.Get();
-            NewsViewModel vm;
-            SelectListItem author = null;
 
-            IList<SelectListItem> membersItems = membersAvailables.Select(member => new SelectListItem
-            {
-                Value = member.Id.ToString(),
-                Text = string.Format("{0} {1} ({2})", member.FirstName, member.LastName, member.Campus.Place)
-            }).ToList();
+            // Get the NewsViewModel according to the current news
+            News news = _model.Get(id);
+            var vm = GetNewsViewModel(news);
 
-
-            if (id == 0)
-                vm = new NewsViewModel();
-            else
-            {
-                News news = _model.Get(id);
-                vm = new NewsViewModel(news);
-
-                author = membersItems.FirstOrDefault(i => i.Value == news.Member.Id.ToString());
-
-                if (author == null)
-                {
-                    author = new SelectListItem
-                    {
-                        Value = news.Member.Id.ToString(),
-                        Text = string.Format("{0} {1} ({2})", news.Member.FirstName, news.Member.LastName, news.Member.Campus.Place)
-                    };
-
-                    membersItems.Add(author);
-                }
-            }
-
-            var membersList = new SelectList(membersItems, "Value", "Text", author);
-            ViewBag.Members = membersList;
+            // Create the SelectList used with a DropDownList
+            ViewBag.Members = GetMembersList(membersAvailables, news);
 
             return View(vm);
         }
@@ -139,23 +112,12 @@ namespace SolarSystem.Mars.ViewController.Controllers
                     };
 
                     // Image management
-                    if (file != null && file.ContentLength > 0) // Image is local
-                    {
-                        string imagePath = string.Format("../Images/News/{0}", file.FileName);
-                        file.SaveAs(imagePath);
-                        news.ImageUrl = imagePath;
-                    }
-
-                    // Image is remote
-                    else if (!string.IsNullOrWhiteSpace(vm.ImageRemoteUrl))
-                        news.ImageUrl = vm.ImageRemoteUrl;
-                    // No image given
-                    else
-                        throw new InvalidModelStateException(ErrorRessources.ImageRequired);
+                    SendImageToServer(vm, file, news);
 
                     // Save the news
                     LoginViewModel loginVM = AuthProvider.LoginViewModel;
 
+                    // Add or Edit model data
                     if (vm.Id == 0)
                     {
                         _model.Add(news, loginVM.Username, loginVM.PasswordCrypted);
@@ -181,31 +143,14 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 ViewData["errorMessage"] = ex.Message;
             }
 
+            // Load members list
             IEnumerable<Member> membersAvailables = _modelMembers.Get();
 
-            IList<SelectListItem> membersItems = membersAvailables.Select(member => new SelectListItem
-            {
-                Value = member.Id.ToString(),
-                Text = string.Format("{0} {1} ({2})", member.FirstName, member.LastName, member.Campus.Place)
-            }).ToList();
+            // Get the news currently selected by the user
+            News newsSelected = _model.Get(vm.Id);
 
-            SelectListItem author = membersItems.FirstOrDefault(i => int.Parse(i.Value) == vm.AuthorId);
-
-            if (author == null)
-            {
-                News news = _model.Get(vm.Id);
-
-                author = new SelectListItem
-                {
-                    Value = news.Member.Id.ToString(),
-                    Text = string.Format("{0} {1} ({2})", news.Member.FirstName, news.Member.LastName, news.Member.Campus.Place)
-                };
-
-                membersItems.Add(author);
-            }
-
-            var membersList = new SelectList(membersItems, "Value", "Text", author);
-            ViewBag.Members = membersList;
+            // Create the SelectList used with a DropDownList
+            ViewBag.Members = GetMembersList(membersAvailables, newsSelected);
 
             return View(vm);
         }
@@ -234,6 +179,81 @@ namespace SolarSystem.Mars.ViewController.Controllers
             {
                 return Json(new { id = 0, success = false, message = ex.Message });
             }
+        }
+
+        #endregion
+
+
+        #region General Methods
+
+        /// <summary>
+        /// Return NewsViewModel according to a news
+        /// </summary>
+        /// <param name="news">News used to create the NewsViewModel</param>
+        /// <returns></returns>
+        private NewsViewModel GetNewsViewModel(News news = null)
+        {
+            if (news == null || news.Id <= 0)
+                return new NewsViewModel();
+
+            // If a news is selected, create the ViewModel with it
+            return new NewsViewModel(news);
+        }
+
+        /// <summary>
+        /// Get MembersList
+        /// </summary>
+        /// <param name="membersAvailables">Convert Members into a MemberList - SelectList</param>
+        /// <param name="news">News currently selected - to define the default author</param>
+        /// <returns></returns>
+        private SelectList GetMembersList(IEnumerable<Member> membersAvailables, News news)
+        {
+            // Get list of item (member) to create the MemberList
+            IList<SelectListItem> membersItems = membersAvailables.Select(member => new SelectListItem
+            {
+                Value = member.Id.ToString(),
+                Text = string.Format("{0} {1} ({2})", member.FirstName, member.LastName, member.Campus.Place)
+            }).ToList();
+
+            // Get the author inside the SelectList if it exists
+            SelectListItem author = membersItems.FirstOrDefault(i => i.Value == news.Member.Id.ToString());
+
+            // If it does not exist, adding it into the SelectList
+            if (author == null)
+            {
+                author = new SelectListItem
+                {
+                    Value = news.Member.Id.ToString(),
+                    Text = string.Format("{0} {1} ({2})", news.Member.FirstName, news.Member.LastName, news.Member.Campus.Place)
+                };
+
+                membersItems.Add(author);
+            }
+
+            return new SelectList(membersItems, "Value", "Text", author);
+        }
+
+        /// <summary>
+        /// Send Image to the server
+        /// </summary>
+        /// <param name="vm">NewsViewModel corresponding to the news</param>
+        /// <param name="file">File - Image could be sent</param>
+        /// <param name="news">News that will get image</param>
+        private void SendImageToServer(NewsViewModel vm, HttpPostedFileBase file, News news)
+        {
+            // Image is local
+            if (file != null && file.ContentLength > 0)
+            {
+                string imagePath = string.Format("../Images/News/{0}", file.FileName);
+                file.SaveAs(imagePath);
+                news.ImageUrl = imagePath;
+            }
+            // Image is remote
+            else if (!string.IsNullOrWhiteSpace(vm.ImageRemoteUrl))
+                news.ImageUrl = vm.ImageRemoteUrl;
+            // No image given
+            else
+                throw new InvalidModelStateException(ErrorRessources.ImageRequired);
         }
 
         #endregion
