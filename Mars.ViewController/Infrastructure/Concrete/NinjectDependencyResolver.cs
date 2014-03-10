@@ -1,7 +1,6 @@
 ﻿using Ninject;
 using SolarSystem.Mars.Model;
 using SolarSystem.Mars.Model.Infrastructure;
-using SolarSystem.Mars.Model.Interfaces;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using System;

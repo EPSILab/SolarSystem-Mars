@@ -1,4 +1,4 @@
-﻿namespace SolarSystem.Mars.Model.Interfaces
+﻿namespace SolarSystem.Mars.Model.Model.Abstract
 {
     public interface IManager<in T>
     {

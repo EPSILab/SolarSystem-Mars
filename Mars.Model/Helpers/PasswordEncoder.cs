@@ -1,6 +1,6 @@
-﻿namespace SolarSystem.Mars.ViewController.Helpers
+﻿namespace SolarSystem.Mars.Model.Helpers
 {
-    static class PasswordEncoder
+    public static class PasswordEncoder
     {
         public static string Encode(string word)
         {

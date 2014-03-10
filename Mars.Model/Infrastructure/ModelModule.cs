@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Ninject.Modules;
-using SolarSystem.Mars.Model.Interfaces;
+﻿using Ninject.Modules;
 using SolarSystem.Mars.Model.ManagersService;
+using SolarSystem.Mars.Model.Model.Abstract;
+using SolarSystem.Mars.Model.Model.Concrete;
 
 namespace SolarSystem.Mars.Model.Infrastructure
 {
@@ -25,6 +22,9 @@ namespace SolarSystem.Mars.Model.Infrastructure
             Bind<IReader<Slide>>().To<SlideModel>().InSingletonScope();
             Bind<IReaderLimit<Show>>().To<ShowModel>().InSingletonScope();
             Bind<IReader<Campus>>().To<CampusModel>().InSingletonScope();
+
+            // Constants
+            Bind<IConstants>().To<Constants>().InSingletonScope();
         }
     }
 }

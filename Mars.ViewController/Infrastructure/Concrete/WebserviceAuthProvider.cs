@@ -1,5 +1,5 @@
-﻿using SolarSystem.Mars.Model.Interfaces;
-using SolarSystem.Mars.Model.ManagersService;
+﻿using SolarSystem.Mars.Model.ManagersService;
+using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using SolarSystem.Mars.ViewController.ViewModels;
 

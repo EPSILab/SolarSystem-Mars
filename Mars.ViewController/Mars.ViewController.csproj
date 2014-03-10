@@ -131,7 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="Controllers\CampusesController.cs" />
     <Compile Include="Controllers\ConferencesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -163,8 +162,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorRessources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\MD5Hasher.cs" />
-    <Compile Include="Helpers\PasswordEncoder.cs" />
     <Compile Include="Resources\ContentRessources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -585,6 +582,7 @@
     <Content Include="Views\Members\Valid.cshtml" />
     <Content Include="Views\Home\LostPassword.cshtml" />
     <Content Include="Views\Shared\_LayoutConnected.cshtml" />
+    <Content Include="Views\Shared\_LayoutBase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -593,10 +591,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mars.Common\Mars.Common.csproj">
-      <Project>{05c087cd-18da-46eb-99a7-3d0316fe6e9c}</Project>
-      <Name>Mars.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mars.Model\Mars.Model.csproj">
       <Project>{1a0cca01-6f5e-4aec-a770-73b435b70b86}</Project>
       <Name>Model</Name>

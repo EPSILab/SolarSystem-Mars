@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using SolarSystem.Mars.ViewController.Helpers;
+﻿using SolarSystem.Mars.Model.Helpers;
 using SolarSystem.Mars.ViewController.Resources;
 using System.ComponentModel.DataAnnotations;
 
@@ -10,6 +9,8 @@ namespace SolarSystem.Mars.ViewController.ViewModels
     /// </summary>
     public class LoginViewModel
     {
+        #region Properties
+
         /// <summary>
         /// Username
         /// </summary>
@@ -35,5 +36,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         {
             get { return PasswordEncoder.Encode(PasswordNonCrypted); }
         }
+
+        #endregion
     }
 }

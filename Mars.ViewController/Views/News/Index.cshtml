@@ -1,5 +1,4 @@
-﻿@using SolarSystem.Mars.ViewController
-@using SolarSystem.Mars.ViewController.Resources
+﻿@using SolarSystem.Mars.ViewController.Resources
 @using SolarSystem.Mars.ViewController.ViewModels
 
 @model IEnumerable<NewsViewModel>
@@ -9,13 +8,15 @@
     Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
+
+@* Breadcrumbs *@
 <ol class="breadcrumb">
     <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
     <li class="active">@ViewBag.Title</li>
 </ol>
 
 @* Modal for deletion *@
-@using (Html.BeginForm(Html.BeginForm("Delete", "News", FormMethod.Post, new { enctype = "multipart/form-data" })))
+@using (Ajax.BeginForm("Delete", "News", new AjaxOptions { HttpMethod = "POST", OnSuccess = "deleteNews" }))
 {
     <div id="modalDelete" class="modal fade">
         <div class="modal-dialog modal-sm">
@@ -61,7 +62,7 @@
             <th width="15%" class="hidden-xs">
                 @Html.DisplayNameFor(model => model.Date)
             </th>
-            <th width="15%">
+            <th width="15%" class="hidden-xs">
                 @Html.DisplayNameFor(model => model.Keywords)
             </th>
             <th width="10%">
@@ -72,7 +73,7 @@
     <tbody>
         @foreach (NewsViewModel item in Model)
         {
-            <tr>
+            <tr id="@string.Format("item{0}", item.Id)">
                 <td>
                     @Html.DisplayFor(modelItem => item.IsPublished)
                 </td>
@@ -105,6 +106,8 @@
 @Pagination()
 
 @section Scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -117,6 +120,19 @@
                 $("#idToDelete").val(idToDelete);
             });
         });
+
+        function deleteNews(data) {
+            $('#modalDelete').modal('hide');
+
+            if (data.success) {
+                if (data.id > 0) {
+                    $('#item' + data.id).remove();
+                    showMessage(data.message, false);
+                }
+            } else {
+                showMessage(data.message, true);
+            }
+        }
     </script>
 }
 
@@ -124,15 +140,17 @@
 {
     <p>
         @{
-            if (ViewBag.Id - Constants.ItemsNumber >= 0)
+            var itemsNumber = (int)ViewBag.ItemsNumber;
+
+            if (ViewBag.Id - itemsNumber >= 0)
             {
                 @Html.ActionLink(" ", "Index", new { id = 0 }, new { @class = "navButton btn glyphicon glyphicon-fast-backward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Start })
-                @Html.ActionLink(" ", "Index", new { id = ViewBag.Id - Constants.ItemsNumber }, new { @class = "navButton btn glyphicon glyphicon-step-backward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Previous })
+                @Html.ActionLink(" ", "Index", new { id = ViewBag.Id - itemsNumber }, new { @class = "navButton btn glyphicon glyphicon-step-backward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Previous })
             }
 
-            if (Model.Count() >= Constants.ItemsNumber)
+            if (Model.Count() >= itemsNumber)
             {
-                @Html.ActionLink(" ", "Index", new { id = ViewBag.Id + Constants.ItemsNumber }, new { @class = "navButton btn glyphicon glyphicon-step-forward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Next })
+                @Html.ActionLink(" ", "Index", new { id = ViewBag.Id + itemsNumber }, new { @class = "navButton btn glyphicon glyphicon-step-forward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Next })
             }
         }
     </p>
