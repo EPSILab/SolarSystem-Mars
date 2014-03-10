@@ -169,9 +169,8 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             try
             {
-                // TODO: Décommenter les lignes suivantes
-                // LoginViewModel loginVM = AuthProvider.LoginViewModel;
-                // _model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
+                LoginViewModel loginVM = AuthProvider.LoginViewModel;
+                _model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
 
                 return Json(new { id, success = true, message = MessagesResources.NewsDeleted });
             }
