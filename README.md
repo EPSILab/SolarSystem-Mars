@@ -10,17 +10,21 @@ Current version : 0.1
 
 ### Current Features
 
-### Features in progress
-
 - News management
+
+### Features in progress
 
 ### Next features
 
 - Account management
 - Student / Member management
+    - CRUD on Member
+    - Manage / Revoke rights (roles)
 - Link management
 - Project management
 - Conferences management
 - Slider management
 - Show management
 - Campus management
+- Logger
+    - Save actions in the webservice
