@@ -8,6 +8,7 @@
     Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
+
 @* Breadcrumbs *@
 <ol class="breadcrumb">
     <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
@@ -15,7 +16,7 @@
 </ol>
 
 @* Modal for deletion *@
-@using (Ajax.BeginForm("Delete", "News", new AjaxOptions { HttpMethod = "POST", OnSuccess = "deleteNews"}))
+@using (Ajax.BeginForm("Delete", "News", new AjaxOptions { HttpMethod = "POST", OnSuccess = "deleteNews" }))
 {
     <div id="modalDelete" class="modal fade">
         <div class="modal-dialog modal-sm">
@@ -119,7 +120,7 @@
                 $("#idToDelete").val(idToDelete);
             });
         });
-        
+
         function deleteNews(data) {
             $('#modalDelete').modal('hide');
 
@@ -130,16 +131,6 @@
                 }
             } else {
                 showMessage(data.message, true);
-            }
-        }
-        
-        function showMessage(message, isErrorMessage) {
-            if (isErrorMessage) {
-                $('#errorMessageContent').text(message);
-                $('#errorMessage').fadeIn();
-            } else {
-                $('#successMessageContent').text(message);
-                $('#successMessage').fadeIn();
             }
         }
     </script>
