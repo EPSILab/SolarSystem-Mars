@@ -17,6 +17,9 @@ namespace SolarSystem.Mars.ViewController.Controllers
     {
         #region Constructor
 
+        /// <summary>
+        /// Constructor. Parameters are resolved with NInject
+        /// </summary>
         public NewsController(IReaderLimit<News> model, IReader<Member> modelMember, IConstants constants)
         {
             _model = model;
@@ -47,6 +50,13 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #region Index methods
 
+        /// <summary>
+        /// GET: /News/
+        /// GET: /News/Index
+        /// GET: /News/Index/10
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Index(int id = 0)
         {
             // Get News and tranform them in NewsViewModel
@@ -65,82 +75,89 @@ namespace SolarSystem.Mars.ViewController.Controllers
         #region Manage methods
 
         /// <summary>
-        /// GET: /News/Manage/1
-        /// Edit an existing news
+        /// GET: /News/Manage : Create a new news
+        /// GET: /News/Manage/5 : Edit an existing news
         /// </summary>
-        /// <param name="id">Id of the news to manage</param>
+        /// <param name="id">News's Id to manage. If Id = 0, it is a new news</param>
         public ActionResult Manage(int id = 0)
         {
             // Load members list
             IEnumerable<Member> membersAvailables = _modelMembers.Get();
 
-            // Get the NewsViewModel according to the current news
-            News news = _model.Get(id);
-            var vm = GetNewsViewModel(news);
+            NewsViewModel vm;
 
-            // Create the SelectList used with a DropDownList
-            ViewBag.Members = GetMembersList(membersAvailables, news);
+            // Create a news
+            if (id == 0)
+            {
+                vm = new NewsViewModel();
+                ViewBag.Members = CreateSelectList(membersAvailables);
+            }
+            // Edit an existing news
+            else
+            {
+                News news = _model.Get(id);
+
+                vm = new NewsViewModel(news);
+                ViewBag.Members = CreateSelectList(membersAvailables, news);
+            }
 
             return View(vm);
         }
 
         /// <summary>
         /// POST: /News/Manage
-        /// When the user has clicked on the OK button
+        /// Raised when the user has clicked on the OK button
         /// </summary>
-        /// <param name="vm">Page view-model</param>
-        /// <param name="file">Image to send on the FTP server</param>
+        /// <param name="vm">Page ViewModel</param>
+        /// <param name="file">Image to send on the server</param>
         [HttpPost]
         public ActionResult Manage(NewsViewModel vm, HttpPostedFileBase file)
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
+                    throw new InvalidModelStateException();
+
+                // Prepare to send the news to the server
+                News news = new News
                 {
-                    // Prepare to send the news to the server
-                    var news = new News
-                    {
-                        Id = vm.Id,
-                        Keywords = vm.Keywords,
-                        DateTime = new DateTime(vm.Date.Year, vm.Date.Month, vm.Date.Day, vm.Time.Hour, vm.Time.Minute, 0),
-                        Member = _modelMembers.Get(vm.AuthorId),
-                        IsPublished = vm.IsPublished,
-                        ShortText = vm.ShortText,
-                        Text = vm.Text,
-                        Title = vm.Title,
-                        Url = vm.Url
-                    };
+                    Id = vm.Id,
+                    Keywords = vm.Keywords,
+                    DateTime = new DateTime(vm.Date.Year, vm.Date.Month, vm.Date.Day, vm.Time.Hour, vm.Time.Minute, 0),
+                    Member = _modelMembers.Get(vm.AuthorId),
+                    IsPublished = vm.IsPublished,
+                    ShortText = vm.ShortText,
+                    Text = vm.Text,
+                    Title = vm.Title,
+                    Url = vm.Url
+                };
 
-                    // Image management
-                    SendImageToServer(vm, file, news);
+                // Image management
+                SendImageToServer(vm, file, news);
 
-                    // Save the news
-                    LoginViewModel loginVM = AuthProvider.LoginViewModel;
+                // Save the news
+                LoginViewModel loginVM = AuthProvider.LoginViewModel;
 
-                    // Add or Edit model data
-                    if (vm.Id == 0)
-                    {
-                        _model.Add(news, loginVM.Username, loginVM.PasswordCrypted);
-                        ViewData["successMessage"] = MessagesResources.NewsCreated;
-                    }
-                    else
-                    {
-                        _model.Edit(news, loginVM.Username, loginVM.PasswordCrypted);
-                        ViewData["successMessage"] = MessagesResources.NewsUpdated;
-                    }
-
-                    return RedirectToAction("Index");
+                if (vm.Id == 0)
+                {
+                    _model.Add(news, loginVM.Username, loginVM.PasswordCrypted);
+                    ViewBag.SuccessMessage = MessagesResources.NewsCreated;
+                }
+                else
+                {
+                    _model.Edit(news, loginVM.Username, loginVM.PasswordCrypted);
+                    ViewBag.SuccessMessage = MessagesResources.NewsUpdated;
                 }
 
-                throw new InvalidModelStateException();
+                return RedirectToAction("Index");
             }
             catch (InvalidModelStateException ex)
             {
-                ViewData["errorMessage"] = ex.DisplayMessage;
+                ViewBag.ErrorMessage = ex.DisplayMessage;
             }
             catch (Exception ex)
             {
-                ViewData["errorMessage"] = ex.Message;
+                ViewBag.ErrorMessage = ex.Message;
             }
 
             // Load members list
@@ -150,7 +167,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             News newsSelected = _model.Get(vm.Id);
 
             // Create the SelectList used with a DropDownList
-            ViewBag.Members = GetMembersList(membersAvailables, newsSelected);
+            ViewBag.Members = CreateSelectList(membersAvailables, newsSelected);
 
             return View(vm);
         }
@@ -182,54 +199,50 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #endregion
 
-
         #region General Methods
 
         /// <summary>
-        /// Return NewsViewModel according to a news
-        /// </summary>
-        /// <param name="news">News used to create the NewsViewModel</param>
-        /// <returns></returns>
-        private NewsViewModel GetNewsViewModel(News news = null)
-        {
-            if (news == null || news.Id <= 0)
-                return new NewsViewModel();
-
-            // If a news is selected, create the ViewModel with it
-            return new NewsViewModel(news);
-        }
-
-        /// <summary>
-        /// Get MembersList
+        /// Transform a list of members to a selectlist
         /// </summary>
         /// <param name="membersAvailables">Convert Members into a MemberList - SelectList</param>
         /// <param name="news">News currently selected - to define the default author</param>
-        /// <returns></returns>
-        private SelectList GetMembersList(IEnumerable<Member> membersAvailables, News news)
+        /// <returns>Members list formatted</returns>
+        private SelectList CreateSelectList(IEnumerable<Member> membersAvailables, News news = null)
         {
             // Get list of item (member) to create the MemberList
             IList<SelectListItem> membersItems = membersAvailables.Select(member => new SelectListItem
             {
-                Value = member.Id.ToString(),
+                Value = member.Id.ToString("0"),
                 Text = string.Format("{0} {1} ({2})", member.FirstName, member.LastName, member.Campus.Place)
             }).ToList();
 
-            // Get the author inside the SelectList if it exists
-            SelectListItem author = membersItems.FirstOrDefault(i => i.Value == news.Member.Id.ToString());
+            SelectList members;
 
-            // If it does not exist, adding it into the SelectList
-            if (author == null)
+            if (news != null)
             {
-                author = new SelectListItem
-                {
-                    Value = news.Member.Id.ToString(),
-                    Text = string.Format("{0} {1} ({2})", news.Member.FirstName, news.Member.LastName, news.Member.Campus.Place)
-                };
+                // Get the author inside the SelectList if it exists
+                SelectListItem author = membersItems.FirstOrDefault(i => i.Value == news.Member.Id.ToString("0"));
 
-                membersItems.Add(author);
+                // If it does not exist, adding it into the SelectList
+                if (author == null)
+                {
+                    author = new SelectListItem
+                    {
+                        Value = news.Member.Id.ToString("0"),
+                        Text = string.Format("{0} {1} ({2})", news.Member.FirstName, news.Member.LastName, news.Member.Campus.Place)
+                    };
+
+                    membersItems.Add(author);
+                }
+
+                members = new SelectList(membersItems, "Value", "Text", author);
+            }
+            else
+            {
+                members = new SelectList(membersItems, "Value", "Text");
             }
 
-            return new SelectList(membersItems, "Value", "Text", author);
+            return members;
         }
 
         /// <summary>
