@@ -1,10 +1,5 @@
 ﻿@using System.Web.Optimization
 
-@{
-    var errorMessage = ViewData["errorMessage"];
-    var successMessage = ViewData["successMessage"];
-}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +42,7 @@
                 $('#errorMessage').fadeOut();
             });
 
-            function showMessage(message, isErrorMessage) {
+            var showMessage = function (message, isErrorMessage) {
                 if (isErrorMessage) {
                     $('#errorMessageContent').text(message);
                     $('#errorMessage').fadeIn();
@@ -57,19 +52,14 @@
                 }
             }
 
-            @if (successMessage != null)
+            @if (ViewBag.SuccessMessage != null)
             {
-                <text>
-                    var msg = "@successMessage";
-                    showMessage(msg, false);
-                </text>
+                <text>showMessage(ViewBag.SuccessMessage, false);</text>
             }
-            @if (errorMessage != null)
+
+            @if (ViewBag.ErrorMessage != null)
             {
-                <text>
-                    var msg = "@errorMessage";
-                    showMessage(msg, true);
-                </text>
+                <text>showMessage(ViewBag.ErrorMessage, true);</text>
             }
         </script>
     </div>
