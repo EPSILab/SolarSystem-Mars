@@ -21,10 +21,10 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// Constructor. Parameters are resolved with NInject
         /// </summary>
         public NewsController(IReaderLimit<News> model, IReader<Member> modelMember, IConstants constants)
+            : base(constants)
         {
             _model = model;
             _modelMembers = modelMember;
-            _constants = constants;
         }
 
         #endregion
@@ -40,11 +40,6 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// Model for members
         /// </summary>
         private readonly IReader<Member> _modelMembers;
-
-        /// <summary>
-        /// Constants values
-        /// </summary>
-        private readonly IConstants _constants;
 
         #endregion
 
@@ -187,7 +182,8 @@ namespace SolarSystem.Mars.ViewController.Controllers
             try
             {
                 LoginViewModel loginVM = AuthProvider.LoginViewModel;
-                _model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
+                //TODO: Uncomment line below
+                //_model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
 
                 return Json(new { id, success = true, message = MessagesResources.NewsDeleted });
             }
