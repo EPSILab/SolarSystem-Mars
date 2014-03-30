@@ -70,20 +70,29 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Organiser une nouvelle conférence.
+        /// </summary>
+        public static string Conference_Create {
+            get {
+                return ResourceManager.GetString("Conference_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editer une conférence.
+        /// </summary>
+        public static string Conference_Edit {
+            get {
+                return ResourceManager.GetString("Conference_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Liste des conférences.
         /// </summary>
         public static string Conferences {
             get {
                 return ResourceManager.GetString("Conferences", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Organiser une nouvelle conférence.
-        /// </summary>
-        public static string Conferences_Create {
-            get {
-                return ResourceManager.GetString("Conferences_Create", resourceCulture);
             }
         }
         
@@ -106,20 +115,20 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ajouter un nouveau lien.
+        /// </summary>
+        public static string Link_Create {
+            get {
+                return ResourceManager.GetString("Link_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Liste des liens.
         /// </summary>
         public static string Links {
             get {
                 return ResourceManager.GetString("Links", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ajouter un nouveau lien.
-        /// </summary>
-        public static string Links_Create {
-            get {
-                return ResourceManager.GetString("Links_Create", resourceCulture);
             }
         }
         
@@ -151,29 +160,29 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Liste des membres.
-        /// </summary>
-        public static string Members {
-            get {
-                return ResourceManager.GetString("Members", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Entrer un nouveau membre.
         /// </summary>
-        public static string Members_Create {
+        public static string Member_Create {
             get {
-                return ResourceManager.GetString("Members_Create", resourceCulture);
+                return ResourceManager.GetString("Member_Create", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Valider les nouvelles inscriptions.
         /// </summary>
-        public static string Members_Valid {
+        public static string Member_Valid {
             get {
-                return ResourceManager.GetString("Members_Valid", resourceCulture);
+                return ResourceManager.GetString("Member_Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liste des membres.
+        /// </summary>
+        public static string Members {
+            get {
+                return ResourceManager.GetString("Members", resourceCulture);
             }
         }
         
@@ -205,20 +214,20 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lancer un nouveau projet.
+        /// </summary>
+        public static string Project_Create {
+            get {
+                return ResourceManager.GetString("Project_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Liste des projets.
         /// </summary>
         public static string Projects {
             get {
                 return ResourceManager.GetString("Projects", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lancer un nouveau projet.
-        /// </summary>
-        public static string Projects_Create {
-            get {
-                return ResourceManager.GetString("Projects_Create", resourceCulture);
             }
         }
         
@@ -243,18 +252,18 @@ namespace SolarSystem.Mars.ViewController.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Liste des salons.
         /// </summary>
-        public static string Shows {
+        public static string Show {
             get {
-                return ResourceManager.GetString("Shows", resourceCulture);
+                return ResourceManager.GetString("Show", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Annoncer un nouveau salon.
         /// </summary>
-        public static string Shows_Create {
+        public static string Show_Create {
             get {
-                return ResourceManager.GetString("Shows_Create", resourceCulture);
+                return ResourceManager.GetString("Show_Create", resourceCulture);
             }
         }
         

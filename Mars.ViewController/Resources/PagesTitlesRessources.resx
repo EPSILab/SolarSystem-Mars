@@ -7,7 +7,7 @@
     
     The primary goals of this format is to allow a simple XML format 
     that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter promotions 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
     
     Example:
@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Promotions that don't support this are serialized and stored with the 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -123,8 +123,11 @@
   <data name="Conferences" xml:space="preserve">
     <value>Liste des conférences</value>
   </data>
-  <data name="Conferences_Create" xml:space="preserve">
+  <data name="Conference_Create" xml:space="preserve">
     <value>Organiser une nouvelle conférence</value>
+  </data>
+  <data name="Conference_Edit" xml:space="preserve">
+    <value>Editer une conférence</value>
   </data>
   <data name="EditProfile" xml:space="preserve">
     <value>Modifier mon profil</value>
@@ -135,7 +138,7 @@
   <data name="Links" xml:space="preserve">
     <value>Liste des liens</value>
   </data>
-  <data name="Links_Create" xml:space="preserve">
+  <data name="Link_Create" xml:space="preserve">
     <value>Ajouter un nouveau lien</value>
   </data>
   <data name="LogOn" xml:space="preserve">
@@ -150,10 +153,10 @@
   <data name="Members" xml:space="preserve">
     <value>Liste des membres</value>
   </data>
-  <data name="Members_Create" xml:space="preserve">
+  <data name="Member_Create" xml:space="preserve">
     <value>Entrer un nouveau membre</value>
   </data>
-  <data name="Members_Valid" xml:space="preserve">
+  <data name="Member_Valid" xml:space="preserve">
     <value>Valider les nouvelles inscriptions</value>
   </data>
   <data name="News" xml:space="preserve">
@@ -168,7 +171,7 @@
   <data name="Projects" xml:space="preserve">
     <value>Liste des projets</value>
   </data>
-  <data name="Projects_Create" xml:space="preserve">
+  <data name="Project_Create" xml:space="preserve">
     <value>Lancer un nouveau projet</value>
   </data>
   <data name="Promotions" xml:space="preserve">
@@ -177,10 +180,10 @@
   <data name="Register" xml:space="preserve">
     <value>Demander la création d'un compte</value>
   </data>
-  <data name="Shows" xml:space="preserve">
+  <data name="Show" xml:space="preserve">
     <value>Liste des salons</value>
   </data>
-  <data name="Shows_Create" xml:space="preserve">
+  <data name="Show_Create" xml:space="preserve">
     <value>Annoncer un nouveau salon</value>
   </data>
   <data name="Slideshow" xml:space="preserve">

@@ -88,11 +88,38 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Campus.
+        /// </summary>
+        public static string Campus {
+            get {
+                return ResourceManager.GetString("Campus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provenance.
         /// </summary>
         public static string CityFrom {
             get {
                 return ResourceManager.GetString("CityFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Détails sur la conférence.
+        /// </summary>
+        public static string ConferenceDescription {
+            get {
+                return ResourceManager.GetString("ConferenceDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informations sur l&apos;organisation de la conférence.
+        /// </summary>
+        public static string ConferenceInformations {
+            get {
+                return ResourceManager.GetString("ConferenceInformations", resourceCulture);
             }
         }
         
@@ -142,11 +169,29 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to du {0} au {1}.
+        /// </summary>
+        public static string DateFormat {
+            get {
+                return ResourceManager.GetString("DateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date et heure.
         /// </summary>
         public static string DateTime {
             get {
                 return ResourceManager.GetString("DateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date/Heure fin.
+        /// </summary>
+        public static string EndDateTime {
+            get {
+                return ResourceManager.GetString("EndDateTime", resourceCulture);
             }
         }
         
@@ -358,6 +403,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nom.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Articles.
         /// </summary>
         public static string News {
@@ -475,6 +529,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lieu.
+        /// </summary>
+        public static string Place {
+            get {
+                return ResourceManager.GetString("Place", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Précédent.
         /// </summary>
         public static string Previous {
@@ -543,6 +606,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string Start {
             get {
                 return ResourceManager.GetString("Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date/Heure début.
+        /// </summary>
+        public static string StartDateTime {
+            get {
+                return ResourceManager.GetString("StartDateTime", resourceCulture);
             }
         }
         

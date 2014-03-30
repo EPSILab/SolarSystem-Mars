@@ -106,6 +106,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La date de fin est requise..
+        /// </summary>
+        public static string EndDateRequired {
+            get {
+                return ResourceManager.GetString("EndDateRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L&apos;heure de fin est requise..
+        /// </summary>
+        public static string EndTimeRequired {
+            get {
+                return ResourceManager.GetString("EndTimeRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Le format de l&apos;adresse EPSI n&apos;est pas correct..
         /// </summary>
         public static string EPSIEmailFormat {
@@ -241,6 +259,33 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La longueur du nom doit être de 100 caractères maximum..
+        /// </summary>
+        public static string NameMaxLength {
+            get {
+                return ResourceManager.GetString("NameMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La longueur du nom doit être de 5 caractères minimum..
+        /// </summary>
+        public static string NameMinLength {
+            get {
+                return ResourceManager.GetString("NameMinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le nom est requis.
+        /// </summary>
+        public static string NameRequired {
+            get {
+                return ResourceManager.GetString("NameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to La longueur du nom utilisateur doit être de 6 caractères au minimum..
         /// </summary>
         public static string PasswordMinLength {
@@ -273,6 +318,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string PhoneNumberFormat {
             get {
                 return ResourceManager.GetString("PhoneNumberFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le lieu est requis..
+        /// </summary>
+        public static string PlaceRequired {
+            get {
+                return ResourceManager.GetString("PlaceRequired", resourceCulture);
             }
         }
         
@@ -327,6 +381,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string ShortTextRequired {
             get {
                 return ResourceManager.GetString("ShortTextRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La date de début est requise..
+        /// </summary>
+        public static string StartDateRequired {
+            get {
+                return ResourceManager.GetString("StartDateRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L&apos;heure de début est requise..
+        /// </summary>
+        public static string StartTimeRequired {
+            get {
+                return ResourceManager.GetString("StartTimeRequired", resourceCulture);
             }
         }
         

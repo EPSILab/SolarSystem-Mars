@@ -61,6 +61,42 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La conférence a bien été créée..
+        /// </summary>
+        public static string ConferenceCreated {
+            get {
+                return ResourceManager.GetString("ConferenceCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La conférence a bien été supprimée..
+        /// </summary>
+        public static string ConferenceDeleted {
+            get {
+                return ResourceManager.GetString("ConferenceDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La conférence a bien été modifiée..
+        /// </summary>
+        public static string ConferenceUpdated {
+            get {
+                return ResourceManager.GetString("ConferenceUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supprimer cette conférence ?.
+        /// </summary>
+        public static string DeleteConference {
+            get {
+                return ResourceManager.GetString("DeleteConference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Supprimer cette news ?.
         /// </summary>
         public static string DeleteNews {

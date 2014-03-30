@@ -249,4 +249,28 @@
   <data name="InvalidUsernameOrPassword" xml:space="preserve">
     <value>Le nom utilisateur et/ou le mot de passe est incorrect.</value>
   </data>
+  <data name="EndDateRequired" xml:space="preserve">
+    <value>La date de fin est requise.</value>
+  </data>
+  <data name="EndTimeRequired" xml:space="preserve">
+    <value>L'heure de fin est requise.</value>
+  </data>
+  <data name="NameMaxLength" xml:space="preserve">
+    <value>La longueur du nom doit être de 100 caractères maximum.</value>
+  </data>
+  <data name="NameMinLength" xml:space="preserve">
+    <value>La longueur du nom doit être de 5 caractères minimum.</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Le nom est requis</value>
+  </data>
+  <data name="PlaceRequired" xml:space="preserve">
+    <value>Le lieu est requis.</value>
+  </data>
+  <data name="StartDateRequired" xml:space="preserve">
+    <value>La date de début est requise.</value>
+  </data>
+  <data name="StartTimeRequired" xml:space="preserve">
+    <value>L'heure de début est requise.</value>
+  </data>
 </root>

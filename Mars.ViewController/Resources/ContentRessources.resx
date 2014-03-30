@@ -330,4 +330,28 @@
   <data name="Start" xml:space="preserve">
     <value>Début</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Campus" xml:space="preserve">
+    <value>Campus</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>Lieu</value>
+  </data>
+  <data name="EndDateTime" xml:space="preserve">
+    <value>Date/Heure fin</value>
+  </data>
+  <data name="StartDateTime" xml:space="preserve">
+    <value>Date/Heure début</value>
+  </data>
+  <data name="ConferenceDescription" xml:space="preserve">
+    <value>Détails sur la conférence</value>
+  </data>
+  <data name="ConferenceInformations" xml:space="preserve">
+    <value>Informations sur l'organisation de la conférence</value>
+  </data>
+  <data name="DateFormat" xml:space="preserve">
+    <value>du {0} au {1}</value>
+  </data>
 </root>

@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConferenceCreated" xml:space="preserve">
+    <value>La conférence a bien été créée.</value>
+  </data>
+  <data name="ConferenceDeleted" xml:space="preserve">
+    <value>La conférence a bien été supprimée.</value>
+  </data>
+  <data name="ConferenceUpdated" xml:space="preserve">
+    <value>La conférence a bien été modifiée.</value>
+  </data>
+  <data name="DeleteConference" xml:space="preserve">
+    <value>Supprimer cette conférence ?</value>
+  </data>
   <data name="DeleteNews" xml:space="preserve">
     <value>Supprimer cette news ?</value>
   </data>
