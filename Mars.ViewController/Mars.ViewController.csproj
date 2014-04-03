@@ -184,6 +184,7 @@
     <Compile Include="ViewModels\LostPasswordViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
+    <Compile Include="ViewModels\ShowViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -612,7 +613,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ContentRessources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ContentRessources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\MessagesResources.resx">

@@ -180,7 +180,7 @@
   <data name="Register" xml:space="preserve">
     <value>Demander la création d'un compte</value>
   </data>
-  <data name="Show" xml:space="preserve">
+  <data name="Shows" xml:space="preserve">
     <value>Liste des salons</value>
   </data>
   <data name="Show_Create" xml:space="preserve">
@@ -191,5 +191,8 @@
   </data>
   <data name="Slideshow_Create" xml:space="preserve">
     <value>Annoncer un nouveau message</value>
+  </data>
+  <data name="Show_Edit" xml:space="preserve">
+    <value>Modifier un salon</value>
   </data>
 </root>

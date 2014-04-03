@@ -250,20 +250,29 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Liste des salons.
-        /// </summary>
-        public static string Show {
-            get {
-                return ResourceManager.GetString("Show", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Annoncer un nouveau salon.
         /// </summary>
         public static string Show_Create {
             get {
                 return ResourceManager.GetString("Show_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modifier un salon.
+        /// </summary>
+        public static string Show_Edit {
+            get {
+                return ResourceManager.GetString("Show_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liste des salons.
+        /// </summary>
+        public static string Shows {
+            get {
+                return ResourceManager.GetString("Shows", resourceCulture);
             }
         }
         

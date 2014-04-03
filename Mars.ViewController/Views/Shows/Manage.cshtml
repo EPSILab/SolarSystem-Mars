@@ -1,102 +1,158 @@
-﻿@using System.Web.Optimization
-@model SolarSystem.Mars.Model.ManagersService.Show
+﻿@using SolarSystem.Mars.ViewController.Resources
+@using System.Web.Optimization
+
+@model SolarSystem.Mars.ViewController.ViewModels.ShowViewModel
 
 @{
-    ViewBag.Title = "Manage";
-    Layout = "~/Views/Shared/_LayoutNotConnected.cshtml";
+    ViewBag.Title = Model.Id == 0 ? PagesTitlesRessources.Show_Create : PagesTitlesRessources.Show_Edit;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
-<h2>Manage</h2>
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li>@Html.ActionLink(PagesTitlesRessources.Shows, "Index")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm(Html.BeginForm("Manage", "Shows", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
 
-    <fieldset>
-        <legend>Show</legend>
+    <fieldset class="col-md-10 col-md-offset-1 form-horizontal">
+        <legend>@ContentRessources.ShowInformations</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Code_Show)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Code_Show)
-            @Html.ValidationMessageFor(model => model.Code_Show)
-        </div>
+        @* Name *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "col-sm-2 control-label" })
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Date_Heure_Debut)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Date_Heure_Debut)
-            @Html.ValidationMessageFor(model => model.Date_Heure_Debut)
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = ContentRessources.Name })
+                @Html.ValidationMessageFor(model => model.Name, null, new { @style = "color: red" })
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Date_Heure_Fin)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Date_Heure_Fin)
-            @Html.ValidationMessageFor(model => model.Date_Heure_Fin)
+        @* Permalink *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Url, new { @class = "form-control", @disabled = "disabled" })
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Description)
-            @Html.ValidationMessageFor(model => model.Description)
+        @* Start date-time *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartDate, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-7">
+                @Html.EditorFor(model => model.StartDate, new { @type = "date" })
+                @Html.EditorFor(model => model.StartTime, new { @type = "time" })
+            </div>
+            <div class="col-sm-8">
+                @Html.ValidationMessageFor(model => model.StartDate, null, new { @style = "color: red" })
+                @Html.ValidationMessageFor(model => model.StartTime, null, new { @style = "color: red" })
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Image)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Image)
-            @Html.ValidationMessageFor(model => model.Image)
+        @* End date-time *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndDate, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-7">
+                @Html.EditorFor(model => model.EndDate, new { @type = "date" })
+                @Html.EditorFor(model => model.EndTime, new { @type = "time" })
+            </div>
+            <div class="col-sm-8">
+                @Html.ValidationMessageFor(model => model.EndDate, null, new { @style = "color: red" })
+                @Html.ValidationMessageFor(model => model.EndTime, null, new { @style = "color: red" })
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Lieu)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Lieu)
-            @Html.ValidationMessageFor(model => model.Lieu)
+        @* Place *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Place, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-8">
+                @Html.TextBoxFor(model => model.Place, new { @class = "form-control", placeholder = ContentRessources.Place })
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nom)
+        @* Image *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageRemoteUrl, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-8">
+                <span class="help-block">@ContentRessources.RemoteImage</span>
+                @Html.TextBoxFor(model => model.ImageRemoteUrl, new { @class = "form-control", @placeholder = ContentRessources.Website_PlaceHolder })
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nom)
-            @Html.ValidationMessageFor(model => model.Nom)
+        <div class="form-group">
+            <div class="col-sm-8 col-sm-offset-2">
+                <span class="help-block">@ContentRessources.LocalImage</span>
+                <input type="file" name="file" class="btn btn-default" />
+                @Html.ValidationMessageFor(model => model.ImageRemoteUrl, null, new { @style = "color: red", @placeholder = ContentRessources.RemoteImage })
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Publie)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Publie)
-            @Html.ValidationMessageFor(model => model.Publie)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.URL)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.URL)
-            @Html.ValidationMessageFor(model => model.URL)
-        </div>
-
-        <p>
-            <input type="submit" value="Manage" />
-        </p>
+        <br />
     </fieldset>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <fieldset class="col-md-10 col-md-offset-1">
+        <legend>@ContentRessources.ShowDescription</legend>
+
+        @* Text *@
+        <div class="form-group">
+            @Html.TextAreaFor(model => model.Description, new { @id = "editor", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Description, null, new { @style = "color: red" })
+        </div>
+    </fieldset>
+
+    @* Is published ? *@
+    <div class="form-group col-md-4 col-md-offset-4">
+        <div class="checkbox">
+            @Html.CheckBoxFor(model => model.IsPublished)
+            @Html.LabelFor(model => model.IsPublished)
+        </div>
+    </div>
+
+    @* Valid button *@
+    <p class="col-md-5 col-md-offset-3">
+        <button type="submit" class="btn btn-primary">@ContentRessources.Valid</button>
+        @Html.ActionLink(ContentRessources.Back, "Index", null, new { @class = "btn btn-default" })
+    </p>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/ckeditor")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // CKEditor for Text field
+            CKEDITOR.replace('editor');
+
+            // Generate URL on Title field key-up
+            $('#Name').keyup(function (event) {
+                var url = event.target.value.toLowerCase();
+                url = url.replace(/[ ]+/g, '-');
+                url = url.replace(/[àâä]/g, "a");
+                url = url.replace(/[èéêë]/g, "e");
+                url = url.replace(/[îï]/g, "i");
+                url = url.replace(/[ôö]/g, "o");
+                url = url.replace(/[µûüù]/g, "u");
+                url = url.replace(/[^-a-z0-9]/g, '');
+                $('#Url').val(url);
+            });
+
+            // Datepicker for Date field
+            $("input[type=Date]").datepicker();
+
+        });
+    </script>
+}
+
+@section Styles {
+    @Styles.Render("~/Content/themes/base/css")
 }

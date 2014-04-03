@@ -601,6 +601,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Détails sur la conférence.
+        /// </summary>
+        public static string ShowDescription {
+            get {
+                return ResourceManager.GetString("ShowDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informations sur l&apos;organisation du salon.
+        /// </summary>
+        public static string ShowInformations {
+            get {
+                return ResourceManager.GetString("ShowInformations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Salons.
         /// </summary>
         public static string Shows {

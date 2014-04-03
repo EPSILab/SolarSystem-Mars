@@ -1,7 +1,13 @@
 ﻿using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.Model.Model.Abstract;
+using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
+using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace SolarSystem.Mars.ViewController.Controllers
@@ -11,73 +17,184 @@ namespace SolarSystem.Mars.ViewController.Controllers
     {
         #region Constructor
 
-        public ShowsController(IReaderLimit<Show> salonManager)
+        /// <summary>
+        /// Constructor. Parameters are resolved with NInject
+        /// </summary>
+        public ShowsController(IReaderLimit<Show> model, IConstants constants)
+            : base(constants)
         {
-            _salonManager = salonManager;
+            _model = model;
         }
 
         #endregion
 
         #region Attributes
 
-        private readonly IReaderLimit<Show> _salonManager;
+        /// <summary>
+        /// Main model
+        /// </summary>
+        private readonly IReaderLimit<Show> _model;
 
         #endregion
 
-        #region Methods
+        #region Index methods
 
-        // GET: /Shows/
-        public ActionResult Index()
+        /// <summary>
+        /// GET: /Show/
+        /// GET: /Show/Index
+        /// GET: /Show/Index/10
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Index(int id = 0)
         {
-            IEnumerable<Show> salons = _salonManager.Get(1, 10);
-            return View(salons);
+            // Get Show and tranform them in ShowViewModel
+            IEnumerable<Show> listShow = _model.Get(id, _constants.ItemsNumber);
+            IEnumerable<ShowViewModel> vm = listShow.Select(show => new ShowViewModel(show));
+
+            // Send Id and ItemsNumber for navigation
+            ViewBag.Id = id;
+            ViewBag.ItemsNumber = _constants.ItemsNumber;
+
+            return View(vm);
         }
 
-        // GET: /Shows/Create
-        public ActionResult Manage()
+        #endregion
+
+        #region Manage methods
+
+        /// <summary>
+        /// GET: /Show/Manage : Create a new show
+        /// GET: /Show/Manage/5 : Edit an existing show
+        /// </summary>
+        /// <param name="id">Show's Id to manage. If Id = 0, it is a new show</param>
+        public ActionResult Manage(int id = 0)
         {
-            return View();
+            ShowViewModel vm;
+
+            // Create a show
+            if (id == 0)
+                vm = new ShowViewModel();
+            // Edit an existing show
+            else
+            {
+                Show show = _model.Get(id);
+                vm = new ShowViewModel(show);
+            }
+
+            return View(vm);
         }
 
-        // GET: /Shows/Edit/5
-        public ActionResult Manage(int id)
-        {
-            Show salon = _salonManager.Get(id);
-            return View(salon);
-        }
-
-        // POST: /Shows/Create
+        /// <summary>
+        /// POST: /Show/Manage
+        /// Raised when the user has clicked on the OK button
+        /// </summary>
+        /// <param name="vm">Page ViewModel</param>
+        /// <param name="file">Image to send on the server</param>
         [HttpPost]
-        public ActionResult Manage(Show salon)
+        public ActionResult Manage(ShowViewModel vm, HttpPostedFileBase file)
         {
             try
             {
-                // TODO: Add insert logic here
-                _salonManager.Add(salon, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
+                if (!ModelState.IsValid)
+                    throw new InvalidModelStateException();
+
+                // Prepare to send the show to the server
+                Show show = new Show
+                {
+                    Id = vm.Id,
+                    Description = vm.Description,
+                    End_DateTime = new DateTime(vm.EndDate.Year, vm.EndDate.Month, vm.EndDate.Day, vm.EndTime.Hour, vm.EndTime.Minute, 0),
+                    ImageUrl = vm.ImageRemoteUrl,
+                    IsPublished = vm.IsPublished,
+                    Name = vm.Name,
+                    Place = vm.Place,
+                    Start_DateTime = new DateTime(vm.StartDate.Year, vm.StartDate.Month, vm.StartDate.Day, vm.StartTime.Hour, vm.StartTime.Minute, 0),
+                    Url = vm.Url
+                };
+
+                // Image management
+                SendImageToServer(vm, file, show);
+
+                // Save the show
+                LoginViewModel loginVM = AuthProvider.LoginViewModel;
+
+                if (vm.Id == 0)
+                {
+                    _model.Add(show, loginVM.Username, loginVM.PasswordCrypted);
+                    ViewBag.SuccessMessage = MessagesResources.ShowCreated;
+                }
+                else
+                {
+                    _model.Edit(show, loginVM.Username, loginVM.PasswordCrypted);
+                    ViewBag.SuccessMessage = MessagesResources.ShowUpdated;
+                }
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (InvalidModelStateException ex)
             {
-                return View(salon);
+                ViewBag.ErrorMessage = ex.DisplayMessage;
             }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+            }
+
+            return View(vm);
         }
-        
-        // POST: /Shows/Delete/5
+
+        #endregion
+
+        #region Delete methods
+
+        /// <summary>
+        ///  GET: /Show/Delete/1
+        /// Delete an existing show
+        /// </summary>
+        /// <param name="id">Show Id to delete</param>
         [HttpPost]
-        public ActionResult Delete(int id, Show salon)
+        public JsonResult Delete(int id)
         {
             try
             {
-                // TODO: Add delete logic here
-                _salonManager.Delete(id, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
+                LoginViewModel loginVM = AuthProvider.LoginViewModel;
+                // TODO: Uncomment line bellow
+                //_model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
 
-                return RedirectToAction("Index");
+                return Json(new { id, success = true, message = MessagesResources.ShowDeleted });
             }
-            catch
+            catch (Exception ex)
             {
-                return RedirectToAction("Index");
+                return Json(new { id = 0, success = false, message = ex.Message });
             }
+        }
+
+        #endregion
+
+        #region General Methods
+
+        /// <summary>
+        /// Send Image to the server
+        /// </summary>
+        /// <param name="vm">ShowViewModel corresponding to the show</param>
+        /// <param name="file">File - Image could be sent</param>
+        /// <param name="show">Show that will get image</param>
+        private void SendImageToServer(ShowViewModel vm, HttpPostedFileBase file, Show show)
+        {
+            // Image is local
+            if (file != null && file.ContentLength > 0)
+            {
+                string imagePath = string.Format("../Images/Show/{0}", file.FileName);
+                file.SaveAs(imagePath);
+                show.ImageUrl = imagePath;
+            }
+            // Image is remote
+            else if (!string.IsNullOrWhiteSpace(vm.ImageRemoteUrl))
+                show.ImageUrl = vm.ImageRemoteUrl;
+            // No image given
+            else
+                throw new InvalidModelStateException(ErrorRessources.ImageRequired);
         }
 
         #endregion

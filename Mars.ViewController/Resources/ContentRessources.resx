@@ -363,4 +363,10 @@
   <data name="FindMyPasswordText" xml:space="preserve">
     <value>Vous pouvez utiliser ce formulaire pour effectuer une demande de restauration du mot de passe. Indiquez-nous votre &lt;strong&gt;nom utilisateur&lt;/strong&gt; ainsi que votre &lt;strong&gt;adresse e-mail&lt;/strong&gt;. Un mail vous sera ensuite envoyé pour redéfinir votre mot de passe.</value>
   </data>
+  <data name="ShowDescription" xml:space="preserve">
+    <value>Détails sur le salon</value>
+  </data>
+  <data name="ShowInformations" xml:space="preserve">
+    <value>Informations sur l'organisation du salon</value>
+  </data>
 </root>
