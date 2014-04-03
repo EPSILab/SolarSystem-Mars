@@ -181,6 +181,7 @@
     </Compile>
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ConferenceViewModel.cs" />
+    <Compile Include="ViewModels\LostPasswordViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
   </ItemGroup>
