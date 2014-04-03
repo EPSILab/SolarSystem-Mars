@@ -132,6 +132,9 @@
   <data name="DeleteNews" xml:space="preserve">
     <value>Supprimer cette news ?</value>
   </data>
+  <data name="LostPasswordRequestSent" xml:space="preserve">
+    <value>Votre demande de restauration du mot de passe a bien été enregistrée. Vous allez normalement recevoir un mail pour le redéfinir.</value>
+  </data>
   <data name="NewsCreated" xml:space="preserve">
     <value>La news a bien été créée.</value>
   </data>

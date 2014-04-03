@@ -106,6 +106,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Votre demande de restauration du mot de passe a bien été enregistrée. Vous allez normalement recevoir un mail pour le redéfinir..
+        /// </summary>
+        public static string LostPasswordRequestSent {
+            get {
+                return ResourceManager.GetString("LostPasswordRequestSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to La news a bien été créée..
         /// </summary>
         public static string NewsCreated {

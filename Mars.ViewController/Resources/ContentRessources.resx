@@ -354,4 +354,13 @@
   <data name="DateFormat" xml:space="preserve">
     <value>du {0} au {1}</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="FindMyPassword" xml:space="preserve">
+    <value>Retrouver mon mot de passe</value>
+  </data>
+  <data name="FindMyPasswordText" xml:space="preserve">
+    <value>Vous pouvez utiliser ce formulaire pour effectuer une demande de restauration du mot de passe. Indiquez-nous votre &lt;strong&gt;nom utilisateur&lt;/strong&gt; ainsi que votre &lt;strong&gt;adresse e-mail&lt;/strong&gt;. Un mail vous sera ensuite envoyé pour redéfinir votre mot de passe.</value>
+  </data>
 </root>

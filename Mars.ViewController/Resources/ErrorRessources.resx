@@ -273,4 +273,7 @@
   <data name="StartTimeRequired" xml:space="preserve">
     <value>L'heure de début est requise.</value>
   </data>
+  <data name="EmailFormat" xml:space="preserve">
+    <value>Le format de l'email est incorrect.</value>
+  </data>
 </root>

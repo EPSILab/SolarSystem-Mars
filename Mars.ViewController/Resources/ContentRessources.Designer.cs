@@ -187,6 +187,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date/Heure fin.
         /// </summary>
         public static string EndDateTime {
@@ -255,6 +264,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string Facebook_Recommandation {
             get {
                 return ResourceManager.GetString("Facebook_Recommandation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retrouver mon mot de passe.
+        /// </summary>
+        public static string FindMyPassword {
+            get {
+                return ResourceManager.GetString("FindMyPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vous pouvez utiliser ce formulaire pour effectuer une demande de restauration du mot de passe. Indiquez-nous votre &lt;strong&gt;nom utilisateur&lt;/strong&gt; ainsi que votre &lt;strong&gt;adresse e-mail&lt;/strong&gt;. Un mail vous sera ensuite envoyé pour redéfinir votre mot de passe..
+        /// </summary>
+        public static string FindMyPasswordText {
+            get {
+                return ResourceManager.GetString("FindMyPasswordText", resourceCulture);
             }
         }
         
