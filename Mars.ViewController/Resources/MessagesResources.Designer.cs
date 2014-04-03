@@ -106,6 +106,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Supprimer ce salon ?.
+        /// </summary>
+        public static string DeleteShow {
+            get {
+                return ResourceManager.GetString("DeleteShow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Votre demande de restauration du mot de passe a bien été enregistrée. Vous allez normalement recevoir un mail pour le redéfinir..
         /// </summary>
         public static string LostPasswordRequestSent {
@@ -138,6 +147,33 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string NewsUpdated {
             get {
                 return ResourceManager.GetString("NewsUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le salon a bien été crée..
+        /// </summary>
+        public static string ShowCreated {
+            get {
+                return ResourceManager.GetString("ShowCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le salon a bien été supprimé..
+        /// </summary>
+        public static string ShowDeleted {
+            get {
+                return ResourceManager.GetString("ShowDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le salon a bien été mis à jour..
+        /// </summary>
+        public static string ShowUpdated {
+            get {
+                return ResourceManager.GetString("ShowUpdated", resourceCulture);
             }
         }
     }
