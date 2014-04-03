@@ -179,6 +179,23 @@ namespace SolarSystem.Mars.ViewController.Controllers
             return View();
         }
 
+        /// <summary>
+        ///  POST : /Home/LostPassword
+        /// </summary>
+        [HttpPost]
+        public ActionResult LostPassword(LostPasswordViewModel vm)
+        {
+            try
+            {
+                _model.RequestLostPassword(vm.Username, vm.Email);
+                return Json(new { success = true, message = MessagesResources.LostPasswordRequestSent });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
         #endregion
 
         #region EditProfile regions
