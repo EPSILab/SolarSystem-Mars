@@ -10,10 +10,10 @@ namespace SolarSystem.Mars.ViewController.ViewModels
     /// </summary>
     public class ConferenceViewModel
     {
-        #region Constructor
+        #region Constructors
 
         /// <summary>
-        /// Constructor
+        /// Default constructor
         /// </summary>
         public ConferenceViewModel()
         {
