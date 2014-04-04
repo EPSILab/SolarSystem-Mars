@@ -133,6 +133,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Supprimer le message ?.
+        /// </summary>
+        public static string DeleteSlide {
+            get {
+                return ResourceManager.GetString("DeleteSlide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Le lien a bien été crée..
         /// </summary>
         public static string LinkCreated {
@@ -246,6 +255,33 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string ShowUpdated {
             get {
                 return ResourceManager.GetString("ShowUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le message a bien été créée..
+        /// </summary>
+        public static string SlideCreated {
+            get {
+                return ResourceManager.GetString("SlideCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le message a bien été supprimée..
+        /// </summary>
+        public static string SlideDeleted {
+            get {
+                return ResourceManager.GetString("SlideDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le message a bien été modifiée..
+        /// </summary>
+        public static string SlideUpdated {
+            get {
+                return ResourceManager.GetString("SlideUpdated", resourceCulture);
             }
         }
     }

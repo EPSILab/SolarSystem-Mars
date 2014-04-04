@@ -384,4 +384,7 @@
   <data name="Order" xml:space="preserve">
     <value>Ordre</value>
   </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Message de présentation</value>
+  </data>
 </root>
