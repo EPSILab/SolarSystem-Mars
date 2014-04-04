@@ -132,6 +132,9 @@
   <data name="DeleteNews" xml:space="preserve">
     <value>Supprimer cette news ?</value>
   </data>
+  <data name="DeleteProject" xml:space="preserve">
+    <value>Supprimer ce projet ?</value>
+  </data>
   <data name="DeleteShow" xml:space="preserve">
     <value>Supprimer ce salon ?</value>
   </data>
@@ -146,6 +149,15 @@
   </data>
   <data name="NewsUpdated" xml:space="preserve">
     <value>La news a bien été modifiée.</value>
+  </data>
+  <data name="ProjectCreated" xml:space="preserve">
+    <value>Le projet a bien été crée.</value>
+  </data>
+  <data name="ProjectDeleted" xml:space="preserve">
+    <value>Le projet a bien été supprimé.</value>
+  </data>
+  <data name="ProjectUpdated" xml:space="preserve">
+    <value>Le projet a bien été mis à jour.</value>
   </data>
   <data name="ShowCreated" xml:space="preserve">
     <value>Le salon a bien été crée.</value>

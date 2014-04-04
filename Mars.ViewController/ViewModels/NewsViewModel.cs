@@ -11,10 +11,10 @@ namespace SolarSystem.Mars.ViewController.ViewModels
     /// </summary>
     public class NewsViewModel
     {
-        #region Constructor
+        #region Constructors
 
         /// <summary>
-        /// Constructor
+        /// Default Constructor
         /// </summary>
         public NewsViewModel()
         {

@@ -369,4 +369,13 @@
   <data name="ShowInformations" xml:space="preserve">
     <value>Informations sur l'organisation du salon</value>
   </data>
+  <data name="Progression" xml:space="preserve">
+    <value>Avancement (%)</value>
+  </data>
+  <data name="ProjectDescription" xml:space="preserve">
+    <value>Description du projet</value>
+  </data>
+  <data name="ProjectInformations" xml:space="preserve">
+    <value>Informations sur le projet</value>
+  </data>
 </root>

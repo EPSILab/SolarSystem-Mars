@@ -85,7 +85,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             if (id == 0)
             {
                 vm = new ConferenceViewModel();
-                ViewBag.Members = CreateSelectList(campusAvailables);
+                ViewBag.Campuses = CreateSelectList(campusAvailables);
             }
             // Edit an existing conference
             else
@@ -93,7 +93,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 Conference conference = _model.Get(id);
 
                 vm = new ConferenceViewModel(conference);
-                ViewBag.Members = CreateSelectList(campusAvailables, conference);
+                ViewBag.Campuses = CreateSelectList(campusAvailables, conference);
             }
 
             return View(vm);
@@ -163,7 +163,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             Conference conferenceSelected = _model.Get(vm.Id);
 
             // Create the SelectList used with a DropDownList
-            ViewBag.Members = CreateSelectList(campusAvailables, conferenceSelected);
+            ViewBag.Campuses = CreateSelectList(campusAvailables, conferenceSelected);
 
             return View(vm);
         }
@@ -201,12 +201,12 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <summary>
         /// Transform a list of campuses to a selectlist
         /// </summary>
-        /// <param name="campusAvailables">Convert Members into a MemberList - SelectList</param>
+        /// <param name="campusAvailables">Convert Campuses into a MemberList - SelectList</param>
         /// <param name="conference">Conference currently selected - to define the default campus</param>
-        /// <returns>Members list formatted</returns>
+        /// <returns>Campuses list formatted</returns>
         private SelectList CreateSelectList(IEnumerable<Campus> campusAvailables, Conference conference = null)
         {
-            // Get list of item (member) to create the MemberList
+            // Get list of item (campus) to create the MemberList
             IList<SelectListItem> campusesItems = campusAvailables.Select(campus => new SelectListItem
             {
                 Value = campus.Id.ToString("0"),
