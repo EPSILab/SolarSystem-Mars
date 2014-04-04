@@ -295,20 +295,29 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Liste des messages du diaporama.
+        ///   Looks up a localized string similar to Annoncer un nouveau message.
         /// </summary>
-        public static string Slideshow {
+        public static string Slide_Create {
             get {
-                return ResourceManager.GetString("Slideshow", resourceCulture);
+                return ResourceManager.GetString("Slide_Create", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Annoncer un nouveau message.
+        ///   Looks up a localized string similar to Modifier un message.
         /// </summary>
-        public static string Slideshow_Create {
+        public static string Slide_Edit {
             get {
-                return ResourceManager.GetString("Slideshow_Create", resourceCulture);
+                return ResourceManager.GetString("Slide_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liste des messages du diaporama.
+        /// </summary>
+        public static string Slides {
+            get {
+                return ResourceManager.GetString("Slides", resourceCulture);
             }
         }
     }

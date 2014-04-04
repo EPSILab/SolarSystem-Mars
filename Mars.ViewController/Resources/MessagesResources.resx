@@ -141,6 +141,9 @@
   <data name="DeleteShow" xml:space="preserve">
     <value>Supprimer ce salon ?</value>
   </data>
+  <data name="DeleteSlide" xml:space="preserve">
+    <value>Supprimer le message ?</value>
+  </data>
   <data name="LinkCreated" xml:space="preserve">
     <value>Le lien a bien été crée.</value>
   </data>
@@ -179,5 +182,14 @@
   </data>
   <data name="ShowUpdated" xml:space="preserve">
     <value>Le salon a bien été mis à jour.</value>
+  </data>
+  <data name="SlideCreated" xml:space="preserve">
+    <value>Le message a bien été créée.</value>
+  </data>
+  <data name="SlideDeleted" xml:space="preserve">
+    <value>Le message a bien été supprimée.</value>
+  </data>
+  <data name="SlideUpdated" xml:space="preserve">
+    <value>Le message a bien été modifiée.</value>
   </data>
 </root>

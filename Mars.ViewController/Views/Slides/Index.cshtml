@@ -16,7 +16,7 @@
 </ol>
 
 @* Modal for deletion *@
-@using (Ajax.BeginForm("Delete", "Slides", new AjaxOptions { HttpMethod = "POST", OnSuccess = "deleteSlides" }))
+@using (Ajax.BeginForm("Delete", "Slides", new AjaxOptions { HttpMethod = "POST", OnSuccess = "deleteSlide" }))
 {
     <div id="modalDelete" class="modal fade">
         <div class="modal-dialog modal-sm">
@@ -48,16 +48,19 @@
     <thead>
         <tr>
             <th width="5%">
-                @Html.DisplayNameFor(model => model.IsPublished)
+                @Html.DisplayNameFor(model => model.Order)
             </th>
             <th width="5%" class="hidden-xs">
                 @Html.DisplayNameFor(model => model.ImageRemoteUrl)
             </th>
-            <th width="40%">
-                @Html.DisplayNameFor(model => model.Name)
+            <th width="25%">
+                @Html.DisplayNameFor(model => model.Label)
             </th>
-            <th width="40%">
+            <th width="25%">
                 @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th width="30%" class="hidden-xs">
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th width="10%">
                 Actions
@@ -69,16 +72,19 @@
         {
             <tr id="@string.Format("item{0}", item.Id)">
                 <td>
-                    @Html.DisplayFor(modelItem => item.IsPublished)
+                    @Html.DisplayFor(modelItem => item.Order)
                 </td>
                 <td class="hidden-xs">
-                    <img src="@Url.Content(item.ImageRemoteUrl)" style="height: 50px; width: 50px;" alt="@item.Name" />
+                    <img src="@Url.Content(item.ImageRemoteUrl)" style="height: 50px; width: 50px;" alt="@item.Label" />
                 </td>
                 <td>
-                    <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                    <strong>@Html.DisplayFor(modelItem => item.Label)</strong>
                 </td>
                 <td>
                     <strong>@Html.DisplayFor(modelItem => item.Url)</strong>
+                </td>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Description)</strong>
                 </td>
                 <td>
                     @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })

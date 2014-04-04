@@ -143,7 +143,7 @@
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\PromotionsController.cs" />
     <Compile Include="Controllers\ShowsController.cs" />
-    <Compile Include="Controllers\SlideshowController.cs" />
+    <Compile Include="Controllers\SlidesController.cs" />
     <Compile Include="Exceptions\InvalidModelStateException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,6 +179,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PagesTitlesRessources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\SlideViewModel.cs" />
     <Compile Include="ViewModels\LinkViewModel.cs" />
     <Compile Include="ViewModels\ProjectViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -579,8 +580,8 @@
     <Content Include="Views\Links\Manage.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Projects\Manage.cshtml" />
-    <Content Include="Views\SlideShow\Index.cshtml" />
-    <Content Include="Views\SlideShow\Manage.cshtml" />
+    <Content Include="Views\Slides\Index.cshtml" />
+    <Content Include="Views\Slides\Manage.cshtml" />
     <Content Include="Views\Shows\Index.cshtml" />
     <Content Include="Views\Shows\Manage.cshtml" />
     <Content Include="Views\Campuses\Index.cshtml" />
