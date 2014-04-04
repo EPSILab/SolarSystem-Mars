@@ -232,6 +232,33 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La longueur du libellé doit être de 100 caractères maximum..
+        /// </summary>
+        public static string LabelMaxLength {
+            get {
+                return ResourceManager.GetString("LabelMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La longueur du libellé doit être de 2 caractères minimum..
+        /// </summary>
+        public static string LabelMinLength {
+            get {
+                return ResourceManager.GetString("LabelMinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le libellé est requis..
+        /// </summary>
+        public static string LabelRequired {
+            get {
+                return ResourceManager.GetString("LabelRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to L&apos;URL de la page LinkedIn est incorrecte..
         /// </summary>
         public static string LinkedInUrlFormatError {

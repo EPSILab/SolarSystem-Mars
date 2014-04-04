@@ -378,4 +378,10 @@
   <data name="ProjectInformations" xml:space="preserve">
     <value>Informations sur le projet</value>
   </data>
+  <data name="Label" xml:space="preserve">
+    <value>Libellé</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Ordre</value>
+  </data>
 </root>
