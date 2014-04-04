@@ -1,78 +1,97 @@
-﻿@using System.Web.Optimization
-@model SolarSystem.Mars.Model.ManagersService.Link
+﻿@using SolarSystem.Mars.ViewController.Resources
+@using System.Web.Optimization
+
+@model SolarSystem.Mars.ViewController.ViewModels.LinkViewModel
 
 @{
-    ViewBag.Title = "Manage";
-    Layout = "~/Views/Shared/_LayoutNotConnected.cshtml";
+    ViewBag.Title = Model.Id == 0 ? PagesTitlesRessources.Link_Create : PagesTitlesRessources.Link_Edit;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
-<h2>Manage</h2>
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li>@Html.ActionLink(PagesTitlesRessources.Links, "Index")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm(Html.BeginForm("Manage", "Links", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
 
-    <fieldset>
-        <legend>Link</legend>
+    <fieldset class="col-md-10 col-md-offset-1 form-horizontal">
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Code_Link)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Code_Link)
-            @Html.ValidationMessageFor(model => model.Code_Link)
-        </div>
+        @* Name *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Label, new { @class = "col-sm-2 control-label" })
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Description)
-            @Html.ValidationMessageFor(model => model.Description)
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Label, new { @class = "form-control", @placeholder = ContentRessources.Name })
+                @Html.ValidationMessageFor(model => model.Label, null, new { @style = "color: red" })
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Image)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Image)
-            @Html.ValidationMessageFor(model => model.Image)
+        @* URL *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Url, new { @class = "form-control", @placeholder = ContentRessources.URL })
+                @Html.ValidationMessageFor(model => model.Url, null, new { @style = "color: red" })
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nom)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nom)
-            @Html.ValidationMessageFor(model => model.Nom)
+        @* Display order *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Order, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Order, new { @class = "form-control", @placeholder = ContentRessources.Order })
+                @Html.ValidationMessageFor(model => model.Order, null, new { @style = "color: red" })
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Ordre)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Ordre)
-            @Html.ValidationMessageFor(model => model.Ordre)
+        @* Description *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control", @placeholder = ContentRessources.Order })
+                @Html.ValidationMessageFor(model => model.Description, null, new { @style = "color: red" })
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.URL)
+        @* Image *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageRemoteUrl, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-8">
+                <span class="help-block">@ContentRessources.RemoteImage</span>
+                @Html.TextBoxFor(model => model.ImageRemoteUrl, new { @class = "form-control", @placeholder = ContentRessources.Website_PlaceHolder })
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.URL)
-            @Html.ValidationMessageFor(model => model.URL)
+        <div class="form-group">
+            <div class="col-sm-8 col-sm-offset-2">
+                <span class="help-block">@ContentRessources.LocalImage</span>
+                <input type="file" name="file" class="btn btn-default" />
+                @Html.ValidationMessageFor(model => model.ImageRemoteUrl, null, new { @style = "color: red", @placeholder = ContentRessources.RemoteImage })
+            </div>
         </div>
 
-        <p>
-            <input type="submit" value="Manage" />
-        </p>
+        <br />
     </fieldset>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    @* Valid button *@
+    <p class="col-md-5 col-md-offset-3">
+        <button type="submit" class="btn btn-primary">@ContentRessources.Valid</button>
+        @Html.ActionLink(ContentRessources.Back, "Index", null, new { @class = "btn btn-default" })
+    </p>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+}
+
+@section Styles {
+    @Styles.Render("~/Content/themes/base/css")
 }

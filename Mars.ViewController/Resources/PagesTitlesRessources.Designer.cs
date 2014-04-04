@@ -124,6 +124,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Modifier un lien.
+        /// </summary>
+        public static string Link_Edit {
+            get {
+                return ResourceManager.GetString("Link_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Liste des liens.
         /// </summary>
         public static string Links {

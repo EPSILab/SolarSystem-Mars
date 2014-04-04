@@ -279,4 +279,13 @@
   <data name="ProgressionRequired" xml:space="preserve">
     <value>Veuillez indiquer un avancement en %.</value>
   </data>
+  <data name="LabelMaxLength" xml:space="preserve">
+    <value>La longueur du libellé doit être de 100 caractères maximum.</value>
+  </data>
+  <data name="LabelMinLength" xml:space="preserve">
+    <value>La longueur du libellé doit être de 2 caractères minimum.</value>
+  </data>
+  <data name="LabelRequired" xml:space="preserve">
+    <value>Le libellé est requis.</value>
+  </data>
 </root>

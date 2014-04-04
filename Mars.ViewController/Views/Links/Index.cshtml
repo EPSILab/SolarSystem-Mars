@@ -1,64 +1,151 @@
-﻿@model IEnumerable<SolarSystem.Mars.Model.ManagersService.Link>
+﻿@using System.Web.Optimization
+@using SolarSystem.Mars.ViewController.Resources
+@using SolarSystem.Mars.ViewController.ViewModels
+
+@model IEnumerable<LinkViewModel>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutNotConnected.cshtml";
+    ViewBag.Title = PagesTitlesRessources.Links;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
-<h2>Index</h2>
+@* Breadcrumbs *@
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
 
-<p>
-    @Html.ActionLink("Manage New", "Manage")
+@* Modal for deletion *@
+@using (Ajax.BeginForm("Delete", "Links", new AjaxOptions { HttpMethod = "POST", OnSuccess = "deleteLinks" }))
+{
+    <div id="modalDelete" class="modal fade">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>@MessagesResources.DeleteLink</p>
+                </div>
+                <div class="modal-footer">
+                    @* Contains the link's Id to delete *@
+                    <input type="hidden" id="idToDelete" name="id" />
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@ContentRessources.No</button>
+                    <button type="submit" class="btn btn-primary">@ContentRessources.Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@* Create link button *@
+<p class="col-md-offset-5">
+    @Html.ActionLink(PagesTitlesRessources.Link_Create, "Manage", null, new { @class = "btn btn-primary" })
 </p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Code_Link)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ordre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.URL)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code_Link)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ordre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.URL)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Code_Link }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Code_Link }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Code_Link })
-        </td>
-    </tr>
+@Pagination()
+
+@* List of link *@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width="5%">
+                @Html.DisplayNameFor(model => model.Order)
+            </th>
+            <th width="5%" class="hidden-xs">
+                @Html.DisplayNameFor(model => model.ImageRemoteUrl)
+            </th>
+            <th width="25%">
+                @Html.DisplayNameFor(model => model.Label)
+            </th>
+            <th width="25%">
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th width="30%" class="hidden-xs">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th width="10%">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (LinkViewModel item in Model)
+        {
+            <tr id="@string.Format("item{0}", item.Id)">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order)
+                </td>
+                <td class="hidden-xs">
+                    <img src="@Url.Content(item.ImageRemoteUrl)" style="height: 50px; width: 50px;" alt="@item.Label" />
+                </td>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Label)</strong>
+                </td>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Url)</strong>
+                </td>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Description)</strong>
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
+
+                    <button class="delete btn btn-danger glyphicon glyphicon-remove-sign"
+                            data-id="@item.Id" data-toggle="modal" data-target="#modalDelete" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Pagination()
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Enable tooltips on buttons
+            $('.navButton').tooltip();
+
+            // When the user clicks on a Delete button, save the link's Id to delete
+            $('.delete').click(function () {
+                var idToDelete = $(this).data("id");
+                $("#idToDelete").val(idToDelete);
+            });
+        });
+
+        var deleteLink = function (data) {
+            $('#modalDelete').modal('hide');
+
+            if (data.success) {
+                if (data.id > 0) {
+                    $('#item' + data.id).remove();
+                    showMessage(data.message, false);
+                }
+            } else {
+                showMessage(data.message, true);
+            }
+        }
+    </script>
 }
 
-</table>
+@helper  Pagination()
+{
+    <p>
+        @{
+            var itemsNumber = (int)ViewBag.ItemsNumber;
+
+            if (ViewBag.Id - itemsNumber >= 0)
+            {
+                @Html.ActionLink(" ", "Index", new { id = 0 }, new { @class = "navButton btn glyphicon glyphicon-fast-backward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Start })
+                @Html.ActionLink(" ", "Index", new { id = ViewBag.Id - itemsNumber }, new { @class = "navButton btn glyphicon glyphicon-step-backward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Previous })
+            }
+
+            if (Model.Count() >= itemsNumber)
+            {
+                @Html.ActionLink(" ", "Index", new { id = ViewBag.Id + itemsNumber }, new { @class = "navButton btn glyphicon glyphicon-step-forward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Next })
+            }
+        }
+    </p>
+}

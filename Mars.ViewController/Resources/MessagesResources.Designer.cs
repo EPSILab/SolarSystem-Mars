@@ -97,6 +97,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Supprimer ce lien ?.
+        /// </summary>
+        public static string DeleteLink {
+            get {
+                return ResourceManager.GetString("DeleteLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Supprimer cette news ?.
         /// </summary>
         public static string DeleteNews {
@@ -120,6 +129,33 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string DeleteShow {
             get {
                 return ResourceManager.GetString("DeleteShow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le lien a bien été crée..
+        /// </summary>
+        public static string LinkCreated {
+            get {
+                return ResourceManager.GetString("LinkCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le lien a bien été supprimé..
+        /// </summary>
+        public static string LinkDeleted {
+            get {
+                return ResourceManager.GetString("LinkDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le lien a bien été mis à jour..
+        /// </summary>
+        public static string LinkUpdated {
+            get {
+                return ResourceManager.GetString("LinkUpdated", resourceCulture);
             }
         }
         

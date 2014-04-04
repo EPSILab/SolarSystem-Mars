@@ -198,4 +198,7 @@
   <data name="Project_Edit" xml:space="preserve">
     <value>Modifier un projet</value>
   </data>
+  <data name="Link_Edit" xml:space="preserve">
+    <value>Modifier un lien</value>
+  </data>
 </root>
