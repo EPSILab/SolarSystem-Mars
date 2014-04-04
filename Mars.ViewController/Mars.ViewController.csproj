@@ -154,6 +154,11 @@
     <Compile Include="Infrastructure\Concrete\WebserviceAuthorizeAttribute.cs" />
     <Compile Include="Infrastructure\Concrete\WebserviceAuthProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ContentRessources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContentRessources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\DefaultSelectionMessagesRessources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -163,11 +168,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorRessources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\ContentRessources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ContentRessources.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\MessagesResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -179,6 +179,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PagesTitlesRessources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ProjectViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ConferenceViewModel.cs" />
     <Compile Include="ViewModels\LostPasswordViewModel.cs" />
@@ -614,6 +615,7 @@
     <EmbeddedResource Include="Resources\ContentRessources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>ContentRessources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\MessagesResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
