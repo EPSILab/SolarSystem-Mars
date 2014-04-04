@@ -195,4 +195,7 @@
   <data name="Show_Edit" xml:space="preserve">
     <value>Modifier un salon</value>
   </data>
+  <data name="Project_Edit" xml:space="preserve">
+    <value>Modifier un projet</value>
+  </data>
 </root>

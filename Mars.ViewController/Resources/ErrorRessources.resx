@@ -276,4 +276,7 @@
   <data name="EmailFormat" xml:space="preserve">
     <value>Le format de l'email est incorrect.</value>
   </data>
+  <data name="ProgressionRequired" xml:space="preserve">
+    <value>Veuillez indiquer un avancement en %.</value>
+  </data>
 </root>
