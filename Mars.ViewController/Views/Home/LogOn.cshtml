@@ -11,6 +11,7 @@
     <li class="active">@ViewBag.Title</li>
 </ol>
 
+@* News *@
 <div class="col-xs-6 col-sm-4">
     <h2>@ContentRessources.News</h2>
     <ul>
@@ -37,6 +38,7 @@
     </div>
 *@
 
+@* Conferences *@
 <div class="col-xs-6 col-sm-4">
     <h2>@ContentRessources.Conferences</h2>
     <ul>
@@ -49,20 +51,20 @@
     </ul>
 </div>
 
-@*
-    <div class="col-xs-6 col-sm-4">
-        <h2>@ContentRessources.Projects</h2>
-        <ul>
-            <li>
-                @Html.ActionLink(PagesTitlesRessources.Projects_Create, "Manage", "Projects")
-            </li>
-            <li>
-                @Html.ActionLink(PagesTitlesRessources.Projects, "Index", "Projects")
-            </li>
-        </ul>
-    </div>
-*@
+@* Projects *@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.Projects</h2>
+    <ul>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Project_Create, "Manage", "Projects")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Projects, "Index", "Projects")
+        </li>
+    </ul>
+</div>
 
+@* Shows *@
 <div class="col-xs-6 col-sm-4">
     <h2>@ContentRessources.Shows</h2>
     <ul>
