@@ -11,23 +11,27 @@ Current version : 0.1
 ### Current Features
 
 - News management (1)
-
-### Features in progress
-
-### Next features
-
-- Account management
-    - Modify current account (6)
-    - Create account (2)
-    - Forgotten password (3)
-- Student / Member management
-    - CRUD on Member (5)
-    - Manage / Revoke rights with roles (1)
 - Link management (7)
 - Project management (7)
 - Conferences management (7)
-- Slider management (7)
 - Show management (7)
 - Campus management (7)
+- Promotion management (7)
+- Account management
+    - Forgotten password (3)
+
+### Features in progress
+
+- Slider management (7)
+- Account management
+    - Modify current account (6)
+    - Create account (2)
+
+### Next features
+
+- Student / Member management
+    - CRUD on Member (5)
+    - Manage / Revoke rights with roles (1)
+
 - Logger
     - Save actions in the webservice (4)
