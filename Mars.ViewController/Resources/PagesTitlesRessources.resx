@@ -216,4 +216,10 @@
   <data name="Campus_Edit" xml:space="preserve">
     <value>Modifier les informations d'un campus</value>
   </data>
+  <data name="Promotion_Create" xml:space="preserve">
+    <value>Ouvrir une nouvelle promotion</value>
+  </data>
+  <data name="Promotion_Edit" xml:space="preserve">
+    <value>Modifier les informations d'une promotion existante</value>
+  </data>
 </root>

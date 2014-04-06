@@ -179,6 +179,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PagesTitlesRessources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\PromotionViewModel.cs" />
+    <Compile Include="ViewModels\CampusViewModel.cs" />
     <Compile Include="ViewModels\PasswordViewModel.cs" />
     <Compile Include="ViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\SlideViewModel.cs" />

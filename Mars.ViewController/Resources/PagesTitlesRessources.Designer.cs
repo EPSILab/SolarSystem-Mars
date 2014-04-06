@@ -277,6 +277,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ouvrir une nouvelle promotion.
+        /// </summary>
+        public static string Promotion_Create {
+            get {
+                return ResourceManager.GetString("Promotion_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modifier les informations d&apos;une promotion existante.
+        /// </summary>
+        public static string Promotion_Edit {
+            get {
+                return ResourceManager.GetString("Promotion_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gérer les promotions.
         /// </summary>
         public static string Promotions {

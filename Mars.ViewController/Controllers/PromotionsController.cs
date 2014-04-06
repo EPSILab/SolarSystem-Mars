@@ -1,7 +1,12 @@
 ﻿using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.Model.Model.Abstract;
+using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
+using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace SolarSystem.Mars.ViewController.Controllers
@@ -11,63 +16,114 @@ namespace SolarSystem.Mars.ViewController.Controllers
     {
         #region Constructor
 
-        public PromotionsController(IReader<Promotion> promotionManager)
+        /// <summary>
+        /// Constructor. Parameters are resolved with NInject
+        /// </summary>
+        public PromotionsController(IReader<Promotion> model)
         {
-            _promotionManager = promotionManager;
+            _model = model;
         }
 
         #endregion
 
         #region Attributes
 
-        private readonly IReader<Promotion> _promotionManager;
+        /// <summary>
+        /// Main model
+        /// </summary>
+        private readonly IReader<Promotion> _model;
 
         #endregion
 
-        #region Methods
+        #region Index methods
 
-        // GET: /Promotions/
+        /// <summary>
+        /// GET: /Promotion/
+        /// GET: /Promotion/Index
+        /// </summary>
         public ActionResult Index()
         {
-            IEnumerable<Promotion> promotions = _promotionManager.Get();
-            return View(promotions);
+            // Get Promotion and tranform them in PromotionViewModel
+            IEnumerable<Promotion> listPromotion = _model.Get();
+            IEnumerable<PromotionViewModel> vm = listPromotion.Select(promotion => new PromotionViewModel(promotion));
+
+            return View(vm);
         }
 
-        // GET: /Promotions/Create
-        public ActionResult Manage()
+        #endregion
+
+        #region Manage methods
+
+        /// <summary>
+        /// GET: /Promotion/Manage : Create a new promotion
+        /// GET: /Promotion/Manage/5 : Edit an existing promotion
+        /// </summary>
+        /// <param name="id">Promotion's Id to manage. If Id = 0, it is a new promotion</param>
+        public ActionResult Manage(int id = 0)
         {
-            return View();
+            PromotionViewModel vm;
+
+            // Create a promotion
+            if (id == 0)
+                vm = new PromotionViewModel();
+            // Edit an existing promotion
+            else
+            {
+                Promotion promotion = _model.Get(id);
+                vm = new PromotionViewModel(promotion);
+            }
+
+            return View(vm);
         }
 
-        // GET: /Promotions/Edit/5
-        public ActionResult Manage(int id)
-        {
-            Promotion promotion = _promotionManager.Get(id);
-            return View(promotion);
-        }
-
-        // POST: /Promotions/Create
+        /// <summary>
+        /// POST: /Promotion/Manage
+        /// Raised when the user has clicked on the OK button
+        /// </summary>
+        /// <param name="vm">Page ViewModel</param>
         [HttpPost]
-        public ActionResult Manage(Promotion promotion)
+        public ActionResult Manage(PromotionViewModel vm)
         {
             try
             {
-                // TODO: Add insert logic here
-                _promotionManager.Add(promotion, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
+                if (!ModelState.IsValid)
+                    throw new InvalidModelStateException();
+
+                // Prepare to send the promotion to the server
+                Promotion promotion = new Promotion
+                {
+                    Id = vm.Id,
+                    GraduationYear = vm.GraduationYear,
+                    Name = vm.Name,
+                    StillPresent = vm.StillPresent
+                };
+
+                // Save the promotion
+                LoginViewModel loginVM = AuthProvider.LoginViewModel;
+
+                if (vm.Id == 0)
+                {
+                    _model.Add(promotion, loginVM.Username, loginVM.PasswordCrypted);
+                    ViewBag.SuccessMessage = MessagesResources.PromotionCreated;
+                }
+                else
+                {
+                    _model.Edit(promotion, loginVM.Username, loginVM.PasswordCrypted);
+                    ViewBag.SuccessMessage = MessagesResources.PromotionUpdated;
+                }
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (InvalidModelStateException ex)
             {
-                return View(promotion);
+                ViewBag.ErrorMessage = ex.DisplayMessage;
             }
-        }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+            }
 
-        // GET: /Promotions/Delete/5
-        public ActionResult Delete(int id)
-        {
-            Promotion promotion = _promotionManager.Get(id);
-            return View("Index");
+            return View(vm);
         }
 
         #endregion

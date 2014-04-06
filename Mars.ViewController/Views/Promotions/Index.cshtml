@@ -1,51 +1,59 @@
-﻿@model IEnumerable<SolarSystem.Mars.Model.ManagersService.Promotion>
+﻿@using SolarSystem.Mars.ViewController.Resources
+@using SolarSystem.Mars.ViewController.ViewModels
+
+@model IEnumerable<PromotionViewModel>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutNotConnected.cshtml";
+    ViewBag.Title = PagesTitlesRessources.Promotions;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
-<h2>Index</h2>
+@* Breadcrumbs *@
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
 
-<p>
-    @Html.ActionLink("Manage New", "Manage")
+@* Create promotion button *@
+<p class="col-md-offset-5">
+    @Html.ActionLink(PagesTitlesRessources.Promotion_Create, "Manage", null, new { @class = "btn btn-primary" })
 </p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GraduationYear)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StillPresent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+@* List of promotion *@
+<table class="table table-striped">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GraduationYear)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StillPresent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.ActionLink("Modifier", "Manage", new { id = item.Id }) |
-                @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })
-            </td>
+            <th width="40%">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th width="40%">
+                @Html.DisplayNameFor(model => model.GraduationYear)
+            </th>
+            <th width="10%">
+                @Html.DisplayNameFor(model => model.StillPresent)
+            </th>
+            <th width="10%">
+                Actions
+            </th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (PromotionViewModel item in Model)
+        {
+            <tr>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GraduationYear)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.StillPresent)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

@@ -196,6 +196,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Veuillez entrer une année valide..
+        /// </summary>
+        public static string GraduationYearLength {
+            get {
+                return ResourceManager.GetString("GraduationYearLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L&apos;année d&apos;obtention du diplôme doit être précisée..
+        /// </summary>
+        public static string GraduationYearRequired {
+            get {
+                return ResourceManager.GetString("GraduationYearRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to L&apos;extension de l&apos;image n&apos;est pas correcte (*.jpg, *.jpeg, *gif, *.png uniquement)..
         /// </summary>
         public static string ImagePathExtensions {
@@ -453,6 +471,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string StartTimeRequired {
             get {
                 return ResourceManager.GetString("StartTimeRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veuillez indiquer si la promotion est encore présente ou non..
+        /// </summary>
+        public static string StillPresentRequired {
+            get {
+                return ResourceManager.GetString("StillPresentRequired", resourceCulture);
             }
         }
         
