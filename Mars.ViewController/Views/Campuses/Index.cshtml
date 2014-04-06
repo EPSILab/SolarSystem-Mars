@@ -1,46 +1,53 @@
-﻿@model IEnumerable<SolarSystem.Mars.Model.ManagersService.Campus>
+﻿@using SolarSystem.Mars.ViewController.Resources
+@using SolarSystem.Mars.ViewController.ViewModels
+
+@model IEnumerable<CampusViewModel>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutNotConnected.cshtml";
+    ViewBag.Title = PagesTitlesRessources.Campuses;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
-<h2>Index</h2>
+@* Breadcrumbs *@
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
 
-<p>
-    @Html.ActionLink("Create New", "Manage")
+@* Create campus button *@
+<p class="col-md-offset-5">
+    @Html.ActionLink(PagesTitlesRessources.Campus_Create, "Manage", null, new { @class = "btn btn-primary" })
 </p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Libelle)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code_Campus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Libelle)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Code_Campus }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Code_Campus }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Code_Campus })
-        </td>
-    </tr>
-}
-
+@* List of campus *@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width="45%">
+                @Html.DisplayNameFor(model => model.Place)
+            </th>
+            <th width="45%">
+                @Html.DisplayNameFor(model => model.ContactEmail)
+            </th>
+            <th width="10%">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (CampusViewModel item in Model)
+        {
+            <tr>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Place)</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactEmail)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
