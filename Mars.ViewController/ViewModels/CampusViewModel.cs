@@ -48,6 +48,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         /// <summary>
         /// EPSI email
         /// </summary>
+        [Display(ResourceType = typeof(ContentRessources), Name = "ContactEmail")]
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ContactEmailRequired")]
         [DataType(DataType.EmailAddress, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "EmailFormat")]
         public string ContactEmail { get; set; }
