@@ -646,6 +646,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Définir mon nouveau mot de passe.
+        /// </summary>
+        public static string ResetPassword {
+            get {
+                return ResourceManager.GetString("ResetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vous pouvez utiliser ce formulaire pour réinitialiser votre mot de passe. Entrez votre mot de passe puis confirmez-le..
+        /// </summary>
+        public static string ResetPasswordText {
+            get {
+                return ResourceManager.GetString("ResetPasswordText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Texte d&apos;accroche.
         /// </summary>
         public static string ShortText {

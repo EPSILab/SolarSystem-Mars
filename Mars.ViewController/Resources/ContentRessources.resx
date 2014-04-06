@@ -387,4 +387,10 @@
   <data name="Presentation" xml:space="preserve">
     <value>Message de présentation</value>
   </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Définir mon nouveau mot de passe</value>
+  </data>
+  <data name="ResetPasswordText" xml:space="preserve">
+    <value>Vous pouvez utiliser ce formulaire pour réinitialiser votre mot de passe. Entrez votre mot de passe puis confirmez-le.</value>
+  </data>
 </root>
