@@ -97,6 +97,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to L&apos;email de contact est requis..
+        /// </summary>
+        public static string ContactEmailRequired {
+            get {
+                return ResourceManager.GetString("ContactEmailRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to La date est requise..
         /// </summary>
         public static string DateRequired {

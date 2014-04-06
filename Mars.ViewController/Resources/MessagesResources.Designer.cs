@@ -61,6 +61,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Le campus a bien été crée..
+        /// </summary>
+        public static string CampusCreated {
+            get {
+                return ResourceManager.GetString("CampusCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le campus a bien été mis à jour..
+        /// </summary>
+        public static string CampusUpdated {
+            get {
+                return ResourceManager.GetString("CampusUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to La conférence a bien été créée..
         /// </summary>
         public static string ConferenceCreated {

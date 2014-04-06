@@ -393,4 +393,10 @@
   <data name="ResetPasswordText" xml:space="preserve">
     <value>Vous pouvez utiliser ce formulaire pour réinitialiser votre mot de passe. Entrez votre mot de passe puis confirmez-le.</value>
   </data>
+  <data name="ContactEmail" xml:space="preserve">
+    <value>Email de contact</value>
+  </data>
+  <data name="ContactEmail_Placeholder" xml:space="preserve">
+    <value>xyz@outlook.com</value>
+  </data>
 </root>
