@@ -204,4 +204,7 @@
   <data name="Slide_Edit" xml:space="preserve">
     <value>Modifier un message</value>
   </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Réinitialiser le mot de passe</value>
+  </data>
 </root>
