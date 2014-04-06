@@ -251,6 +251,27 @@ namespace SolarSystem.Mars.ViewController.Controllers
             return View();
         }
 
+        [WebserviceAuthorize]
+        public ActionResult EditProfile(MemberViewModel vm)
+        {
+            return View(vm);
+        }
+
+        #endregion
+
+        #region EditPassword methods
+
+        [WebserviceAuthorize]
+        public ActionResult EditPassword()
+        {
+            return View();
+        }
+
+        public ActionResult EditPassword(PasswordViewModel vm)
+        {
+            return View(vm);
+        }
+
         #endregion
 
         #region LogOut regions
