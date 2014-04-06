@@ -207,4 +207,7 @@
   <data name="ResetPassword" xml:space="preserve">
     <value>Réinitialiser le mot de passe</value>
   </data>
+  <data name="EditPassword" xml:space="preserve">
+    <value>Modifier mon mot de passe</value>
+  </data>
 </root>
