@@ -87,7 +87,7 @@
         <div class="form-group">
             <label class="col-sm-4 control-label">@ContentRessources.EPSIEmail *</label>
             <div class="col-sm-8">
-                @Html.TextBoxFor(model => model.EPSIEmail, new { @class = "form-control", @placeholder = ContentRessources.EPSIEmail_PlaceHorder })
+                @Html.TextBoxFor(model => model.EPSIEmail, new { @class = "form-control", @type = "email", @placeholder = ContentRessources.EPSIEmail_PlaceHorder })
                 @Html.ValidationMessageFor(model => model.Password, string.Empty, new { @style = "color: red" })
             </div>
         </div>
@@ -96,7 +96,7 @@
         <div class="form-group">
             <label class="col-sm-4 control-label">@ContentRessources.PersonalEmail</label>
             <div class="col-sm-8">
-                @Html.TextBoxFor(model => model.PersonalEmail, new { @class = "form-control", @placeholder = ContentRessources.PersonalEmail_PlaceHolder })
+                @Html.TextBoxFor(model => model.PersonalEmail, new { @class = "form-control", @type = "email", @placeholder = ContentRessources.PersonalEmail_PlaceHolder })
                 @Html.ValidationMessageFor(model => model.PersonalEmail, string.Empty, new { @style = "color: red" })
             </div>
         </div>
