@@ -396,7 +396,13 @@
   <data name="ContactEmail" xml:space="preserve">
     <value>Email de contact</value>
   </data>
-  <data name="ContactEmail_Placeholder" xml:space="preserve">
+  <data name="ContactEmail_PlaceHolder" xml:space="preserve">
     <value>xyz@outlook.com</value>
+  </data>
+  <data name="GraduationYear" xml:space="preserve">
+    <value>Année d'obtention du diplôme</value>
+  </data>
+  <data name="StillPresent" xml:space="preserve">
+    <value>Est toujours présente au sein de l'école ?</value>
   </data>
 </root>

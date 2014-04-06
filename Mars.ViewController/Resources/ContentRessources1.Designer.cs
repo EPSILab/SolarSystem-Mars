@@ -171,9 +171,9 @@ namespace SolarSystem.Mars.ViewController.Resources {
         /// <summary>
         ///   Looks up a localized string similar to xyz@outlook.com.
         /// </summary>
-        public static string ContactEmail_Placeholder {
+        public static string ContactEmail_PlaceHolder {
             get {
-                return ResourceManager.GetString("ContactEmail_Placeholder", resourceCulture);
+                return ResourceManager.GetString("ContactEmail_PlaceHolder", resourceCulture);
             }
         }
         
@@ -336,6 +336,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string GitHub_Recommandation {
             get {
                 return ResourceManager.GetString("GitHub_Recommandation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Année d&apos;obtention du diplôme.
+        /// </summary>
+        public static string GraduationYear {
+            get {
+                return ResourceManager.GetString("GraduationYear", resourceCulture);
             }
         }
         
@@ -750,6 +759,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string StartDateTime {
             get {
                 return ResourceManager.GetString("StartDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Est toujours présente au sein de l&apos;école ?.
+        /// </summary>
+        public static string StillPresent {
+            get {
+                return ResourceManager.GetString("StillPresent", resourceCulture);
             }
         }
         

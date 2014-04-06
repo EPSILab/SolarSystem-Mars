@@ -180,6 +180,12 @@
   <data name="ProjectUpdated" xml:space="preserve">
     <value>Le projet a bien été mis à jour.</value>
   </data>
+  <data name="PromotionCreated" xml:space="preserve">
+    <value>La promotion a bien été créée.</value>
+  </data>
+  <data name="PromotionUpdated" xml:space="preserve">
+    <value>La promotion a bien été mise à jour.</value>
+  </data>
   <data name="ShowCreated" xml:space="preserve">
     <value>Le salon a bien été crée.</value>
   </data>
