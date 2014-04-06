@@ -1,7 +1,12 @@
 ﻿using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.Model.Model.Abstract;
+using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
+using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace SolarSystem.Mars.ViewController.Controllers
@@ -11,100 +16,113 @@ namespace SolarSystem.Mars.ViewController.Controllers
     {
         #region Constructor
 
-        public CampusesController(IReader<Campus> villeManager)
+        /// <summary>
+        /// Constructor. Parameters are resolved with NInject
+        /// </summary>
+        public CampusesController(IReader<Campus> model)
         {
-            _villeManager = villeManager;
+            _model = model;
         }
 
         #endregion
 
         #region Attributes
 
-        private readonly IReader<Campus> _villeManager;
+        /// <summary>
+        /// Main model
+        /// </summary>
+        private readonly IReader<Campus> _model;
 
         #endregion
 
-        #region Methods
+        #region Index methods
 
         /// <summary>
-        /// GET: /Campuses/
+        /// GET: /Campus/
+        /// GET: /Campus/Index
         /// </summary>
         public ActionResult Index()
         {
-            return View();
+            // Get Campus and tranform them in CampusViewModel
+            IEnumerable<Campus> listCampus = _model.Get();
+            IEnumerable<CampusViewModel> vm = listCampus.Select(campus => new CampusViewModel(campus));
+
+            return View(vm);
+        }
+
+        #endregion
+
+        #region Manage methods
+
+        /// <summary>
+        /// GET: /Campus/Manage : Create a new campus
+        /// GET: /Campus/Manage/5 : Edit an existing campus
+        /// </summary>
+        /// <param name="id">Campus's Id to manage. If Id = 0, it is a new campus</param>
+        public ActionResult Manage(int id = 0)
+        {
+            CampusViewModel vm;
+
+            // Create a campus
+            if (id == 0)
+                vm = new CampusViewModel();
+            // Edit an existing campus
+            else
+            {
+                Campus campus = _model.Get(id);
+                vm = new CampusViewModel(campus);
+            }
+
+            return View(vm);
         }
 
         /// <summary>
-        /// GET: /Campuses/Manage
+        /// POST: /Campus/Manage
+        /// Raised when the user has clicked on the OK button
         /// </summary>
-        public ActionResult Manage(int id)
-        {
-            return View();
-        }
-
-        // POST: /Campuses/Create
+        /// <param name="vm">Page ViewModel</param>
         [HttpPost]
-        public ActionResult Create(Campus ville)
+        public ActionResult Manage(CampusViewModel vm)
         {
             try
             {
-                // TODO: Add insert logic here
-                _villeManager.Add(ville, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
+                if (!ModelState.IsValid)
+                    throw new InvalidModelStateException();
+
+                // Prepare to send the campus to the server
+                Campus campus = new Campus
+                {
+                    Id = vm.Id,
+                    ContactEmail = vm.ContactEmail,
+                    Place = vm.Place
+                };
+
+                // Save the campus
+                LoginViewModel loginVM = AuthProvider.LoginViewModel;
+
+                if (vm.Id == 0)
+                {
+                    _model.Add(campus, loginVM.Username, loginVM.PasswordCrypted);
+                    ViewBag.SuccessMessage = MessagesResources.CampusCreated;
+                }
+                else
+                {
+                    _model.Edit(campus, loginVM.Username, loginVM.PasswordCrypted);
+                    ViewBag.SuccessMessage = MessagesResources.CampusUpdated;
+                }
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (InvalidModelStateException ex)
             {
-                return View(ville);
+                ViewBag.ErrorMessage = ex.DisplayMessage;
             }
-        }
-
-        // GET: /Campuses/Edit/5
-        public ActionResult Edit(int id)
-        {
-            Campus ville = _villeManager.Get(id);
-            return View(ville);
-        }
-
-        // POST: /Campuses/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, Campus ville)
-        {
-            try
+            catch (Exception ex)
             {
-                // TODO: Add update logic here
-                _villeManager.Edit(ville, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
-
-                return RedirectToAction("Index");
+                ViewBag.ErrorMessage = ex.Message;
             }
-            catch
-            {
-                return View(ville);
-            }
-        }
 
-        // GET: /Campuses/Delete/5
-        public ActionResult Delete(int id)
-        {
-            Campus ville = _villeManager.Get(id);
-            return View(ville);
-        }
-
-        // POST: /Campuses/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, Campus ville)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-                _villeManager.Delete(id, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View(ville);
-            }
+            return View(vm);
         }
 
         #endregion
