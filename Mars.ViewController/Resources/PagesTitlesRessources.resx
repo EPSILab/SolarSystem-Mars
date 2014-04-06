@@ -210,4 +210,10 @@
   <data name="EditPassword" xml:space="preserve">
     <value>Modifier mon mot de passe</value>
   </data>
+  <data name="Campus_Create" xml:space="preserve">
+    <value>Ouvrir un nouveau campus</value>
+  </data>
+  <data name="Campus_Edit" xml:space="preserve">
+    <value>Modifier les informations d'un campus</value>
+  </data>
 </root>

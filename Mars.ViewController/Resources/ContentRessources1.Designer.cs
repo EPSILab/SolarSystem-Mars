@@ -160,6 +160,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email de contact.
+        /// </summary>
+        public static string ContactEmail {
+            get {
+                return ResourceManager.GetString("ContactEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xyz@outlook.com.
+        /// </summary>
+        public static string ContactEmail_Placeholder {
+            get {
+                return ResourceManager.GetString("ContactEmail_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Informations de contact.
         /// </summary>
         public static string ContactInformations {

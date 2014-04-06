@@ -101,17 +101,18 @@
                     @Html.ActionLink(PagesTitlesRessources.Members, "Index", "Members")
                 </li>
             </ul>
-        </div>
+        </div> *@
 
-        <div class="col-xs-6 col-sm-4">
-            <h2>@ContentRessources.Others</h2>
-            <ul>
-                <li>
-                    @Html.ActionLink(PagesTitlesRessources.Promotions, "Index", "Promotions")
-                </li>
-                <li>
-                    @Html.ActionLink(PagesTitlesRessources.Campuses, "Index", "Campuses")
-                </li>
-            </ul>
-        </div>
-*@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.Others</h2>
+    <ul>
+        @*
+            <li>
+                @Html.ActionLink(PagesTitlesRessources.Promotions, "Index", "Promotions")
+            </li>
+        *@
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Campuses, "Index", "Campuses")
+        </li>
+    </ul>
+</div>
