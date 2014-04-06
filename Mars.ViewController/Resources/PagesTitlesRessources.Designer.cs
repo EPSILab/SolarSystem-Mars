@@ -61,6 +61,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ouvrir un nouveau campus.
+        /// </summary>
+        public static string Campus_Create {
+            get {
+                return ResourceManager.GetString("Campus_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modifier les informations d&apos;un campus.
+        /// </summary>
+        public static string Campus_Edit {
+            get {
+                return ResourceManager.GetString("Campus_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gérer les campus.
         /// </summary>
         public static string Campuses {
@@ -93,6 +111,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string Conferences {
             get {
                 return ResourceManager.GetString("Conferences", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modifier mon mot de passe.
+        /// </summary>
+        public static string EditPassword {
+            get {
+                return ResourceManager.GetString("EditPassword", resourceCulture);
             }
         }
         
@@ -250,6 +277,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ouvrir une nouvelle promotion.
+        /// </summary>
+        public static string Promotion_Create {
+            get {
+                return ResourceManager.GetString("Promotion_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modifier les informations d&apos;une promotion existante.
+        /// </summary>
+        public static string Promotion_Edit {
+            get {
+                return ResourceManager.GetString("Promotion_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gérer les promotions.
         /// </summary>
         public static string Promotions {
@@ -264,6 +309,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Réinitialiser le mot de passe.
+        /// </summary>
+        public static string ResetPassword {
+            get {
+                return ResourceManager.GetString("ResetPassword", resourceCulture);
             }
         }
         

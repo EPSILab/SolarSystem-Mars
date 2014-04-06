@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CampusCreated" xml:space="preserve">
+    <value>Le campus a bien été crée.</value>
+  </data>
+  <data name="CampusUpdated" xml:space="preserve">
+    <value>Le campus a bien été mis à jour.</value>
+  </data>
   <data name="ConferenceCreated" xml:space="preserve">
     <value>La conférence a bien été créée.</value>
   </data>
@@ -173,6 +179,12 @@
   </data>
   <data name="ProjectUpdated" xml:space="preserve">
     <value>Le projet a bien été mis à jour.</value>
+  </data>
+  <data name="PromotionCreated" xml:space="preserve">
+    <value>La promotion a bien été créée.</value>
+  </data>
+  <data name="PromotionUpdated" xml:space="preserve">
+    <value>La promotion a bien été mise à jour.</value>
   </data>
   <data name="ShowCreated" xml:space="preserve">
     <value>Le salon a bien été crée.</value>

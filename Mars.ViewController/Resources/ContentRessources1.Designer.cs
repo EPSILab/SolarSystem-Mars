@@ -160,6 +160,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email de contact.
+        /// </summary>
+        public static string ContactEmail {
+            get {
+                return ResourceManager.GetString("ContactEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xyz@outlook.com.
+        /// </summary>
+        public static string ContactEmail_PlaceHolder {
+            get {
+                return ResourceManager.GetString("ContactEmail_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Informations de contact.
         /// </summary>
         public static string ContactInformations {
@@ -318,6 +336,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string GitHub_Recommandation {
             get {
                 return ResourceManager.GetString("GitHub_Recommandation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Année d&apos;obtention du diplôme.
+        /// </summary>
+        public static string GraduationYear {
+            get {
+                return ResourceManager.GetString("GraduationYear", resourceCulture);
             }
         }
         
@@ -646,6 +673,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Définir mon nouveau mot de passe.
+        /// </summary>
+        public static string ResetPassword {
+            get {
+                return ResourceManager.GetString("ResetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vous pouvez utiliser ce formulaire pour réinitialiser votre mot de passe. Entrez votre mot de passe puis confirmez-le..
+        /// </summary>
+        public static string ResetPasswordText {
+            get {
+                return ResourceManager.GetString("ResetPasswordText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Texte d&apos;accroche.
         /// </summary>
         public static string ShortText {
@@ -714,6 +759,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string StartDateTime {
             get {
                 return ResourceManager.GetString("StartDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Est toujours présente au sein de l&apos;école ?.
+        /// </summary>
+        public static string StillPresent {
+            get {
+                return ResourceManager.GetString("StillPresent", resourceCulture);
             }
         }
         

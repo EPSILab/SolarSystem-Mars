@@ -6,7 +6,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels
     /// <summary>
     /// View-model for member creation, updating or validation page
     /// </summary>
-    public class MemberViewModel
+    public class MemberViewModel : PasswordViewModel
     {
         #region Properties
 
@@ -17,22 +17,6 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         [MinLength(4, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "UsernameMinLength")]
         [MaxLength(20, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "UsernameMaxLength")]
         public string Username { get; set; }
-
-        /// <summary>
-        /// Password
-        /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "PasswordRequired")]
-        [MinLength(6, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "PasswordMinLength")]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
-
-        /// <summary>
-        /// Password confirmation
-        /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ConfirmPasswordRequired")]
-        [Compare("Password", ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "SamePasswords")]
-        [DataType(DataType.Password)]
-        public string ConfirmPassword { get; set; }
 
         /// <summary>
         /// Last name

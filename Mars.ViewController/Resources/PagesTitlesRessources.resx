@@ -204,4 +204,22 @@
   <data name="Slide_Edit" xml:space="preserve">
     <value>Modifier un message</value>
   </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Réinitialiser le mot de passe</value>
+  </data>
+  <data name="EditPassword" xml:space="preserve">
+    <value>Modifier mon mot de passe</value>
+  </data>
+  <data name="Campus_Create" xml:space="preserve">
+    <value>Ouvrir un nouveau campus</value>
+  </data>
+  <data name="Campus_Edit" xml:space="preserve">
+    <value>Modifier les informations d'un campus</value>
+  </data>
+  <data name="Promotion_Create" xml:space="preserve">
+    <value>Ouvrir une nouvelle promotion</value>
+  </data>
+  <data name="Promotion_Edit" xml:space="preserve">
+    <value>Modifier les informations d'une promotion existante</value>
+  </data>
 </root>

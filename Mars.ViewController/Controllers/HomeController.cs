@@ -1,6 +1,7 @@
 ﻿using SolarSystem.Mars.Model.Helpers;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.Model.Model.Abstract;
+using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
 using SolarSystem.Mars.ViewController.Resources;
 using SolarSystem.Mars.ViewController.ViewModels;
@@ -169,7 +170,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #endregion
 
-        #region LostPassword regions
+        #region LostPassword methods
 
         /// <summary>
         ///  GET : /Home/LostPassword
@@ -187,6 +188,9 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    throw new InvalidModelStateException();
+
                 _model.RequestLostPassword(vm.Username, vm.Email);
                 return Json(new { success = true, message = MessagesResources.LostPasswordRequestSent });
             }
@@ -198,7 +202,45 @@ namespace SolarSystem.Mars.ViewController.Controllers
 
         #endregion
 
-        #region EditProfile regions
+        #region ResetPassword methods
+
+        /// <summary>
+        ///  GET : /Home/ResetPassword
+        /// </summary>
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        /// <summary>
+        ///  POST : /Home/ResetPassword
+        /// </summary>
+        [HttpPost]
+        public ActionResult ResetPassword(ResetPasswordViewModel vm)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    throw new InvalidModelStateException();
+
+                _model.SetNewPasswordAfterLost(vm.Username, vm.Password, vm.Key);
+                return RedirectToAction("Index");
+            }
+            catch (InvalidModelStateException ex)
+            {
+                ViewBag.ErrorMessage = ex.DisplayMessage;
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+            }
+
+            return View(vm);
+        }
+
+        #endregion
+
+        #region EditProfile methods
 
         /// <summary>
         /// GET : /Home/EditProfile
@@ -207,6 +249,27 @@ namespace SolarSystem.Mars.ViewController.Controllers
         public ActionResult EditProfile()
         {
             return View();
+        }
+
+        [WebserviceAuthorize]
+        public ActionResult EditProfile(MemberViewModel vm)
+        {
+            return View(vm);
+        }
+
+        #endregion
+
+        #region EditPassword methods
+
+        [WebserviceAuthorize]
+        public ActionResult EditPassword()
+        {
+            return View();
+        }
+
+        public ActionResult EditPassword(PasswordViewModel vm)
+        {
+            return View(vm);
         }
 
         #endregion

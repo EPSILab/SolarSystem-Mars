@@ -61,6 +61,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Le campus a bien été crée..
+        /// </summary>
+        public static string CampusCreated {
+            get {
+                return ResourceManager.GetString("CampusCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Le campus a bien été mis à jour..
+        /// </summary>
+        public static string CampusUpdated {
+            get {
+                return ResourceManager.GetString("CampusUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to La conférence a bien été créée..
         /// </summary>
         public static string ConferenceCreated {
@@ -228,6 +246,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string ProjectUpdated {
             get {
                 return ResourceManager.GetString("ProjectUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La promotion a bien été créée..
+        /// </summary>
+        public static string PromotionCreated {
+            get {
+                return ResourceManager.GetString("PromotionCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La promotion a bien été mise à jour..
+        /// </summary>
+        public static string PromotionUpdated {
+            get {
+                return ResourceManager.GetString("PromotionUpdated", resourceCulture);
             }
         }
         

@@ -288,4 +288,16 @@
   <data name="LabelRequired" xml:space="preserve">
     <value>Le libellé est requis.</value>
   </data>
+  <data name="ContactEmailRequired" xml:space="preserve">
+    <value>L'email de contact est requis.</value>
+  </data>
+  <data name="GraduationYearLength" xml:space="preserve">
+    <value>Veuillez entrer une année valide.</value>
+  </data>
+  <data name="GraduationYearRequired" xml:space="preserve">
+    <value>L'année d'obtention du diplôme doit être précisée.</value>
+  </data>
+  <data name="StillPresentRequired" xml:space="preserve">
+    <value>Veuillez indiquer si la promotion est encore présente ou non.</value>
+  </data>
 </root>
