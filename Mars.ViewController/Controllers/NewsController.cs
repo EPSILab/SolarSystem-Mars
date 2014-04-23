@@ -172,7 +172,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         #region Delete methods
 
         /// <summary>
-        ///  GET: /News/Delete/1
+        /// POST: /News/Delete/1
         /// Delete an existing news
         /// </summary>
         /// <param name="id">News Id to delete</param>
@@ -181,11 +181,23 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             try
             {
-                LoginViewModel loginVM = AuthProvider.LoginViewModel;
-                //TODO: Uncomment line below
-                //_model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
+                News news = _model.Get(id);
+                if (news != null)
+                {
+                    LoginViewModel loginVM = AuthProvider.LoginViewModel;
 
-                return Json(new { id, success = true, message = MessagesResources.NewsDeleted });
+                    if (loginVM.Role == Role.Bureau || news.Member.Username == loginVM.Username)
+                    {
+                        //TODO: Uncomment line below
+                        //_model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
+
+                        return Json(new {id, success = true, message = MessagesResources.NewsDeleted});
+                    }
+
+                    return Json(new { id, success = false, message = MessagesResources.UnauthorizedRight });
+                }
+
+                return Json(new { id, success = false, message = MessagesResources.NewsInexistant });
             }
             catch (Exception ex)
             {

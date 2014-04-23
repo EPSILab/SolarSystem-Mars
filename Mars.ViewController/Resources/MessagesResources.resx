@@ -168,6 +168,9 @@
   <data name="NewsDeleted" xml:space="preserve">
     <value>La news a bien été supprimée.</value>
   </data>
+  <data name="NewsInexistant" xml:space="preserve">
+    <value>Cette news n'existe pas.</value>
+  </data>
   <data name="NewsUpdated" xml:space="preserve">
     <value>La news a bien été modifiée.</value>
   </data>
@@ -203,5 +206,8 @@
   </data>
   <data name="SlideUpdated" xml:space="preserve">
     <value>Le message a bien été modifiée.</value>
+  </data>
+  <data name="UnauthorizedRight" xml:space="preserve">
+    <value>Vous n'avez pas les droits suffisants pour effectuer cette action.</value>
   </data>
 </root>

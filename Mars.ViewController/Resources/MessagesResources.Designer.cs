@@ -214,6 +214,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cette news n&apos;existe pas..
+        /// </summary>
+        public static string NewsInexistant {
+            get {
+                return ResourceManager.GetString("NewsInexistant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to La news a bien été modifiée..
         /// </summary>
         public static string NewsUpdated {
@@ -318,6 +327,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string SlideUpdated {
             get {
                 return ResourceManager.GetString("SlideUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vous n&apos;avez pas les droits suffisants pour effectuer cette action..
+        /// </summary>
+        public static string UnauthorizedRight {
+            get {
+                return ResourceManager.GetString("UnauthorizedRight", resourceCulture);
             }
         }
     }
