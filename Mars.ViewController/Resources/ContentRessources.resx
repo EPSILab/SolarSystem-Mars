@@ -405,4 +405,7 @@
   <data name="StillPresent" xml:space="preserve">
     <value>Est toujours présente au sein de l'école ?</value>
   </data>
+  <data name="Right" xml:space="preserve">
+    <value>Droits</value>
+  </data>
 </root>
