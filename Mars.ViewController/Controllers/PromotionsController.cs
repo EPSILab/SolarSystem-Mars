@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace SolarSystem.Mars.ViewController.Controllers
 {
-    [WebserviceAuthorize]
+    [WebserviceAuthorize(Role.Bureau)]
     public class PromotionsController : MarsControllerBase
     {
         #region Constructor

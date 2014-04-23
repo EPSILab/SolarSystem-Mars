@@ -1,4 +1,5 @@
 ﻿using SolarSystem.Mars.Model.Helpers;
+using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Resources;
 using System.ComponentModel.DataAnnotations;
 
@@ -28,6 +29,12 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         [MinLength(6, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "PasswordMinLength")]
         [DataType(DataType.Password)]
         public string PasswordNonCrypted { get; set; }
+
+        /// <summary>
+        /// Right
+        /// </summary>
+        [Display(ResourceType = typeof(ContentRessources), Name = "Right")]
+        public Role Role { get; set; }
 
         /// <summary>
         /// Crypted password
