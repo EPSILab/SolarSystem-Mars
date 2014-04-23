@@ -94,9 +94,12 @@
                 </td>
                 <td>
                     @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
-
-                    <button class="delete btn btn-danger glyphicon glyphicon-remove-sign"
-                            data-id="@item.Id" data-toggle="modal" data-target="#modalDelete" />
+                    
+                    @if (item.CanDelete)
+                    {
+                        <button class="delete btn btn-danger glyphicon glyphicon-remove-sign"
+                            data-id="@item.Id" data-toggle="modal" data-target="#modalDelete"></button>
+                    }
                 </td>
             </tr>
         }
