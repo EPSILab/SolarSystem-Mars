@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ninject;
@@ -9,8 +10,32 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
 {
     public class WebserviceAuthorizeAttribute : AuthorizeAttribute
     {
+        #region Fields
+
+        private readonly Role[] _acceptedRoles;
+
+        #endregion
+
+
+        #region Properties
+
         [Inject]
         public IAuthProvider AuthProvider { get; set; }
+
+        #endregion
+
+
+        #region Contructor
+
+        public WebserviceAuthorizeAttribute(params Role[] acceptedRoles)
+        {
+            _acceptedRoles = acceptedRoles;
+        }
+
+        #endregion
+
+
+        #region Methods
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
@@ -19,9 +44,8 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
                 if (!string.IsNullOrWhiteSpace(Roles))
                 {
                     var userRole = AuthProvider.LoginViewModel.Role;
-                    var neededRole = (Role)Enum.Parse(typeof(Role), Roles);
 
-                    return userRole >= neededRole;
+                    return _acceptedRoles.Any(r => r == userRole);
                 }
 
                 return true;
@@ -29,5 +53,7 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
 
             return false;
         }
+
+        #endregion
     }
 }
