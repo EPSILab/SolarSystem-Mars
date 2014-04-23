@@ -41,10 +41,9 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
         {
             if (AuthProvider.IsSignIn)
             {
-                if (!string.IsNullOrWhiteSpace(Roles))
+                if (_acceptedRoles.Any())
                 {
                     var userRole = AuthProvider.LoginViewModel.Role;
-
                     return _acceptedRoles.Any(r => r == userRole);
                 }
 
