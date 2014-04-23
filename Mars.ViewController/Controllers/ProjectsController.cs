@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace SolarSystem.Mars.ViewController.Controllers
 {
-    [WebserviceAuthorize]
+    [WebserviceAuthorize(Role.MemberActive, Role.Bureau)]
     public class ProjectsController : MarsControllerBase
     {
         #region Constructor
