@@ -113,6 +113,8 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 if (!ModelState.IsValid)
                     throw new InvalidModelStateException();
 
+                LoginViewModel loginVM = AuthProvider.LoginViewModel;
+
                 // Prepare to send the news to the server
                 News news = new News
                 {
@@ -131,20 +133,24 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 SendImageToServer(vm, file, news);
 
                 // Save the news
-                LoginViewModel loginVM = AuthProvider.LoginViewModel;
-
                 if (vm.Id == 0)
                 {
                     _model.Add(news, loginVM.Username, loginVM.PasswordCrypted);
                     ViewBag.SuccessMessage = MessagesResources.NewsCreated;
+
+                    return RedirectToAction("Index");
                 }
-                else
+
+                // If the user haven't the right, he cannot update the news
+                if (loginVM.Role == Role.Bureau || news.Member.Username == loginVM.Username)
                 {
                     _model.Edit(news, loginVM.Username, loginVM.PasswordCrypted);
                     ViewBag.SuccessMessage = MessagesResources.NewsUpdated;
+
+                    return RedirectToAction("Index");
                 }
 
-                return RedirectToAction("Index");
+                ViewBag.ErrorMessage = MessagesResources.UnauthorizedRight;
             }
             catch (InvalidModelStateException ex)
             {
@@ -191,7 +197,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
                         //TODO: Uncomment line below
                         //_model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
 
-                        return Json(new {id, success = true, message = MessagesResources.NewsDeleted});
+                        return Json(new { id, success = true, message = MessagesResources.NewsDeleted });
                     }
 
                     return Json(new { id, success = false, message = MessagesResources.UnauthorizedRight });

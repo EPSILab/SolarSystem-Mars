@@ -1,6 +1,5 @@
 ﻿using Ninject;
 using SolarSystem.Mars.Model.ManagersService;
-using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using SolarSystem.Mars.ViewController.Resources;
 using System;
@@ -30,6 +29,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         {
             Date = Time = DateTime.Now;
             IsPublished = true;
+            CanUpdate = true;
             CanDelete = true;
         }
 
@@ -44,7 +44,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels
             AuthorName = string.Format("{0} {1}", news.Member.FirstName, news.Member.LastName);
             ImageRemoteUrl = news.ImageUrl;
             IsPublished = news.IsPublished;
-            CanDelete = (AuthProvider.LoginViewModel.Role == Role.Bureau || news.Member.Username == AuthProvider.LoginViewModel.Username);
+            CanUpdate = CanDelete = (AuthProvider.LoginViewModel.Role == Role.Bureau || news.Member.Username == AuthProvider.LoginViewModel.Username);
             Keywords = news.Keywords;
             Text = news.Text;
             ShortText = news.ShortText;
@@ -144,6 +144,11 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         /// </summary>
         [Display(ResourceType = typeof(ContentRessources), Name = "IsPublished", ShortName = "IsPublished")]
         public bool IsPublished { get; set; }
+
+        /// <summary>
+        /// Specify if the user can update the news or not
+        /// </summary>
+        public bool CanUpdate { get; set; }
 
         /// <summary>
         /// Specify if the user can delete the news or not
