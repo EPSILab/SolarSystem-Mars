@@ -120,7 +120,7 @@
             <label class="col-sm-4 control-label">Campus</label>
             <div class="col-sm-8">
                 @Html.DropDownListFor(model => model.IdCampus,
-                                      new SelectList(ViewBag.Campuses, "Code_Campus", "Libelle"),
+                                      new SelectList(ViewBag.Campuses, "Id", "Place"),
                                       DefaultSelectionMessagesRessources.Campus,
                                       new { @class = "form-control" })
 
@@ -133,7 +133,7 @@
             <label class="col-sm-4 control-label">Promo</label>
             <div class="col-sm-8">
                 @Html.DropDownListFor(model => model.IdPromotion,
-                                      new SelectList(ViewBag.Promotions, "Code_Classe", "Libelle"),
+                               new SelectList(ViewBag.Promotions, "Id", "Name"),
                                       DefaultSelectionMessagesRessources.Promotion,
                                       new { @class = "form-control" })
 

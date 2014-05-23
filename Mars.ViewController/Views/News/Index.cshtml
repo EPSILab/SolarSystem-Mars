@@ -95,7 +95,7 @@
                 <td>
                     @if (item.CanUpdate)
                     {
-                        Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
+                        @Html.ActionLink(" ", "Manage", new {id = item.Id}, new {@class = "btn btn-info glyphicon glyphicon-pencil"})
                     }
                     
                     @if (item.CanDelete)

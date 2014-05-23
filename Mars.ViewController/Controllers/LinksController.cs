@@ -20,7 +20,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <summary>
         /// Constructor. Parameters are resolved with NInject
         /// </summary>
-        public LinksController(IReaderLimit<Link> model, IConstants constants)
+        public LinksController(IReader<Link> model, IConstants constants)
             : base(constants)
         {
             _model = model;
@@ -33,7 +33,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <summary>
         /// Main model
         /// </summary>
-        private readonly IReaderLimit<Link> _model;
+        private readonly IReader<Link> _model;
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         public ActionResult Index(int id = 0)
         {
             // Get Link and tranform them in LinkViewModel
-            IEnumerable<Link> listLink = _model.Get(id, _constants.ItemsNumber);
+            IEnumerable<Link> listLink = (id == 0) ? _model.Get() : new List<Link> { _model.Get(id) };
             IEnumerable<LinkViewModel> vm = listLink.Select(link => new LinkViewModel(link));
 
             // Send Id and ItemsNumber for navigation

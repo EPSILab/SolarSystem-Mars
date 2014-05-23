@@ -2,10 +2,10 @@
 @using SolarSystem.Mars.ViewController.Resources
 @using SolarSystem.Mars.ViewController.ViewModels
 
-@model IEnumerable<SlideViewModel>
+@model IEnumerable<ShowViewModel>
 
 @{
-    ViewBag.Title = PagesTitlesRessources.Slides;
+    ViewBag.Title = PagesTitlesRessources.Shows;
     Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
@@ -16,13 +16,13 @@
 </ol>
 
 @* Modal for deletion *@
-@using (Ajax.BeginForm("Delete", "Slides", new AjaxOptions { HttpMethod = "POST", OnSuccess = "deleteSlides" }))
+@using (Ajax.BeginForm("Delete", "Shows", new AjaxOptions { HttpMethod = "POST", OnSuccess = "deleteShows" }))
 {
     <div id="modalDelete" class="modal fade">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-body">
-                    <p>@MessagesResources.DeleteSlide</p>
+                    <p>@MessagesResources.DeleteShow</p>
                 </div>
                 <div class="modal-footer">
                     @* Contains the slide's Id to delete *@
@@ -38,7 +38,7 @@
 
 @* Create slide button *@
 <p class="col-md-offset-5">
-    @Html.ActionLink(PagesTitlesRessources.Slide_Create, "Manage", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink(PagesTitlesRessources.Show_Create, "Manage", null, new { @class = "btn btn-primary" })
 </p>
 
 @Pagination()
@@ -65,7 +65,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (SlideViewModel item in Model)
+        @foreach (ShowViewModel item in Model)
         {
             <tr id="@string.Format("item{0}", item.Id)">
                 <td>
@@ -84,7 +84,7 @@
                     @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
 
                     <button class="delete btn btn-danger glyphicon glyphicon-remove-sign"
-                            data-id="@item.Id" data-toggle="modal" data-target="#modalDelete" />
+                            data-id="@item.Id" data-toggle="modal" data-target="#modalDelete"></button>
                 </td>
             </tr>
         }
@@ -109,7 +109,7 @@
             });
         });
 
-        var deleteSlide = function (data) {
+        var deleteShows = function (data) {
             $('#modalDelete').modal('hide');
 
             if (data.success) {

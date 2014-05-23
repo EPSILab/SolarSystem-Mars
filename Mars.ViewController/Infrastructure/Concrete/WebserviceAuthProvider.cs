@@ -45,6 +45,8 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
                 if (memberConnected != null)
                 {
                     LoginViewModel = login;
+                    LoginViewModel.Role = memberConnected.Role;
+
                     Error = false;
                 }
             }

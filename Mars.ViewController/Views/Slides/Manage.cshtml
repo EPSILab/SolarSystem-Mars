@@ -1,5 +1,5 @@
 ﻿@using System.Web.Optimization
-@model SolarSystem.Mars.Model.ManagersService.Slide
+@model SolarSystem.Mars.ViewController.ViewModels.SlideViewModel
 
 @{
     ViewBag.Title = "Manage";
@@ -16,27 +16,19 @@
         <legend>Slide</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Code_Slide)
+            @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Code_Slide)
-            @Html.ValidationMessageFor(model => model.Code_Slide)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Image)
+            @Html.LabelFor(model => model.ImageRemoteUrl)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Image)
-            @Html.ValidationMessageFor(model => model.Image)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nom)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nom)
-            @Html.ValidationMessageFor(model => model.Nom)
+            @Html.EditorFor(model => model.ImageRemoteUrl)
+            @Html.ValidationMessageFor(model => model.ImageRemoteUrl)
         </div>
 
         <div class="editor-label">
@@ -48,19 +40,19 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Publiee)
+            @Html.LabelFor(model => model.IsPublished)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Publiee)
-            @Html.ValidationMessageFor(model => model.Publiee)
+            @Html.EditorFor(model => model.IsPublished)
+            @Html.ValidationMessageFor(model => model.IsPublished)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.URL)
+            @Html.LabelFor(model => model.Url)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.URL)
-            @Html.ValidationMessageFor(model => model.URL)
+            @Html.EditorFor(model => model.Url)
+            @Html.ValidationMessageFor(model => model.Url)
         </div>
 
         <p>

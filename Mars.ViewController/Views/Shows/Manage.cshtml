@@ -1,20 +1,20 @@
 ﻿@using SolarSystem.Mars.ViewController.Resources
 @using System.Web.Optimization
 
-@model SolarSystem.Mars.ViewController.ViewModels.SlideViewModel
+@model SolarSystem.Mars.ViewController.ViewModels.ShowViewModel
 
 @{
-    ViewBag.Title = Model.Id == 0 ? PagesTitlesRessources.Slide_Create : PagesTitlesRessources.Slide_Edit;
+    ViewBag.Title = Model.Id == 0 ? PagesTitlesRessources.Show_Create : PagesTitlesRessources.Show_Edit;
     Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
 <ol class="breadcrumb">
     <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
-    <li>@Html.ActionLink(PagesTitlesRessources.Slides, "Index")</li>
+    <li>@Html.ActionLink(PagesTitlesRessources.Shows, "Index")</li>
     <li class="active">@ViewBag.Title</li>
 </ol>
 
-@using (Html.BeginForm(Html.BeginForm("Manage", "Slides", FormMethod.Post, new { enctype = "multipart/form-data" })))
+@using (Html.BeginForm(Html.BeginForm("Manage", "Shows", FormMethod.Post, new { enctype = "multipart/form-data" })))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
@@ -43,11 +43,11 @@
 
         @* Presentation *@
         <div class="form-group">
-            @Html.LabelFor(model => model.Presentation, new { @class = "col-sm-2 control-label" })
+            @Html.LabelFor(model => model.Description, new { @class = "col-sm-2 control-label" })
 
             <div class="col-sm-10">
-                @Html.TextBoxFor(model => model.Presentation, new { @class = "form-control", @placeholder = ContentRessources.Presentation })
-                @Html.ValidationMessageFor(model => model.Presentation, null, new { @style = "color: red" })
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control", @placeholder = ContentRessources.ShowDescription })
+                @Html.ValidationMessageFor(model => model.Description, null, new { @style = "color: red" })
             </div>
         </div>
 

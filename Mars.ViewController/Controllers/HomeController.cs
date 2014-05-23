@@ -172,18 +172,12 @@ namespace SolarSystem.Mars.ViewController.Controllers
             return View(vm);
         }
 
-        #endregion
-
-        #endregion
-
-        #region logged in methods
 
         #region LostPassword methods
 
         /// <summary>
         ///  GET : /Home/LostPassword
         /// </summary>
-        [WebserviceAuthorize(Role.MemberActive, Role.Bureau)]
         public ActionResult LostPassword()
         {
             return View();
@@ -192,7 +186,6 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <summary>
         ///  POST : /Home/LostPassword
         /// </summary>
-        [WebserviceAuthorize(Role.MemberActive, Role.Bureau)]
         [HttpPost]
         public ActionResult LostPassword(LostPasswordViewModel vm)
         {
@@ -211,6 +204,12 @@ namespace SolarSystem.Mars.ViewController.Controllers
         }
 
         #endregion
+
+        #endregion
+
+        #endregion
+
+        #region logged in methods
 
         #region ResetPassword methods
 
@@ -264,6 +263,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         }
 
         [WebserviceAuthorize(Role.MemberActive, Role.Bureau)]
+        [HttpPost]
         public ActionResult EditProfile(MemberViewModel vm)
         {
             return View(vm);
@@ -280,6 +280,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         }
 
         [WebserviceAuthorize(Role.MemberActive, Role.Bureau)]
+        [HttpPost]
         public ActionResult EditPassword(PasswordViewModel vm)
         {
             return View(vm);

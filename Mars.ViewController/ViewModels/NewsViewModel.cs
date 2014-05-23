@@ -15,8 +15,8 @@ namespace SolarSystem.Mars.ViewController.ViewModels
     {
         #region Properties
 
-        [Inject]
-        public IAuthProvider AuthProvider { get; set; }
+        //[Inject]
+        //public IAuthProvider AuthProvider { get; set; }
 
         #endregion
 
@@ -37,14 +37,15 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         /// Build a view-model from an entity
         /// </summary>
         /// <param name="news">Entity to transform</param>
-        public NewsViewModel(News news)
+        /// <param name="authProvider"></param>
+        public NewsViewModel(News news, IAuthProvider authProvider)
         {
             Id = news.Id;
             AuthorId = news.Member.Id;
             AuthorName = string.Format("{0} {1}", news.Member.FirstName, news.Member.LastName);
             ImageRemoteUrl = news.ImageUrl;
             IsPublished = news.IsPublished;
-            CanUpdate = CanDelete = (AuthProvider.LoginViewModel.Role == Role.Bureau || news.Member.Username == AuthProvider.LoginViewModel.Username);
+            CanUpdate = CanDelete = (authProvider.LoginViewModel.Role == Role.Bureau || news.Member.Username == authProvider.LoginViewModel.Username);
             Keywords = news.Keywords;
             Text = news.Text;
             ShortText = news.ShortText;

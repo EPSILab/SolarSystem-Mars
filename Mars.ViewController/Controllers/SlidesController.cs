@@ -20,7 +20,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <summary>
         /// Constructor. Parameters are resolved with NInject
         /// </summary>
-        public SlidesController(IReaderLimit<Slide> model, IConstants constants)
+        public SlidesController(IReader<Slide> model, IConstants constants)
             : base(constants)
         {
             _model = model;
@@ -33,7 +33,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <summary>
         /// Main model
         /// </summary>
-        private readonly IReaderLimit<Slide> _model;
+        private readonly IReader<Slide> _model;
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         public ActionResult Index(int id = 0)
         {
             // Get Slide and tranform them in SlideViewModel
-            IEnumerable<Slide> listSlide = _model.Get(id, _constants.ItemsNumber);
+            IEnumerable<Slide> listSlide = (id == 0) ? _model.Get() : new List<Slide> { _model.Get(id) };
             IEnumerable<SlideViewModel> vm = listSlide.Select(slide => new SlideViewModel(slide));
 
             // Send Id and ItemsNumber for navigation

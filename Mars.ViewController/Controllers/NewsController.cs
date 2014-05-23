@@ -56,7 +56,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             // Get News and tranform them in NewsViewModel
             IEnumerable<News> listNews = _model.Get(id, _constants.ItemsNumber);
-            IEnumerable<NewsViewModel> vm = listNews.Select(news => new NewsViewModel(news));
+            IEnumerable<NewsViewModel> vm = listNews.Select(news => new NewsViewModel(news, AuthProvider));
 
             // Send Id and ItemsNumber for navigation
             ViewBag.Id = id;
@@ -92,7 +92,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             {
                 News news = _model.Get(id);
 
-                vm = new NewsViewModel(news);
+                vm = new NewsViewModel(news, AuthProvider);
                 ViewBag.Members = CreateSelectList(membersAvailables, news);
             }
 
