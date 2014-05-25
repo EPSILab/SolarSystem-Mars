@@ -544,6 +544,7 @@
     <Content Include="Scripts\ckeditor\composer.json" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
     <Content Include="Scripts\ckeditor\bower.json" />
+    <None Include="Properties\PublishProfiles\epsilab.net.pubxml" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
