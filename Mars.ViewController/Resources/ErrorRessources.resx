@@ -300,4 +300,7 @@
   <data name="StillPresentRequired" xml:space="preserve">
     <value>Veuillez indiquer si la promotion est encore présente ou non.</value>
   </data>
+  <data name="PresentationMinLength" xml:space="preserve">
+    <value>La présentation doit être de 30 caractères minimum</value>
+  </data>
 </root>

@@ -1,6 +1,7 @@
-﻿@using SolarSystem.Mars.ViewController.Resources
+﻿@using System.Web.Optimization
+@using SolarSystem.Mars.ViewController.Resources
 
-@model SolarSystem.Mars.ViewController.ViewModels.MemberViewModel
+@model SolarSystem.Mars.ViewController.ViewModels.RegisterViewModel
 
 @{
     ViewBag.Title = PagesTitlesRessources.Register;
@@ -88,7 +89,7 @@
             <label class="col-sm-4 control-label">@ContentRessources.EPSIEmail *</label>
             <div class="col-sm-8">
                 @Html.TextBoxFor(model => model.EPSIEmail, new { @class = "form-control", @type = "email", @placeholder = ContentRessources.EPSIEmail_PlaceHorder })
-                @Html.ValidationMessageFor(model => model.Password, string.Empty, new { @style = "color: red" })
+                @Html.ValidationMessageFor(model => model.EPSIEmail, string.Empty, new { @style = "color: red" })
             </div>
         </div>
 
@@ -109,6 +110,16 @@
                 @Html.ValidationMessageFor(model => model.PhoneNumber, string.Empty, new { @style = "color: red" })
             </div>
         </div>
+        
+        @* Presentation *@
+        <div class="form-group">
+            <label class="col-sm-4 control-label">@ContentRessources.Presentation *</label>
+            <div class="col-sm-8">
+                @Html.TextAreaFor(model => model.Presentation, new { @id = "editor", @class = "form-control", @placeholder = ContentRessources.Presentation })
+                @Html.ValidationMessageFor(model => model.Presentation, string.Empty, new { @style = "color: red" })
+            </div>
+        </div>
+
     </fieldset>
 
     @* EPSI informations *@
@@ -117,7 +128,7 @@
 
         @* Campus *@
         <div class="form-group">
-            <label class="col-sm-4 control-label">Campus</label>
+            <label class="col-sm-4 control-label">Campus *</label>
             <div class="col-sm-8">
                 @Html.DropDownListFor(model => model.IdCampus,
                                       new SelectList(ViewBag.Campuses, "Id", "Place"),
@@ -130,7 +141,7 @@
 
         @* Promotion *@
         <div class="form-group">
-            <label class="col-sm-4 control-label">Promo</label>
+            <label class="col-sm-4 control-label">Promo *</label>
             <div class="col-sm-8">
                 @Html.DropDownListFor(model => model.IdPromotion,
                                new SelectList(ViewBag.Promotions, "Id", "Name"),
@@ -206,10 +217,10 @@
         <div class="form-group">
             <label class="col-sm-4 control-label">@ContentRessources.GitHub</label>
             <div class="col-sm-8">
-                @Html.TextBoxFor(model => model.ViadeoUrl, new { @class = "form-control", @placeholder = ContentRessources.GitHub_PlaceHolder })
+                @Html.TextBoxFor(model => model.GitHubUrl, new { @class = "form-control", @placeholder = ContentRessources.GitHub_PlaceHolder })
 
                 <span class="help-block">@ContentRessources.GitHub_Recommandation</span>
-                @Html.ValidationMessageFor(model => model.ViadeoUrl, string.Empty, new { @style = "color: red" })
+                @Html.ValidationMessageFor(model => model.GitHubUrl, string.Empty, new { @style = "color: red" })
             </div>
         </div>
 
@@ -221,4 +232,17 @@
             <button type="submit" class="btn btn-primary">@ContentRessources.ValidAccountRequest</button>
         </div>
     </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/ckeditor")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // CKEditor for Text field
+            CKEDITOR.replace('editor');
+        });
+    </script>
 }

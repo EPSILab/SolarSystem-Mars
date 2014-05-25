@@ -1,4 +1,6 @@
-﻿using SolarSystem.Mars.ViewController.Resources;
+﻿using System.Web.Mvc;
+using SolarSystem.Mars.Model.ManagersService;
+using SolarSystem.Mars.ViewController.Resources;
 using System.ComponentModel.DataAnnotations;
 
 namespace SolarSystem.Mars.ViewController.ViewModels
@@ -6,8 +8,44 @@ namespace SolarSystem.Mars.ViewController.ViewModels
     /// <summary>
     /// View-model for member creation, updating or validation page
     /// </summary>
-    public class MemberViewModel : PasswordViewModel
+    public class MemberViewModel
     {
+        #region Constructor
+
+        /// <summary>
+        /// Build an empty view-model
+        /// </summary>
+        public MemberViewModel()
+        {
+        }
+
+        /// <summary>
+        /// Build a view-model from an entity
+        /// </summary>
+        /// <param name="member">Entity to transform</param>
+        public MemberViewModel(Member member)
+        {
+            Username = member.Username;
+            LastName = member.LastName;
+            FirstName = member.FirstName;
+            CityFrom = member.CityFrom;
+            EPSIEmail = member.EPSIEmail;
+            PersonalEmail = member.PersonalEmail;
+            PhoneNumber = member.PhoneNumber;
+            IdCampus = member.Campus.Id;
+            IdPromotion = member.Promotion.Id;
+            Website = member.Website;
+            FacebookUrl = member.FacebookUrl;
+            TwitterUrl = member.TwitterUrl;
+            LinkedInUrl = member.LinkedInUrl;
+            ViadeoUrl = member.ViadeoUrl;
+            GitHubUrl = member.GitHubUrl;
+            Presentation = member.Presentation;
+        }
+
+        #endregion
+
+
         #region Properties
 
         /// <summary>
@@ -113,7 +151,8 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "PresentationRequired")]
         [DataType(DataType.Text, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "PresentationRequired")]
-        [MinLength(30, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "PresentationRequired")]
+        [MinLength(30, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "PresentationMinLength")]
+        [AllowHtml]
         public string Presentation { get; set; }
 
         #endregion

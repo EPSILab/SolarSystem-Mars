@@ -13,13 +13,6 @@ namespace SolarSystem.Mars.ViewController.ViewModels
     /// </summary>
     public class NewsViewModel
     {
-        #region Properties
-
-        //[Inject]
-        //public IAuthProvider AuthProvider { get; set; }
-
-        #endregion
-
         #region Constructors
 
         /// <summary>

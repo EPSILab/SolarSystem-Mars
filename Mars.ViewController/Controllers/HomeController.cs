@@ -17,9 +17,10 @@ namespace SolarSystem.Mars.ViewController.Controllers
     {
         #region Constructor
 
-        public HomeController(ILogin model, IAvailable<Promotion> modelPromotion, IReader<Campus> modelCampus)
+        public HomeController(ILogin model, IReader<Member> modelMember, IAvailable<Promotion> modelPromotion, IReader<Campus> modelCampus)
         {
             _model = model;
+            _modelMember = modelMember;
             _modelPromotions = modelPromotion;
             _modelCampuses = modelCampus;
         }
@@ -32,6 +33,11 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// Main model
         /// </summary>
         private readonly ILogin _model;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private readonly IReader<Member> _modelMember;
 
         /// <summary>
         /// Model for promotions
@@ -101,14 +107,13 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <summary>
         ///  GET : /Home/Register
         /// </summary>
-
         public ActionResult Register()
         {
             // Get promotions and campuses for register
             ViewBag.Promotions = _modelPromotions.GetAvailables();
             ViewBag.Campuses = _modelCampuses.Get();
 
-            MemberViewModel vm = new MemberViewModel();
+            var vm = new RegisterViewModel();
             return View(vm);
         }
 
@@ -118,7 +123,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <param name="vm">Contains all informations about the new user</param>
         /// <param name="file">Member avatar uploaded</param>
         [HttpPost]
-        public ActionResult Register(MemberViewModel vm, HttpPostedFileBase file)
+        public ActionResult Register(RegisterViewModel vm, HttpPostedFileBase file)
         {
             // Get promotions and campuses
             IEnumerable<Promotion> promotions = _modelPromotions.GetAvailables();
@@ -147,9 +152,12 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 };
 
                 // Image management
-                string imagePath = string.Format("{0}/Images/Members/{1}", ContentRessources.EPSILabUrl, file.FileName);
-                file.SaveAs(imagePath);
-                member.ImageUrl = imagePath;
+                if (file != null && !string.IsNullOrWhiteSpace(file.FileName))
+                {
+                    string imagePath = string.Format("{0}/Images/Members/{1}", ContentRessources.EPSILabUrl, file.FileName);
+                    file.SaveAs(imagePath);
+                    member.ImageUrl = imagePath;
+                }
 
                 // Password
                 string password = PasswordEncoder.Encode(vm.Password);
@@ -161,6 +169,9 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 catch (Exception ex)
                 {
                     ViewBag.Exception = ex.Message;
+                    ViewBag.Promotions = promotions;
+                    ViewBag.Campuses = campuses;
+
                     return View(vm);
                 }
 
@@ -259,13 +270,77 @@ namespace SolarSystem.Mars.ViewController.Controllers
         [WebserviceAuthorize(Role.MemberActive, Role.Bureau)]
         public ActionResult EditProfile()
         {
-            return View();
+            // Get promotions and campuses to edit profile
+            ViewBag.Promotions = _modelPromotions.GetAvailables();
+            ViewBag.Campuses = _modelCampuses.Get();
+
+            var member = _modelMember.Get().FirstOrDefault(m => m.Username == AuthProvider.LoginViewModel.Username);
+            var viewModel = new MemberViewModel(member);
+
+            return View(viewModel);
         }
 
+        /// <summary>
+        /// POST : /Home/EditProfile
+        /// </summary>
+        /// <param name="vm">Contains all informations about the user</param>
+        /// <param name="file">Member avatar uploaded</param>
         [WebserviceAuthorize(Role.MemberActive, Role.Bureau)]
         [HttpPost]
-        public ActionResult EditProfile(MemberViewModel vm)
+        public ActionResult EditProfile(MemberViewModel vm, HttpPostedFileBase file)
         {
+            // Get promotions and campuses
+            IEnumerable<Promotion> promotions = _modelPromotions.GetAvailables();
+            IEnumerable<Campus> campuses = _modelCampuses.Get();
+
+            if (ModelState.IsValid)
+            {
+                Member member = new Member
+                {
+                    Campus = campuses.First(v => v.Id == vm.IdCampus),
+                    CityFrom = vm.CityFrom,
+                    EPSIEmail = vm.EPSIEmail,
+                    FacebookUrl = vm.FacebookUrl,
+                    FirstName = vm.FirstName,
+                    GitHubUrl = vm.GitHubUrl,
+                    LastName = vm.LastName,
+                    LinkedInUrl = vm.LinkedInUrl,
+                    PersonalEmail = vm.PersonalEmail,
+                    PhoneNumber = vm.PhoneNumber,
+                    Presentation = vm.Presentation,
+                    Promotion = promotions.First(c => c.Id == vm.IdPromotion),
+                    TwitterUrl = vm.TwitterUrl,
+                    ViadeoUrl = vm.ViadeoUrl,
+                    Username = vm.Username,
+                    Website = vm.Website
+                };
+
+                // Image management
+                if (file != null && !string.IsNullOrWhiteSpace(file.FileName))
+                {
+                    string imagePath = string.Format("{0}/Images/Members/{1}", ContentRessources.EPSILabUrl, file.FileName);
+                    file.SaveAs(imagePath);
+                    member.ImageUrl = imagePath;
+                }
+
+                try
+                {
+                    _model.Edit(member, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Exception = ex.Message;
+                    ViewBag.Promotions = promotions;
+                    ViewBag.Campuses = campuses;
+
+                    return View(vm);
+                }
+
+                return Redirect(Url.Action("Index"));
+            }
+
+            ViewBag.Promotions = promotions;
+            ViewBag.Campuses = campuses;
             return View(vm);
         }
 

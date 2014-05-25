@@ -408,4 +408,10 @@
   <data name="Right" xml:space="preserve">
     <value>Droits</value>
   </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Editer le profil</value>
+  </data>
+  <data name="ConfirmByPassword" xml:space="preserve">
+    <value>Confirmation par mot de passe</value>
+  </data>
 </root>
