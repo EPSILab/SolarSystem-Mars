@@ -46,7 +46,7 @@
             @Html.LabelFor(model => model.Description, new { @class = "col-sm-2 control-label" })
 
             <div class="col-sm-10">
-                @Html.TextBoxFor(model => model.Description, new { @class = "form-control", @placeholder = ContentRessources.ShowDescription })
+                @Html.TextAreaFor(model => model.Description, new { @id = "editor", @class = "form-control", @placeholder = ContentRessources.ShowDescription })
                 @Html.ValidationMessageFor(model => model.Description, null, new { @style = "color: red" })
             </div>
         </div>
@@ -88,6 +88,15 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/ckeditor")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // CKEditor for Text field
+            CKEDITOR.replace('editor');
+        });
+    </script>
 }
 
 @section Styles {
