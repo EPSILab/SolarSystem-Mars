@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using SolarSystem.Mars.Model.ManagersService;
+using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using SolarSystem.Mars.ViewController.Resources;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
@@ -17,13 +18,16 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         /// </summary>
         public ProjectViewModel()
         {
+            CanUpdate = true;
+            CanDelete = true;
         }
 
         /// <summary>
         /// Build a view-model from an entity
         /// </summary>
         /// <param name="project">Entity to transform</param>
-        public ProjectViewModel(Project project)
+        /// <param name="authProvider"></param>
+        public ProjectViewModel(Project project, IAuthProvider authProvider)
         {
             Id = project.Id;
             CampusId = project.Campus.Id;
@@ -31,6 +35,9 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
             Description = project.Description;
             ImageRemoteUrl = project.ImageUrl;
             Name = project.Name;
+
+            CanUpdate = true;
+            CanDelete = (authProvider.LoginViewModel.Role == Role.Bureau);
         }
 
         #endregion
@@ -87,6 +94,16 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "LongTextRequired")]
         [MinLength(5, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "LongTextMinLength")]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Specify if the user can update the project or not
+        /// </summary>
+        public bool CanUpdate { get; set; }
+
+        /// <summary>
+        /// Specify if the user can delete the project or not
+        /// </summary>
+        public bool CanDelete { get; set; }
 
         #endregion
     }

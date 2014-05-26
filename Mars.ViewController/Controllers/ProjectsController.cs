@@ -3,7 +3,6 @@ using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
 using SolarSystem.Mars.ViewController.Resources;
-using SolarSystem.Mars.ViewController.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +56,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             // Get Project and tranform them in ProjectViewModel
             IEnumerable<Project> listProject = _model.Get(id, _constants.ItemsNumber);
-            IEnumerable<ProjectViewModel> vm = listProject.Select(project => new ProjectViewModel(project));
+            IEnumerable<ProjectViewModel> vm = listProject.Select(project => new ProjectViewModel(project, AuthProvider));
 
             // Send Id and ItemsNumber for navigation
             ViewBag.Id = id;
@@ -93,7 +92,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             {
                 Project project = _model.Get(id);
 
-                vm = new ProjectViewModel(project);
+                vm = new ProjectViewModel(project, AuthProvider);
                 ViewBag.Campuses = CreateSelectList(campusAvailables, project);
             }
 
@@ -179,11 +178,23 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             try
             {
-                LoginViewModel loginVM = AuthProvider.LoginViewModel;
-                // TODO: Uncomment line bellow
-                //_model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
+                Project project = _model.Get(id);
+                if (project != null)
+                {
+                    LoginViewModel loginVM = AuthProvider.LoginViewModel;
 
-                return Json(new { id, success = true, message = MessagesResources.ProjectDeleted });
+                    if (loginVM.Role == Role.Bureau)
+                    {
+                        //TODO: Uncomment line below
+                        //_model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
+
+                        return Json(new { id, success = true, message = MessagesResources.ProjectDeleted });
+                    }
+
+                    return Json(new { id, success = false, message = MessagesResources.UnauthorizedRight });
+                }
+
+                return Json(new { id, success = false, message = MessagesResources.ProjectInexistant });
             }
             catch (Exception ex)
             {

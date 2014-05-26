@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using SolarSystem.Mars.Model.ManagersService;
+using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using SolarSystem.Mars.ViewController.Resources;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
@@ -20,13 +21,16 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
             StartDate = StartTime = DateTime.Now;
             EndDate = EndTime = DateTime.Now.AddHours(4);
             IsPublished = true;
+            CanUpdate = true;
+            CanDelete = true;
         }
 
         /// <summary>
         /// Build a view-model from an entity
         /// </summary>
         /// <param name="show">Entity to transform</param>
-        public ShowViewModel(Show show)
+        /// <param name="authProvider"></param>
+        public ShowViewModel(Show show, IAuthProvider authProvider)
         {
             Id = show.Id;
             Description = show.Description;
@@ -43,6 +47,9 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
             StartDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, show.Start_DateTime.Hour, show.Start_DateTime.Minute, show.Start_DateTime.Second);
 
             Url = show.Url;
+
+            CanUpdate = true;
+            CanDelete = (authProvider.LoginViewModel.Role == Role.Bureau);
         }
 
         #endregion
@@ -131,6 +138,16 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         /// </summary>
         [Display(ResourceType = typeof(ContentRessources), Name = "IsPublished", ShortName = "IsPublished")]
         public bool IsPublished { get; set; }
+
+        /// <summary>
+        /// Specify if the user can update the show or not
+        /// </summary>
+        public bool CanUpdate { get; set; }
+
+        /// <summary>
+        /// Specify if the user can delete the show or not
+        /// </summary>
+        public bool CanDelete { get; set; }
 
         #endregion
     }

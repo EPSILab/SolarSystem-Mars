@@ -50,7 +50,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             // Get Show and tranform them in ShowViewModel
             IEnumerable<Show> listShow = _model.Get(id, _constants.ItemsNumber);
-            IEnumerable<ShowViewModel> vm = listShow.Select(show => new ShowViewModel(show));
+            IEnumerable<ShowViewModel> vm = listShow.Select(show => new ShowViewModel(show, AuthProvider));
 
             // Send Id and ItemsNumber for navigation
             ViewBag.Id = id;
@@ -79,7 +79,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             else
             {
                 Show show = _model.Get(id);
-                vm = new ShowViewModel(show);
+                vm = new ShowViewModel(show, AuthProvider);
             }
 
             return View(vm);
@@ -158,11 +158,23 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             try
             {
-                LoginViewModel loginVM = AuthProvider.LoginViewModel;
-                // TODO: Uncomment line bellow
-                //_model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
+                Show show = _model.Get(id);
+                if (show != null)
+                {
+                    LoginViewModel loginVM = AuthProvider.LoginViewModel;
 
-                return Json(new { id, success = true, message = MessagesResources.ShowDeleted });
+                    if (loginVM.Role == Role.Bureau)
+                    {
+                        //TODO: Uncomment line below
+                        //_model.Delete(id, loginVM.Username, loginVM.PasswordCrypted);
+
+                        return Json(new { id, success = true, message = MessagesResources.ShowDeleted });
+                    }
+
+                    return Json(new { id, success = false, message = MessagesResources.UnauthorizedRight });
+                }
+
+                return Json(new { id, success = false, message = MessagesResources.ShowInexistant });
             }
             catch (Exception ex)
             {

@@ -180,6 +180,9 @@
   <data name="ProjectDeleted" xml:space="preserve">
     <value>Le projet a bien été supprimé.</value>
   </data>
+  <data name="ProjectInexistant" xml:space="preserve">
+    <value>Ce projet n'existe pas.</value>
+  </data>
   <data name="ProjectUpdated" xml:space="preserve">
     <value>Le projet a bien été mis à jour.</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="ShowDeleted" xml:space="preserve">
     <value>Le salon a bien été supprimé.</value>
+  </data>
+  <data name="ShowInexistant" xml:space="preserve">
+    <value>Ce salon n'existe pas.</value>
   </data>
   <data name="ShowUpdated" xml:space="preserve">
     <value>Le salon a bien été mis à jour.</value>
