@@ -142,6 +142,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Confirmer le nouveau mot de passe.
+        /// </summary>
+        public static string ConfirmNewPassword {
+            get {
+                return ResourceManager.GetString("ConfirmNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Confirmation du mot de passe.
         /// </summary>
         public static string ConfirmPassword {
@@ -210,6 +219,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string DateTime {
             get {
                 return ResourceManager.GetString("DateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Editer le mot de passe.
+        /// </summary>
+        public static string EditPassword {
+            get {
+                return ResourceManager.GetString("EditPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Changement du mot de passe.
+        /// </summary>
+        public static string EditPasswordText {
+            get {
+                return ResourceManager.GetString("EditPasswordText", resourceCulture);
             }
         }
         
@@ -493,6 +520,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Nouveau mot de passe.
+        /// </summary>
+        public static string NewPassword {
+            get {
+                return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Articles.
         /// </summary>
         public static string News {
@@ -543,6 +579,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Ancien mot de passe.
+        /// </summary>
+        public static string OldPassword {
+            get {
+                return ResourceManager.GetString("OldPassword", resourceCulture);
             }
         }
         

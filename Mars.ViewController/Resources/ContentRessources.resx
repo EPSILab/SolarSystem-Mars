@@ -414,4 +414,19 @@
   <data name="ConfirmByPassword" xml:space="preserve">
     <value>Confirmation par mot de passe</value>
   </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Confirmer le nouveau mot de passe</value>
+  </data>
+  <data name="EditPassword" xml:space="preserve">
+    <value>Editer le mot de passe</value>
+  </data>
+  <data name="EditPasswordText" xml:space="preserve">
+    <value>Changement du mot de passe</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Ancien mot de passe</value>
+  </data>
 </root>

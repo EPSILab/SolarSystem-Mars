@@ -14,7 +14,7 @@
 
 <div class="form-horizontal">
 
-    @using (Html.BeginForm(Html.BeginForm("EditProfile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })))
+    @using (Html.BeginForm("EditProfile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @* Hidden values : username / password *@
         @Html.HiddenFor(model => model.Username)

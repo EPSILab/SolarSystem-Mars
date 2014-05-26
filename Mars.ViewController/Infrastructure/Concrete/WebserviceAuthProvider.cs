@@ -1,7 +1,6 @@
 ﻿using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
-using SolarSystem.Mars.ViewController.ViewModels;
 using SolarSystem.Mars.ViewController.ViewModels.Concrete;
 
 namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete

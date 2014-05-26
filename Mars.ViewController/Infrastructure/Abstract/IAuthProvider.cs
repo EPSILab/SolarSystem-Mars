@@ -1,5 +1,4 @@
-﻿using SolarSystem.Mars.ViewController.ViewModels;
-using SolarSystem.Mars.ViewController.ViewModels.Concrete;
+﻿using SolarSystem.Mars.ViewController.ViewModels.Concrete;
 
 namespace SolarSystem.Mars.ViewController.Infrastructure.Abstract
 {

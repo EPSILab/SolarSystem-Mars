@@ -11,7 +11,7 @@
 <h1>@ViewBag.Title</h1>
 <br />
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
@@ -110,7 +110,7 @@
                 @Html.ValidationMessageFor(model => model.PhoneNumber, string.Empty, new { @style = "color: red" })
             </div>
         </div>
-        
+
         @* Presentation *@
         <div class="form-group">
             <label class="col-sm-4 control-label">@ContentRessources.Presentation *</label>

@@ -182,6 +182,7 @@
     <Compile Include="ViewModels\Abstract\IPasswordViewModel.cs" />
     <Compile Include="ViewModels\Concrete\CampusViewModel.cs" />
     <Compile Include="ViewModels\Concrete\ConferenceViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\EditPasswordViewModel.cs" />
     <Compile Include="ViewModels\Concrete\LinkViewModel.cs" />
     <Compile Include="ViewModels\Concrete\LoginViewModel.cs" />
     <Compile Include="ViewModels\Concrete\LostPasswordViewModel.cs" />

@@ -4,7 +4,6 @@ using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
 using SolarSystem.Mars.ViewController.Resources;
-using SolarSystem.Mars.ViewController.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -352,13 +351,45 @@ namespace SolarSystem.Mars.ViewController.Controllers
         [WebserviceAuthorize(Role.MemberActive, Role.Bureau)]
         public ActionResult EditPassword()
         {
-            return View();
+            return View(new EditPasswordViewModel());
         }
 
         [WebserviceAuthorize(Role.MemberActive, Role.Bureau)]
         [HttpPost]
-        public ActionResult EditPassword(PasswordViewModel vm)
+        public ActionResult EditPassword(EditPasswordViewModel vm)
         {
+            if (ModelState.IsValid)
+            {
+                var member = _modelMember.Get().FirstOrDefault(m => m.Username == AuthProvider.LoginViewModel.Username);
+
+                // Crypted Old Password
+                string oldPassword = PasswordEncoder.Encode(vm.OldPassword);
+
+                // Crypted New Password
+                string newPassword = PasswordEncoder.Encode(vm.NewPassword);
+
+                // Crypted Confirm New Password
+                string confirmNewPassword = PasswordEncoder.Encode(vm.ConfirmNewPassword);
+
+                if (oldPassword != AuthProvider.LoginViewModel.PasswordCrypted || newPassword != confirmNewPassword)
+                    return View(vm);
+
+                try
+                {
+                    // TODO : Set new password
+                    //_model.Edit(member, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
+                    AuthProvider.LoginViewModel.PasswordNonCrypted = vm.NewPassword;
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Exception = ex.Message;
+
+                    return View(vm);
+                }
+
+                return Redirect(Url.Action("Index"));
+            }
+
             return View(vm);
         }
 
