@@ -2,7 +2,7 @@
 using SolarSystem.Mars.ViewController.Resources;
 using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
-namespace SolarSystem.Mars.ViewController.ViewModels
+namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     public class PasswordViewModel : IPasswordViewModel
     {

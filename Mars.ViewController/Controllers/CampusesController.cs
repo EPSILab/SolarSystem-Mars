@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using SolarSystem.Mars.ViewController.ViewModels.Concrete;
 
 namespace SolarSystem.Mars.ViewController.Controllers
 {

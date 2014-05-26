@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using SolarSystem.Mars.ViewController.Resources;
 
-namespace SolarSystem.Mars.ViewController.ViewModels
+namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
-    /// View-model for password reset
+    /// View-model for password recover
     /// </summary>
-    public class ResetPasswordViewModel : PasswordViewModel
+    public class LostPasswordViewModel
     {
         /// <summary>
         /// Username
@@ -16,8 +16,9 @@ namespace SolarSystem.Mars.ViewController.ViewModels
         public string Username { get; set; }
 
         /// <summary>
-        /// Key
+        /// Email
         /// </summary>
-        public string Key { get; set; }
+        [DataType(DataType.EmailAddress, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "EmailFormat")]
+        public string Email { get; set; }
     }
 }

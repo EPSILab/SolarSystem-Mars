@@ -1,12 +1,11 @@
-﻿using Ninject;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using SolarSystem.Mars.ViewController.Resources;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
-namespace SolarSystem.Mars.ViewController.ViewModels
+namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for news creation or updating page

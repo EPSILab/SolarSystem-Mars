@@ -1,9 +1,9 @@
-﻿using SolarSystem.Mars.Model.ManagersService;
-using SolarSystem.Mars.ViewController.Resources;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using SolarSystem.Mars.Model.ManagersService;
+using SolarSystem.Mars.ViewController.Resources;
 
-namespace SolarSystem.Mars.ViewController.ViewModels
+namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for shows creation or updating page

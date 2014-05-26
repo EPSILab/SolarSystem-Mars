@@ -180,20 +180,20 @@
       <DependentUpon>PagesTitlesRessources.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Abstract\IPasswordViewModel.cs" />
-    <Compile Include="ViewModels\PromotionViewModel.cs" />
-    <Compile Include="ViewModels\CampusViewModel.cs" />
-    <Compile Include="ViewModels\PasswordViewModel.cs" />
-    <Compile Include="ViewModels\RegisterViewModel.cs" />
-    <Compile Include="ViewModels\ResetPasswordViewModel.cs" />
-    <Compile Include="ViewModels\SlideViewModel.cs" />
-    <Compile Include="ViewModels\LinkViewModel.cs" />
-    <Compile Include="ViewModels\ProjectViewModel.cs" />
-    <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\ConferenceViewModel.cs" />
-    <Compile Include="ViewModels\LostPasswordViewModel.cs" />
-    <Compile Include="ViewModels\NewsViewModel.cs" />
-    <Compile Include="ViewModels\MemberViewModel.cs" />
-    <Compile Include="ViewModels\ShowViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\CampusViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\ConferenceViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\LinkViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\LostPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\MemberViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\NewsViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\PasswordViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\ProjectViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\PromotionViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\ShowViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\SlideViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -604,7 +604,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\Concrete\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
