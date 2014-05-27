@@ -3,7 +3,6 @@ using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
 using SolarSystem.Mars.ViewController.Resources;
-using SolarSystem.Mars.ViewController.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

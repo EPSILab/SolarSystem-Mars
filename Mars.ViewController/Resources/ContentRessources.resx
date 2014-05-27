@@ -429,4 +429,16 @@
   <data name="OldPassword" xml:space="preserve">
     <value>Ancien mot de passe</value>
   </data>
+  <data name="SlidesContent" xml:space="preserve">
+    <value>Contenu de la présentation</value>
+  </data>
+  <data name="SlidesInformations" xml:space="preserve">
+    <value>Informations sur la présentation</value>
+  </data>
+  <data name="SlidesName" xml:space="preserve">
+    <value>Nom de la présentation</value>
+  </data>
+  <data name="SlidesImageUrl" xml:space="preserve">
+    <value>Image du diaporama</value>
+  </data>
 </root>

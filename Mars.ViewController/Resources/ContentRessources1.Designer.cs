@@ -799,11 +799,47 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Contenu de la présentation.
+        /// </summary>
+        public static string SlidesContent {
+            get {
+                return ResourceManager.GetString("SlidesContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Diaporama du site.
         /// </summary>
         public static string Slideshow {
             get {
                 return ResourceManager.GetString("Slideshow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Image du diaporama.
+        /// </summary>
+        public static string SlidesImageUrl {
+            get {
+                return ResourceManager.GetString("SlidesImageUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Informations sur la présentation.
+        /// </summary>
+        public static string SlidesInformations {
+            get {
+                return ResourceManager.GetString("SlidesInformations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Nom de la présentation.
+        /// </summary>
+        public static string SlidesName {
+            get {
+                return ResourceManager.GetString("SlidesName", resourceCulture);
             }
         }
         

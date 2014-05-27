@@ -1,9 +1,8 @@
 ﻿@using System.Web.Optimization
 @using SolarSystem.Mars.ViewController.Resources
-@using SolarSystem.Mars.ViewController.ViewModels
 @using SolarSystem.Mars.ViewController.ViewModels.Concrete
 
-@model IEnumerable<SolarSystem.Mars.ViewController.ViewModels.Concrete.SlideViewModel>
+@model IEnumerable<SlideViewModel>
 
 @{
     ViewBag.Title = PagesTitlesRessources.Slides;
@@ -48,20 +47,14 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th width="5%">
-                @Html.DisplayNameFor(model => model.Order)
-            </th>
             <th width="5%" class="hidden-xs">
                 @Html.DisplayNameFor(model => model.ImageRemoteUrl)
             </th>
             <th width="25%">
-                @Html.DisplayNameFor(model => model.Label)
-            </th>
-            <th width="25%">
                 @Html.DisplayNameFor(model => model.Url)
             </th>
-            <th width="30%" class="hidden-xs">
-                @Html.DisplayNameFor(model => model.Description)
+            <th width="25%">
+                @Html.DisplayNameFor(model => model.Presentation)
             </th>
             <th width="10%">
                 Actions
@@ -73,19 +66,13 @@
         {
             <tr id="@string.Format("item{0}", item.Id)">
                 <td>
-                    @Html.DisplayFor(modelItem => item.Order)
+                    <img src="@Url.Content(item.ImageRemoteUrl)" style="max-height: 350px; max-width: 350px;" alt="@item.Name" />
                 </td>
                 <td class="hidden-xs">
-                    <img src="@Url.Content(item.ImageRemoteUrl)" style="height: 50px; width: 50px;" alt="@item.Label" />
-                </td>
-                <td>
-                    <strong>@Html.DisplayFor(modelItem => item.Label)</strong>
-                </td>
-                <td>
                     <strong>@Html.DisplayFor(modelItem => item.Url)</strong>
                 </td>
                 <td>
-                    <strong>@Html.DisplayFor(modelItem => item.Description)</strong>
+                    <strong>@Html.DisplayFor(modelItem => item.Presentation)</strong>
                 </td>
                 <td>
                     @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })

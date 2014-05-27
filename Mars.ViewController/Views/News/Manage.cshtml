@@ -14,7 +14,7 @@
     <li class="active">@ViewBag.Title</li>
 </ol>
 
-@using (Html.BeginForm(Html.BeginForm("Manage", "News", FormMethod.Post, new { enctype = "multipart/form-data" })))
+@using (Html.BeginForm("Manage", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
