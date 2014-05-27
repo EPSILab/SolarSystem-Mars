@@ -87,30 +87,27 @@
     </ul>
 </div>
 
-@*
-    <div class="col-xs-6 col-sm-4">
-            <h2>@ContentRessources.Members</h2>
-            <ul>
-                <li>
-                    @Html.ActionLink(PagesTitlesRessources.Members_Valid, "Valid", "Members")
-                </li>
-                <li>
-                    @Html.ActionLink(PagesTitlesRessources.Members_Create, "Manage", "Members")
-                </li>
-                <li>
-                    @Html.ActionLink(PagesTitlesRessources.Members, "Index", "Members")
-                </li>
-            </ul>
-        </div> *@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.Members</h2>
+    <ul>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Member_Valid, "Valid", "Members")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Member_Create, "Manage", "Members")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Members, "Index", "Members")
+        </li>
+    </ul>
+</div>
 
 <div class="col-xs-6 col-sm-4">
     <h2>@ContentRessources.Others</h2>
     <ul>
-        @*
-            <li>
-                @Html.ActionLink(PagesTitlesRessources.Promotions, "Index", "Promotions")
-            </li>
-        *@
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Promotions, "Index", "Promotions")
+        </li>
         <li>
             @Html.ActionLink(PagesTitlesRessources.Campuses, "Index", "Campuses")
         </li>

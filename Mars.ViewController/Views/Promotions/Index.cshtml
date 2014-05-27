@@ -1,8 +1,7 @@
 ﻿@using SolarSystem.Mars.ViewController.Resources
-@using SolarSystem.Mars.ViewController.ViewModels
 @using SolarSystem.Mars.ViewController.ViewModels.Concrete
 
-@model IEnumerable<SolarSystem.Mars.ViewController.ViewModels.Concrete.PromotionViewModel>
+@model IEnumerable<PromotionViewModel>
 
 @{
     ViewBag.Title = PagesTitlesRessources.Promotions;
@@ -49,7 +48,7 @@
                     @Html.DisplayFor(modelItem => item.GraduationYear)
                 </td>
                 <td>
-                    @Html.CheckBoxFor(modelItem => item.StillPresent)
+                    @Html.DisplayFor(modelItem => item.StillPresent)
                 </td>
                 <td>
                     @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
