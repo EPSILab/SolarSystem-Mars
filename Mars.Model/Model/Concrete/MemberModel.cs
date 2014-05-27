@@ -34,6 +34,11 @@ namespace SolarSystem.Mars.Model.Model.Concrete
             return _proxy.Register(member, newPassword);
         }
 
+        public void ChangePassword(string username, string oldPassword, string newPassword)
+        {
+            _proxy.ChangePassword(username, oldPassword, newPassword);
+        }
+
         public void RequestLostPassword(string username, string email)
         {
             _proxy.RequestLostPassword(username, email);

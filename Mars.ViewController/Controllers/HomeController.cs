@@ -360,24 +360,27 @@ namespace SolarSystem.Mars.ViewController.Controllers
         {
             if (ModelState.IsValid)
             {
-                var member = _modelMember.Get().FirstOrDefault(m => m.Username == AuthProvider.LoginViewModel.Username);
-
-                // Crypted Old Password
-                string oldPassword = PasswordEncoder.Encode(vm.OldPassword);
-
-                // Crypted New Password
-                string newPassword = PasswordEncoder.Encode(vm.NewPassword);
-
-                // Crypted Confirm New Password
-                string confirmNewPassword = PasswordEncoder.Encode(vm.ConfirmNewPassword);
-
-                if (oldPassword != AuthProvider.LoginViewModel.PasswordCrypted || newPassword != confirmNewPassword)
-                    return View(vm);
-
                 try
                 {
-                    // TODO : Set new password
-                    //_model.Edit(member, AuthProvider.LoginViewModel.Username, AuthProvider.LoginViewModel.PasswordCrypted);
+                    var member = _modelMember.Get().FirstOrDefault(m => m.Username == AuthProvider.LoginViewModel.Username);
+
+                    if (member == null)
+                        throw new ArgumentNullException("member");
+
+                    // Crypted Old Password
+                    string oldPassword = PasswordEncoder.Encode(vm.OldPassword);
+
+                    // Crypted New Password
+                    string newPassword = PasswordEncoder.Encode(vm.NewPassword);
+
+                    // Crypted Confirm New Password
+                    string confirmNewPassword = PasswordEncoder.Encode(vm.ConfirmNewPassword);
+
+                    if (oldPassword != AuthProvider.LoginViewModel.PasswordCrypted || newPassword != confirmNewPassword)
+                        return View(vm);
+
+                    // Set new password
+                    _model.ChangePassword(member.Username, oldPassword, vm.NewPassword);
                     AuthProvider.LoginViewModel.PasswordNonCrypted = vm.NewPassword;
                 }
                 catch (Exception ex)

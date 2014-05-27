@@ -12,6 +12,8 @@ namespace SolarSystem.Mars.Model.Model.Abstract
 
         int Register(Member member, string newPassword);
 
+        void ChangePassword(string username, string oldPassword, string newPassword);
+
         void RequestLostPassword(string username, string email);
 
         void SetNewPasswordAfterLost(string username, string newPassword, string key);
