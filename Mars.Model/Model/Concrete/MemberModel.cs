@@ -4,7 +4,7 @@ using SolarSystem.Mars.Model.Model.Abstract;
 
 namespace SolarSystem.Mars.Model.Model.Concrete
 {
-    class MemberModel : ILogin, IReaderFilters<Member, Campus>
+    class MemberModel : ILogin, IMemberReaderFilters
     {
         #region Attributes
 
@@ -66,6 +66,11 @@ namespace SolarSystem.Mars.Model.Model.Concrete
         public IList<Member> Get(Campus campus)
         {
             return _proxy.GetMembersBureau(campus);
+        }
+
+        public IList<Member> GetInactives()
+        {
+            return _proxy.GetMembersWaitingForValidation();
         }
 
         public int Add(Member element, string username, string password)

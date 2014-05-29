@@ -222,4 +222,7 @@
   <data name="Promotion_Edit" xml:space="preserve">
     <value>Modifier les informations d'une promotion existante</value>
   </data>
+  <data name="Member_Edit" xml:space="preserve">
+    <value>Modifier les informations de l'utilisateur</value>
+  </data>
 </root>

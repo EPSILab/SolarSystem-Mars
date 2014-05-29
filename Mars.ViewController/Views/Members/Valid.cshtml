@@ -1,6 +1,112 @@
-﻿@{
-    ViewBag.Title = "Valid";
-    Layout = "~/Views/Shared/_LayoutNotConnected.cshtml";
+﻿@using System.Web.Optimization
+@using SolarSystem.Mars.ViewController.Resources
+@using SolarSystem.Mars.ViewController.ViewModels.Concrete
+
+@model IEnumerable<MemberViewModel>
+
+@{
+    ViewBag.Title = PagesTitlesRessources.Member_Valid;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
 }
 
-<h2>Valid</h2>
+
+@* Breadcrumbs *@
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li>@Html.ActionLink(PagesTitlesRessources.News, "Index")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+
+
+@* Modal for validation *@
+@using (Ajax.BeginForm("Valid", "Members", new AjaxOptions { HttpMethod = "POST", OnSuccess = "validMember" }))
+{
+    <div id="modalValid" class="modal fade">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>@MessagesResources.ValidMember</p>
+                </div>
+                <div class="modal-footer">
+                    @* Contains the member's Id to valid *@
+                    <input type="hidden" id="idToValid" name="id" />
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@ContentRessources.No</button>
+                    <button type="submit" class="btn btn-primary">@ContentRessources.Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@* List of inactive members *@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width="5%">
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th width="5%">
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th width="5%">
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th width="10%">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (MemberViewModel item in Model)
+        {
+            <tr id="@string.Format("item{0}", item.Id)">
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @string.Format("{0} {1}", item.FirstName, item.LastName)
+                </td>
+                <td>
+                    <button class="valid btn btn-success glyphicon glyphicon-ok-sign"
+                            data-id="@item.Id" data-toggle="modal" data-target="#modalValid"></button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Enable tooltips on buttons
+            $('.navButton').tooltip();
+
+            // When the user clicks on a Valid button, save the news's Id to valid
+            $('.valid').click(function () {
+                var idToValid = $(this).data("id");
+                $("#idToValid").val(idToValid);
+            });
+        });
+
+        var validMember = function (data) {
+            $('#modalValid').modal('hide');
+
+            if (data.success) {
+                if (data.id > 0) {
+                    $('#item' + data.id).remove();
+                    showMessage(data.message, false);
+                }
+            } else {
+                showMessage(data.message, true);
+            }
+        }
+    </script>
+}

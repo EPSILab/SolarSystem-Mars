@@ -502,11 +502,47 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Prénom du membre.
+        /// </summary>
+        public static string MemberFirstName {
+            get {
+                return ResourceManager.GetString("MemberFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Informations de l&apos;utilisateur.
+        /// </summary>
+        public static string MemberInformations {
+            get {
+                return ResourceManager.GetString("MemberInformations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Présentation.
+        /// </summary>
+        public static string MemberPresentation {
+            get {
+                return ResourceManager.GetString("MemberPresentation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Membres.
         /// </summary>
         public static string Members {
             get {
                 return ResourceManager.GetString("Members", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Nom du membre.
+        /// </summary>
+        public static string MemmberLastName {
+            get {
+                return ResourceManager.GetString("MemmberLastName", resourceCulture);
             }
         }
         

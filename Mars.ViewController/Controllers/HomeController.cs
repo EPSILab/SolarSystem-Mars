@@ -113,7 +113,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             ViewBag.Promotions = _modelPromotions.GetAvailables();
             ViewBag.Campuses = _modelCampuses.Get();
 
-            var vm = new RegisterViewModel();
+            RegisterViewModel vm = new RegisterViewModel();
             return View(vm);
         }
 
@@ -274,8 +274,8 @@ namespace SolarSystem.Mars.ViewController.Controllers
             ViewBag.Promotions = _modelPromotions.GetAvailables();
             ViewBag.Campuses = _modelCampuses.Get();
 
-            var member = _modelMember.Get().FirstOrDefault(m => m.Username == AuthProvider.LoginViewModel.Username);
-            var viewModel = new MemberViewModel(member);
+            Member member = _modelMember.Get().FirstOrDefault(m => m.Username == AuthProvider.LoginViewModel.Username);
+            MemberViewModel viewModel = new MemberViewModel(member);
 
             return View(viewModel);
         }
@@ -362,7 +362,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             {
                 try
                 {
-                    var member = _modelMember.Get().FirstOrDefault(m => m.Username == AuthProvider.LoginViewModel.Username);
+                    Member member = _modelMember.Get().FirstOrDefault(m => m.Username == AuthProvider.LoginViewModel.Username);
 
                     if (member == null)
                         throw new ArgumentNullException("member");

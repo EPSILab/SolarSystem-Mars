@@ -49,7 +49,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         public ActionResult Index(int id = 0)
         {
             // Get Slide and tranform them in SlideViewModel
-            IEnumerable<Slide> listSlide = (id == 0) ? _model.Get() : new List<Slide> { _model.Get(id) };
+            IEnumerable<Slide> listSlide = _model.Get().Skip(id).Take(_constants.ItemsNumber);
             IEnumerable<SlideViewModel> vm = listSlide.Select(slide => new SlideViewModel(slide));
 
             // Send Id and ItemsNumber for navigation

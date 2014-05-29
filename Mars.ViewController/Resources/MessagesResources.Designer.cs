@@ -124,6 +124,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Supprimer cet utilisateur ?.
+        /// </summary>
+        public static string DeleteMember {
+            get {
+                return ResourceManager.GetString("DeleteMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Supprimer cette news ?.
         /// </summary>
         public static string DeleteNews {
@@ -192,6 +201,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string LostPasswordRequestSent {
             get {
                 return ResourceManager.GetString("LostPasswordRequestSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Le membre a bien été supprimé..
+        /// </summary>
+        public static string MemberDeleted {
+            get {
+                return ResourceManager.GetString("MemberDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Le membre a bien été modifié..
+        /// </summary>
+        public static string MemberUpdated {
+            get {
+                return ResourceManager.GetString("MemberUpdated", resourceCulture);
             }
         }
         
@@ -354,6 +381,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string UnauthorizedRight {
             get {
                 return ResourceManager.GetString("UnauthorizedRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Etes-vous sûr de vouloir valider cet utilisateur ?.
+        /// </summary>
+        public static string ValidMember {
+            get {
+                return ResourceManager.GetString("ValidMember", resourceCulture);
             }
         }
     }

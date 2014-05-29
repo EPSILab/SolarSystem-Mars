@@ -3,7 +3,6 @@ using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
 using SolarSystem.Mars.ViewController.Resources;
-using SolarSystem.Mars.ViewController.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +49,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         public ActionResult Index(int id = 0)
         {
             // Get Link and tranform them in LinkViewModel
-            IEnumerable<Link> listLink = (id == 0) ? _model.Get() : new List<Link> { _model.Get(id) };
+            IEnumerable<Link> listLink = _model.Get().Skip(id).Take(_constants.ItemsNumber);
             IEnumerable<LinkViewModel> vm = listLink.Select(link => new LinkViewModel(link));
 
             // Send Id and ItemsNumber for navigation

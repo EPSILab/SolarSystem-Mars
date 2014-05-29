@@ -17,6 +17,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         /// </summary>
         public MemberViewModel()
         {
+            IsActive = false;
         }
 
         /// <summary>
@@ -25,6 +26,8 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         /// <param name="member">Entity to transform</param>
         public MemberViewModel(Member member)
         {
+            Id = member.Id;
+            IsActive = member.Active;
             Username = member.Username;
             LastName = member.LastName;
             FirstName = member.FirstName;
@@ -47,6 +50,16 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 
 
         #region Properties
+
+        /// <summary>
+        /// Id
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Is Active ?
+        /// </summary>
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// Username

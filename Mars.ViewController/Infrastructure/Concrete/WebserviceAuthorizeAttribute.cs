@@ -43,7 +43,7 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
             {
                 if (_acceptedRoles.Any())
                 {
-                    var userRole = AuthProvider.LoginViewModel.Role;
+                    Role userRole = AuthProvider.LoginViewModel.Role;
                     return _acceptedRoles.Any(r => r == userRole);
                 }
 

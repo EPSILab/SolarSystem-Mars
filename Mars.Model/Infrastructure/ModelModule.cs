@@ -14,7 +14,7 @@ namespace SolarSystem.Mars.Model.Infrastructure
             Bind<IAvailable<Promotion>>().To<PromotionModel>().InSingletonScope();
             Bind<IReaderLimit<Conference>>().To<ConferenceModel>().InSingletonScope();
             Bind<IReader<Link>>().To<LinkModel>().InSingletonScope();
-            Bind<IReaderFilters<Member, Campus>>().To<MemberModel>().InSingletonScope();
+            Bind<IMemberReaderFilters>().To<MemberModel>().InSingletonScope();
             Bind<IReader<Member>>().To<MemberModel>().InSingletonScope();
             Bind<ILogin>().To<MemberModel>().InSingletonScope();
             Bind<IReaderLimit<News>>().To<NewsModel>().InSingletonScope();

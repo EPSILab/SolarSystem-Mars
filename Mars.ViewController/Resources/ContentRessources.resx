@@ -441,4 +441,16 @@
   <data name="SlidesImageUrl" xml:space="preserve">
     <value>Image du diaporama</value>
   </data>
+  <data name="MemberInformations" xml:space="preserve">
+    <value>Informations de l'utilisateur</value>
+  </data>
+  <data name="MemberPresentation" xml:space="preserve">
+    <value>Présentation</value>
+  </data>
+  <data name="MemberFirstName" xml:space="preserve">
+    <value>Prénom du membre</value>
+  </data>
+  <data name="MemmberLastName" xml:space="preserve">
+    <value>Nom du membre</value>
+  </data>
 </root>
