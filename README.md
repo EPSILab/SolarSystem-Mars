@@ -2,36 +2,31 @@ SolarSystem-Mars
 ================
 
 The back-end website is used to manage all EPSILab data. Made with ASP.NET MVC 4.
-The website is available here : http://xxx
+The website is available here : [epsilab.net/Admin](http://epsilab.net/Admin)
 
 ## Roadmap
 
-Current version : 0.1
+### Next Features
 
-### Current Features
+- [ ] Check every single page (responsive design, action methods, ...)
+- [ ] Add 4xx error page (403 error, 404 error)
+- [ ] Send images correctly to server and get the new image Url
 
-- News management (1)
-- Link management (7)
-- Project management (7)
-- Conferences management (7)
-- Show management (7)
-- Campus management (7)
-- Promotion management (7)
-- Account management
-    - Forgotten password (3)
+### Current features
 
-### Features in progress
-
-- Slider management (7)
-- Account management
-    - Modify current account (6)
-    - Create account (2)
-
-### Next features
-
-- Student / Member management
-    - CRUD on Member (5)
-    - Manage / Revoke rights with roles (1)
-
-- Logger
-    - Save actions in the webservice (4)
+- [x] Login page
+- [x] Account management
+    - [x] Forgotten password
+    - [x] Register
+    - [x] Valid accounts
+        - [ ] Send notifications (of validation / refusal)
+- [x] News management
+- [x] Slider management
+- [x] Conferences management
+- [x] Project management
+- [x] Show management
+- [x] Link management
+- [x] Member management
+    - [x] Manage / Revoke rights access with roles
+- [x] Campus management
+- [x] Promotion management
