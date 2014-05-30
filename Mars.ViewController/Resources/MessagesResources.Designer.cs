@@ -169,6 +169,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Une erreur est survenue..
+        /// </summary>
+        public static string ErrorIssue {
+            get {
+                return ResourceManager.GetString("ErrorIssue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Le lien a bien été crée..
         /// </summary>
         public static string LinkCreated {
@@ -255,6 +264,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string NewsUpdated {
             get {
                 return ResourceManager.GetString("NewsUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Cette page n&apos;existe pas..
+        /// </summary>
+        public static string PageInexistant {
+            get {
+                return ResourceManager.GetString("PageInexistant", resourceCulture);
             }
         }
         
@@ -372,6 +390,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string SlideUpdated {
             get {
                 return ResourceManager.GetString("SlideUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Vous n&apos;êtes pas autorisé à accéder à cette page..
+        /// </summary>
+        public static string UnauthorizedAccess {
+            get {
+                return ResourceManager.GetString("UnauthorizedAccess", resourceCulture);
             }
         }
         

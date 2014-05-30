@@ -142,6 +142,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Erreur.
+        /// </summary>
+        public static string IndexError {
+            get {
+                return ResourceManager.GetString("IndexError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Ajouter un nouveau lien.
         /// </summary>
         public static string Link_Create {
@@ -255,6 +264,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string News_Edit {
             get {
                 return ResourceManager.GetString("News_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Page intouvable.
+        /// </summary>
+        public static string PageNotFound {
+            get {
+                return ResourceManager.GetString("PageNotFound", resourceCulture);
             }
         }
         
@@ -381,6 +399,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string Slides {
             get {
                 return ResourceManager.GetString("Slides", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Accès non autorisé.
+        /// </summary>
+        public static string Unauthorized {
+            get {
+                return ResourceManager.GetString("Unauthorized", resourceCulture);
             }
         }
     }

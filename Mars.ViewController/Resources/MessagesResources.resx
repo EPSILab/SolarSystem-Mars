@@ -153,6 +153,9 @@
   <data name="DeleteSlide" xml:space="preserve">
     <value>Supprimer le message ?</value>
   </data>
+  <data name="ErrorIssue" xml:space="preserve">
+    <value>Une erreur est survenue.</value>
+  </data>
   <data name="LinkCreated" xml:space="preserve">
     <value>Le lien a bien été crée.</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="NewsUpdated" xml:space="preserve">
     <value>La news a bien été modifiée.</value>
+  </data>
+  <data name="PageInexistant" xml:space="preserve">
+    <value>Cette page n'existe pas.</value>
   </data>
   <data name="ProjectCreated" xml:space="preserve">
     <value>Le projet a bien été crée.</value>
@@ -221,6 +227,9 @@
   </data>
   <data name="SlideUpdated" xml:space="preserve">
     <value>Le message a bien été modifiée.</value>
+  </data>
+  <data name="UnauthorizedAccess" xml:space="preserve">
+    <value>Vous n'êtes pas autorisé à accéder à cette page.</value>
   </data>
   <data name="UnauthorizedRight" xml:space="preserve">
     <value>Vous n'avez pas les droits suffisants pour effectuer cette action.</value>

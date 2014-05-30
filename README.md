@@ -9,7 +9,6 @@ The website is available here : [epsilab.net/Admin](http://epsilab.net/Admin)
 ### Next Features
 
 - [ ] Check every single page (responsive design, action methods, ...)
-- [ ] Add 4xx error page (403 error, 404 error)
 - [ ] Send images correctly to server and get the new image Url
 
 ### Current features
@@ -30,3 +29,4 @@ The website is available here : [epsilab.net/Admin](http://epsilab.net/Admin)
     - [x] Manage / Revoke rights access with roles
 - [x] Campus management
 - [x] Promotion management
+- [x] Custom error pages

@@ -1,0 +1,27 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Portail d'administration EPSILab</title>
+
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", false)
+
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("scripts", false)
+</head>
+<body>
+    <div class="Center-Container">
+        <div class="Center-Block Absolute-Center is-Responsive">
+            <a href="@Url.Action("Index", "Home")" class="mainButton" style="display: block; height: 100%">
+                <div style="text-align: center; margin: 50px auto">
+                    @RenderBody()
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

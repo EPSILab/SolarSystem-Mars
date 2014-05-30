@@ -225,4 +225,13 @@
   <data name="Member_Edit" xml:space="preserve">
     <value>Modifier les informations de l'utilisateur</value>
   </data>
+  <data name="IndexError" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>Page intouvable</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Accès non autorisé</value>
+  </data>
 </root>

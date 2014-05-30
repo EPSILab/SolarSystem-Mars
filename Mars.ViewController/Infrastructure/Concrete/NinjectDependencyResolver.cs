@@ -1,5 +1,6 @@
 ﻿using Ninject;
 using SolarSystem.Mars.Model.Infrastructure;
+using SolarSystem.Mars.ViewController.Controllers;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,9 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
             // ViewController Injections
             _kernel.Bind<IAuthProvider>().To<WebserviceAuthProvider>().InSingletonScope();
             _kernel.Bind<IFilterProvider>().To<NinjectFilterProvider>().InSingletonScope();
+
+            // Controller Injections
+            _kernel.Bind<ErrorController>().ToSelf();
 
             // Model Module Load
             _kernel.Load<ModelModule>();
