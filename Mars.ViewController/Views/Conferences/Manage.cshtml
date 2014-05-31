@@ -14,7 +14,7 @@
     <li class="active">@ViewBag.Title</li>
 </ol>
 
-@using (Html.BeginForm(Html.BeginForm("Manage", "Conferences", FormMethod.Post, new { enctype = "multipart/form-data" })))
+@using (Html.BeginForm("Manage", "Conferences", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
@@ -60,7 +60,7 @@
             @Html.LabelFor(model => model.EndDate, new { @class = "col-sm-2 control-label" })
 
             <div class="col-sm-7">
-                @Html.EditorFor(model => model.EndDate, new { @type = "date"})
+                @Html.EditorFor(model => model.EndDate, new { @type = "date" })
                 @Html.EditorFor(model => model.EndTime, new { @type = "time" })
             </div>
             <div class="col-sm-8">
@@ -98,7 +98,7 @@
 
             <div class="col-sm-8">
                 <span class="help-block">@ContentRessources.RemoteImage</span>
-                @Html.TextBoxFor(model => model.ImageRemoteUrl, new { @class = "form-control", @placeholder = ContentRessources.Website_PlaceHolder })
+                @Html.TextBoxFor(model => model.ImageRemoteUrl, new { @class = "form-control" })
             </div>
         </div>
         <div class="form-group">
@@ -162,7 +162,7 @@
 
             // Datepicker for Date field
             $("input[type=Date]").datepicker();
-            
+
         });
     </script>
 }

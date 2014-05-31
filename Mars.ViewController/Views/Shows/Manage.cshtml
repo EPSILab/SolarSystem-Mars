@@ -14,7 +14,7 @@
     <li class="active">@ViewBag.Title</li>
 </ol>
 
-@using (Html.BeginForm(Html.BeginForm("Manage", "Shows", FormMethod.Post, new { enctype = "multipart/form-data" })))
+@using (Html.BeginForm("Manage", "Shows", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
@@ -57,7 +57,7 @@
 
             <div class="col-sm-8">
                 <span class="help-block">@ContentRessources.RemoteImage</span>
-                @Html.TextBoxFor(model => model.ImageRemoteUrl, new { @class = "form-control", @placeholder = ContentRessources.Website_PlaceHolder })
+                @Html.TextBoxFor(model => model.ImageRemoteUrl, new { @class = "form-control" })
             </div>
         </div>
         <div class="form-group">

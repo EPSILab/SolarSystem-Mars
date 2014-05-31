@@ -14,6 +14,10 @@
 
 @section header
 {
+    @{
+        Member currentUser = (Member)Session["CurrentUser"];
+    }
+
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <ul class="nav navbar-nav">
             <li>@Html.ActionLink(PagesTitlesRessources.LogOn, "LogOn", "Home")</li>
@@ -22,11 +26,11 @@
             <li>@Html.ActionLink(PagesTitlesRessources.LogOut, "LogOut", "Home")</li>
         </ul>
         <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm hidden-md">
+            <li>
+                <img class="img-responsive" src="@currentUser.ImageUrl" alt="" style="margin: 5px auto; max-width: 40px; max-height: 40px;" />
+            </li>
             <li class="navbar-text">
-                @{
-                    var currentUser = (Member)Session["CurrentUser"];
-                    @Html.Raw(string.Format(ContentRessources.ConnectedAs, currentUser.FirstName, currentUser.LastName))
-                }
+                @Html.Raw(string.Format(ContentRessources.ConnectedAs, currentUser.FirstName, currentUser.LastName))
             </li>
             <li>
                 <a href="@Url.Action("Index", "Home")" style="display: inline">
