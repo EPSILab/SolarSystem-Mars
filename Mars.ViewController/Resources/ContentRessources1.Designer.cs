@@ -61,6 +61,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Membre.
+        /// </summary>
+        public static string ActiveMember {
+            get {
+                return ResourceManager.GetString("ActiveMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Informations d&apos;authentification.
         /// </summary>
         public static string AuthentificationInformations {
@@ -84,6 +93,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string Back {
             get {
                 return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Bureau.
+        /// </summary>
+        public static string Bureau {
+            get {
+                return ResourceManager.GetString("Bureau", resourceCulture);
             }
         }
         
@@ -403,6 +421,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Inactif.
+        /// </summary>
+        public static string Inactive {
+            get {
+                return ResourceManager.GetString("Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Publié?.
         /// </summary>
         public static string IsPublished {
@@ -633,6 +660,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string Order {
             get {
                 return ResourceManager.GetString("Order", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Autres informations.
+        /// </summary>
+        public static string OtherInformation {
+            get {
+                return ResourceManager.GetString("OtherInformation", resourceCulture);
             }
         }
         
@@ -903,6 +939,24 @@ namespace SolarSystem.Mars.ViewController.Resources {
         public static string StartDateTime {
             get {
                 return ResourceManager.GetString("StartDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Statut.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Statut affiché sur le site (exemple : &lt;em&gt;Membre&lt;/em&gt;).
+        /// </summary>
+        public static string Status_PlaceHolder {
+            get {
+                return ResourceManager.GetString("Status_PlaceHolder", resourceCulture);
             }
         }
         

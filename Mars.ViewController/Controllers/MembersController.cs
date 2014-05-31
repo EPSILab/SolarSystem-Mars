@@ -119,13 +119,14 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <param name="id">Member's Id to manage.</param>
         public ActionResult Manage(int id)
         {
-            // Get promotions and campuses for register
+            // Get promotions, campuses and roles for edition
             ViewBag.Promotions = _promotionModel.Get();
             ViewBag.Campuses = _campusModel.Get();
+            ViewBag.Roles = CreateSelectList(Enum.GetValues(typeof(Role)).OfType<Role>());
 
             // Edit an existing member
             Member member = _model.Get(id);
-            MemberViewModel vm = new MemberViewModel(member);
+            EditMemberViewModel vm = new EditMemberViewModel(member);
 
             return View(vm);
         }
@@ -137,7 +138,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
         /// <param name="vm">Page ViewModel</param>
         /// <param name="file">Image to send on the server</param>
         [HttpPost]
-        public ActionResult Manage(MemberViewModel vm, HttpPostedFileBase file)
+        public ActionResult Manage(EditMemberViewModel vm, HttpPostedFileBase file)
         {
             try
             {
@@ -164,8 +165,14 @@ namespace SolarSystem.Mars.ViewController.Controllers
                     Campus = _campusModel.Get(vm.IdCampus),
                     FacebookUrl = vm.FacebookUrl,
                     LinkedInUrl = vm.LinkedInUrl,
-                    Promotion = _promotionModel.Get(vm.IdPromotion)
+                    Promotion = _promotionModel.Get(vm.IdPromotion),
+                    ImageUrl = vm.ImageRemoteUrl,
+                    Role = vm.Role,
+                    Status = vm.Status
                 };
+
+                // Image management
+                SendImageToServer(vm, file, member);
 
                 // Save the member
                 LoginViewModel loginVM = AuthProvider.LoginViewModel;
@@ -215,6 +222,54 @@ namespace SolarSystem.Mars.ViewController.Controllers
             {
                 return Json(new { id = 0, success = false, message = ex.Message });
             }
+        }
+
+        #endregion
+
+        #region General Methods
+
+        /// <summary>
+        /// Transform a list of roles to a selectlist
+        /// </summary>
+        /// <param name="roles">Convert Role into a RoleList - SelectList</param>
+        /// <returns>Roles list formatted</returns>
+        private SelectList CreateSelectList(IEnumerable<Role> roles)
+        {
+            // Get list of item (role) to create the MemberList
+            IList<SelectListItem> rolesItems = roles.Select(role => new SelectListItem
+            {
+                Value = ((int)role).ToString("0"),
+                Text = role.ToString(),
+            }).ToList();
+
+            rolesItems[0].Text = ContentRessources.Inactive;
+            rolesItems[1].Text = ContentRessources.ActiveMember;
+            rolesItems[2].Text = ContentRessources.Bureau;
+
+            return new SelectList(rolesItems, "Value", "Text");
+        }
+
+        /// <summary>
+        /// Send Image to the server
+        /// </summary>
+        /// <param name="vm">MemberViewModel corresponding to the link</param>
+        /// <param name="file">File - Image could be sent</param>
+        /// <param name="member">Member that will get image</param>
+        private void SendImageToServer(MemberViewModel vm, HttpPostedFileBase file, Member member)
+        {
+            // Image is local
+            if (file != null && file.ContentLength > 0)
+            {
+                string imagePath = string.Format("../Images/Link/{0}", file.FileName);
+                file.SaveAs(imagePath);
+                member.ImageUrl = imagePath;
+            }
+            // Image is remote
+            else if (!string.IsNullOrWhiteSpace(vm.ImageRemoteUrl))
+                member.ImageUrl = vm.ImageRemoteUrl;
+            // No image given
+            else
+                throw new InvalidModelStateException(ErrorRessources.ImageRequired);
         }
 
         #endregion

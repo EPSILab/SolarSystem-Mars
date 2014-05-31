@@ -78,6 +78,23 @@
                 @Html.ValidationMessageFor(model => model.CityFrom, string.Empty, new { @style = "color: red" })
             </div>
         </div>
+        
+        @* Image *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageRemoteUrl, new { @class = "col-sm-2 control-label" })
+
+            <div class="col-sm-8">
+                <span class="help-block">@ContentRessources.RemoteImage</span>
+                @Html.TextBoxFor(model => model.ImageRemoteUrl, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-8 col-sm-offset-2">
+                <span class="help-block">@ContentRessources.LocalImage</span>
+                <input type="file" name="file" class="btn btn-default" />
+                @Html.ValidationMessageFor(model => model.ImageRemoteUrl, null, new { @style = "color: red", @placeholder = ContentRessources.RemoteImage })
+            </div>
+        </div>
     </fieldset>
 
     @* Contact informations *@

@@ -453,4 +453,22 @@
   <data name="MemmberLastName" xml:space="preserve">
     <value>Nom du membre</value>
   </data>
+  <data name="OtherInformation" xml:space="preserve">
+    <value>Autres informations</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="Status_PlaceHolder" xml:space="preserve">
+    <value>Statut affiché sur le site (exemple : &lt;em&gt;Membre&lt;/em&gt;)</value>
+  </data>
+  <data name="ActiveMember" xml:space="preserve">
+    <value>Membre</value>
+  </data>
+  <data name="Bureau" xml:space="preserve">
+    <value>Bureau</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inactif</value>
+  </data>
 </root>

@@ -3,7 +3,6 @@ using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Exceptions;
 using SolarSystem.Mars.ViewController.Infrastructure.Concrete;
 using SolarSystem.Mars.ViewController.Resources;
-using SolarSystem.Mars.ViewController.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -121,12 +120,12 @@ namespace SolarSystem.Mars.ViewController.Controllers
                     Campus = _modelCampuses.Get(vm.Id),
                     Description = vm.Description,
                     End_DateTime = new DateTime(vm.EndDate.Year, vm.EndDate.Month, vm.EndDate.Day, vm.EndTime.Hour, vm.EndTime.Minute, 0),
-                    ImageUrl = vm.ImageRemoteUrl,
                     IsPublished = vm.IsPublished,
                     Name = vm.Name,
                     Place = vm.Place,
                     Start_DateTime = new DateTime(vm.StartDate.Year, vm.StartDate.Month, vm.StartDate.Day, vm.StartTime.Hour, vm.StartTime.Minute, 0),
-                    Url = vm.Url
+                    Url = vm.Url,
+                    ImageUrl = vm.ImageRemoteUrl
                 };
 
                 // Image management

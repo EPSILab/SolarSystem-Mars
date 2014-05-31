@@ -6,10 +6,6 @@ The website is available here : [epsilab.net/Admin](http://epsilab.net/Admin)
 
 ## Roadmap
 
-### Next Features
-
-- [ ] Send images correctly to server and get the new image Url
-
 ### Current features
 
 - [x] Login page

@@ -19,6 +19,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         public MemberViewModel()
         {
             IsActive = false;
+            ImageRemoteUrl = "http://www.epsilab.net/Images/Membres/Default.png";
         }
 
         /// <summary>

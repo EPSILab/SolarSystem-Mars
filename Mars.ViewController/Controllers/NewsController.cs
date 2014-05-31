@@ -120,6 +120,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
                 {
                     Id = vm.Id,
                     Keywords = vm.Keywords,
+                    ImageUrl = vm.ImageRemoteUrl,
                     DateTime = new DateTime(vm.Date.Year, vm.Date.Month, vm.Date.Day, vm.Time.Hour, vm.Time.Minute, 0),
                     Member = _modelMembers.Get(vm.AuthorId),
                     IsPublished = vm.IsPublished,

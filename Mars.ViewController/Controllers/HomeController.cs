@@ -148,16 +148,15 @@ namespace SolarSystem.Mars.ViewController.Controllers
                     TwitterUrl = vm.TwitterUrl,
                     ViadeoUrl = vm.ViadeoUrl,
                     Username = vm.Username,
-                    Website = vm.Website
+                    Website = vm.Website,
+                    Active = vm.IsActive,
+                    Role = Role.Inactive,
+                    Status = "Membre",
+                    ImageUrl = vm.ImageRemoteUrl
                 };
 
                 // Image management
-                if (file != null && !string.IsNullOrWhiteSpace(file.FileName))
-                {
-                    string imagePath = string.Format("{0}/Images/Members/{1}", ContentRessources.EPSILabUrl, file.FileName);
-                    file.SaveAs(imagePath);
-                    member.ImageUrl = imagePath;
-                }
+                SendImageToServer(vm, file, member);
 
                 // Password
                 string password = PasswordEncoder.Encode(vm.Password);
@@ -297,6 +296,7 @@ namespace SolarSystem.Mars.ViewController.Controllers
             {
                 Member member = new Member
                 {
+                    Id = vm.Id,
                     Campus = campuses.First(v => v.Id == vm.IdCampus),
                     CityFrom = vm.CityFrom,
                     EPSIEmail = vm.EPSIEmail,
@@ -312,16 +312,13 @@ namespace SolarSystem.Mars.ViewController.Controllers
                     TwitterUrl = vm.TwitterUrl,
                     ViadeoUrl = vm.ViadeoUrl,
                     Username = vm.Username,
-                    Website = vm.Website
+                    Website = vm.Website,
+                    Active = vm.IsActive,
+                    ImageUrl = vm.ImageRemoteUrl
                 };
 
                 // Image management
-                if (file != null && !string.IsNullOrWhiteSpace(file.FileName))
-                {
-                    string imagePath = string.Format("{0}/Images/Members/{1}", ContentRessources.EPSILabUrl, file.FileName);
-                    file.SaveAs(imagePath);
-                    member.ImageUrl = imagePath;
-                }
+                SendImageToServer(vm, file, member);
 
                 try
                 {
@@ -413,6 +410,33 @@ namespace SolarSystem.Mars.ViewController.Controllers
         #endregion
 
         #endregion
+
+        #endregion
+
+        #region General Methods
+
+        /// <summary>
+        /// Send Image to the server
+        /// </summary>
+        /// <param name="vm">MemberViewModel corresponding to the member</param>
+        /// <param name="file">File - Image could be sent</param>
+        /// <param name="member">Member that will get image</param>
+        private void SendImageToServer(MemberViewModel vm, HttpPostedFileBase file, Member member)
+        {
+            // Image is local
+            if (file != null && file.ContentLength > 0)
+            {
+                string imagePath = string.Format("../Images/Conference/{0}", file.FileName);
+                file.SaveAs(imagePath);
+                member.ImageUrl = imagePath;
+            }
+            // Image is remote
+            else if (!string.IsNullOrWhiteSpace(vm.ImageRemoteUrl))
+                member.ImageUrl = vm.ImageRemoteUrl;
+            // No image given
+            else
+                throw new InvalidModelStateException(ErrorRessources.ImageRequired);
+        }
 
         #endregion
     }
