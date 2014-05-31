@@ -4,7 +4,7 @@ using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
-    public class RegisterViewModel : MemberViewModel, IPasswordViewModel
+    public class RegisterViewModel : MemberViewModel, IRegisterViewModel
     {
         /// <summary>
         /// Password

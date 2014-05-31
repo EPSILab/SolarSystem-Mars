@@ -3,13 +3,14 @@ using System.ComponentModel.DataAnnotations;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for shows creation or updating page
     /// </summary>
-    public class ShowViewModel
+    public class ShowViewModel : IShowViewModel
     {
         #region Constructors
 
@@ -44,7 +45,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
             Place = show.Place;
 
             StartDate = show.Start_DateTime.Date;
-            StartDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, show.Start_DateTime.Hour, show.Start_DateTime.Minute, show.Start_DateTime.Second);
+            StartTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, show.Start_DateTime.Hour, show.Start_DateTime.Minute, show.Start_DateTime.Second);
 
             Url = show.Url;
 

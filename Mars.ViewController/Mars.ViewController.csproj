@@ -180,9 +180,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PagesTitlesRessources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Abstract\ICampusViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\IConferenceViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\IEditMemberViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\IEditPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\ILinkViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\ILoginViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\ILostPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\IMemberViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\INewsViewModel.cs" />
     <Compile Include="ViewModels\Abstract\IPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\IProjectViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\IPromotionViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\IRegisterViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\IResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\IShowViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\ISlideViewModel.cs" />
     <Compile Include="ViewModels\Concrete\CampusViewModel.cs" />
     <Compile Include="ViewModels\Concrete\ConferenceViewModel.cs" />
+    <Compile Include="ViewModels\Concrete\EditMemberViewModel.cs" />
     <Compile Include="ViewModels\Concrete\EditPasswordViewModel.cs" />
     <Compile Include="ViewModels\Concrete\LinkViewModel.cs" />
     <Compile Include="ViewModels\Concrete\LoginViewModel.cs" />

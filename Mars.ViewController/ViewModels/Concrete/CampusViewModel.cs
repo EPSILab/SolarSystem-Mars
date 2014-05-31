@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for campuses creation or updating page
     /// </summary>
-    public class CampusViewModel
+    public class CampusViewModel : ICampusViewModel
     {
         #region Constructors
 

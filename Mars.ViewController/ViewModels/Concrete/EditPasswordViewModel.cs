@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
-    public class EditPasswordViewModel
+    public class EditPasswordViewModel : IEditPasswordViewModel
     {
         /// <summary>
         /// Password

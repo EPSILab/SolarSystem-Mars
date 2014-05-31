@@ -8,7 +8,6 @@ The website is available here : [epsilab.net/Admin](http://epsilab.net/Admin)
 
 ### Next Features
 
-- [ ] Check every single page (responsive design, action methods, ...)
 - [ ] Send images correctly to server and get the new image Url
 
 ### Current features

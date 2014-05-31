@@ -3,13 +3,14 @@ using System.ComponentModel.DataAnnotations;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for projects creation or updating page
     /// </summary>
-    public class ProjectViewModel
+    public class ProjectViewModel : IProjectViewModel
     {
         #region Constructors
 
@@ -30,11 +31,14 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         public ProjectViewModel(Project project, IAuthProvider authProvider)
         {
             Id = project.Id;
+
             CampusId = project.Campus.Id;
             CampusName = project.Campus.Place;
+
             Description = project.Description;
             ImageRemoteUrl = project.ImageUrl;
             Name = project.Name;
+            Progression = project.Progression;
 
             CanUpdate = true;
             CanDelete = (authProvider.LoginViewModel.Role == Role.Bureau);

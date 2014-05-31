@@ -4,13 +4,14 @@ using System.Web.Mvc;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for news creation or updating page
     /// </summary>
-    public class NewsViewModel
+    public class NewsViewModel : INewsViewModel
     {
         #region Constructors
 
@@ -33,16 +34,21 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         public NewsViewModel(News news, IAuthProvider authProvider)
         {
             Id = news.Id;
+
             AuthorId = news.Member.Id;
             AuthorName = string.Format("{0} {1}", news.Member.FirstName, news.Member.LastName);
+
             ImageRemoteUrl = news.ImageUrl;
+
             IsPublished = news.IsPublished;
             CanUpdate = CanDelete = (authProvider.LoginViewModel.Role == Role.Bureau || news.Member.Username == authProvider.LoginViewModel.Username);
+
             Keywords = news.Keywords;
             Text = news.Text;
             ShortText = news.ShortText;
             Title = news.Title;
             Url = news.Url;
+
             Date = news.DateTime.Date;
             Time = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, news.DateTime.Hour, news.DateTime.Minute, news.DateTime.Second);
         }

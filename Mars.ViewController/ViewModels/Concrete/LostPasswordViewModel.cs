@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for password recover
     /// </summary>
-    public class LostPasswordViewModel
+    public class LostPasswordViewModel : ILostPasswordViewModel
     {
         /// <summary>
         /// Username

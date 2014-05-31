@@ -2,13 +2,14 @@
 using System.Web.Mvc;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for member creation, updating or validation page
     /// </summary>
-    public class MemberViewModel
+    public class MemberViewModel : IMemberViewModel
     {
         #region Constructor
 
@@ -28,21 +29,27 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         {
             Id = member.Id;
             IsActive = member.Active;
+
             Username = member.Username;
             LastName = member.LastName;
             FirstName = member.FirstName;
+            ImageRemoteUrl = member.ImageUrl;
+
             CityFrom = member.CityFrom;
             EPSIEmail = member.EPSIEmail;
             PersonalEmail = member.PersonalEmail;
             PhoneNumber = member.PhoneNumber;
+
             IdCampus = member.Campus.Id;
             IdPromotion = member.Promotion.Id;
+
             Website = member.Website;
             FacebookUrl = member.FacebookUrl;
             TwitterUrl = member.TwitterUrl;
             LinkedInUrl = member.LinkedInUrl;
             ViadeoUrl = member.ViadeoUrl;
             GitHubUrl = member.GitHubUrl;
+
             Presentation = member.Presentation;
         }
 
@@ -80,6 +87,14 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "FirstNameRequired")]
         public string FirstName { get; set; }
+
+        /// <summary>
+        /// Image URL
+        /// </summary>
+        [Display(ResourceType = typeof(ContentRessources), Name = "Image")]
+        [DataType(DataType.ImageUrl, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathFormat")]
+        [FileExtensions(Extensions = "png, jpg, jpeg, gif", ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "ImagePathExtensions", ErrorMessage = null)]
+        public string ImageRemoteUrl { get; set; }
 
         /// <summary>
         /// City from

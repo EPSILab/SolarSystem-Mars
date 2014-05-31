@@ -430,6 +430,15 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Le rôle est obligatoire..
+        /// </summary>
+        public static string RoleRequired {
+            get {
+                return ResourceManager.GetString("RoleRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Les mots de passes doivent être identiques..
         /// </summary>
         public static string SamePasswords {
@@ -484,20 +493,38 @@ namespace SolarSystem.Mars.ViewController.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à La longueur du statut doit être de 40 caractères maximum..
+        /// </summary>
+        public static string StatusMaxLength {
+            get {
+                return ResourceManager.GetString("StatusMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à La longueur du statut doit être de 4 caractères minimum..
+        /// </summary>
+        public static string StatusMinLength {
+            get {
+                return ResourceManager.GetString("StatusMinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Le statut est obligatoire..
+        /// </summary>
+        public static string StatusRequired {
+            get {
+                return ResourceManager.GetString("StatusRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Veuillez indiquer si la promotion est encore présente ou non..
         /// </summary>
         public static string StillPresentRequired {
             get {
                 return ResourceManager.GetString("StillPresentRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
         

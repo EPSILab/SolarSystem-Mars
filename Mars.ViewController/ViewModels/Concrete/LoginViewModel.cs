@@ -2,13 +2,14 @@
 using SolarSystem.Mars.Model.Helpers;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for login page
     /// </summary>
-    public class LoginViewModel
+    public class LoginViewModel : ILoginViewModel
     {
         #region Properties
 

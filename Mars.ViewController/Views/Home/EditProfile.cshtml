@@ -20,21 +20,21 @@
         @Html.HiddenFor(model => model.Username)
 
         @* Personal informations *@
-        <fieldset class="col-md-5 col-md-offset-4 form-horizontal">
+        <fieldset class="col-md-10 col-md-offset-1 form-horizontal">
             <legend>@ContentRessources.PersonalInformations</legend>
 
             @* Username *@
             <div class="form-group">
-                @Html.LabelFor(model => model.Username, new { @class = "col-sm-4 control-label" })
-                <div class="col-sm-8">
+                @Html.LabelFor(model => model.Username, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
                     @Html.DisplayFor(model => model.Username, new { @class = "form-control", @placeholder = ContentRessources.Username })
                 </div>
             </div>
 
             @* Last name *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.LastName *</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.LastName *</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @placeholder = ContentRessources.LastName })
                     @Html.ValidationMessageFor(model => model.LastName, string.Empty, new { @style = "color: red" })
                 </div>
@@ -42,8 +42,8 @@
 
             @* First name *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.FirstName *</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.FirstName *</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = ContentRessources.FirstName })
                     @Html.ValidationMessageFor(model => model.FirstName, string.Empty, new { @style = "color: red" })
                 </div>
@@ -51,8 +51,8 @@
 
             @* City from *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.CityFrom *</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.CityFrom *</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.CityFrom, new { @class = "form-control", @placeholder = ContentRessources.CityFrom })
                     @Html.ValidationMessageFor(model => model.CityFrom, string.Empty, new { @style = "color: red" })
                 </div>
@@ -60,13 +60,13 @@
         </fieldset>
 
         @* Contact informations *@
-        <fieldset class="col-md-5 col-md-offset-4 form-horizontal">
+        <fieldset class="col-md-10 col-md-offset-1 form-horizontal">
             <legend>@ContentRessources.ContactInformations</legend>
 
             @* EPSI email *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.EPSIEmail *</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.EPSIEmail *</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.EPSIEmail, new { @class = "form-control", @type = "email", @placeholder = ContentRessources.EPSIEmail_PlaceHorder })
                     @Html.ValidationMessageFor(model => model.EPSIEmail, string.Empty, new { @style = "color: red" })
                 </div>
@@ -74,8 +74,8 @@
 
             @* Personal email *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.PersonalEmail</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.PersonalEmail</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.PersonalEmail, new { @class = "form-control", @type = "email", @placeholder = ContentRessources.PersonalEmail_PlaceHolder })
                     @Html.ValidationMessageFor(model => model.PersonalEmail, string.Empty, new { @style = "color: red" })
                 </div>
@@ -83,8 +83,8 @@
 
             @* Phone number *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.PhoneNumber</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.PhoneNumber</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @placeholder = ContentRessources.PhoneNumber_PlaceHolder })
                     @Html.ValidationMessageFor(model => model.PhoneNumber, string.Empty, new { @style = "color: red" })
                 </div>
@@ -92,8 +92,8 @@
             
             @* Presentation *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.Presentation *</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.Presentation *</label>
+                <div class="col-sm-10">
                     @Html.TextAreaFor(model => model.Presentation, new { @id = "editor", @class = "form-control", @placeholder = ContentRessources.Presentation })
                     @Html.ValidationMessageFor(model => model.Presentation, string.Empty, new { @style = "color: red" })
                 </div>
@@ -102,13 +102,13 @@
         </fieldset>
 
         @* EPSI informations *@
-        <fieldset class="col-md-5 col-md-offset-4 form-horizontal">
+        <fieldset class="col-md-10 col-md-offset-1 form-horizontal">
             <legend>@ContentRessources.EPSIInformations</legend>
 
             @* Campus *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">Campus *</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">Campus *</label>
+                <div class="col-sm-10">
                     @Html.DropDownListFor(model => model.IdCampus,
                         new SelectList(ViewBag.Campuses, "Id", "Place"),
                         DefaultSelectionMessagesRessources.Campus,
@@ -120,8 +120,8 @@
 
             @* Promotion *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">Promo *</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">Promo *</label>
+                <div class="col-sm-10">
                     @Html.DropDownListFor(model => model.IdPromotion,
                         new SelectList(ViewBag.Promotions, "Id", "Name"),
                         DefaultSelectionMessagesRessources.Promotion,
@@ -134,13 +134,13 @@
         </fieldset>
 
         @* Personal website and social networks *@
-        <fieldset class="col-md-5 col-md-offset-4 form-horizontal">
+        <fieldset class="col-md-10 col-md-offset-1 form-horizontal">
             <legend>@ContentRessources.SocialInformations</legend>
 
             @* Website *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.Website</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.Website</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.Website, new { @class = "form-control", @placeholder = ContentRessources.Website_PlaceHolder })
 
                     <span class="help-block">@ContentRessources.Website_Recommandation</span>
@@ -150,8 +150,8 @@
 
             @* Facebook page *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.Facebook</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.Facebook</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.FacebookUrl, new { @class = "form-control", @placeholder = ContentRessources.Facebook_PlaceHolder })
 
                     <span class="help-block">@ContentRessources.Facebook_Recommandation</span>
@@ -161,8 +161,8 @@
 
             @* Twitter page *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.Twitter</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.Twitter</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.TwitterUrl, new { @class = "form-control", @placeholder = ContentRessources.Twitter_PlaceHolder })
 
                     <span class="help-block">@ContentRessources.Twitter_Recommandation</span>
@@ -172,8 +172,8 @@
 
             @* LinkedIn page *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.LinkedIn</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.LinkedIn</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.LinkedInUrl, new { @class = "form-control", @placeholder = ContentRessources.LinkedIn_PlaceHolder })
 
                     <span class="help-block">@ContentRessources.LinkedIn_Recommandation</span>
@@ -183,8 +183,8 @@
 
             @* Viadeo page *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.Viadeo</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.Viadeo</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.ViadeoUrl, new { @class = "form-control", @placeholder = ContentRessources.Viadeo_PlaceHolder })
 
                     <span class="help-block">@ContentRessources.Viadeo_Recommandation</span>
@@ -194,8 +194,8 @@
 
             @* GitHub page *@
             <div class="form-group">
-                <label class="col-sm-4 control-label">@ContentRessources.GitHub</label>
-                <div class="col-sm-8">
+                <label class="col-sm-2 control-label">@ContentRessources.GitHub</label>
+                <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.GitHubUrl, new { @class = "form-control", @placeholder = ContentRessources.GitHub_PlaceHolder })
 
                     <span class="help-block">@ContentRessources.GitHub_Recommandation</span>

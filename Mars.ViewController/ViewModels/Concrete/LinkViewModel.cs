@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for links creation or updating page
     /// </summary>
-    public class LinkViewModel
+    public class LinkViewModel : ILinkViewModel
     {
         #region Constructors
 

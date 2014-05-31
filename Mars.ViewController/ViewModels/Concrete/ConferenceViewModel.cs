@@ -1,14 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Resources;
+using SolarSystem.Mars.ViewController.ViewModels.Abstract;
 
 namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
 {
     /// <summary>
     /// View-model for conferences creation or updating page
     /// </summary>
-    public class ConferenceViewModel
+    public class ConferenceViewModel : IConferenceViewModel
     {
         #region Constructors
 
@@ -42,7 +44,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
             Place = conference.Place;
 
             StartDate = conference.Start_DateTime.Date;
-            StartDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, conference.Start_DateTime.Hour, conference.Start_DateTime.Minute, conference.Start_DateTime.Second);
+            StartTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, conference.Start_DateTime.Hour, conference.Start_DateTime.Minute, conference.Start_DateTime.Second);
 
             Url = conference.Url;
         }
@@ -140,6 +142,7 @@ namespace SolarSystem.Mars.ViewController.ViewModels.Concrete
         [Display(ResourceType = typeof(ContentRessources), Name = "Text")]
         [Required(ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "LongTextRequired")]
         [MinLength(5, ErrorMessageResourceType = typeof(ErrorRessources), ErrorMessageResourceName = "LongTextMinLength")]
+        [AllowHtml]
         public string Description { get; set; }
 
         /// <summary>
