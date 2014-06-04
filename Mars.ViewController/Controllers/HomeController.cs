@@ -81,9 +81,6 @@ namespace SolarSystem.Mars.ViewController.Controllers
         [WebserviceAuthorize]
         public ViewResult LogOn()
         {
-            LoginViewModel vm = AuthProvider.LoginViewModel;
-            Member userConnected = _model.Login(vm.Username, vm.PasswordCrypted);
-            Session.Add("CurrentUser", userConnected);
             return View();
         }
 

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ninject;
 using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
+using SolarSystem.Mars.ViewController.ViewModels.Concrete;
 
 namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
 {
@@ -39,11 +39,15 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            if (AuthProvider.IsSignIn)
+            LoginViewModel login = null;
+            if (httpContext.Session != null)
+                login = httpContext.Session["Login"] as LoginViewModel;
+
+            if (login != null)
             {
                 if (_acceptedRoles.Any())
                 {
-                    Role userRole = AuthProvider.LoginViewModel.Role;
+                    Role userRole = login.Role;
                     return _acceptedRoles.Any(r => r == userRole);
                 }
 

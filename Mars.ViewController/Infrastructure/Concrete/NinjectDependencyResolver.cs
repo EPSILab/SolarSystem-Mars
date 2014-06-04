@@ -40,7 +40,7 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
         private void AddBindings()
         {
             // ViewController Injections
-            _kernel.Bind<IAuthProvider>().To<WebserviceAuthProvider>().InSingletonScope();
+            _kernel.Bind<IAuthProvider>().To<WebserviceAuthProvider>();
             _kernel.Bind<IFilterProvider>().To<NinjectFilterProvider>().InSingletonScope();
 
             // Controller Injections

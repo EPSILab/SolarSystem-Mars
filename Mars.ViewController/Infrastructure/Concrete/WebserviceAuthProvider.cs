@@ -1,4 +1,5 @@
-﻿using SolarSystem.Mars.Model.ManagersService;
+﻿using System.Web;
+using SolarSystem.Mars.Model.ManagersService;
 using SolarSystem.Mars.Model.Model.Abstract;
 using SolarSystem.Mars.ViewController.Infrastructure.Abstract;
 using SolarSystem.Mars.ViewController.ViewModels.Concrete;
@@ -24,7 +25,7 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
 
         #region Properties
 
-        public LoginViewModel LoginViewModel { get; private set; }
+        public LoginViewModel LoginViewModel { get { return HttpContext.Current.Session["Login"] as LoginViewModel; } }
 
         public bool IsSignIn { get { return (LoginViewModel != null); } }
 
@@ -34,24 +35,20 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
 
         #region Methods
 
-        public bool SignIn(LoginViewModel login)
+        public void SignIn(LoginViewModel login)
         {
-            Error = true;
-
             if (_model.Exists(login.Username, login.PasswordCrypted))
             {
                 Member memberConnected = _model.Login(login.Username, login.PasswordCrypted);
 
                 if (memberConnected != null)
                 {
-                    LoginViewModel = login;
-                    LoginViewModel.Role = memberConnected.Role;
+                    login.Role = memberConnected.Role;
 
-                    Error = false;
+                    HttpContext.Current.Session.Add("CurrentUser", memberConnected);
+                    HttpContext.Current.Session.Add("Login", login);
                 }
             }
-
-            return !Error;
         }
 
         public bool SignOut()
@@ -59,7 +56,9 @@ namespace SolarSystem.Mars.ViewController.Infrastructure.Concrete
             if (LoginViewModel == null)
                 return false;
 
-            LoginViewModel = null;
+            HttpContext.Current.Session.Remove("CurrentUser");
+            HttpContext.Current.Session.Remove("Login");
+
             return true;
         }
 
