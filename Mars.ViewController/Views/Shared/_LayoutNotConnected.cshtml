@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutBase.cshtml";
+}
+
+@section styles{
+    @RenderSection("styles", false)
+}
+@section scripts{
+    @RenderSection("scripts", false)
+}
+
+@section header
+{
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="@Url.Action("Index", "Home")" style="display: inline">
+                    <img src="~/Assets/Logo.png" style="margin-right: 17px; margin-top: 3px" alt="EPSILab" width="129" height="40" />
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <br />
+}
+
+@RenderBody()

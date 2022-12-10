@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EPSILab.SolarSystem.Earth.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Promotion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GraduationYear" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StillPresent" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Promotion" nillable="true" type="tns:Promotion" />
+  <xs:complexType name="ArrayOfPromotion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Promotion" nillable="true" type="tns:Promotion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPromotion" nillable="true" type="tns:ArrayOfPromotion" />
+  <xs:complexType name="Conference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Campus" nillable="true" type="tns:Campus" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="End_DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Start_DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Conference" nillable="true" type="tns:Conference" />
+  <xs:complexType name="Campus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Campus" nillable="true" type="tns:Campus" />
+  <xs:complexType name="ArrayOfConference">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Conference" nillable="true" type="tns:Conference" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConference" nillable="true" type="tns:ArrayOfConference" />
+  <xs:complexType name="Link">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Order" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Link" nillable="true" type="tns:Link" />
+  <xs:complexType name="ArrayOfLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Link" nillable="true" type="tns:Link" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLink" nillable="true" type="tns:ArrayOfLink" />
+  <xs:complexType name="Member">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Campus" nillable="true" type="tns:Campus" />
+      <xs:element minOccurs="0" name="CityFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EPSIEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacebookUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GitHubUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkedInUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonalEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Presentation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Promotion" nillable="true" type="tns:Promotion" />
+      <xs:element minOccurs="0" name="Role" type="tns:Role" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwitterUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ViadeoUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Member" nillable="true" type="tns:Member" />
+  <xs:simpleType name="Role">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Inactive" />
+      <xs:enumeration value="MemberActive" />
+      <xs:enumeration value="Bureau" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Role" nillable="true" type="tns:Role" />
+  <xs:complexType name="ArrayOfMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Member" nillable="true" type="tns:Member" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMember" nillable="true" type="tns:ArrayOfMember" />
+  <xs:complexType name="News">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Keywords" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Member" nillable="true" type="tns:Member" />
+      <xs:element minOccurs="0" name="ShortText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="News" nillable="true" type="tns:News" />
+  <xs:complexType name="ArrayOfNews">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="News" nillable="true" type="tns:News" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNews" nillable="true" type="tns:ArrayOfNews" />
+  <xs:complexType name="Project">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Campus" nillable="true" type="tns:Campus" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Progression" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Project" nillable="true" type="tns:Project" />
+  <xs:complexType name="ArrayOfProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Project" nillable="true" type="tns:Project" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProject" nillable="true" type="tns:ArrayOfProject" />
+  <xs:complexType name="Slide">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Presentation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Slide" nillable="true" type="tns:Slide" />
+  <xs:complexType name="ArrayOfSlide">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Slide" nillable="true" type="tns:Slide" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSlide" nillable="true" type="tns:ArrayOfSlide" />
+  <xs:complexType name="Show">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="End_DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Start_DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Show" nillable="true" type="tns:Show" />
+  <xs:complexType name="ArrayOfShow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Show" nillable="true" type="tns:Show" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShow" nillable="true" type="tns:ArrayOfShow" />
+  <xs:complexType name="ArrayOfCampus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Campus" nillable="true" type="tns:Campus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCampus" nillable="true" type="tns:ArrayOfCampus" />
+</xs:schema>

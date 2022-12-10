@@ -1,0 +1,67 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Portail d'administration EPSILab</title>
+
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", false)
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", false)
+</head>
+<body>
+    <br />
+    <div class="container">
+
+        @RenderSection("header", true)
+
+        <div id="successMessage" class="container alert alert-success fade in">
+            <button type="button" class="close">&times;</button>
+            <p id="successMessageContent"></p>
+        </div>
+
+        <div id="errorMessage" class="container alert alert-danger fade in">
+            <button type="button" class="close">&times;</button>
+            <p id="errorMessageContent"></p>
+        </div>
+
+        @RenderBody()
+
+        <script type="text/javascript">
+            $('#successMessage').hide();
+            $('#errorMessage').hide();
+
+            $('.close').click(function () {
+                $('#successMessage').fadeOut();
+                $('#errorMessage').fadeOut();
+            });
+
+            var showMessage = function (message, isErrorMessage) {
+                if (isErrorMessage) {
+                    $('#errorMessageContent').text(message);
+                    $('#errorMessage').fadeIn();
+                } else {
+                    $('#successMessageContent').text(message);
+                    $('#successMessage').fadeIn();
+                }
+            }
+
+            @if (ViewBag.SuccessMessage != null)
+            {
+                <text>showMessage(ViewBag.SuccessMessage, false);</text>
+            }
+
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <text>showMessage(ViewBag.ErrorMessage, true);</text>
+            }
+        </script>
+    </div>
+</body>
+</html>

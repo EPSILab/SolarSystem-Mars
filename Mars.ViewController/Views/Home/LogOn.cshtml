@@ -1,0 +1,114 @@
+﻿@using SolarSystem.Mars.ViewController.Resources
+
+@{
+    ViewBag.Title = PagesTitlesRessources.Home;
+    Layout = "../Shared/_LayoutConnected.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li class="active">@ViewBag.Title</li>
+</ol>
+
+@* News *@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.News</h2>
+    <ul>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.News_Create, "Manage", "News")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.News, "Index", "News")
+        </li>
+    </ul>
+</div>
+
+@* Slides *@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.Slideshow</h2>
+    <ul>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Slide_Create, "Manage", "Slides")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Slides, "Index", "Slides")
+        </li>
+    </ul>
+</div>
+
+@* Conferences *@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.Conferences</h2>
+    <ul>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Conference_Create, "Manage", "Conferences")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Conferences, "Index", "Conferences")
+        </li>
+    </ul>
+</div>
+
+@* Projects *@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.Projects</h2>
+    <ul>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Project_Create, "Manage", "Projects")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Projects, "Index", "Projects")
+        </li>
+    </ul>
+</div>
+
+@* Shows *@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.Shows</h2>
+    <ul>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Show_Create, "Manage", "Shows")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Shows, "Index", "Shows")
+        </li>
+    </ul>
+</div>
+
+@* Links *@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.Links</h2>
+    <ul>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Link_Create, "Manage", "Links")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Links, "Index", "Links")
+        </li>
+    </ul>
+</div>
+
+@* Members *@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.Members</h2>
+    <ul>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Member_Valid, "Valid", "Members")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Members, "Index", "Members")
+        </li>
+    </ul>
+</div>
+
+@* Others *@
+<div class="col-xs-6 col-sm-4">
+    <h2>@ContentRessources.Others</h2>
+    <ul>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Promotions, "Index", "Promotions")
+        </li>
+        <li>
+            @Html.ActionLink(PagesTitlesRessources.Campuses, "Index", "Campuses")
+        </li>
+    </ul>
+</div>

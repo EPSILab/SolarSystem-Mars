@@ -1,0 +1,139 @@
+﻿@using System.Web.Optimization
+@using SolarSystem.Mars.ViewController.Resources
+@using SolarSystem.Mars.ViewController.ViewModels.Concrete
+
+@model IEnumerable<SlideViewModel>
+
+@{
+    ViewBag.Title = PagesTitlesRessources.Slides;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
+}
+
+@* Breadcrumbs *@
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+
+@* Modal for deletion *@
+@using (Ajax.BeginForm("Delete", "Slides", new AjaxOptions { HttpMethod = "POST", OnSuccess = "deleteSlide" }))
+{
+    <div id="modalDelete" class="modal fade">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>@MessagesResources.DeleteSlide</p>
+                </div>
+                <div class="modal-footer">
+                    @* Contains the slide's Id to delete *@
+                    <input type="hidden" id="idToDelete" name="id" />
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@ContentRessources.No</button>
+                    <button type="submit" class="btn btn-primary">@ContentRessources.Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@* Create slide button *@
+<p class="col-md-offset-5">
+    @Html.ActionLink(PagesTitlesRessources.Slide_Create, "Manage", null, new { @class = "btn btn-primary" })
+</p>
+
+@Pagination()
+
+@* List of slide *@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width="5%" class="hidden-xs">
+                @Html.DisplayNameFor(model => model.ImageRemoteUrl)
+            </th>
+            <th width="25%">
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th width="25%">
+                @Html.DisplayNameFor(model => model.Presentation)
+            </th>
+            <th width="10%">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (SlideViewModel item in Model)
+        {
+            <tr id="@string.Format("item{0}", item.Id)">
+                <td>
+                    <img src="@Url.Content(item.ImageRemoteUrl)" style="max-height: 350px; max-width: 350px;" alt="@item.Name" />
+                </td>
+                <td class="hidden-xs">
+                    <strong>@Html.DisplayFor(modelItem => item.Url)</strong>
+                </td>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Presentation)</strong>
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
+
+                    <button class="delete btn btn-danger glyphicon glyphicon-remove-sign"
+                            data-id="@item.Id" data-toggle="modal" data-target="#modalDelete" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Pagination()
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Enable tooltips on buttons
+            $('.navButton').tooltip();
+
+            // When the user clicks on a Delete button, save the slide's Id to delete
+            $('.delete').click(function () {
+                var idToDelete = $(this).data("id");
+                $("#idToDelete").val(idToDelete);
+            });
+        });
+
+        var deleteSlide = function (data) {
+            $('#modalDelete').modal('hide');
+
+            if (data.success) {
+                if (data.id > 0) {
+                    $('#item' + data.id).remove();
+                    showMessage(data.message, false);
+                }
+            } else {
+                showMessage(data.message, true);
+            }
+        }
+    </script>
+}
+
+@helper  Pagination()
+{
+    <p>
+        @{
+            var itemsNumber = (int)ViewBag.ItemsNumber;
+
+            if (ViewBag.Id - itemsNumber >= 0)
+            {
+                @Html.ActionLink(" ", "Index", new { id = 0 }, new { @class = "navButton btn glyphicon glyphicon-fast-backward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Start })
+                @Html.ActionLink(" ", "Index", new { id = ViewBag.Id - itemsNumber }, new { @class = "navButton btn glyphicon glyphicon-step-backward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Previous })
+            }
+
+            if (Model.Count() >= itemsNumber)
+            {
+                @Html.ActionLink(" ", "Index", new { id = ViewBag.Id + itemsNumber }, new { @class = "navButton btn glyphicon glyphicon-step-forward", @data_toggle = "tooltip", @data_placement = "top", @title = ContentRessources.Next })
+            }
+        }
+    </p>
+}

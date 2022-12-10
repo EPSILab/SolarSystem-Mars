@@ -1,0 +1,59 @@
+﻿@using SolarSystem.Mars.ViewController.Resources
+@using SolarSystem.Mars.ViewController.ViewModels.Concrete
+
+@model IEnumerable<PromotionViewModel>
+
+@{
+    ViewBag.Title = PagesTitlesRessources.Promotions;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
+}
+
+@* Breadcrumbs *@
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+
+@* Create promotion button *@
+<p class="col-md-offset-5">
+    @Html.ActionLink(PagesTitlesRessources.Promotion_Create, "Manage", null, new { @class = "btn btn-primary" })
+</p>
+
+@* List of promotion *@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width="40%">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th width="40%">
+                @Html.DisplayNameFor(model => model.GraduationYear)
+            </th>
+            <th width="10%">
+                @Html.DisplayNameFor(model => model.StillPresent)
+            </th>
+            <th width="10%">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (PromotionViewModel item in Model)
+        {
+            <tr>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GraduationYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StillPresent)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

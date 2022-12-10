@@ -1,0 +1,58 @@
+﻿@using SolarSystem.Mars.ViewController.Resources
+
+@model SolarSystem.Mars.ViewController.ViewModels.Concrete.PromotionViewModel
+
+@{
+    ViewBag.Title = Model.Id == 0 ? PagesTitlesRessources.Promotion_Create : PagesTitlesRessources.Promotion_Edit;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li>@Html.ActionLink(PagesTitlesRessources.Promotions, "Index")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
+
+    @* Name *@
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, new { @class = "col-sm-3 control-label" })
+
+        <div class="col-sm-9">
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = ContentRessources.Name })
+            @Html.ValidationMessageFor(model => model.Name, null, new { @style = "color: red" })
+        </div>
+    </div>
+
+    @* Graduation year *@
+    <div class="form-group">
+        @Html.LabelFor(model => model.GraduationYear, new { @class = "col-sm-3 control-label" })
+
+        <div class="col-sm-9">
+            @Html.TextBoxFor(model => model.GraduationYear, new { @class = "form-control", @type = "number", @placeholder = ContentRessources.GraduationYear })
+            @Html.ValidationMessageFor(model => model.GraduationYear, string.Empty, new { @style = "color: red" })
+        </div>
+    </div>
+
+    @* Is the promotion still present ? *@
+    <div class="form-group">
+        @Html.LabelFor(model => model.StillPresent, new { @class = "col-sm-3 control-label" })
+
+        <div class="col-sm-9">
+            @Html.CheckBoxFor(model => model.StillPresent, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.StillPresent, string.Empty, new { @style = "color: red" })
+        </div>
+    </div>
+
+    <br />
+
+    @* Valid button *@
+    <p class="col-md-5 col-md-offset-2">
+        <button type="submit" class="btn btn-primary">@ContentRessources.Valid</button>
+        @Html.ActionLink(ContentRessources.Back, "Index", null, new { @class = "btn btn-default" })
+    </p>
+}

@@ -1,0 +1,48 @@
+﻿@using SolarSystem.Mars.ViewController.Resources
+
+@model SolarSystem.Mars.ViewController.ViewModels.Concrete.CampusViewModel
+
+@{
+    ViewBag.Title = Model.Id == 0 ? PagesTitlesRessources.Campus_Create : PagesTitlesRessources.Campus_Edit;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li>@Html.ActionLink(PagesTitlesRessources.Campuses, "Index")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, ErrorRessources.ValidationErrorMessage, new { @class = "container alert alert-danger" })
+
+    @* Place *@
+    <div class="form-group">
+        @Html.LabelFor(model => model.Place, new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.Place, new { @class = "form-control", @placeholder = ContentRessources.Place })
+            @Html.ValidationMessageFor(model => model.Place, null, new { @style = "color: red" })
+        </div>
+    </div>
+
+    @* Contact email *@
+    <div class="form-group">
+        @Html.LabelFor(model => model.ContactEmail, new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-8">
+            @Html.TextBoxFor(model => model.ContactEmail, new { @class = "form-control", @type = "email", @placeholder = ContentRessources.ContactEmail_PlaceHolder })
+            @Html.ValidationMessageFor(model => model.ContactEmail, string.Empty, new { @style = "color: red" })
+        </div>
+    </div>
+
+    <br />
+
+    @* Valid button *@
+    <p class="col-md-5 col-md-offset-3">
+        <button type="submit" class="btn btn-primary">@ContentRessources.Valid</button>
+        @Html.ActionLink(ContentRessources.Back, "Index", null, new { @class = "btn btn-default" })
+    </p>
+}

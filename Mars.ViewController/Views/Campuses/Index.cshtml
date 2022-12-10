@@ -1,0 +1,54 @@
+﻿@using SolarSystem.Mars.ViewController.Resources
+@using SolarSystem.Mars.ViewController.ViewModels
+@using SolarSystem.Mars.ViewController.ViewModels.Concrete
+
+@model IEnumerable<SolarSystem.Mars.ViewController.ViewModels.Concrete.CampusViewModel>
+
+@{
+    ViewBag.Title = PagesTitlesRessources.Campuses;
+    Layout = "~/Views/Shared/_LayoutConnected.cshtml";
+}
+
+@* Breadcrumbs *@
+<ol class="breadcrumb">
+    <li>@Html.ActionLink(PagesTitlesRessources.Home, "Index", "Home")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+
+@* Create campus button *@
+<p class="col-md-offset-5">
+    @Html.ActionLink(PagesTitlesRessources.Campus_Create, "Manage", null, new { @class = "btn btn-primary" })
+</p>
+
+@* List of campus *@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width="45%">
+                @Html.DisplayNameFor(model => model.Place)
+            </th>
+            <th width="45%">
+                @Html.DisplayNameFor(model => model.ContactEmail)
+            </th>
+            <th width="10%">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (CampusViewModel item in Model)
+        {
+            <tr>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Place)</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactEmail)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Manage", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
